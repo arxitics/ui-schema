@@ -1,0 +1,70 @@
+/*!
+ * UI Schema v0.0.1 (http://photino.github.io/ui-schema)
+ * Copyright 2014 Zan Pan <panzan89@gmail.com>
+ * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ */
+
+/**
+ * Set the encoding of the style sheet to Unicode UTF-8.
+ */
+
+@charset "UTF-8";
+
+/**
+ * Remove inconsistencies using normalize.css.
+ */
+
+@import "base.css";
+
+/**
+ * Core CSS for ui-schema.
+ */
+
+@import "core.css";
+
+/**
+ * Responsive grid layouts.
+ */
+
+@import "grid.css";
+
+/**
+ * Dropdown menus, navs, pagination, and breadcrumb.
+ */
+
+@import "menus.css";
+
+/**
+ * Typography.
+ */
+
+@import "text.css";
+
+/**
+ * Image shapes.
+ */
+
+@import "forms.css";
+
+@import "tables.css";
+
+@import "images.css";
+
+@import "icons.css";
+
+@import "colors.css";
+
+@import "effects.css";
+
+@import "shapes.css";
+
+@import "events.css";
+
+@import "mobile.css";
+
+@import "print.css";
+
+@import "utilities.css";
+
+@import "variables.css";
+

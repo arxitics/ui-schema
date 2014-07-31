@@ -1,0 +1,33 @@
+/*!
+ * UI Schema - Tables v0.0.1 (http://photino.github.io/ui-schema/blob/master/css/tables.css)
+ * Copyright 2014 Zan Pan <panzan89@gmail.com>
+ * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ */
+
+.ui-table-fluid {
+  width: 100%;
+}
+
+.ui-table-bordered {
+  border: 2px solid #ddd;
+}
+
+.ui-table-bordered th,
+.ui-table-bordered td {
+  border: 1px solid #ddd;
+}
+
+.ui-table-bordered th {
+  border-bottom-width: 2px;
+}
+
+.ui-table-hover tr:hover td,
+.ui-table-hover tr:hover th {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.ui-table-striped tr:nth-child(odd) td {
+  background-color: #f9f9f9;
+}
+
