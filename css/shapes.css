@@ -1,7 +1,5 @@
 /*!
- * UI Schema - Shape v0.0.1 (http://photino.github.io/ui-schema/blob/master/css/shape.css)
- * Copyright 2014 Zan Pan <panzan89@gmail.com>
- * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ * Shapes
  */
 
 .ui-caret-down,
@@ -50,17 +48,17 @@
 
 .ui-seperator-raquo > li + li::before {
   content: "\00bb\00a0";
-  margin-right: .4em;
+  margin-right: .6em;
 }
 
 .ui-seperator-bullet > li + li::before {
   content: "\2022\00a0";
-  margin-right: .4em;
+  margin-right: .6em;
 }
 
 .ui-seperator-vbar > li + li::before {
   content: "|\00a0";
-  margin-right: .4em;
+  margin-right: .6em;
 }
 
 

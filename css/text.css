@@ -1,7 +1,5 @@
 /*!
- * UI Schema - Text v0.0.1 (http://photino.github.io/ui-schema/blob/master/css/text.css)
- * Copyright 2014 Zan Pan <panzan89@gmail.com>
- * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ * Text
  */
 
 /**
@@ -88,6 +86,22 @@
   hyphens: auto;
 }
 
+.ui-text-nowrap {
+  white-space: nowrap;
+}
+
+.ui-text-lowercase {
+  text-transform: lowercase;
+}
+
+.ui-text-uppercase {
+  text-transform: uppercase;
+}
+
+.ui-text-capitalize {
+  text-transform: capitalize;
+}
+
 .ui-text-left {
   text-align: left;
 }
@@ -112,7 +126,7 @@
  * `display:none` has bad implications for screen readers.
  */
 
-.ui-text-none {
+.ui-text-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
   height: 1px;
@@ -127,10 +141,8 @@
  * Set invisible elements which still take up space.
  */
 
-.ui-text-hidden {
-  overflow: hidden;
-  text-indent: 200%;
-  white-space: nowrap;
+.ui-text-invisible {
+  visibility: hidden;
 }
 
 .ui-text-button {
@@ -151,11 +163,12 @@
 
 .ui-text-label,
 .ui-text-badge {
+  color: #fff;
   background-color: #999;
   border-radius: .4rem;
   display: inline-block;
   line-height: 100%;
-  padding: .2em .4em;
+  padding: .4em;
 }
 
 .ui-text-label[href]:hover,
@@ -165,7 +178,6 @@
 
 .ui-text-badge {
   font-weight: bold;
-  color: #fff;
   font-size: 80%;
   text-align: center;
   white-space: nowrap;
@@ -179,7 +191,8 @@
   display: inline-block;
 }
 
-.ui-text-list > a + a {
+.ui-text-list > a + a,
+.ui-text-list > span + span {
   display: inline-block;
   margin-left: .8em;
 }
@@ -202,11 +215,19 @@
   line-height: 1.42857;
 }
 
-.ui-content-article {
+.ui-content-post {
   margin: 1em 0 2em;
 }
 
-.ui-content-article img {
+.ui-content-post h1,
+.ui-content-post h2,
+.ui-content-post h3,
+.ui-content-post h4 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+.ui-content-post img {
   display: block;
   margin: 1em auto;
   text-align: center;
@@ -226,24 +247,18 @@
 }
 
 .ui-content-alert {
-  border: 1px solid transparent;
+  border: 1px solid #ccc;
   border-radius: .4rem;
-  padding: .8em;
+  padding: 1.2em;
   margin-bottom: 2rem;
 }
 
-.ui-content-alert h4 {
+.ui-content-alert > :first-child {
   margin-top: 0;
 }
 
-.ui-content-alert > p,
-.ui-content-alert > ul,
-.ui-content-alert > ol {
+.ui-content-alert > :last-child {
   margin-bottom: 0;
-}
-
-.ui-content-alert > p + p {
-  margin-top: .5rem;
 }
 
 .ui-content-alert a {
@@ -346,7 +361,11 @@
 }
 
 .ui-list-inline > li + li {
-  margin-left: .6em;
+  margin-left: .8em;
+}
+
+.ui-list-indent dd {
+  margin-left: 2em;
 }
 
 .ui-list-horizontal dt {

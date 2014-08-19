@@ -1,19 +1,12 @@
 /*!
- * UI Schema - Color v0.0.1 (http://photino.github.io/ui-schema/blob/master/css/color.css)
- * Copyright 2014 Zan Pan <panzan89@gmail.com>
- * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ * Colors
  */
 
 .ui-button-primary,
 .ui-button-success,
 .ui-button-info,
 .ui-button-warning,
-.ui-button-danger,
-.ui-label-primary,
-.ui-label-success,
-.ui-label-info,
-.ui-label-warning,
-.ui-label-danger {
+.ui-button-danger {
   color: #fff !important;
 }
 
@@ -130,7 +123,13 @@
   background-color: #999;
 }
 
-.ui-state-success {
+.ui-background-primary {
+  color: #fff;
+  background-color: #428bca;
+}
+
+.ui-state-success,
+.ui-background-success {
   background-color: #dff0d8;
 }
 
@@ -138,7 +137,8 @@
   background-color: #d0e9c6;
 }
 
-.ui-state-info {
+.ui-state-info,
+.ui-background-info {
   background-color: #d9edf7;
 }
 
@@ -146,7 +146,8 @@
   background-color: #c4e3f3;
 }
 
-.ui-state-warning {
+.ui-state-warning,
+.ui-background-warning {
   background-color: #fcf8e3;
 }
 
@@ -154,7 +155,8 @@
   background-color: #faf2cc;
 }
 
-.ui-state-danger {
+.ui-state-danger,
+.ui-background-danger {
   background-color: #f2dede;
 }
 
@@ -170,94 +172,49 @@
   color: #999;
 }
 
-.ui-text-primary {
+.ui-text-primary,
+.ui-color-primary {
   color: #428bca;
-}
-
-.ui-text-primary path {
-  fill: #428bca;
-  stroke: #428bca;
 }
 
 .ui-text-primary:hover {
   color: #3071a9;
 }
 
-.ui-text-primary:hover path {
-  fill: #3071a9;
-  stroke: #3071a9;
-}
-
-.ui-text-success {
+.ui-text-success,
+.ui-color-success {
   color: #3c763d;
-}
-
-.ui-text-success path {
-  fill: #3c763d;
-  stroke: #3c763d;
 }
 
 .ui-text-success:hover {
   color: #2b542c;
 }
 
-.ui-text-success:hover path {
-  fill: #2b542c;
-  stroke: #2b542c;
-}
-
-.ui-text-info {
+.ui-text-info,
+.ui-color-info {
   color: #31708f;
-}
-
-.ui-text-info path {
-  fill: #31708f;
-  stroke: #31708f;
 }
 
 .ui-text-info:hover {
   color: #245269;
 }
 
-.ui-text-info:hover path {
-  fill: #245269;
-  stroke: #245269;
-}
-
-.ui-text-warning {
+.ui-text-warning,
+.ui-color-warning {
   color: #8a6d3b;
-}
-
-.ui-text-warning path {
-  fill: #8a6d3b;
-  stroke: #8a6d3b;
 }
 
 .ui-text-warning:hover {
   color: #66512c;
 }
 
-.ui-text-warning:hover path {
-  fill: #66512c;
-  stroke: #66512c;
-}
-
-.ui-text-danger {
+.ui-text-danger,
+.ui-color-danger {
   color: #a94442;
-}
-
-.ui-text-danger path {
-  fill: #a94442;
-  stroke: #a94442;
 }
 
 .ui-text-danger:hover {
   color: #843534;
-}
-
-.ui-text-danger:hover path {
-  fill: #843534;
-  stroke: #843534;
 }
 
 .ui-panel-primary .ui-panel-header {

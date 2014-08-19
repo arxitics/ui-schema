@@ -1,7 +1,7 @@
 /*!
- * UI Schema v0.0.1 (http://photino.github.io/ui-schema/)
- * Copyright 2014 Zan Pan <panzan89@gmail.com>
- * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ * UI Schema v0.1.0 (https://github.com/arxitics/ui-schema)
+ * Copyright 2014 Arxitics <help@arxitics.com>
+ * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
 
 if(typeof jQuery === 'undefined') {
@@ -18,11 +18,7 @@ var Schema = {};
     dataPrefix: 'schema',
     autoLoad: true,
     autoBind: '.schema',
-    autoTrigger: '.schema',
-    deviceWidth: 1024,
-    minFontSize: 8,
-    maxFontSize: 18,
-    baseFontSize: 0
+    autoTrigger: '.schema'
   };
 
   Schema.events = {
@@ -30,11 +26,6 @@ var Schema = {};
       type: 'retrieve',
       namespace: '.options.data-api.schema',
       selector: '[data-schema-options]'
-    },
-    resize: {
-      type: 'resize',
-      namespace: '.font-size.viewport.schema',
-      selector: 'html'
     },
     trim: {
       type: 'remove',

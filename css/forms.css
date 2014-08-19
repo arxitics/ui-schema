@@ -1,7 +1,5 @@
 /*!
- * UI Schema - Form v0.0.1 (http://photino.github.io/ui-schema/blob/master/css/form.css)
- * Copyright 2014 Zan Pan <panzan89@gmail.com>
- * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ * Forms
  */
 
 .ui-form-fluid,
@@ -41,6 +39,7 @@
 .ui-form-fluid textarea {
   max-width: 100%;
   min-width: 100%;
+  resize: vertical;
 }
 
 .ui-button-link {
@@ -161,7 +160,11 @@
 }
 
 .ui-input-addon {
-  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
   height: 2.4em;
 }
 
@@ -169,6 +172,14 @@
   border: 1px solid #ccc;
   border-radius: .4rem;
   padding: .4em .8em;
+}
+
+.ui-input-addon > input {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1; 
+  flex: 1;
 }
 
 .ui-input-addon > :first-child,
@@ -203,10 +214,15 @@
   border-top-left-radius: 0;
 }
 
+.ui-input-fluid {
+  width: -moz-calc(100% - 1.6em - 2px);
+  width: -webkit-calc(100% - 1.6em - 2px);
+  width: calc(100% - 1.6em - 2px);
+}
+
 .ui-link-disabled {
   color: #999;
   cursor: default;
   pointer-events: none;
 }
-
 

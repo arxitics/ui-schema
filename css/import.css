@@ -1,7 +1,7 @@
 /*!
- * UI Schema v0.0.1 (http://photino.github.io/ui-schema)
- * Copyright 2014 Zan Pan <panzan89@gmail.com>
- * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ * UI Schema v0.1.0 (https://github.com/arxitics/ui-schema)
+ * Copyright 2014 Arxitics <help@arxitics.com>
+ * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
 
 /**
@@ -63,6 +63,8 @@
 @import "mobile.css";
 
 @import "print.css";
+
+@import "book.css";
 
 @import "utilities.css";
 

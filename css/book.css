@@ -1,0 +1,17 @@
+/*!
+ * Book
+ */
+
+.ui-book-contents ol {
+  counter-reset: section;
+  list-style-type: none;
+}
+
+.ui-book-contents > ol {
+  padding-left: 0;
+}
+
+.ui-book-contents li:before {
+  counter-increment: section;
+  content: counters(section, ".") " ";
+}

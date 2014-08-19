@@ -17,15 +17,6 @@
     var schemaDataPrefix = schemaSetup.dataPrefix;
     var dataPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
 
-    var resizeSelector = schemaEvents.resize.selector;
-    var resizeBaseFontSize = $(resizeSelector).css('font-size').slice(0, -2);
-    var resizeOptions = {
-      deviceWidth: schemaSetup.deviceWidth,
-      minFontSize: schemaSetup.minFontSize,
-      maxFontSize: schemaSetup.maxFontSize,
-      baseFontSize: schemaSetup.baseFontSize || resizeBaseFontSize
-    };
-
     for(var key in schemaEvents) {
       if(schemaEvents.hasOwnProperty(key)) {
         var schemaFunction = Schema[key];
@@ -39,14 +30,7 @@
           var eventName = eventObject.type + eventObject.namespace;
           $(document).on(eventName, schemaFunction);
           if(eventDelegation > 2) {
-            if(key === 'resize') {
-              $(window).resize(function() {
-                $(document).trigger(eventName, resizeOptions);
-              });
-              $(window).resize();
-            } else {
-              $(document).trigger(eventName);
-            }
+            $(document).trigger(eventName);
           }
         }
       }
@@ -74,19 +58,6 @@
     }) ? 1 : 0;
 
     return eventDelegation;
-  };
-
-  Schema.resize = function(event, options) {
-    var $_this = $(Schema.events.resize.selector);
-    var $_data = Schema.parseData($_this.data());
-    var deviceWidth = $_data.schemaDeviceWidth || options.deviceWidth;
-    var baseFontSize = $_data.schemaBaseFontSize || options.baseFontSize;
-
-    var winWidth = $(window).width();
-    var zoomFactor = winWidth / deviceWidth;
-    var fontSize = Math.max(baseFontSize * zoomFactor, options.minFontSize);
-    fontSize = Math.min(fontSize, options.maxFontSize);
-    $_this.css('font-size', Math.round(fontSize).toString() + 'px');
   };
 
   Schema.trim = function(event, options) {
@@ -186,15 +157,20 @@
       pathname: anchor.pathname,
       segments: anchor.pathname.replace(/^\/+/, '').split('/'),
       search: anchor.search,
-      query: (function() {
+      query: (function () {
         var queryObject = {};
         var queryString = anchor.search.replace(/(^\?&?)|(&$)/g, '');
         if(queryString.indexOf('=') === -1) {
           return queryString;
         }
-        queryString.split(/&+/).forEach(function(keyValuePair) {
+        queryString.split(/&+/).forEach(function (keyValuePair) {
           var keyValueArray = decodeURIComponent(keyValuePair).split('=');
-          queryObject[keyValueArray[0]] = keyValueArray[1];
+          var paramKey = keyValueArray[0];
+          var paramValue = keyValueArray[1];
+          if (queryObject.hasOwnProperty(paramKey)) {
+            paramValue = [].concat(queryObject[paramKey], paramValue);
+          }
+          queryObject[paramKey] = paramValue;
         });
         return queryObject;
       })(),

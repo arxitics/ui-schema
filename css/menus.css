@@ -1,7 +1,5 @@
 /*!
- * UI Schema - Menus v0.0.1 (http://photino.github.io/ui-schema/blob/master/css/menus.css)
- * Copyright 2014 Zan Pan <panzan89@gmail.com>
- * Licensed under MIT (https://github.com/photino/ui-schema/blob/master/LICENSE.txt)
+ * Menus
  */
 
 .ui-header-navbar {
@@ -48,6 +46,13 @@
   text-align: right;
 }
 
+.ui-nav-collapse {
+  float: left;
+  display: none;
+  padding: 1em .8em;
+  cursor: pointer;
+}
+
 .ui-nav-tabs,
 .ui-nav-pills,
 .ui-nav-stacked,
@@ -63,6 +68,10 @@
 .ui-nav-tabs > li,
 .ui-nav-pills > li {
   float: left;
+}
+
+.ui-nav-tabs > li:not(:last-child),
+.ui-nav-pills > li:not(:last-child) {
   margin-right: .4rem;
 }
 
@@ -73,44 +82,37 @@
   padding: .4em .8em;
 }
 
-.ui-nav-tabs > li > a,
-.ui-nav-pills > li > a,
-.ui-nav-stacked > li > a {
-  border: 1px solid transparent;
-}
-
-.ui-nav-tabs > li > a:hover,
-.ui-nav-pills > li > a:hover,
-.ui-nav-stacked > li > a:hover,
-.ui-header-navbar > nav > ul > li > a:hover {
+.ui-nav-tabs > li:hover,
+.ui-nav-pills > li:hover,
+.ui-nav-stacked > li:hover,
+.ui-header-navbar > nav > ul > li:hover {
   background-color: #e8e8e8;
 }
 
-.ui-nav-tabs > li > a.ui-state-active,
-.ui-nav-pills > li > a.ui-state-active,
-.ui-nav-stacked > li > a.ui-state-active {
+.ui-nav-tabs > li.ui-state-active > a,
+.ui-nav-pills > li.ui-state-active > a,
+.ui-nav-stacked > li.ui-state-active > a {
   color: #333;
 }
 
 .ui-nav-tabs:not(.ui-nav-justified) {
+  width: 100%;
   border-bottom: 1px solid #ddd;
 }
 
 .ui-nav-tabs > li {
   margin-bottom: -1px;
-}
-
-.ui-nav-tabs > li > a {
+  border: 1px solid transparent;
   border-radius: .4rem .4rem 0 0;
 }
 
-.ui-nav-tabs > li > a.ui-state-active {
+.ui-nav-tabs > li.ui-state-active {
   background-color: #fff;
   border-color: #ccc #ccc #fff;
 }
 
-.ui-nav-tabs.ui-nav-justified > li > a:not(.ui-state-active) {
-  border-bottom-color: #ddd;
+.ui-nav-tabs.ui-nav-justified > li:not(.ui-state-active) {
+  border-bottom: 1px solid #ddd;
 }
 
 .ui-nav-justified {
@@ -137,14 +139,17 @@
 }
 
 .ui-nav-justified > li > a {
+  padding: .4em 0;
   text-align: center;
+  vertical-align: middle;
 }
 
-.ui-nav-pills > li > a {
+.ui-nav-pills > li {
+  border: 1px solid transparent;
   border-radius: .4rem;
 }
 
-.ui-nav-pills > li > a.ui-state-active {
+.ui-nav-pills > li.ui-state-active {
   border-color: #ccc;
 }
 
@@ -251,7 +256,7 @@
 }
 
 .ui-nav-pagination > li {
-  display: inline;
+  display: inline-block;
   line-height: 1.42857;
 }
 
