@@ -262,6 +262,11 @@ dl {
   margin: 0 0 1em;
 }
 
+ul,
+ol {
+  padding-left: 3rem;
+}
+
 ul ul,
 ul ol,
 ol ul,
@@ -437,6 +442,7 @@ th {
 }
 
 th {
+  text-align: left;
   border-bottom-width: 2px;
 }
 
