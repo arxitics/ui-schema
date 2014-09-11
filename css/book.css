@@ -11,7 +11,7 @@
   padding-left: 0;
 }
 
-.ui-book-contents li:before {
+.ui-book-contents li::before {
   counter-increment: section;
   content: counters(section, ".") " ";
 }

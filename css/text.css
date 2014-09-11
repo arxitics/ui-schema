@@ -227,7 +227,9 @@
   margin-top: 2rem;
 }
 
-.ui-content-post img {
+.ui-content-post figure,
+.ui-content-post img,
+.ui-content-post svg {
   display: block;
   margin: 1em auto;
   text-align: center;
@@ -380,6 +382,15 @@
 
 .ui-list-horizontal dd {
   margin-left: 12em;
+}
+
+.ui-list-numbered {
+  counter-reset: list-counter;
+}
+
+.ui-list-numbered > dt::before {
+  content: counter(list-counter) ". ";
+  counter-increment: list-counter;
 }
 
 .ui-list-group {
