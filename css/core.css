@@ -152,7 +152,7 @@ i {
   display: inline-block;
   height: 1.25em;
   font-style: normal;
-  vertical-align: text-top;
+  vertical-align: text-bottom;
 }
 
 i > svg {
