@@ -23,13 +23,18 @@
   text-align: right;
 }
 
-.ui-form-fluid input:not([type="checkbox"]):not([type="radio"]),
+.ui-form-fluid input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
 .ui-form-fluid textarea {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 1.5rem;
   width: 100%;
+}
+
+.ui-form-fluid input[type="file"] {
+  padding: .2em 0;
+  height: 2em;
 }
 
 .ui-form-fluid input {

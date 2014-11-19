@@ -199,6 +199,7 @@
 }
 
 .ui-menu-dropdown > :first-child {
+  margin-bottom: .5em;
   cursor: pointer;
 }
 

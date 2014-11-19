@@ -2,10 +2,10 @@
  * Forms
  */
 
-(function($) {
+(function ($) {
   'use strict';
 
-  Schema.validate = function(event, options) {
+  Schema.validate = function (event, options) {
     var eventSelector = Schema.events.validate.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
@@ -47,4 +47,3 @@
   };
 
 })(jQuery);
-

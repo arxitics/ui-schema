@@ -1,16 +1,16 @@
 /*!
- * UI Schema v0.1.4 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.2.0 (https://github.com/arxitics/ui-schema)
  * Copyright 2014 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
 
-if(typeof jQuery === 'undefined') {
+if (typeof jQuery === 'undefined') {
   throw new Error('jQuery has not been loaded yet for context');
 }
 
 var Schema = {};
 
-(function($) {
+(function ($) {
   'use strict';
 
   Schema.setup = {
@@ -44,9 +44,8 @@ var Schema = {};
     }
   };
 
-  $(function() {
+  $(function () {
     Schema.setup.autoLoad && Schema.load && Schema.load();
   });
 
 })(jQuery);
-

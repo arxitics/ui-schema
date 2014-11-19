@@ -1,16 +1,16 @@
 /*!
- * UI Schema v0.1.4 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.2.0 (https://github.com/arxitics/ui-schema)
  * Copyright 2014 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
 
-if(typeof jQuery === 'undefined') {
+if (typeof jQuery === 'undefined') {
   throw new Error('jQuery has not been loaded yet for context');
 }
 
 var Schema = {};
 
-(function($) {
+(function ($) {
   'use strict';
 
   Schema.setup = {
@@ -44,44 +44,43 @@ var Schema = {};
     }
   };
 
-  $(function() {
+  $(function () {
     Schema.setup.autoLoad && Schema.load && Schema.load();
   });
 
 })(jQuery);
-
 /*!
  * Core
  */
 
-(function($) {
+(function ($) {
   'use strict';
 
-  Schema.create = function(options) {
+  Schema.create = function (options) {
     this.setup = $.extend({}, Schema.setup, options);
     return Object.create(Schema);
   };
 
-  Schema.load = function(setup, events) {
+  Schema.load = function (setup, events) {
     var schemaSetup = $.extend({}, Schema.setup, setup);
     var schemaEvents = $.extend({}, Schema.events, events);
 
     var schemaDataPrefix = schemaSetup.dataPrefix;
     var dataPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
 
-    for(var key in schemaEvents) {
-      if(schemaEvents.hasOwnProperty(key)) {
+    for (var key in schemaEvents) {
+      if (schemaEvents.hasOwnProperty(key)) {
         var schemaFunction = Schema[key];
         var eventObject = schemaEvents[key];
         var eventDelegation = eventObject.delegation;
-        if(!eventObject.hasOwnProperty('delegation')) {
+        if (!eventObject.hasOwnProperty('delegation')) {
           eventDelegation = Schema.delegate(eventObject);
           eventObject.delegation = eventDelegation;
         }
-        if(eventDelegation > 1) {
+        if (eventDelegation > 1) {
           var eventName = eventObject.type + eventObject.namespace;
           $(document).on(eventName, schemaFunction);
-          if(eventDelegation > 2) {
+          if (eventDelegation > 2) {
             $(document).trigger(eventName);
           }
         }
@@ -89,20 +88,20 @@ var Schema = {};
     }
   };
 
-  Schema.delegate = function(event) {
+  Schema.delegate = function (event) {
     var schemaSetup = Schema.setup;
     var eventsBind = schemaSetup.autoBind.split(' ');
     var eventsTrigger = schemaSetup.autoTrigger.split(' ');
     var eventName = event.type + event.namespace;
     var eventArray = eventName.replace(/^\./, '').split('.');
 
-    var eventDelegation = eventsBind.some(function(bindEvent) {
+    var eventDelegation = eventsBind.some(function (bindEvent) {
       var bindArray = bindEvent.replace(/^\./, '').split('.');
-      return bindArray.every(function(eventKeyword) {
+      return bindArray.every(function (eventKeyword) {
         return eventArray.indexOf(eventKeyword) !== -1;
       });
     }) ? 2 : 0;
-    eventDelegation += eventsTrigger.some(function(triggerEvent) {
+    eventDelegation += eventsTrigger.some(function (triggerEvent) {
       var triggerArray = triggerEvent.replace(/^\./, '').split('.');
       return triggerArray.every(function(eventKeyword) {
         return eventArray.indexOf(eventKeyword) !== -1;
@@ -112,31 +111,31 @@ var Schema = {};
     return eventDelegation;
   };
 
-  Schema.retrieve = function(event, options) {
+  Schema.retrieve = function (event, options) {
     var eventSelector = Schema.events.retrieve.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
-    $_elements.each(function() {
+    $_elements.each(function () {
       var $_this = $(this);
       var $_data = Schema.parseData($_this.data());
       var schemaOptions = Schema.parseOptions($_data.schemaOptions);
-      for(var key in schemaOptions) {
-        if(schemaOptions.hasOwnProperty(key)) {
+      for (var key in schemaOptions) {
+        if (schemaOptions.hasOwnProperty(key)) {
           $_this.data(key, schemaOptions[key]);
         }
       }
     });
   };
 
-  Schema.parseData = function(data) {
+  Schema.parseData = function (data) {
     var dataObject = {};
     var schemaDataPrefix = Schema.setup.dataPrefix;
     var dataPrefixLength = schemaDataPrefix && schemaDataPrefix.length;
-    for(var key in data) {
-      if(data.hasOwnProperty(key)) {
+    for (var key in data) {
+      if (data.hasOwnProperty(key)) {
         var dataKey = 'schema-' + key.slice(dataPrefixLength);
         var dataValue = data[key].trim();
-        dataKey = dataKey.replace(/-\w/g, function(matchedSubstr) {
+        dataKey = dataKey.replace(/\-\w/g, function (matchedSubstr) {
           return matchedSubstr.charAt(1).toUpperCase();
         });
         dataObject[dataKey] = (dataValue === '' ? true : dataValue);
@@ -145,22 +144,22 @@ var Schema = {};
     return dataObject;
   };
 
-  Schema.parseOptions = function(options) {
+  Schema.parseOptions = function (options) {
     var optionsObject = {};
     var parsedOptionsObject = {};
     var schemaDataPrefix = Schema.setup.dataPrefix;
     var optionsPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
     var optionsType = Object.prototype.toString.call(options).slice(8, -1);
-    if(optionsType === 'Object') {
+    if (optionsType === 'Object') {
       optionsObject = options;
     }
-    if(optionsType === 'String') {
+    if (optionsType === 'String') {
       try {
         optionsObject = JSON.parse(options);
-      } catch(parseError) {
-        if(options.indexOf(':') !== -1) {
+      } catch (parseError) {
+        if (options.indexOf(':') !== -1) {
           options = options.trim().replace(/\s*;$/, '');
-          options.split(/\s*;\s*/).forEach(function(keyValuePair) {
+          options.split(/\s*;\s*/).forEach(function (keyValuePair) {
             var keyValueArray = keyValuePair.split(/\s*:\s*/);
             var optionKey = keyValueArray[0].toLowerCase();
             var optionValue = keyValueArray[1].replace(/\,/g, ' ').trim();
@@ -172,10 +171,10 @@ var Schema = {};
         }
       }
     }
-    for(var key in optionsObject) {
-      if(optionsObject.hasOwnProperty(key)) {
+    for (var key in optionsObject) {
+      if (optionsObject.hasOwnProperty(key)) {
         var optionKey = optionsPrefix + key;
-        optionKey = optionKey.replace(/-\w/g, function(matchedSubstr) {
+        optionKey = optionKey.replace(/\-\w/g, function (matchedSubstr) {
           return matchedSubstr.charAt(1).toUpperCase();
         });
         parsedOptionsObject[optionKey] = optionsObject[key];
@@ -185,15 +184,14 @@ var Schema = {};
   };
 
 })(jQuery);
-
 /*!
  * Forms
  */
 
-(function($) {
+(function ($) {
   'use strict';
 
-  Schema.validate = function(event, options) {
+  Schema.validate = function (event, options) {
     var eventSelector = Schema.events.validate.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
@@ -235,24 +233,23 @@ var Schema = {};
   };
 
 })(jQuery);
-
 /*!
  * Utilities
  */
 
-(function($) {
+(function ($) {
   'use strict';
 
-  Schema.trim = function(event, options) {
+  Schema.trim = function (event, options) {
     var eventSelector = Schema.events.trim.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
-    $_elements.contents().filter(function() {
+    $_elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
   };
 
-  Schema.parseURL = function(url) {
+  Schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
     anchor.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
     return {
@@ -291,26 +288,25 @@ var Schema = {};
   };
 
 })(jQuery);
-
 /*!
  * Icons
  */
 
-(function($) {
+(function ($) {
   'use strict';
 
-  Schema.sprite = function(event, options) {
+  Schema.sprite = function (event, options) {
     var iconsData = Schema.icons;
     var eventSelector = Schema.events.sprite.selector;
     var optionalSelector = options && options.selector;
     var colorEnabled = options && options.colorEnabled;
     var $_elements = $(eventSelector).add(optionalSelector);
-    $_elements.each(function() {
+    $_elements.each(function () {
       var $_this = $(this);
       var $_data = Schema.parseData($_this.data());
       var iconName = $_data.schemaIcon || 'square';
       var iconData = iconsData[iconName] || iconsData['square'];
-      if(typeof iconData === 'string') {
+      if (typeof iconData === 'string') {
         iconData = iconsData[iconData];
       }
 
@@ -319,7 +315,7 @@ var Schema = {};
       var iconPath = $_data.schemaPath || iconData[2];
       var iconColor = $_data.schemaColor || iconData[3];
       var iconColorEnabled = $_data.schemaColorEnabled || colorEnabled;
-      if(iconColorEnabled === undefined && iconColor) {
+      if (iconColorEnabled === undefined && iconColor) {
         iconColorEnabled = true;
       }
 
@@ -331,8 +327,8 @@ var Schema = {};
       svgDoc.setAttribute('viewBox', '0 0 ' + iconWidth + ' ' + iconHeight);
 
       /* Create <path> element */
-      if(Array.isArray(iconPath)) {
-        iconPath.forEach(function(pathSegment, index) {
+      if (Array.isArray(iconPath)) {
+        iconPath.forEach(function (pathSegment, index) {
           var pathTag = document.createElementNS(svgNamespace, 'path');
           if(iconColorEnabled && iconColor && iconColor[index]) {
             pathTag.setAttribute('fill', iconColor[index]);
@@ -342,7 +338,7 @@ var Schema = {};
         });
       } else {
         var pathTag = document.createElementNS(svgNamespace, 'path');
-        if(iconColorEnabled && iconColor) {
+        if (iconColorEnabled && iconColor) {
           pathTag.setAttribute('fill', iconColor);
         }
         pathTag.setAttribute('d', iconPath);
@@ -367,6 +363,10 @@ var Schema = {};
     'key': [32, 32, 'M28.304 7.562c-0.803-4.765-5.152-7.947-9.71-7.106-4.56 0.84-8.406 4.506-7.603 9.27 0.174 1.026 0.653 2.632 1.221 3.784l-8.28 12.357c-0.306 0.456-0.478 1.278-0.387 1.826l0.533 3.154c0.093 0.547 0.597 0.915 1.12 0.819l2.426-0.446c0.525-0.098 1.189-0.558 1.478-1.026l3.304-5.33 2.216-0.41 3.822-6.205c1.258 0.222 3.059 0.147 4.125-0.050 4.562-0.842 6.541-5.874 5.736-10.638zM24.266 10.003c-1.254 1.87-2.533 0.552-4.325-0.76-1.79-1.31-3.416-2.117-2.162-3.987 1.254-1.872 3.722-2.328 5.514-1.016 1.792 1.31 2.227 3.893 0.973 5.763z'],
     'user': [25, 32, 'M25.143 25.089q0 2.143-1.304 3.384t-3.464 1.241h-15.607q-2.161 0-3.464-1.241t-1.304-3.384q0-0.946 0.063-1.848t0.25-1.946 0.473-1.938 0.768-1.741 1.107-1.446 1.527-0.955 1.991-0.357q0.161 0 0.75 0.384t1.33 0.857 1.929 0.857 2.384 0.384 2.384-0.384 1.929-0.857 1.33-0.857 0.75-0.384q1.089 0 1.991 0.357t1.527 0.955 1.107 1.446 0.768 1.741 0.473 1.938 0.25 1.946 0.063 1.848zM19.429 9.143q0 2.839-2.009 4.848t-4.848 2.009-4.848-2.009-2.009-4.848 2.009-4.848 4.848-2.009 4.848 2.009 2.009 4.848z'],
     'user-md': [25, 32, 'M0 25.089q0-1.214 0.098-2.339t0.429-2.464 0.848-2.366 1.446-1.839 2.143-1.080q-0.393 0.929-0.393 2.143v3.625q-1.036 0.357-1.661 1.25t-0.625 1.982q0 1.429 1 2.429t2.429 1 2.429-1 1-2.429q0-1.089-0.634-1.982t-1.652-1.25v-3.625q0-1.107 0.446-1.661 2.357 1.857 5.268 1.857t5.268-1.857q0.446 0.554 0.446 1.661v1.143q-1.893 0-3.232 1.339t-1.339 3.232v1.589q-0.571 0.518-0.571 1.268 0 0.714 0.5 1.214t1.214 0.5 1.214-0.5 0.5-1.214q0-0.75-0.571-1.268v-1.589q0-0.929 0.679-1.607t1.607-0.679 1.607 0.679 0.679 1.607v1.589q-0.571 0.518-0.571 1.268 0 0.714 0.5 1.214t1.214 0.5 1.214-0.5 0.5-1.214q0-0.75-0.571-1.268v-1.589q0-1.214-0.616-2.277t-1.67-1.67q0-0.179 0.009-0.759t0-0.857-0.045-0.741-0.125-0.839-0.232-0.714q1.214 0.268 2.143 1.080t1.446 1.839 0.848 2.366 0.429 2.464 0.098 2.339q0 2.161-1.304 3.393t-3.464 1.232h-15.607q-2.161 0-3.464-1.232t-1.304-3.393zM4.571 24q0-0.464 0.339-0.804t0.804-0.339 0.804 0.339 0.339 0.804-0.339 0.804-0.804 0.339-0.804-0.339-0.339-0.804zM5.714 9.143q0-2.839 2.009-4.848t4.848-2.009 4.848 2.009 2.009 4.848-2.009 4.848-4.848 2.009-4.848-2.009-2.009-4.848z'],
+    'home': [30, 32, 'M0.464 16.063q0.018-0.241 0.196-0.384l12.839-10.696q0.571-0.464 1.357-0.464t1.357 0.464l4.357 3.643v-3.482q0-0.25 0.161-0.411t0.411-0.161h3.429q0.25 0 0.411 0.161t0.161 0.411v7.286l3.911 3.25q0.179 0.143 0.196 0.384t-0.125 0.42l-1.107 1.321q-0.143 0.161-0.375 0.196h-0.054q-0.232 0-0.375-0.125l-12.357-10.304-12.357 10.304q-0.214 0.143-0.429 0.125-0.232-0.036-0.375-0.196l-1.107-1.321q-0.143-0.179-0.125-0.42zM4.571 26.286v-8.571q0-0.018 0.009-0.054t0.009-0.054l10.268-8.464 10.268 8.464q0.018 0.036 0.018 0.107v8.571q0 0.464-0.339 0.804t-0.804 0.339h-6.857v-6.857h-4.571v6.857h-6.857q-0.464 0-0.804-0.339t-0.339-0.804z'],
+    'bookmarks': [32, 32, 'M8 4v28l10-10 10 10v-28zM24 0h-20v28l2-2v-24h18z'],
+    'chat': [32, 32, 'M9.28 19.52v-9.92h-6.080c-1.76 0-3.2 1.44-3.2 3.2v9.6c0 1.76 1.44 3.2 3.2 3.2h1.6v4.8l4.8-4.8h8c1.76 0 3.2-1.44 3.2-3.2v-2.912c-0.102 0.022-0.211 0.034-0.32 0.034h-11.2zM28.8 1.6h-14.4c-1.76 0-3.2 1.44-3.2 3.2v12.8h11.2l4.8 4.8v-4.8h1.6c1.76 0 3.2-1.44 3.2-3.2v-9.6c0-1.76-1.44-3.2-3.2-3.2z'],
+    'sign-out': [30, 32, 'M0 22.286v-12.571q0-2.125 1.509-3.634t3.634-1.509h5.714q0.232 0 0.402 0.17t0.17 0.402q0 0.071 0.018 0.357t0.009 0.473-0.054 0.42-0.179 0.348-0.366 0.116h-5.714q-1.179 0-2.018 0.839t-0.839 2.018v12.571q0 1.179 0.839 2.018t2.018 0.839h5.571t0.205 0.018 0.205 0.054 0.143 0.098 0.125 0.161 0.036 0.241q0 0.071 0.018 0.357t0.009 0.473-0.054 0.42-0.179 0.348-0.366 0.116h-5.714q-2.125 0-3.634-1.509t-1.509-3.634zM6.857 19.429v-6.857q0-0.464 0.339-0.804t0.804-0.339h8v-5.143q0-0.464 0.339-0.804t0.804-0.339 0.804 0.339l9.714 9.714q0.339 0.339 0.339 0.804t-0.339 0.804l-9.714 9.714q-0.339 0.339-0.804 0.339t-0.804-0.339-0.339-0.804v-5.143h-8q-0.464 0-0.804-0.339t-0.339-0.804z'],
     'mail-reply': [32, 32, 'M0 11.429q0-0.464 0.339-0.804l9.143-9.143q0.339-0.339 0.804-0.339t0.804 0.339 0.339 0.804v4.571h4q12.732 0 15.625 7.196 0.946 2.393 0.946 5.946 0 2.964-2.268 8.054-0.054 0.125-0.188 0.429t-0.241 0.536-0.232 0.393q-0.214 0.304-0.5 0.304-0.268 0-0.42-0.179t-0.152-0.446q0-0.161 0.045-0.473t0.045-0.42q0.089-1.214 0.089-2.196 0-1.804-0.313-3.232t-0.866-2.473-1.429-1.804-1.884-1.241-2.375-0.759-2.75-0.384-3.134-0.107h-4v4.571q0 0.464-0.339 0.804t-0.804 0.339-0.804-0.339l-9.143-9.143q-0.339-0.339-0.339-0.804z'],
     'check-square-o': [30, 32, 'M0 22.286v-14.857q0-2.125 1.509-3.634t3.634-1.509h14.857q1.125 0 2.089 0.446 0.268 0.125 0.321 0.411 0.054 0.304-0.161 0.518l-0.875 0.875q-0.179 0.179-0.411 0.179-0.054 0-0.161-0.036-0.411-0.107-0.804-0.107h-14.857q-1.179 0-2.018 0.839t-0.839 2.018v14.857q0 1.179 0.839 2.018t2.018 0.839h14.857q1.179 0 2.018-0.839t0.839-2.018v-4.536q0-0.232 0.161-0.393l1.143-1.143q0.179-0.179 0.411-0.179 0.107 0 0.214 0.054 0.357 0.143 0.357 0.518v5.679q0 2.125-1.509 3.634t-3.634 1.509h-14.857q-2.125 0-3.634-1.509t-1.509-3.634zM4.589 13.714q0-0.589 0.429-1.018l1.964-1.964q0.429-0.429 1.018-0.429t1.018 0.429l4.696 4.696 11.554-11.554q0.429-0.429 1.018-0.429t1.018 0.429l1.964 1.964q0.429 0.429 0.429 1.018t-0.429 1.018l-14.536 14.536q-0.429 0.429-1.018 0.429t-1.018-0.429l-7.679-7.679q-0.429-0.429-0.429-1.018z'],
     'trash-o': [25, 32, 'M0 8.571v-1.143q0-0.25 0.161-0.411t0.411-0.161h5.518l1.25-2.982q0.268-0.661 0.964-1.125t1.411-0.464h5.714q0.714 0 1.411 0.464t0.964 1.125l1.25 2.982h5.518q0.25 0 0.411 0.161t0.161 0.411v1.143q0 0.25-0.161 0.411t-0.411 0.161h-1.714v16.929q0 1.482-0.839 2.563t-2.018 1.080h-14.857q-1.179 0-2.018-1.045t-0.839-2.527v-17h-1.714q-0.25 0-0.411-0.161t-0.161-0.411zM4.571 26.071q0 0.393 0.125 0.723t0.259 0.482 0.188 0.152h14.857q0.054 0 0.188-0.152t0.259-0.482 0.125-0.723v-16.929h-16v16.929zM6.857 23.429v-10.286q0-0.25 0.161-0.411t0.411-0.161h1.143q0.25 0 0.411 0.161t0.161 0.411v10.286q0 0.25-0.161 0.411t-0.411 0.161h-1.143q-0.25 0-0.411-0.161t-0.161-0.411zM8.571 6.857h8l-0.857-2.089q-0.125-0.161-0.304-0.196h-5.661q-0.179 0.036-0.304 0.196zM11.429 23.429v-10.286q0-0.25 0.161-0.411t0.411-0.161h1.143q0.25 0 0.411 0.161t0.161 0.411v10.286q0 0.25-0.161 0.411t-0.411 0.161h-1.143q-0.25 0-0.411-0.161t-0.161-0.411zM16 23.429v-10.286q0-0.25 0.161-0.411t0.411-0.161h1.143q0.25 0 0.411 0.161t0.161 0.411v10.286q0 0.25-0.161 0.411t-0.411 0.161h-1.143q-0.25 0-0.411-0.161t-0.161-0.411z'],
@@ -389,4 +389,3 @@ var Schema = {};
   };
 
 })(jQuery);
-

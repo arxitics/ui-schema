@@ -2,19 +2,19 @@
  * Utilities
  */
 
-(function($) {
+(function ($) {
   'use strict';
 
-  Schema.trim = function(event, options) {
+  Schema.trim = function (event, options) {
     var eventSelector = Schema.events.trim.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
-    $_elements.contents().filter(function() {
+    $_elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
   };
 
-  Schema.parseURL = function(url) {
+  Schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
     anchor.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
     return {
@@ -53,4 +53,3 @@
   };
 
 })(jQuery);
-
