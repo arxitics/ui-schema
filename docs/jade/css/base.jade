@@ -1,0 +1,14 @@
+extends ../layout
+
+block variables
+  - var pageID = 'css/base'
+  - var pageTitle = 'Framework base'
+
+block aside
+  include modules
+
+block article
+  h3.ui-header-primary Framework base
+  p For improved cross-browser consistency, we use 
+    a(href='http://necolas.github.io/normalize.css/' rel='external' target='_blank') Normalize.css
+    | , a modern, HTML5-ready, alternative to the traditional CSS reset.

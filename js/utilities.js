@@ -5,8 +5,8 @@
 (function ($) {
   'use strict';
 
-  Schema.trim = function (event, options) {
-    var eventSelector = Schema.events.trim.selector;
+  schema.trim = function (event, options) {
+    var eventSelector = schema.events.trim.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.contents().filter(function () {
@@ -14,7 +14,7 @@
     }).remove();
   };
 
-  Schema.parseURL = function (url) {
+  schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
     anchor.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
     return {

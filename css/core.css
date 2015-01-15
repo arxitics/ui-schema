@@ -73,8 +73,8 @@ html {
 
 body {
   background-color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
   color: #333;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
   line-height: 1.42857; /* 1 */
 }
@@ -173,8 +173,8 @@ progress {
   background-color: #f5f5f5;
   border: none;
   border-radius: .5em;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
   color: #428bca;
   height: 1.5em;
   overflow: hidden;
@@ -213,11 +213,11 @@ hr {
 }
 
 blockquote {
-  border-left: 0.4em solid #eee;
+  border-left: .4em solid #eee;
   font-size: 125%;
   margin: 0 0 2em;
   overflow: hidden;
-  padding: 0.5em 1em;
+  padding: .5em 1em;
 }
 
 address {
@@ -237,7 +237,7 @@ samp {
 pre {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
-  border-radius: 0.4em;
+  border-radius: .4em;
   display: block;
   padding: .6em;
   word-break: break-all;
@@ -330,7 +330,7 @@ button:focus {
 }
 
 input {
- height: 1.6em;
+  height: 1.6em;
 }
 
 input,
@@ -354,22 +354,19 @@ input[type="file"] {
 input:invalid,
 textarea:invalid {
   border-color: #a94442;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 }
 
 input:not([type="file"]):not([type="checkbox"]):not([type="radio"]):focus,
 textarea:focus {
   border-color: #66afe9;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 .4em rgba(102, 175, 233, .6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 .4em rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 .4em rgba(102,175,233,.6);
 }
 
 input:not([type="file"]):not([type="checkbox"]):not([type="radio"]):invalid:focus,
 textarea:invalid:focus {
   border-color: #843534;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 .3em #ce8483;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 .3em #ce8483;
 }
 
@@ -450,14 +447,6 @@ th {
   border-bottom-width: 2px;
 }
 
-/* Languages
-   ========================================================================== */
-
-[lang|="zh"] {
-  font-family: "Droid Sans Fallback";
-  line-height: 1.68067;
-}
-
 /* ARIA
    ========================================================================== */
 [aria-hidden="true"] {
@@ -494,15 +483,6 @@ th {
   }
 }
 
-@-ms-keyframes spin {
-  0% {
-    -ms-transform: rotate(0deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-  }
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -511,4 +491,3 @@ th {
     transform: rotate(360deg);
   }
 }
-

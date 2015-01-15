@@ -5,25 +5,25 @@
 (function ($) {
   'use strict';
 
-  Schema.create = function (options) {
-    this.setup = $.extend({}, Schema.setup, options);
-    return Object.create(Schema);
+  schema.create = function (options) {
+    this.setup = $.extend({}, schema.setup, options);
+    return Object.create(schema);
   };
 
-  Schema.load = function (setup, events) {
-    var schemaSetup = $.extend({}, Schema.setup, setup);
-    var schemaEvents = $.extend({}, Schema.events, events);
+  schema.load = function (setup, events) {
+    var schemaSetup = $.extend({}, schema.setup, setup);
+    var schemaEvents = $.extend({}, schema.events, events);
 
     var schemaDataPrefix = schemaSetup.dataPrefix;
     var dataPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
 
     for (var key in schemaEvents) {
       if (schemaEvents.hasOwnProperty(key)) {
-        var schemaFunction = Schema[key];
+        var schemaFunction = schema[key];
         var eventObject = schemaEvents[key];
         var eventDelegation = eventObject.delegation;
         if (!eventObject.hasOwnProperty('delegation')) {
-          eventDelegation = Schema.delegate(eventObject);
+          eventDelegation = schema.delegate(eventObject);
           eventObject.delegation = eventDelegation;
         }
         if (eventDelegation > 1) {
@@ -37,8 +37,8 @@
     }
   };
 
-  Schema.delegate = function (event) {
-    var schemaSetup = Schema.setup;
+  schema.delegate = function (event) {
+    var schemaSetup = schema.setup;
     var eventsBind = schemaSetup.autoBind.split(' ');
     var eventsTrigger = schemaSetup.autoTrigger.split(' ');
     var eventName = event.type + event.namespace;
@@ -60,14 +60,14 @@
     return eventDelegation;
   };
 
-  Schema.retrieve = function (event, options) {
-    var eventSelector = Schema.events.retrieve.selector;
+  schema.retrieve = function (event, options) {
+    var eventSelector = schema.events.retrieve.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.each(function () {
       var $_this = $(this);
-      var $_data = Schema.parseData($_this.data());
-      var schemaOptions = Schema.parseOptions($_data.schemaOptions);
+      var $_data = schema.parseData($_this.data());
+      var schemaOptions = schema.parseOptions($_data.schemaOptions);
       for (var key in schemaOptions) {
         if (schemaOptions.hasOwnProperty(key)) {
           $_this.data(key, schemaOptions[key]);
@@ -76,9 +76,9 @@
     });
   };
 
-  Schema.parseData = function (data) {
+  schema.parseData = function (data) {
     var dataObject = {};
-    var schemaDataPrefix = Schema.setup.dataPrefix;
+    var schemaDataPrefix = schema.setup.dataPrefix;
     var dataPrefixLength = schemaDataPrefix && schemaDataPrefix.length;
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
@@ -93,10 +93,10 @@
     return dataObject;
   };
 
-  Schema.parseOptions = function (options) {
+  schema.parseOptions = function (options) {
     var optionsObject = {};
     var parsedOptionsObject = {};
-    var schemaDataPrefix = Schema.setup.dataPrefix;
+    var schemaDataPrefix = schema.setup.dataPrefix;
     var optionsPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
     var optionsType = Object.prototype.toString.call(options).slice(8, -1);
     if (optionsType === 'Object') {

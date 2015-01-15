@@ -1,0 +1,12 @@
+
+h3.ui-header-primary Links
+.ui-content-panel
+  .ui-panel-body
+    mixin link(page, text)
+      a(class=(pageID === page ? 'ui-state-active': '')
+        href='#{appStorage}/docs/html/#{page}.html')= text
+    .ui-list-group.ui-zoom-large
+      +link('download', 'Download')
+      +link('structure', 'Directory structure')
+      +link('template', 'Basic template')
+      +link('notes', 'Release notes')

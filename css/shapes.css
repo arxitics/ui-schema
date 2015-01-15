@@ -48,17 +48,13 @@
 
 .ui-seperator-raquo > li + li::before {
   content: "\00bb\00a0";
-  margin-right: .6em;
 }
 
 .ui-seperator-bullet > li + li::before {
   content: "\2022\00a0";
-  margin-right: .6em;
 }
 
 .ui-seperator-vbar > li + li::before {
   content: "|\00a0";
-  margin-right: .6em;
 }
-
 

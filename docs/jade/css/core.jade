@@ -1,0 +1,61 @@
+extends ../layout
+
+block variables
+  - var pageID = 'css/core'
+  - var pageTitle = 'Core styles'
+
+block aside
+  include modules
+
+block article
+  h3.ui-header-primary Core styles
+  section
+    h4.ui-header-secondary Font sizing
+    p We use the following media queries to set the value of rem unit:
+    .ui-container-responsive
+      table.ui-table-fluid.ui-table-striped
+        thead
+          tr
+            th min-width
+            th N/A
+            th 768px
+            th 992px
+            th 1248px
+            th 1334px
+            th 1408px
+            th 1568px
+            th 1888px
+            th 2016px
+        tbody
+          tr
+            td rem unit
+            td 8px
+            td 9px
+            td 10px
+            td 11px
+            td 12px
+            td 13px
+            td 14px
+            td 15px
+            td 16px
+  p Then all font sizes are specified with rems and ems. For headings, we have
+  .ui-container-responsive
+    table.ui-table-fluid.ui-table-striped
+      thead
+        tr
+          th Heading
+          th h1
+          th h2
+          th h3
+          th h4
+          th h5
+          th h6
+      tbody
+        tr
+          td font-size
+          td 3.6rem
+          td 3rem
+          td 2.4rem
+          td 1.8rem
+          td 1.4rem
+          td 1.2rem

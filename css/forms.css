@@ -100,9 +100,13 @@
   visibility: hidden;
 }
 
-.ui-button-switch > :checked + label > :first-child,
-.ui-button-switch > :not(:checked) + label > :last-child {
+.ui-button-switch > input:checked + label > span:first-child,
+.ui-button-switch > input:not(:checked) + label > span:last-child {
   visibility: visible;
+}
+
+.ui-button-switch > input:checked ~ :not(label) {
+  display: block;
 }
 
 .ui-button-group > label {

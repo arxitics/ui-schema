@@ -1,0 +1,152 @@
+extends layout
+
+block variables
+  - var pageID = 'structure'
+  - var pageTitle = 'Directory structure'
+  
+block aside
+  include links
+
+block article
+  h3.ui-header-primary Directory structure
+  p Once downloaded, unzip the compressed folder to see the structure of UI Schema:
+  pre: code.language-markup.
+    ui-schema/
+    ├── css/
+    │   ├── base.css
+    │   ├── colors.css
+    │   ├── effects.css
+    │   ├── base.css
+    │   ├── colors.css
+    │   ├── effects.css
+    │   ├── events.css
+    │   ├── forms.css
+    │   ├── grid.css
+    │   ├── icons.css
+    │   ├── images.css
+    │   ├── import.css
+    │   ├── menus.css
+    │   ├── mobile.css
+    │   ├── navigation.css
+    │   ├── print.css
+    │   ├── shapes.css
+    │   ├── tables.css
+    │   ├── typography.css
+    │   ├── utilities.css
+    │   └── variables.css
+    ├── dist/
+    │   ├── jquery.min.js
+    │   ├── ui-schema.min.css
+    │   └── ui-schema.min.js
+    ├── docs/
+    │   ├── css/
+    │   │   └── prism.css
+    │   ├── html/
+    │   │   ├── css/
+    │   │   │   ├── base.html
+    │   │   │   ├── colors.html
+    │   │   │   ├── core.html
+    │   │   │   ├── effects.html
+    │   │   │   ├── effects.html
+    │   │   │   ├── events.html
+    │   │   │   ├── forms.html
+    │   │   │   ├── grid.html
+    │   │   │   ├── icons.html
+    │   │   │   ├── images.html
+    │   │   │   ├── menus.html
+    │   │   │   ├── mobile.html
+    │   │   │   ├── navigation.html
+    │   │   │   ├── print.html
+    │   │   │   ├── shapes.html
+    │   │   │   ├── tables.html
+    │   │   │   ├── typography.html
+    │   │   │   ├── utilities.html
+    │   │   │   └── variables.html
+    │   │   ├── examples/
+    │   │   │   └── login.html
+    │   │   ├── javascript/
+    │   │   │   ├── core.html
+    │   │   │   ├── forms.html
+    │   │   │   ├── icons.html
+    │   │   │   ├── setup.html
+    │   │   │   └── utilities.html
+    │   │   ├── css.html
+    │   │   ├── download.html
+    │   │   ├── examples.html
+    │   │   ├── index.html
+    │   │   ├── javascript.html
+    │   │   ├── notes.html
+    │   │   ├── structure.html
+    │   │   └── template.html
+    │   ├── jade/
+    │   │   ├── css/
+    │   │   │   ├── base.jade
+    │   │   │   ├── colors.jade
+    │   │   │   ├── core.jade
+    │   │   │   ├── effects.jade
+    │   │   │   ├── effects.jade
+    │   │   │   ├── events.jade
+    │   │   │   ├── forms.jade
+    │   │   │   ├── grid.jade
+    │   │   │   ├── icons.jade
+    │   │   │   ├── images.jade
+    │   │   │   ├── menus.jade
+    │   │   │   ├── mobile.jade
+    │   │   │   ├── modules.jade
+    │   │   │   ├── navigation.jade
+    │   │   │   ├── print.jade
+    │   │   │   ├── shapes.jade
+    │   │   │   ├── tables.jade
+    │   │   │   ├── typography.jade
+    │   │   │   ├── utilities.jade
+    │   │   │   └── variables.jade
+    │   │   ├── examples/
+    │   │   │   ├── contents.jade
+    │   │   │   └── login.jade
+    │   │   ├── javascript/
+    │   │   │   ├── components.jade
+    │   │   │   ├── core.jade
+    │   │   │   ├── forms.jade
+    │   │   │   ├── icons.jade
+    │   │   │   ├── setup.jade
+    │   │   │   └── utilities.jade
+    │   │   ├── css.jade
+    │   │   ├── download.jade
+    │   │   ├── examples.jade
+    │   │   ├── index.jade
+    │   │   ├── javascript.jade
+    │   │   ├── notes.jade
+    │   │   ├── structure.jade
+    │   │   └── template.jade
+    │   ├── js/
+    │   │   └── prism.min.js
+    │   └── build.sh
+    ├── js/
+    │   ├── icons/
+    │   │   ├── account.js
+    │   │   ├── arrows.js
+    │   │   ├── brands.js
+    │   │   ├── devices.js
+    │   │   ├── editor.js
+    │   │   ├── emoji.js
+    │   │   ├── files.js
+    │   │   ├── finance.js
+    │   │   ├── healthcare.js
+    │   │   ├── licenses.js
+    │   │   ├── menu.js
+    │   │   ├── mobile.js
+    │   │   ├── video.js
+    │   │   ├── weather.js
+    │   │   └── web.js
+    │   ├── core.js
+    │   ├── forms.js
+    │   ├── icons.js
+    │   ├── setup.js
+    │   ├── tooltip.js
+    │   ├── ui-schema.js
+    │   └── utilities.js
+    ├── build.sh
+    ├── gulpfile.js
+    ├── LICENSE.txt
+    ├── package.json
+    └── README.md

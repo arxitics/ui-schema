@@ -29,7 +29,13 @@
 @import "grid.css";
 
 /**
- * Dropdown menus, navs, pagination, and breadcrumb.
+ * Navigation, pagination, and breadcrumb.
+ */
+
+@import "navigation.css";
+
+/**
+ * Dropdown menus.
  */
 
 @import "menus.css";
@@ -38,35 +44,71 @@
  * Typography.
  */
 
-@import "text.css";
+@import "typography.css";
 
 /**
- * Image shapes.
+ * Forms.
  */
 
 @import "forms.css";
 
+/**
+ * Tables.
+ */
+
 @import "tables.css";
+
+/**
+ * Images.
+ */
 
 @import "images.css";
 
+/**
+ * Icons.
+ */
+
 @import "icons.css";
+
+/**
+ * Colors.
+ */
 
 @import "colors.css";
 
+/**
+ * Effects.
+ */
+
 @import "effects.css";
+
+/**
+ * Shapes.
+ */
 
 @import "shapes.css";
 
+/**
+ * Events.
+ */
+
 @import "events.css";
+
+/**
+ * Mobile.
+ */
 
 @import "mobile.css";
 
+/**
+ * Print.
+ */
+
 @import "print.css";
 
-@import "book.css";
+/**
+ * Utilities.
+ */
 
 @import "utilities.css";
-
-@import "variables.css";
 

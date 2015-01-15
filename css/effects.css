@@ -41,6 +41,18 @@
   line-height: 1.42857;
 }
 
+.ui-columns-seperated > li + li,
+.ui-columns-seperated > div + div,
+.ui-columns-seperated > span + span {
+  border-left: 1px solid #ccc;
+}
+
+.ui-rows-seperated > li + li,
+.ui-rows-seperated > div + div,
+.ui-rows-seperated > span + span {
+  border-top: 1px solid #ccc;
+}
+
 .ui-progress-striped::-moz-progress-bar {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);

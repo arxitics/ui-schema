@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.2.0 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.2.4 (https://github.com/arxitics/ui-schema)
  * Copyright 2014 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
@@ -8,12 +8,12 @@ if (typeof jQuery === 'undefined') {
   throw new Error('jQuery has not been loaded yet for context');
 }
 
-var Schema = {};
+var schema = {};
 
 (function ($) {
   'use strict';
 
-  Schema.setup = {
+  schema.setup = {
     classPrefix: 'ui',
     dataPrefix: 'schema',
     autoLoad: true,
@@ -21,7 +21,7 @@ var Schema = {};
     autoTrigger: '.schema'
   };
 
-  Schema.events = {
+  schema.events = {
     retrieve: {
       type: 'retrieve',
       namespace: '.options.data-api.schema',
@@ -45,10 +45,13 @@ var Schema = {};
   };
 
   $(function () {
-    Schema.setup.autoLoad && Schema.load && Schema.load();
+    if (schema.setup.autoLoad && schema.load) {
+      schema.load();
+    }
   });
 
 })(jQuery);
+
 /*!
  * Core
  */
@@ -56,25 +59,25 @@ var Schema = {};
 (function ($) {
   'use strict';
 
-  Schema.create = function (options) {
-    this.setup = $.extend({}, Schema.setup, options);
-    return Object.create(Schema);
+  schema.create = function (options) {
+    this.setup = $.extend({}, schema.setup, options);
+    return Object.create(schema);
   };
 
-  Schema.load = function (setup, events) {
-    var schemaSetup = $.extend({}, Schema.setup, setup);
-    var schemaEvents = $.extend({}, Schema.events, events);
+  schema.load = function (setup, events) {
+    var schemaSetup = $.extend({}, schema.setup, setup);
+    var schemaEvents = $.extend({}, schema.events, events);
 
     var schemaDataPrefix = schemaSetup.dataPrefix;
     var dataPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
 
     for (var key in schemaEvents) {
       if (schemaEvents.hasOwnProperty(key)) {
-        var schemaFunction = Schema[key];
+        var schemaFunction = schema[key];
         var eventObject = schemaEvents[key];
         var eventDelegation = eventObject.delegation;
         if (!eventObject.hasOwnProperty('delegation')) {
-          eventDelegation = Schema.delegate(eventObject);
+          eventDelegation = schema.delegate(eventObject);
           eventObject.delegation = eventDelegation;
         }
         if (eventDelegation > 1) {
@@ -88,8 +91,8 @@ var Schema = {};
     }
   };
 
-  Schema.delegate = function (event) {
-    var schemaSetup = Schema.setup;
+  schema.delegate = function (event) {
+    var schemaSetup = schema.setup;
     var eventsBind = schemaSetup.autoBind.split(' ');
     var eventsTrigger = schemaSetup.autoTrigger.split(' ');
     var eventName = event.type + event.namespace;
@@ -111,14 +114,14 @@ var Schema = {};
     return eventDelegation;
   };
 
-  Schema.retrieve = function (event, options) {
-    var eventSelector = Schema.events.retrieve.selector;
+  schema.retrieve = function (event, options) {
+    var eventSelector = schema.events.retrieve.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.each(function () {
       var $_this = $(this);
-      var $_data = Schema.parseData($_this.data());
-      var schemaOptions = Schema.parseOptions($_data.schemaOptions);
+      var $_data = schema.parseData($_this.data());
+      var schemaOptions = schema.parseOptions($_data.schemaOptions);
       for (var key in schemaOptions) {
         if (schemaOptions.hasOwnProperty(key)) {
           $_this.data(key, schemaOptions[key]);
@@ -127,9 +130,9 @@ var Schema = {};
     });
   };
 
-  Schema.parseData = function (data) {
+  schema.parseData = function (data) {
     var dataObject = {};
-    var schemaDataPrefix = Schema.setup.dataPrefix;
+    var schemaDataPrefix = schema.setup.dataPrefix;
     var dataPrefixLength = schemaDataPrefix && schemaDataPrefix.length;
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
@@ -144,10 +147,10 @@ var Schema = {};
     return dataObject;
   };
 
-  Schema.parseOptions = function (options) {
+  schema.parseOptions = function (options) {
     var optionsObject = {};
     var parsedOptionsObject = {};
-    var schemaDataPrefix = Schema.setup.dataPrefix;
+    var schemaDataPrefix = schema.setup.dataPrefix;
     var optionsPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
     var optionsType = Object.prototype.toString.call(options).slice(8, -1);
     if (optionsType === 'Object') {
@@ -184,6 +187,7 @@ var Schema = {};
   };
 
 })(jQuery);
+
 /*!
  * Forms
  */
@@ -191,13 +195,13 @@ var Schema = {};
 (function ($) {
   'use strict';
 
-  Schema.validate = function (event, options) {
-    var eventSelector = Schema.events.validate.selector;
+  schema.validate = function (event, options) {
+    var eventSelector = schema.events.validate.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.each(function () {
       var $_this = $(this);
-      var $_data = Schema.parseData($_this.data());
+      var $_data = schema.parseData($_this.data());
       var requireChanged = ($_data.schemaValidate === 'changed');
       $_this.find(':input').one('change', function () {
         $_this.data('changed', true);
@@ -213,6 +217,9 @@ var Schema = {};
               $_input.prop('disabled', true).data('disabled', true);
             }
           });
+          if ($_data.schemaValidate === 'once') {
+            $_this.find(':submit').prop('disabled', true);
+          }
           $_form.submit();
         } else if (validated === undefined) {
           history.back();
@@ -233,6 +240,7 @@ var Schema = {};
   };
 
 })(jQuery);
+
 /*!
  * Utilities
  */
@@ -240,8 +248,8 @@ var Schema = {};
 (function ($) {
   'use strict';
 
-  Schema.trim = function (event, options) {
-    var eventSelector = Schema.events.trim.selector;
+  schema.trim = function (event, options) {
+    var eventSelector = schema.events.trim.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.contents().filter(function () {
@@ -249,7 +257,7 @@ var Schema = {};
     }).remove();
   };
 
-  Schema.parseURL = function (url) {
+  schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
     anchor.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
     return {
@@ -288,6 +296,8 @@ var Schema = {};
   };
 
 })(jQuery);
+
+
 /*!
  * Icons
  */
@@ -295,17 +305,17 @@ var Schema = {};
 (function ($) {
   'use strict';
 
-  Schema.sprite = function (event, options) {
-    var iconsData = Schema.icons;
-    var eventSelector = Schema.events.sprite.selector;
+  schema.sprite = function (event, options) {
+    var iconsData = schema.icons;
+    var eventSelector = schema.events.sprite.selector;
     var optionalSelector = options && options.selector;
     var colorEnabled = options && options.colorEnabled;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.each(function () {
       var $_this = $(this);
-      var $_data = Schema.parseData($_this.data());
+      var $_data = schema.parseData($_this.data());
       var iconName = $_data.schemaIcon || 'square';
-      var iconData = iconsData[iconName] || iconsData['square'];
+      var iconData = iconsData[iconName] || iconsData.square;
       if (typeof iconData === 'string') {
         iconData = iconsData[iconData];
       }
@@ -354,8 +364,11 @@ var Schema = {};
     });
   };
 
-  Schema.icons = {
+  schema.icons = {
     'search': [30, 32, 'M20.571 14.857q0-3.304-2.348-5.652t-5.652-2.348-5.652 2.348-2.348 5.652 2.348 5.652 5.652 2.348 5.652-2.348 2.348-5.652zM29.714 29.714q0 0.929-0.679 1.607t-1.607 0.679q-0.964 0-1.607-0.679l-6.125-6.107q-3.196 2.214-7.125 2.214-2.554 0-4.884-0.991t-4.018-2.679-2.679-4.018-0.991-4.884 0.991-4.884 2.679-4.018 4.018-2.679 4.884-0.991 4.884 0.991 4.018 2.679 2.679 4.018 0.991 4.884q0 3.929-2.214 7.125l6.125 6.125q0.661 0.661 0.661 1.607z'],
+    'rss': [25, 32, 'M6.857 24q0 1.429-1 2.429t-2.429 1-2.429-1-1-2.429 1-2.429 2.429-1 2.429 1 1 2.429zM16 26.196q0.036 0.5-0.304 0.857-0.321 0.375-0.839 0.375h-2.411q-0.446 0-0.768-0.295t-0.357-0.741q-0.393-4.089-3.295-6.991t-6.991-3.295q-0.446-0.036-0.741-0.357t-0.295-0.768v-2.411q0-0.518 0.375-0.839 0.304-0.304 0.768-0.304h0.089q2.857 0.232 5.464 1.438t4.625 3.241q2.036 2.018 3.241 4.625t1.438 5.464zM25.143 26.232q0.036 0.482-0.321 0.839-0.321 0.357-0.821 0.357h-2.554q-0.464 0-0.795-0.313t-0.348-0.759q-0.214-3.839-1.804-7.295t-4.134-6-6-4.134-7.295-1.821q-0.446-0.018-0.759-0.348t-0.313-0.777v-2.554q0-0.5 0.357-0.821 0.321-0.321 0.786-0.321h0.054q4.679 0.232 8.955 2.143t7.598 5.25q3.339 3.321 5.25 7.598t2.143 8.955z'],
+    'bar-chart': [37, 32, 'M11.429 16v9.143h-4.571v-9.143h4.571zM18.286 6.857v18.286h-4.571v-18.286h4.571zM36.571 27.429v2.286h-36.571v-27.429h2.286v25.143h34.286zM25.143 11.429v13.714h-4.571v-13.714h4.571zM32 4.571v20.571h-4.571v-20.571h4.571z'],
+    'share': [32, 32, 'M0 16q0-2.375 1.67-4.045t4.045-1.67q2.25 0 3.893 1.536l6.429-3.214q-0.036-0.393-0.036-0.607 0-2.375 1.67-4.045t4.045-1.67 4.045 1.67 1.67 4.045-1.67 4.045-4.045 1.67q-2.25 0-3.893-1.536l-6.429 3.214q0.036 0.393 0.036 0.607t-0.036 0.607l6.429 3.214q1.643-1.536 3.893-1.536 2.375 0 4.045 1.67t1.67 4.045-1.67 4.045-4.045 1.67-4.045-1.67-1.67-4.045q0-0.214 0.036-0.607l-6.429-3.214q-1.643 1.536-3.893 1.536-2.375 0-4.045-1.67t-1.67-4.045z'],
     'arrow-left': [32, 32, 'M12.586 4.586l-10 10c-0.781 0.781-0.781 2.047 0 2.828l10 10c0.781 0.781 2.047 0.781 2.828 0 0.781-0.781 0.781-2.047 0-2.828l-6.586-6.586h19.172c1.105 0 2-0.895 2-2 0-1.105-0.895-2-2-2h-19.172l6.586-6.586c0.39-0.391 0.586-0.902 0.586-1.414s-0.195-1.024-0.586-1.414c-0.781-0.781-2.047-0.781-2.828 0z'],
     'arrow-right': [32, 32, 'M19.414 27.414l10-10c0.781-0.781 0.781-2.047 0-2.828l-10-10c-0.781-0.781-2.047-0.781-2.828 0-0.781 0.781-0.781 2.047 0 2.828l6.586 6.586h-19.172c-1.105 0-2 0.895-2 2s0.895 2 2 2h19.172l-6.586 6.586c-0.39 0.39-0.586 0.902-0.586 1.414s0.195 1.024 0.586 1.414c0.781 0.781 2.047 0.781 2.828 0z'],
     'envelope': [32, 32, 'M0 26.857v-14.179q0.786 0.875 1.804 1.554 6.464 4.393 8.875 6.161 1.018 0.75 1.652 1.17t1.688 0.857 1.964 0.438h0.036q0.911 0 1.964-0.438t1.688-0.857 1.652-1.17q3.036-2.196 8.893-6.161 1.018-0.696 1.786-1.554v14.179q0 1.179-0.839 2.018t-2.018 0.839h-26.286q-1.179 0-2.018-0.839t-0.839-2.018zM0 7.821q0-1.393 0.741-2.321t2.116-0.929h26.286q1.161 0 2.009 0.839t0.848 2.018q0 1.411-0.875 2.696t-2.179 2.196q-6.714 4.661-8.357 5.804-0.179 0.125-0.759 0.545t-0.964 0.679-0.929 0.58-1.027 0.482-0.893 0.161h-0.036q-0.411 0-0.893-0.161t-1.027-0.482-0.929-0.58-0.964-0.679-0.759-0.545q-1.625-1.143-4.679-3.259t-3.661-2.545q-1.107-0.75-2.089-2.063t-0.982-2.438z'],
@@ -365,7 +378,7 @@ var Schema = {};
     'user-md': [25, 32, 'M0 25.089q0-1.214 0.098-2.339t0.429-2.464 0.848-2.366 1.446-1.839 2.143-1.080q-0.393 0.929-0.393 2.143v3.625q-1.036 0.357-1.661 1.25t-0.625 1.982q0 1.429 1 2.429t2.429 1 2.429-1 1-2.429q0-1.089-0.634-1.982t-1.652-1.25v-3.625q0-1.107 0.446-1.661 2.357 1.857 5.268 1.857t5.268-1.857q0.446 0.554 0.446 1.661v1.143q-1.893 0-3.232 1.339t-1.339 3.232v1.589q-0.571 0.518-0.571 1.268 0 0.714 0.5 1.214t1.214 0.5 1.214-0.5 0.5-1.214q0-0.75-0.571-1.268v-1.589q0-0.929 0.679-1.607t1.607-0.679 1.607 0.679 0.679 1.607v1.589q-0.571 0.518-0.571 1.268 0 0.714 0.5 1.214t1.214 0.5 1.214-0.5 0.5-1.214q0-0.75-0.571-1.268v-1.589q0-1.214-0.616-2.277t-1.67-1.67q0-0.179 0.009-0.759t0-0.857-0.045-0.741-0.125-0.839-0.232-0.714q1.214 0.268 2.143 1.080t1.446 1.839 0.848 2.366 0.429 2.464 0.098 2.339q0 2.161-1.304 3.393t-3.464 1.232h-15.607q-2.161 0-3.464-1.232t-1.304-3.393zM4.571 24q0-0.464 0.339-0.804t0.804-0.339 0.804 0.339 0.339 0.804-0.339 0.804-0.804 0.339-0.804-0.339-0.339-0.804zM5.714 9.143q0-2.839 2.009-4.848t4.848-2.009 4.848 2.009 2.009 4.848-2.009 4.848-4.848 2.009-4.848-2.009-2.009-4.848z'],
     'home': [30, 32, 'M0.464 16.063q0.018-0.241 0.196-0.384l12.839-10.696q0.571-0.464 1.357-0.464t1.357 0.464l4.357 3.643v-3.482q0-0.25 0.161-0.411t0.411-0.161h3.429q0.25 0 0.411 0.161t0.161 0.411v7.286l3.911 3.25q0.179 0.143 0.196 0.384t-0.125 0.42l-1.107 1.321q-0.143 0.161-0.375 0.196h-0.054q-0.232 0-0.375-0.125l-12.357-10.304-12.357 10.304q-0.214 0.143-0.429 0.125-0.232-0.036-0.375-0.196l-1.107-1.321q-0.143-0.179-0.125-0.42zM4.571 26.286v-8.571q0-0.018 0.009-0.054t0.009-0.054l10.268-8.464 10.268 8.464q0.018 0.036 0.018 0.107v8.571q0 0.464-0.339 0.804t-0.804 0.339h-6.857v-6.857h-4.571v6.857h-6.857q-0.464 0-0.804-0.339t-0.339-0.804z'],
     'bookmarks': [32, 32, 'M8 4v28l10-10 10 10v-28zM24 0h-20v28l2-2v-24h18z'],
-    'chat': [32, 32, 'M9.28 19.52v-9.92h-6.080c-1.76 0-3.2 1.44-3.2 3.2v9.6c0 1.76 1.44 3.2 3.2 3.2h1.6v4.8l4.8-4.8h8c1.76 0 3.2-1.44 3.2-3.2v-2.912c-0.102 0.022-0.211 0.034-0.32 0.034h-11.2zM28.8 1.6h-14.4c-1.76 0-3.2 1.44-3.2 3.2v12.8h11.2l4.8 4.8v-4.8h1.6c1.76 0 3.2-1.44 3.2-3.2v-9.6c0-1.76-1.44-3.2-3.2-3.2z'],
+    'chat': [32, 32, 'M9.28 19.52v-9.92h-6.080c-1.76 0-3.2 1.44-3.2 3.2v9.6c0 1.76 1.44 3.2 3.2 3.2h1.6v4.8l4.8-4.8h8c1.76 0 3.2-1.44 3.2-3.2v-2.912zM28.8 1.6h-14.4c-1.76 0-3.2 1.44-3.2 3.2v12.8h11.2l4.8 4.8v-4.8h1.6c1.76 0 3.2-1.44 3.2-3.2v-9.6c0-1.76-1.44-3.2-3.2-3.2z'],
     'sign-out': [30, 32, 'M0 22.286v-12.571q0-2.125 1.509-3.634t3.634-1.509h5.714q0.232 0 0.402 0.17t0.17 0.402q0 0.071 0.018 0.357t0.009 0.473-0.054 0.42-0.179 0.348-0.366 0.116h-5.714q-1.179 0-2.018 0.839t-0.839 2.018v12.571q0 1.179 0.839 2.018t2.018 0.839h5.571t0.205 0.018 0.205 0.054 0.143 0.098 0.125 0.161 0.036 0.241q0 0.071 0.018 0.357t0.009 0.473-0.054 0.42-0.179 0.348-0.366 0.116h-5.714q-2.125 0-3.634-1.509t-1.509-3.634zM6.857 19.429v-6.857q0-0.464 0.339-0.804t0.804-0.339h8v-5.143q0-0.464 0.339-0.804t0.804-0.339 0.804 0.339l9.714 9.714q0.339 0.339 0.339 0.804t-0.339 0.804l-9.714 9.714q-0.339 0.339-0.804 0.339t-0.804-0.339-0.339-0.804v-5.143h-8q-0.464 0-0.804-0.339t-0.339-0.804z'],
     'mail-reply': [32, 32, 'M0 11.429q0-0.464 0.339-0.804l9.143-9.143q0.339-0.339 0.804-0.339t0.804 0.339 0.339 0.804v4.571h4q12.732 0 15.625 7.196 0.946 2.393 0.946 5.946 0 2.964-2.268 8.054-0.054 0.125-0.188 0.429t-0.241 0.536-0.232 0.393q-0.214 0.304-0.5 0.304-0.268 0-0.42-0.179t-0.152-0.446q0-0.161 0.045-0.473t0.045-0.42q0.089-1.214 0.089-2.196 0-1.804-0.313-3.232t-0.866-2.473-1.429-1.804-1.884-1.241-2.375-0.759-2.75-0.384-3.134-0.107h-4v4.571q0 0.464-0.339 0.804t-0.804 0.339-0.804-0.339l-9.143-9.143q-0.339-0.339-0.339-0.804z'],
     'check-square-o': [30, 32, 'M0 22.286v-14.857q0-2.125 1.509-3.634t3.634-1.509h14.857q1.125 0 2.089 0.446 0.268 0.125 0.321 0.411 0.054 0.304-0.161 0.518l-0.875 0.875q-0.179 0.179-0.411 0.179-0.054 0-0.161-0.036-0.411-0.107-0.804-0.107h-14.857q-1.179 0-2.018 0.839t-0.839 2.018v14.857q0 1.179 0.839 2.018t2.018 0.839h14.857q1.179 0 2.018-0.839t0.839-2.018v-4.536q0-0.232 0.161-0.393l1.143-1.143q0.179-0.179 0.411-0.179 0.107 0 0.214 0.054 0.357 0.143 0.357 0.518v5.679q0 2.125-1.509 3.634t-3.634 1.509h-14.857q-2.125 0-3.634-1.509t-1.509-3.634zM4.589 13.714q0-0.589 0.429-1.018l1.964-1.964q0.429-0.429 1.018-0.429t1.018 0.429l4.696 4.696 11.554-11.554q0.429-0.429 1.018-0.429t1.018 0.429l1.964 1.964q0.429 0.429 0.429 1.018t-0.429 1.018l-14.536 14.536q-0.429 0.429-1.018 0.429t-1.018-0.429l-7.679-7.679q-0.429-0.429-0.429-1.018z'],

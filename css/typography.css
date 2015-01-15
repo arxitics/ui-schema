@@ -1,5 +1,5 @@
 /*!
- * Text
+ * Typography
  */
 
 /**
@@ -393,6 +393,10 @@
   margin-left: .8em;
 }
 
+.ui-list-inline > li + li::before {
+  margin-right: .6em;
+}
+
 .ui-list-indent dd {
   margin-left: 2em;
 }
@@ -447,5 +451,19 @@
 
 .ui-list-group p {
   margin-top: 0;
+}
+
+.ui-book-contents ol {
+  counter-reset: section;
+  list-style-type: none;
+}
+
+.ui-book-contents > ol {
+  padding-left: 0;
+}
+
+.ui-book-contents li::before {
+  counter-increment: section;
+  content: counters(section, ".") " ";
 }
 

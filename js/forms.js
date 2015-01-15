@@ -5,13 +5,13 @@
 (function ($) {
   'use strict';
 
-  Schema.validate = function (event, options) {
-    var eventSelector = Schema.events.validate.selector;
+  schema.validate = function (event, options) {
+    var eventSelector = schema.events.validate.selector;
     var optionalSelector = options && options.selector;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.each(function () {
       var $_this = $(this);
-      var $_data = Schema.parseData($_this.data());
+      var $_data = schema.parseData($_this.data());
       var requireChanged = ($_data.schemaValidate === 'changed');
       $_this.find(':input').one('change', function () {
         $_this.data('changed', true);
@@ -27,6 +27,9 @@
               $_input.prop('disabled', true).data('disabled', true);
             }
           });
+          if ($_data.schemaValidate === 'once') {
+            $_this.find(':submit').prop('disabled', true);
+          }
           $_form.submit();
         } else if (validated === undefined) {
           history.back();

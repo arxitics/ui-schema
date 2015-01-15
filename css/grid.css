@@ -16,11 +16,13 @@
 }
 
 .ui-container-responsive {
-  
+  display: block;
+  overflow: auto;
 }
 
 .ui-container-flex {
-  display: -moz-flex;
+  display: -webkit-box;
+  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -28,6 +30,7 @@
 
 .ui-grid-fluid {
   display: block;
+  height: auto;
 }
 
 .ui-grid-column {
@@ -55,6 +58,8 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
+  height: auto;
+  min-height: 1px;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -175,11 +180,11 @@
 }
 
 .ui-offset-small {
-  margin-left: 0.8rem;
+  margin-left: .8rem;
 }
 
 .ui-offset-tiny {
-  margin-left: 0.5rem;
+  margin-left: .5rem;
 }
 
 .ui-skip-huge {
@@ -195,11 +200,11 @@
 }
 
 .ui-skip-small {
-  margin-top: 0.8rem;
+  margin-top: .8rem;
 }
 
 .ui-skip-tiny {
-  margin-top: 0.5rem;
+  margin-top: .5rem;
 }
 
 .ui-block-center {

@@ -1,0 +1,15 @@
+extends layout
+
+block variables
+  - var pageID = 'notes'
+  - var pageTitle = 'Release notes'
+  
+block aside
+  include links
+
+block article
+  h3.ui-header-primary Release history
+  ul
+    li 
+      strong 2014-07-31
+      | : Released v0.1.0

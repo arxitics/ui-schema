@@ -1,0 +1,29 @@
+extends ../layout
+
+block variables
+  - var pageID = 'css/forms'
+  - var pageTitle = 'Forms'
+
+block aside
+  include modules
+
+block article
+  h3.ui-header-primary Forms
+  section
+    h4.ui-header-secondary Buttons
+    div
+      button(type='button') Default
+      button.ui-button-primary(type='button') Primary
+      button.ui-button-success(type='button') Success
+      button.ui-button-info(type='button') Info
+      button.ui-button-warning(type='button') Warning
+      button.ui-button-danger(type='button') Danger
+      button(type='button' disabled) Disabled
+      |  
+      a.ui-text-button.ui-button-primary(href='http://arxitics.com/') Link
+    .ui-skip-medium
+      button.ui-zoom-huge(type='button') Huge
+      button.ui-zoom-large(type='button') Large
+      button.ui-zoom-medium(type='button') Medium
+      button.ui-zoom-small(type='button') Small
+      button.ui-zoom-tiny(type='button') Tiny
