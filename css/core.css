@@ -330,7 +330,7 @@ button:focus {
 }
 
 input {
-  height: 1.6em;
+  height: 1.53061em;
 }
 
 input,
@@ -354,7 +354,6 @@ input[type="file"] {
 input:invalid,
 textarea:invalid {
   border-color: #a94442;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 }
 
 input:not([type="file"]):not([type="checkbox"]):not([type="radio"]):focus,

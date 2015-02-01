@@ -112,7 +112,7 @@
             var keyValueArray = keyValuePair.split(/\s*:\s*/);
             var optionKey = keyValueArray[0].toLowerCase();
             var optionValue = keyValueArray[1].replace(/\,/g, ' ').trim();
-            if(optionValue.search(/\s+/) !== -1) {
+            if (optionValue.search(/\s+/) !== -1) {
               optionValue = optionValue.split(/\s+/);
             }
             optionsObject[optionKey] = optionValue;

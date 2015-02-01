@@ -166,7 +166,7 @@ var schema = {};
             var keyValueArray = keyValuePair.split(/\s*:\s*/);
             var optionKey = keyValueArray[0].toLowerCase();
             var optionValue = keyValueArray[1].replace(/\,/g, ' ').trim();
-            if(optionValue.search(/\s+/) !== -1) {
+            if (optionValue.search(/\s+/) !== -1) {
               optionValue = optionValue.split(/\s+/);
             }
             optionsObject[optionKey] = optionValue;
@@ -329,14 +329,14 @@ var schema = {};
         iconColorEnabled = true;
       }
 
-      /* Create <svg> element */
+      // Create <svg> element
       var svgNamespace = 'http://www.w3.org/2000/svg';
       var svgDoc = document.createElementNS(svgNamespace, 'svg');
       svgDoc.setAttribute('width', iconWidth);
       svgDoc.setAttribute('height', iconHeight);
       svgDoc.setAttribute('viewBox', '0 0 ' + iconWidth + ' ' + iconHeight);
 
-      /* Create <path> element */
+      // Create <path> element
       if (Array.isArray(iconPath)) {
         iconPath.forEach(function (pathSegment, index) {
           var pathTag = document.createElementNS(svgNamespace, 'path');

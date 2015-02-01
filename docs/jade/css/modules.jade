@@ -4,7 +4,7 @@ h3.ui-header-primary Modules
   .ui-panel-body
     mixin link(page, text)
       a(class=(pageID === ('css/' + page) ? 'ui-state-active': '')
-        href='#{appStorage}/docs/html/css/#{page}.html')= text
+        href='#{appDocs}/css/#{page}.html')= text
     .ui-list-group.ui-zoom-large
       +link('base', 'Base')
       +link('core', 'Core')

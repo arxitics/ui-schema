@@ -2,8 +2,8 @@
  * Forms
  */
 
-.ui-form-fluid,
-.ui-form-block {
+.ui-form-block,
+.ui-form-fluid {
   display: block;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .ui-form-fluid input[type="file"] {
-  padding: .2em 0;
+  padding-left: 0;
   height: 2em;
 }
 
@@ -69,13 +69,15 @@
   stroke: #3071a9;
 }
 
-.ui-button-toolbar .ui-button-group {
+.ui-button-toolbar > .ui-button-group,
+.ui-button-toolbar > .ui-button-switch {
   display: inline-block;
   margin-left: 1rem;
   vertical-align: middle;
 }
 
-.ui-button-toolbar .ui-button-group:first-child {
+.ui-button-toolbar > .ui-button-group:first-child,
+.ui-button-toolbar > .ui-button-switch:first-child {
   margin-left: 0;
 }
 
@@ -83,6 +85,10 @@
 .ui-button-group > input[type="checkbox"],
 .ui-button-switch > input[type="checkbox"] {
   display: none;
+}
+
+.ui-button-switch {
+  height: 2.34694em;
 }
 
 .ui-button-switch > label {
@@ -174,7 +180,7 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  height: 2.4em;
+  height: 2.34694em;
 }
 
 .ui-input-addon > :not(button):not(input) {
@@ -187,7 +193,7 @@
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -webkit-flex: 1;
-  -ms-flex: 1; 
+  -ms-flex: 1;
   flex: 1;
 }
 
@@ -234,4 +240,3 @@
   cursor: default;
   pointer-events: none;
 }
-

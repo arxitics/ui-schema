@@ -4,6 +4,6 @@ h3.ui-header-primary Contents
   .ui-panel-body
     mixin link(page, text)
       a(class=(pageID === ('examples/' + page) ? 'ui-state-active': '')
-        href='#{appStorage}/docs/html/examples/#{page}.html')= text
+        href='#{appDocs}/examples/#{page}.html')= text
     .ui-list-group.ui-zoom-large
       +link('login', 'Login')

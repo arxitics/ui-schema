@@ -20,6 +20,7 @@
 
 .ui-header-navbar > .ui-header-brand {
   float: left;
+  padding-bottom: .5em;
   padding-top: .5em;
 }
 
@@ -120,7 +121,7 @@
 }
 
 /**
- * 1. 
+ * 1.
  * 2. Ensure that `float` will not modify the computed value of `display`.
  */
 
@@ -210,4 +211,3 @@
   border-top-right-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
 }
-

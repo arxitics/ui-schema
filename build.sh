@@ -4,8 +4,8 @@
 cd "$(dirname $0)/"
 
 # copyright Information
-version="0.2.4"
-copyright="/*! UI Schema v$version | (c) 2014 Arxitics | MIT license */"
+version="0.2.5"
+copyright="/*! UI Schema v$version | (c) 2015 Arxitics | MIT license */"
 echo "current version: v$version"
 
 # Minify CSS files

@@ -4,7 +4,8 @@ block variables
 - var appTitle = 'UI Schema'
 - var appKeywords = 'UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development'
 - var appDescription = 'A cutting edge, lightweight, and powerful front-end framework for faster and easier web development'
-- var appStorage = '../..' + ((pageID || '').replace(/[^\/]/g, '').replace(/\//g, '/..'))
+- var appRoot = '../..' + ((pageID || '').replace(/[^\/]/g, '').replace(/\//g, '/..'))
+- var appDocs = appRoot + '/docs/html'
 
 doctype html
 
@@ -17,19 +18,18 @@ html(id=pageID lang=locale)
       meta(name='keywords' content= pageKeywords || appKeywords)
       meta(name='description' content=pageDescription || appDescription)
       meta(name='viewport' content='width=device-width, initial-scale=1.0')
-      link(rel='icon' type='image/x-ico' href='#{appStorage}/images/favicon.ico')
-      link(rel='stylesheet' href='#{appStorage}/dist/ui-schema.min.css' media='all')
-      link(rel='stylesheet' href='#{appStorage}/docs/css/prism.css' media='all')
+      link(rel='stylesheet' href='#{appRoot}/dist/ui-schema.min.css' media='all')
+      link(rel='stylesheet' href='#{appRoot}/docs/css/prism.css' media='all')
   body
     header.ui-header-navbar.ui-container-fluid.ui-grid-fluid(role='banner')
       block header
         .ui-header-brand
-          h2: a(href='#{appStorage}/docs/html/index.html' accesskey='h')= appTitle
+          h2: a(href='#{appDocs}/index.html' accesskey='h')= appTitle
         nav.ui-grid-33.ui-mobile-auto(role='navigation')
           ul
-            li: a(href='#{appStorage}/docs/html/css.html' accesskey='c') CSS
-            li: a(href='#{appStorage}/docs/html/javascript.html' accesskey='j') JavaScript
-            li: a(href='#{appStorage}/docs/html/examples.html' accesskey='e') Examples
+            li: a(href='#{appDocs}/css.html' accesskey='c') CSS
+            li: a(href='#{appDocs}/javascript.html' accesskey='j') JavaScript
+            li: a(href='#{appDocs}/examples.html' accesskey='e') Examples
             li: a(href='https://github.com/arxitics/ui-schema' rel='external' target='_blank' accesskey='g') GitHub
     main.ui-container-fluid.ui-grid-fluid(role='main')
       aside.ui-grid-25.ui-mobile-expand
@@ -39,13 +39,13 @@ html(id=pageID lang=locale)
     footer.ui-container-fluid(role='contentinfo')
       block footer
         address.ui-text-muted.ui-mobile-expand
-            span &copy; 2014 &ndash; 2015 Arxitics &nbsp;
+            span &copy; 2014&ndash;2015 Arxitics &nbsp;
             span Code licensed under 
               a(href='https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt' rel='external' target='_blank') MIT
               | , documentation under 
               a(href='http://creativecommons.org/licenses/by-sa/4.0' rel='external' target='_blank') CC BY-SA 4.0
               | .
     block foot
-      script(src='#{appStorage}/dist/jquery.min.js')
-      script(src='#{appStorage}/dist/ui-schema.min.js')
-      script(src='#{appStorage}/docs/js/prism.min.js')
+      script(src='#{appRoot}/dist/jquery.min.js')
+      script(src='#{appRoot}/dist/ui-schema.min.js')
+      script(src='#{appRoot}/docs/js/prism.min.js')
