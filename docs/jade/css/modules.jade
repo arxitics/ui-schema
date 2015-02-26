@@ -1,26 +1,24 @@
 
 h3.ui-header-primary Modules
-.ui-content-panel
-  .ui-panel-body
-    mixin link(page, text)
-      a(class=(pageID === ('css/' + page) ? 'ui-state-active': '')
-        href='#{appDocs}/css/#{page}.html')= text
-    .ui-list-group.ui-zoom-large
-      +link('base', 'Base')
-      +link('core', 'Core')
-      +link('grid', 'Grid')
-      +link('navigation', 'Navigation')
-      +link('menus', 'Menus')
-      +link('typography', 'Typography')
-      +link('forms', 'Forms')
-      +link('tables', 'Tables')
-      +link('images', 'Images')
-      +link('icons', 'Icons')
-      +link('colors', 'Colors')
-      +link('effects', 'Effects')
-      +link('shapes', 'Shapes')
-      +link('events', 'Events')
-      +link('mobile', 'Mobile')
-      +link('print', 'Print')
-      +link('utilities', 'Utilities')
-      +link('variables', 'Variables')
+ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
+  mixin link(page, text)
+    li(class=(pageID === ('css/' + page) ? 'ui-state-active': ''))
+      a(href='#{appDocs}/css/#{page}.html')= text
+  +link('base', 'Base')
+  +link('core', 'Core')
+  +link('grid', 'Grid')
+  +link('navigation', 'Navigation')
+  +link('menus', 'Menus')
+  +link('typography', 'Typography')
+  +link('forms', 'Forms')
+  +link('tables', 'Tables')
+  +link('images', 'Images')
+  +link('icons', 'Icons')
+  +link('colors', 'Colors')
+  +link('effects', 'Effects')
+  +link('shapes', 'Shapes')
+  +link('events', 'Events')
+  +link('mobile', 'Mobile')
+  +link('print', 'Print')
+  +link('utilities', 'Utilities')
+  +link('variables', 'Variables')

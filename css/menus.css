@@ -53,8 +53,7 @@
 }
 
 .ui-menu-dropdown > ul {
-  -webkit-box-shadow: 0 .6rem 1.2rem rgba(0, 0, 0, .175);
-  box-shadow: 0 .6rem 1.2rem rgba(0, 0, 0, .175);
+  box-shadow: 0 .6rem 1.2rem rgba(0,0,0,.175);
   display: none;
   padding-bottom: .4em;
   padding-top: .4em;
@@ -89,4 +88,3 @@
 .ui-menu-dropdown.ui-pull-right > ul {
   right: 0;
 }
-

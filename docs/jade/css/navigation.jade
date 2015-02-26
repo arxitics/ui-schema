@@ -12,7 +12,7 @@ block article
   section
     h4.ui-header-secondary Navs
     p Navs available in UI Schema have shared markup as well as shared states. Swap modifier classes to switch between each style.
-    .ui-grid-fluid
+    .ui-container-grid
       .ui-fluid-40.ui-float-left
         ul.ui-nav-tabs
           li.ui-state-active: a(href='http://arxitics.com/') Home
@@ -23,7 +23,7 @@ block article
           li.ui-state-active: a(href='http://arxitics.com/') Home
           li: a(href='http://arxitics.com/browse') Browse
           li: a(href='http://arxitics.com/explore') Explore
-    .ui-grid-fluid
+    .ui-container-grid
       .ui-fluid-40.ui-float-left
         ul.ui-nav-pills
           li.ui-state-active: a(href='http://arxitics.com/') Home
@@ -34,7 +34,7 @@ block article
           li.ui-state-active: a(href='http://arxitics.com/') Home
           li: a(href='http://arxitics.com/browse') Browse
           li: a(href='http://arxitics.com/explore') Explore
-    .ui-grid-fluid
+    .ui-container-grid
       .ui-fluid-40.ui-float-left
         ul.ui-nav-stacked
           li.ui-state-active: a(href='http://arxitics.com/') Home
@@ -90,7 +90,7 @@ block article
       &lt;/ul&gt;
   section
     h4.ui-header-secondary Navbar
-    header.ui-header-navbar.ui-container-fluid.ui-grid-fluid(role='banner')
+    header.ui-header-navbar.ui-container-fluid.ui-container-grid(role='banner')
       .ui-header-brand
         h2: a(href='http://arxitics.com/') Arxitics
       nav.ui-grid-33.ui-mobile-auto(role='navigation')
@@ -112,7 +112,7 @@ block article
           button(type='submit')
             i(data-schema-icon='search') Go!
     pre: code.language-markup.
-      &lt;header class="ui-header-navbar ui-container-fluid ui-grid-fluid" role="banner"&gt;
+      &lt;header class="ui-header-navbar ui-container-fluid ui-container-grid" role="banner"&gt;
         &lt;div class="ui-header-brand"&gt;
           &lt;h2&gt;&lt;a href="http://arxitics.com/"&gt;Arxitics&lt;/a&gt;&lt;/h2&gt;
         &lt;/div&gt;
@@ -184,3 +184,6 @@ block article
         &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=5"&gt;5&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=4" title="Next page"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;
       &lt;/ol&gt;
+
+block append foot
+  script(src='#{appIcons}/forms.js')

@@ -73,10 +73,11 @@ html {
 
 body {
   background-color: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
   color: #333;
   font-size: 1.4rem;
   line-height: 1.42857; /* 1 */
+  text-rendering: geometricPrecision;
 }
 
 /**
@@ -159,7 +160,7 @@ i > svg {
   height: 100%;
   width: 100%;
   overflow: visible;
-  stroke: currentColor;
+  stroke: none;
   fill: currentColor;
 }
 
@@ -173,7 +174,6 @@ progress {
   background-color: #f5f5f5;
   border: none;
   border-radius: .5em;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
   box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
   color: #428bca;
   height: 1.5em;
@@ -215,9 +215,14 @@ hr {
 blockquote {
   border-left: .4em solid #eee;
   font-size: 125%;
-  margin: 0 0 2em;
+  margin: 0 0 1.6em;
   overflow: hidden;
   padding: .5em 1em;
+}
+
+blockquote > footer {
+  font-size: 80%;
+  text-align: right;
 }
 
 address {
@@ -241,7 +246,6 @@ pre {
   display: block;
   padding: .6em;
   word-break: break-all;
-  word-wrap: break-word;
 }
 
 pre > code {
@@ -434,16 +438,19 @@ table {
   text-align: left;
 }
 
-td,
-th {
-  border-top: 1px solid #ddd;
-  padding: .6em .8em; 
-  vertical-align: middle;
+thead {
+  text-align: left;
 }
 
+td,
 th {
-  text-align: left;
-  border-bottom-width: 2px;
+  padding: .6em .8em;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:last-child > td {
+  border-bottom: none;
 }
 
 /* ARIA
@@ -470,15 +477,6 @@ th {
   }
   100% {
     -webkit-transform: rotate(360deg);
-  }
-}
-
-@-o-keyframes spin {
-  0% {
-    -o-transform: rotate(0deg);
-  }
-  100% {
-    -o-transform: rotate(360deg);
   }
 }
 

@@ -8,52 +8,47 @@ block aside
   include modules
 
 block article
-  h3.ui-header-primary Grid system
+  h3.ui-header-primary Grid System
   .ui-text-center
-    .ui-grid-fluid.ui-frame-rounded.ui-columns-seperated
+    .ui-container-grid.ui-frame-rounded.ui-columns-seperated
       .ui-grid-50 50%
       .ui-grid-50 50%
-    .ui-grid-fluid.ui-frame-rounded.ui-columns-seperated.ui-skip-small
+    .ui-container-grid.ui-frame-rounded.ui-columns-seperated.ui-skip-small
       .ui-grid-33 33.3333%
-      .ui-grid-67.ui-columns-seperated
+      .ui-grid-67.ui-grid-collpase.ui-columns-seperated
         .ui-grid-33 22.2222%
         .ui-grid-67 44.4444%
-    .ui-grid-fluid.ui-frame-rounded.ui-columns-seperated.ui-skip-small
+    .ui-container-grid.ui-frame-rounded.ui-columns-seperated.ui-skip-small
       .ui-grid-25 25%
-      .ui-grid-75.ui-columns-seperated
-        .ui-grid-20 15%
-        .ui-grid-30 22.5%
-        .ui-grid-50.ui-columns-seperated
-          .ui-grid-30 11.25%
-          .ui-grid-70 26.25%
-    .ui-grid-fluid.ui-skip-small
+      .ui-grid-75.ui-grid-collpase.ui-columns-seperated
+        .ui-grid-17 12.5%
+        .ui-grid-33 25%
+        .ui-grid-50 37.5%
+    .ui-container-grid.ui-skip-small
       .ui-grid-20.ui-frame-rounded 20%
       .ui-grid-20.ui-offset-10.ui-frame-rounded 20%
       .ui-grid-30.ui-offset-20.ui-frame-rounded 30%
   pre: code.language-markup.
-    &lt;div class="ui-grid-fluid"&gt;
+    &lt;div class="ui-container-grid"&gt;
       &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
       &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="ui-grid-fluid"&gt;
+    &lt;div class="ui-container-grid"&gt;
       &lt;div class="ui-grid-33"&gt;33.3333%&lt;/div&gt;
-      &lt;div class="ui-grid-67"&gt;
+      &lt;div class="ui-grid-67 ui-grid-collpase"&gt;
         &lt;div class="ui-grid-33"&gt;22.2222%&lt;/div&gt;
         &lt;div class="ui-grid-67"&gt;44.4444%&lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="ui-grid-fluid"&gt;
+    &lt;div class="ui-container-grid"&gt;
       &lt;div class="ui-grid-25"&gt;25%&lt;/div&gt;
-      &lt;div class="ui-grid-75"&gt;
-        &lt;div class="ui-grid-20"&gt;15%&lt;/div&gt;
-        &lt;div class="ui-grid-30"&gt;22.5%&lt;/div&gt;
-        &lt;div class="ui-grid-50"&gt;
-          &lt;div class="ui-grid-30"&gt;11.25%&lt;/div&gt;
-          &lt;div class="ui-grid-70"&gt;26.25%&lt;/div&gt;
-        &lt;/div&gt;
+      &lt;div class="ui-grid-75 ui-grid-collpase"&gt;
+        &lt;div class="ui-grid-17"&gt;12.5%&lt;/div&gt;
+        &lt;div class="ui-grid-33"&gt;25%&lt;/div&gt;
+        &lt;div class="ui-grid-50"&gt;37.5%&lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="ui-grid-fluid"&gt;
+    &lt;div class="ui-container-grid"&gt;
       &lt;div class="ui-grid-20"&gt;20%&lt;/div&gt;
       &lt;div class="ui-grid-20 ui-offset-10"&gt;20%&lt;/div&gt;
       &lt;div class="ui-grid-30 ui-offset-20"&gt;30%&lt;/div&gt;

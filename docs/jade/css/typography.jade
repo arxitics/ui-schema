@@ -9,4 +9,244 @@ block aside
 
 block article
   h3.ui-header-primary Typography
-  p 
+  section
+    h4.ui-header-secondary Code
+    div
+      p You can use 
+        code \slashed
+        |  to produce the Feynman slashed-character notation.
+      pre: code. 
+        &lt;p class="ui-text-lowercase"&gt;Lowercased text.&lt;/p&gt;
+        &lt;p class="ui-text-uppercase"&gt;Uppercased text.&lt;/p&gt;
+        &lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;
+    pre: code.language-markup.
+      &lt;!-- Inline code --&gt;
+      &lt;p&gt;You can use &lt;code&gt;\slashed&lt;/code&gt; to produce the Feynman slashed-character notation.&lt;/p&gt;
+
+      &lt;!-- Code block --&gt;
+      &lt;pre&gt;&lt;code&gt;&lt;p class="ui-text-lowercase"&gt;Lowercased text.&lt;/p&gt;
+      &lt;p class="ui-text-uppercase"&gt;Uppercased text.&lt;/p&gt;
+      &lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;&lt;/code&gt;&lt;/pre&gt;
+  section
+    h4.ui-header-secondary Blockquotes
+    div
+      blockquote
+        p Education is a self organising system, where learning is an emergent phenomenon.
+        footer
+          | &mdash; Sugata Mitra, 
+          cite TED Talks: The Child-driven Education (2010)
+          | .
+    pre: code.language-markup.
+      &lt;blockquote&gt;
+        &lt;p&gt;Education is a self organising system, where learning is an emergent phenomenon.&lt;/p&gt;
+        &lt;footer&gt;
+          &amp;mdash; Sugata Mitra, &lt;cite&gt;TED Talks: The Child-driven Education (2010)&lt;/cite&gt;.
+        &lt;/footer&gt;
+      &lt;/blockquote&gt;
+  section
+    h4.ui-header-secondary Lists
+    .ui-container-grid
+      ul.ui-grid-50.ui-list-inline
+        li: a(href='http://arxitics.com/site/about') About
+        li: a(href='http://arxitics.com/site/terms') Terms
+        li: a(href='http://arxitics.com/site/privacy') Privacy
+        li: a(href='http://arxitics.com/site/disclaimer') Disclaimer
+      ul.ui-grid-50.ui-list-inline.ui-seperator-bullet
+        li: a(href='http://arxitics.com/site/about') About
+        li: a(href='http://arxitics.com/site/terms') Terms
+        li: a(href='http://arxitics.com/site/privacy') Privacy
+        li: a(href='http://arxitics.com/site/disclaimer') Disclaimer
+      dl.ui-list-indent.ui-list-numbered
+        dt Why can't I receive my private key for each email confirmation?
+        dd In consideration of security, you can only receive you private key in the first three emails. You should keep it confidential and never share with others unless requested by our website.
+        dt When the eprints are daily updated?
+        dd We update the eprints from arXiv.org at 1:40 and 4:40 in Greenwich Mean Time. There are no daily updates at weekends.
+    pre: code.language-markup.
+      &lt;!-- Inline list --&gt;
+      &lt;ul class="ui-list-inline"&gt;
+        &lt;li&gt;&lt;a href="http://arxitics.com/site/about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="http://arxitics.com/site/terms"&gt;Terms&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="http://arxitics.com/site/privacy"&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="http://arxitics.com/site/disclaimer"&gt;Disclaimer&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;!-- FAQ --&gt;
+      &lt;dl class="ui-list-indent ui-list-numbered"&gt;
+        &lt;dt&gt;Why can't I receive my private key for each email confirmation?&lt;/dt&gt;
+        &lt;dd&gt;In consideration of security, you can only receive you private key in the first three emails. You should keep it confidential and never share with others unless requested by our website.&lt;/dd&gt;
+        &lt;dt&gt;When the eprints are daily updated?&lt;/dt&gt;
+        &lt;dd&gt;We update the eprints from arXiv.org at 1:40 and 4:40 in Greenwich Mean Time. There are no daily updates at weekends.&lt;/dd&gt;
+      &lt;/dl&gt;
+  section
+    h4.ui-header-secondary List Group
+    .ui-container-grid
+      .ui-grid-50
+        .ui-list-group.ui-block-fluid
+          a(href='./navigation.html') Navigation
+          a(href='./menus.html') Menus
+          a.ui-state-active(href='./typography.html') Typography
+          a(href='./forms.html') Forms
+      .ui-grid-50
+        ul.ui-list-group.ui-block-fluid
+          li.ui-item-success Success
+          li.ui-item-info Info
+          li.ui-item-warning Warning
+          li.ui-item-danger Danger
+    pre: code.language-markup.
+      &lt;!-- Linkify list group items by using anchor tags --&gt;
+      &lt;div class="ui-list-group"&gt;
+        &lt;a href="./navigation.html"&gt;Navigation&lt;/a&gt;
+        &lt;a href="./menus.html"&gt;Menus&lt;/a&gt;
+        &lt;a class="ui-state-active" href="./typography.html"&gt;Typography&lt;/a&gt;
+        &lt;a href="./forms.html"&gt;Forms&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Use contextual classes to style list items --&gt;
+      &lt;ul class="ui-list-group"&gt;
+        &lt;li class="ui-item-success"&gt;Success&lt;/li&gt;
+        &lt;li class="ui-item-info"&gt;Info&lt;/li&gt;
+        &lt;li class="ui-item-warning"&gt;Warning&lt;/li&gt;
+        &lt;li class="ui-item-danger"&gt;Danger&lt;/li&gt;
+      &lt;/ul&gt;
+  section
+    h4.ui-header-secondary Panels
+    .ui-container-grid
+      .ui-grid-50
+        .ui-content-panel
+          .ui-panel-header
+            h4 Links
+          .ui-panel-body
+            ul.ui-list-group
+              li: a(href='http://arxiv.org/abs/1212.5605') Abstract on arXiv.org
+              li: a(href='http://arxiv.org/pdf/1212.5605') View preprint PDF
+              li: a(href='http://arxiv.org/e-print/1212.5605') Download TeX source
+      .ui-grid-50
+        .ui-content-panel
+          .ui-panel-header
+            h4 Basic Information
+          .ui-panel-body
+            table.ui-table-fluid.ui-table-columns-2
+              tr
+                td Name
+                td Zan Pan
+              tr
+                td Location
+                td Beijing, China
+              tr
+                td Website
+                td: a(href='http://github.com/photino' rel='external' target='_blank') http://github.com/photino
+    pre: code.language-markup.
+      &lt;!-- Panel with list groups --&gt;
+      &lt;div class="ui-content-panel"&gt;
+        &lt;div class="ui-panel-header"&gt;
+          &lt;h4&gt;Links&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class="ui-panel-body"&gt;
+          &lt;ul class="ui-list-group"&gt;
+            &lt;li&gt;&lt;a href="http://arxiv.org/abs/1212.5605"&gt;Abstract on arXiv.org&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://arxiv.org/pdf/1212.5605"&gt;View preprint PDF&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="http://arxiv.org/e-print/1212.5605"&gt;Download TeX source&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Panel with tables --&gt;
+      &lt;div class="ui-content-panel"&gt;
+        &lt;div class="ui-panel-header"&gt;
+          &lt;h4&gt;Basic Information&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class="ui-panel-body"&gt;
+          &lt;table class="ui-table-fluid ui-table-columns-2"&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Name&lt;/td&gt;
+              &lt;td&gt;Zan Pan&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Location&lt;/td&gt;
+              &lt;td&gt;Beijing, China&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Website&lt;/td&gt;
+              &lt;td&gt;&lt;a href="http://github.com/photino" rel="external" target="_blank"&gt;http://github.com/photino&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+  section
+    h4.ui-header-secondary Alerts
+    div
+      .ui-content-alert.ui-alert-success
+        p ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing 
+          a(href='http://arxiv.org/' rel='external' target='_blank') arXiv eprints
+          | .
+      .ui-content-alert.ui-alert-info
+        p Accessibility is one of important features of our design. You are recommended to use 
+          a(href='http://arxitics.com/help/keyboard') keyboard navigation
+          |  to be more efficient.
+      .ui-content-alert.ui-alert-warning
+        p Our website is built upon some cutting edge web technologies. Please use the 
+          a(href='http://arxitics.com/help/browsers') latest browsers
+          |  to get a better user experience.
+      .ui-content-alert.ui-alert-danger
+        p We encourage frank, open, and constructive conversation, but frankness doesn't mean lack of civility or lack of respect for others.
+    pre: code.language-markup.
+      &lt;div class="ui-content-alert ui-alert-success"&gt;
+        &lt;p&gt;ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing &lt;a href="http://arxiv.org/" rel="external" target="_blank"&gt;arXiv eprints&lt;/a&gt;.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="ui-content-alert ui-alert-info"&gt;
+        &lt;p&gt;Accessibility is one of important features of our design. You are recommended to use &lt;a href="http://arxitics.com/help/keyboard"&gt;keyboard navigation&lt;/a&gt; to be more efficient.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="ui-content-alert ui-alert-warning"&gt;
+        &lt;p&gt;Our website is built upon some cutting edge web technologies. Please use the &lt;a href="http://arxitics.com/help/browsers"&gt;latest browsers&lt;/a&gt; to get a better user experience.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="ui-content-alert ui-alert-danger"&gt;
+        &lt;p&gt;We encourage frank, open, and constructive conversation, but frankness doesn't mean lack of civility or lack of respect for others.&lt;/p&gt;
+      &lt;/div&gt;
+  section
+    h4.ui-header-secondary Media Object
+    .ui-container-grid
+      .ui-content-link
+        a.ui-content-media.ui-zoom-huge(href='http://arxitics.com/search')
+          .ui-fluid-20.ui-media-object.ui-text-center
+            i(data-schema-icon='search')
+            h4.ui-header-compact Search
+          .ui-fluid-80.ui-media-body.ui-text-active
+            p Advanced search interface to find articles
+      .ui-content-link.ui-skip-large
+        a.ui-content-media.ui-zoom-huge(href='http://arxitics.com/explore')
+          .ui-fluid-20.ui-media-object.ui-text-center
+            i(data-schema-icon='bar-chart')
+            h4.ui-header-compact Explore
+          .ui-fluid-80.ui-media-body.ui-text-active
+            p Analysis, visualization, and recommendations
+    pre: code.language-markup.
+      &lt;div class="ui-content-link"&gt;
+        &lt;a class="ui-content-media ui-zoom-huge" href="http://arxitics.com/search"&gt;
+          &lt;div class="ui-fluid-20 ui-media-object ui-text-center"&gt;
+            &lt;i data-schema-icon="search"&gt;&lt;/i&gt;
+            &lt;h4 class="ui-header-compact"&gt;Search&lt;/h4&gt;
+          &lt;/div&gt;
+          &lt;div class="ui-fluid-80 ui-media-body ui-text-active"&gt;
+            &lt;p&gt;Advanced search interface to find articles&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+  section
+    h4.ui-header-secondary Jumbotron
+    .ui-content-jumbotron
+      h3 403 Forbidden: 
+        span.ui-text-muted You need login to join the chat room.
+      p Please contact 
+        strong help
+          span(aria-hidden='true') .855322
+          | @arxitics.com
+        |  if you think this should not happen again.
+    pre: code.language-markup.
+      &lt;div class="ui-content-jumbotron"&gt;
+        &lt;h3&gt;403 Forbidden: &lt;span class="ui-text-muted"&gt;You need login to join the chat room.&lt;/span&gt;&lt;/h3&gt;
+        &lt;p&gt;Please contact &lt;strong&gt;help&lt;span aria-hidden="true"&gt;.855322&lt;/span&gt;@arxitics.com&lt;/strong&gt; if you think this should not happen again.&lt;/p&gt;
+      &lt;/div&gt;
+
+block append foot
+  script(src='#{appIcons}/editor.js')
+  script(src='#{appIcons}/forms.js')

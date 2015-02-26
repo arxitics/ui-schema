@@ -7,11 +7,11 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../dist/ui-schema.min.css" media="all">
-    <link rel="stylesheet" href="../../docs/css/prism.css" media="all">
+    <link rel="stylesheet" href="../../dist/ui-schema-0.2.6.min.css" media="all">
+    <link rel="stylesheet" href="../../dist/prism-0.0.1.min.css" media="all">
   </head>
   <body>
-    <header role="banner" class="ui-header-navbar ui-container-fluid ui-grid-fluid">
+    <header role="banner" class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-header-brand">
         <h2><a href="../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
       </div>
@@ -24,18 +24,18 @@
         </ul>
       </nav>
     </header>
-    <main role="main" class="ui-container-fluid ui-grid-fluid">
+    <main role="main" class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand">
         <h3 class="ui-header-primary">Links</h3>
-        <div class="ui-content-panel">
-          <div class="ui-panel-body">
-            <div class="ui-list-group ui-zoom-large"><a href="../../docs/html/download.html">Download</a><a href="../../docs/html/structure.html" class="ui-state-active">Directory structure</a><a href="../../docs/html/template.html">Basic template</a><a href="../../docs/html/notes.html">Release notes</a>
-            </div>
-          </div>
-        </div>
+        <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
+                    <li><a href="../../docs/html/download.html">Download</a></li>
+                    <li class="ui-state-active"><a href="../../docs/html/structure.html">Directory Structure</a></li>
+                    <li><a href="../../docs/html/template.html">Basic Template</a></li>
+                    <li><a href="../../docs/html/notes.html">Release Notes</a></li>
+        </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
-        <h3 class="ui-header-primary">Directory structure</h3>
+        <h3 class="ui-header-primary">Directory Structure</h3>
         <p>Once downloaded, unzip the compressed folder to see the structure of UI Schema:</p>
         <pre><code class="language-markup">ui-schema/
 ├── css/
@@ -59,12 +59,12 @@
 │   ├── utilities.css
 │   └── variables.css
 ├── dist/
-│   ├── jquery.min.js
-│   ├── ui-schema.min.css
-│   └── ui-schema.min.js
+│   ├── jquery-2.1.3.min.js
+│   ├── prism-0.0.1.min.css
+│   ├── prism-0.0.1.min.js
+│   ├── ui-schema-0.2.6.min.css
+│   └── ui-schema-0.2.6.min.js
 ├── docs/
-│   ├── css/
-│   │   └── prism.css
 │   ├── html/
 │   │   ├── css/
 │   │   │   ├── base.html
@@ -140,8 +140,6 @@
 │   │   ├── notes.jade
 │   │   ├── structure.jade
 │   │   └── template.jade
-│   ├── js/
-│   │   └── prism.min.js
 │   └── build.sh
 ├── js/
 │   ├── icons/
@@ -153,13 +151,11 @@
 │   │   ├── emoji.js
 │   │   ├── files.js
 │   │   ├── finance.js
+│   │   ├── forms.js
 │   │   ├── healthcare.js
 │   │   ├── licenses.js
-│   │   ├── menu.js
-│   │   ├── mobile.js
 │   │   ├── video.js
-│   │   ├── weather.js
-│   │   └── web.js
+│   │   └── weather.js
 │   ├── core.js
 │   ├── forms.js
 │   ├── icons.js
@@ -177,8 +173,8 @@
     <footer role="contentinfo" class="ui-container-fluid">
       <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2015 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="../../dist/jquery.min.js"></script>
-    <script src="../../dist/ui-schema.min.js"></script>
-    <script src="../../docs/js/prism.min.js"></script>
+    <script src="../../dist/jquery-2.1.3.min.js"></script>
+    <script src="../../dist/prism-0.0.1.min.js"></script>
+    <script src="../../dist/ui-schema-0.2.6.min.js"></script>
   </body>
 </html>

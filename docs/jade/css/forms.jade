@@ -43,7 +43,7 @@ block article
       &lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
   section
     h4.ui-header-secondary Inline Form
-    .ui-grid-fluid
+    .ui-container-grid
       form.ui-grid-50(action='http://arxitics.com/search' method='get' role='form')
         input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
         button(type='submit') Go!
@@ -58,7 +58,7 @@ block article
       &lt;/form&gt;
   section
     h4.ui-header-secondary Block Form
-    .ui-grid-fluid
+    .ui-container-grid
       form.ui-grid-50.ui-form-block(action='http://arxitics.com/browse' method='get' role='form')
         label(for='categories') Categories
         input(id='categories' type='text' name='categories' placeholder='math-ph, math.MP, cs.CC' title='Multiple categories are separated by commas' required)
@@ -97,9 +97,9 @@ block article
       &lt;/form&gt;
   section
     h4.ui-header-secondary Fluid Form
-    .ui-grid-fluid
+    .ui-container-grid
       form.ui-form-fluid(action='http://arxitics.com/search' method='get' role='form')
-        .ui-grid-fluid
+        .ui-container-grid
           label.ui-grid-20(for='title') Title
           .ui-grid-80
             input(id='title' type='text' name='title' placeholder='Bayesian probabilistic matrix factorization' title='Pattern matching for the &quot;title&quot; field is case-insensitive')
@@ -121,7 +121,7 @@ block article
           button.ui-offset-medium(type='reset') Reset
     pre: code.language-markup.
       &lt;form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form"&gt;
-        &lt;div class="ui-grid-fluid"&gt;
+        &lt;div class="ui-container-grid"&gt;
           &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
           &lt;div class="ui-grid-80"&gt;
             &lt;input id="title" type="text" name="title" placeholder="Bayesian probabilistic matrix factorization"&gt;
@@ -145,7 +145,7 @@ block article
       &lt;/form&gt;
   section
     h4.ui-header-secondary Button Groups
-    .ui-grid-fluid
+    .ui-container-grid
       .ui-button-toolbar
         .ui-button-group.ui-space-collapse
           button(title='View chat history') View
@@ -231,7 +231,7 @@ block article
       &lt;/div&gt;
   section
     h4.ui-header-secondary Input Addons
-    .ui-grid-fluid
+    .ui-container-grid
       .ui-grid-50
         .ui-input-addon
           label(for='email' title='Email')
@@ -250,3 +250,8 @@ block article
         &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
         &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
       &lt;/div&gt;
+
+block append foot
+  script(src='#{appIcons}/account.js')
+  script(src='#{appIcons}/editor.js')
+  script(src='#{appIcons}/forms.js')

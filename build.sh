@@ -4,7 +4,7 @@
 cd "$(dirname $0)/"
 
 # copyright Information
-version="0.2.5"
+version="0.2.6"
 copyright="/*! UI Schema v$version | (c) 2015 Arxitics | MIT license */"
 echo "current version: v$version"
 
@@ -13,7 +13,7 @@ echo "minifying ui-schema.css ..."
 cd css
 rm ../dist/ui-schema*.min.css
 cssfile="../dist/ui-schema.min.css"
-cleancss --s0 import.css -o $cssfile
+cleancss --source-map --s0 import.css -o $cssfile
 echo "$copyright" | cat - $cssfile > tmp.css && mv tmp.css $cssfile
 echo "done"
 

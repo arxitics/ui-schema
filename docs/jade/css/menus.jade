@@ -11,7 +11,7 @@ block article
   h3.ui-header-primary Menus
   section
     h4.ui-header-secondary Dropdown
-    .ui-grid-fluid
+    .ui-container-grid
       .ui-grid-20
         .ui-menu-dropdown
           a Arxitics 
@@ -20,9 +20,9 @@ block article
             li.ui-text-muted(role='presentation'): span Navigation
             li: a(href='http://arxitics.com/') Home
             li: a(href='http://arxitics.com/browse') Browse
-            li.ui-menu-dropdown.ui-placement-right
+            li.ui-menu-dropdown.ui-placement-right.ui-space-collapse
               a.ui-text-left-right
-                span  Explore
+                span Explore
                 span.ui-caret-right
               ul(role='menu')
                 li: a(href='http://arxitics.com/articles') Collaborative Filtering
@@ -33,15 +33,15 @@ block article
             li: a(href='http://arxitics.com/auth/login') Sign in
       .ui-grid-20
         .ui-menu-dropdown.ui-block-inline.ui-pull-right
-          a Arxitics  
+          a Arxitics 
             span.ui-caret-down
           ul(role='menu')
             li.ui-text-muted(role='presentation'): span Navigation
             li: a(href='http://arxitics.com/') Home
             li: a(href='http://arxitics.com/browse') Browse
-            li.ui-menu-dropdown.ui-placement-right
+            li.ui-menu-dropdown.ui-placement-right.ui-space-collapse
               a.ui-text-left-right
-                span  Explore
+                span Explore
                 span.ui-caret-right
               ul(role='menu')
                 li: a(href='http://arxitics.com/articles') Collaborative Filtering
@@ -58,9 +58,9 @@ block article
             li.ui-text-muted(role='presentation'): span Navigation
             li: a(href='http://arxitics.com/') Home
             li: a(href='http://arxitics.com/browse') Browse
-            li.ui-menu-dropdown.ui-placement-right
+            li.ui-menu-dropdown.ui-placement-right.ui-space-collapse
               a.ui-text-left-right
-                span  Explore
+                span Explore
                 span.ui-caret-right
               ul(role='menu')
                 li: a(href='http://arxitics.com/articles') Collaborative Filtering
@@ -70,8 +70,8 @@ block article
             li.ui-seperator-horizontal(role='presentation')
             li: a(href='http://arxitics.com/auth/login') Sign in
       .ui-grid-20
-        .ui-menu-dropdown.ui-placement-right
-          a Arxitics  
+        .ui-menu-dropdown.ui-placement-right.ui-space-collapse
+          a Arxitics 
             span.ui-caret-right
           ul(role='menu')
             li.ui-text-muted(role='presentation'): span Navigation
@@ -79,7 +79,7 @@ block article
             li: a(href='http://arxitics.com/browse') Browse
             li.ui-menu-dropdown.ui-pull-left
               a.ui-text-left-right
-                span  Explore
+                span Explore
                 span.ui-caret-left
               ul(role='menu')
                 li: a(href='http://arxitics.com/articles') Collaborative Filtering
@@ -98,7 +98,7 @@ block article
             li: a(href='http://arxitics.com/browse') Browse
             li.ui-menu-dropdown.ui-pull-left
               a.ui-text-left-right
-                span  Explore
+                span Explore
                 span.ui-caret-left
               ul(role='menu')
                 li: a(href='http://arxitics.com/articles') Collaborative Filtering
@@ -114,9 +114,11 @@ block article
           &lt;li class="ui-text-muted" role="presentation"&gt;&lt;span&gt;Navigation&lt;/span&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="http://arxitics.com/"&gt;Home&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="http://arxitics.com/browse"&gt;Browse&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="ui-menu-dropdown ui-placement-right"&gt;
-            &lt;a class="ui-text-left-right"&gt;&lt;span&gt; Explore
-              &lt;/span&gt;&lt;span class="ui-caret-right"&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;li class="ui-menu-dropdown ui-placement-right ui-space-collapse"&gt;
+            &lt;a class="ui-text-left-right"&gt;
+              &lt;span&gt;Explore&lt;/span&gt;
+              &lt;span class="ui-caret-right"&gt;&lt;/span&gt;
+            &lt;/a&gt;
             &lt;ul role="menu"&gt;
               &lt;li&gt;&lt;a href="http://arxitics.com/articles"&gt;Collaborative Filtering&lt;/a&gt;&lt;/li&gt;
               &lt;li&gt;&lt;a href="http://arxitics.com/search"&gt;Advanced Search&lt;/a&gt;&lt;/li&gt;
@@ -130,7 +132,7 @@ block article
       &lt;/div&gt;
   section
     h4.ui-header-secondary Selection
-    .ui-grid-fluid
+    .ui-container-grid
       .ui-grid-33.ui-menu-selection
         ul(role='listbox')
           li.ui-text-left-right

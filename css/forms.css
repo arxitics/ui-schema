@@ -61,12 +61,10 @@
 
 .ui-button-link path {
   fill: #428bca;
-  stroke: #428bca;
 }
 
 .ui-button-link path:hover {
   fill: #3071a9;
-  stroke: #3071a9;
 }
 
 .ui-button-toolbar > .ui-button-group,

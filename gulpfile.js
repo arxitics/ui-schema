@@ -13,6 +13,7 @@ var uglifyJS = require('gulp-uglify');
 var jade = require('gulp-jade');
 
 var pkg = require('./package.json');
+var version = pkg.version;
 var banner = '/*! UI Schema v<%= version %> | (c) 2015 Arxitics | MIT license */\n';
 
 gulp.task('default', [
@@ -54,7 +55,7 @@ gulp.task('minify-css', function() {
     .pipe(header(banner, {
       version : pkg.version
     }))
-    .pipe(rename('ui-schema.min.css'))
+    .pipe(rename('ui-schema-' + version + '.min.css'))
     .pipe(gulp.dest('dist/'))
 });
 
@@ -85,12 +86,12 @@ gulp.task('minify-js', ['concat-js'], function () {
     .pipe(header(banner, {
       version : pkg.version
     }))
-    .pipe(rename('ui-schema.min.js'))
+    .pipe(rename('ui-schema-' + version + '.min.js'))
     .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('compile-jade', function () {
-  gulp.src('docs/jade/!(layout).jade')
+  gulp.src('docs/jade/!(layout|links).jade')
     .pipe(jade({
       pretty: true
     }))

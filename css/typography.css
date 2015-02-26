@@ -86,22 +86,6 @@
   hyphens: auto;
 }
 
-.ui-text-nowrap {
-  white-space: nowrap;
-}
-
-.ui-text-lowercase {
-  text-transform: lowercase;
-}
-
-.ui-text-uppercase {
-  text-transform: uppercase;
-}
-
-.ui-text-capitalize {
-  text-transform: capitalize;
-}
-
 .ui-text-left {
   text-align: left;
 }
@@ -120,6 +104,48 @@
 
 .ui-text-left-right > :first-child {
   float: left !important;
+}
+
+.ui-text-top {
+  vertical-align: top;
+}
+
+.ui-text-middle {
+  vertical-align: middle;
+}
+
+.ui-text-bottom {
+  vertical-align: bottom;
+}
+
+.ui-text-lowercase {
+  text-transform: lowercase;
+}
+
+.ui-text-uppercase {
+  text-transform: uppercase;
+}
+
+.ui-text-capitalize {
+  text-transform: capitalize;
+}
+
+.ui-text-nowrap {
+  white-space: nowrap;
+}
+
+.ui-text-break {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+.ui-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /**
@@ -221,24 +247,99 @@
   line-height: 1.42857;
 }
 
-.ui-content-post {
-  margin: 1em 0 2em;
+/**
+ * Trim white-space characters between inline-block elements.
+ */
+
+.ui-space-collapse {
+  text-space-collapse: trim-inner;
 }
 
-.ui-content-post h1,
-.ui-content-post h2,
-.ui-content-post h3,
-.ui-content-post h4 {
-  font-size: 1.6rem;
-  margin-top: 2rem;
+.ui-list-unstyled,
+.ui-list-inline,
+.ui-list-group {
+  list-style: none;
+  padding-left: 0;
 }
 
-.ui-content-post figure,
-.ui-content-post img,
-.ui-content-post svg {
+.ui-list-inline > li {
+  display: inline-block;
+}
+
+.ui-list-inline > li + li {
+  margin-left: .8em;
+}
+
+.ui-list-inline > li + li::before {
+  margin-right: .6em;
+}
+
+.ui-list-indent > dd {
+  margin-left: 2em;
+}
+
+.ui-list-horizontal > dt {
+  clear: left;
+  float: left;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 10em;
+}
+
+.ui-list-horizontal > dd {
+  margin-left: 12em;
+}
+
+.ui-list-numbered {
+  counter-reset: list-counter;
+}
+
+.ui-list-numbered > dt::before {
+  content: counter(list-counter) ". ";
+  counter-increment: list-counter;
+}
+
+.ui-list-group {
+  border: 1px solid #ccc;
+  border-radius: .4rem;
+  display: inline-block;
+}
+
+.ui-list-group a {
   display: block;
-  margin: 1em auto;
-  text-align: center;
+}
+
+.ui-list-group > li,
+.ui-list-group > a {
+  line-height: 1.81924;
+  padding: .4em .8em;
+}
+
+.ui-list-group > li:first-child,
+.ui-list-group > a:first-child {
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+}
+
+.ui-list-group > li:last-child,
+.ui-list-group > a:last-child {
+  border-bottom-left-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+}
+
+.ui-list-group > li + li,
+.ui-list-group > a + a {
+  border-top: 1px solid #ccc;
+}
+
+.ui-list-group h4 {
+  margin: 0;
+}
+
+.ui-list-group p {
+  margin-top: 0;
 }
 
 .ui-content-link > a {
@@ -251,15 +352,14 @@
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: .4rem;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.05);
   display: block;
   padding: .4em .8em;
 }
 
 .ui-content-highlight blockquote {
   border-color: #ddd;
-  border-color: rgba(0, 0, 0, .15);
+  border-color: rgba(0,0,0,.15);
 }
 
 .ui-content-jumbotron {
@@ -282,11 +382,11 @@
   margin-bottom: 2rem;
 }
 
-.ui-content-alert > :first-child {
+.ui-content-alert > p:first-child {
   margin-top: 0;
 }
 
-.ui-content-alert > :last-child {
+.ui-content-alert > p:last-child {
   margin-bottom: 0;
 }
 
@@ -306,7 +406,9 @@
   overflow: hidden;
 }
 
-.ui-content-panel h4 {
+.ui-content-panel h4,
+.ui-panel-body > .ui-table-fluid,
+.ui-panel-footer > p {
   margin: 0;
 }
 
@@ -316,29 +418,20 @@
   padding: .6em .8em;
 }
 
-.ui-panel-body p {
+.ui-panel-body > p {
   margin: .6em .8em;
 }
 
-.ui-panel-body .ui-list-group {
+.ui-panel-body > .ui-list-group {
   width: 100%;
   margin: 0;
   border: none;
-}
-
-.ui-panel-body .ui-table-fluid {
-  margin: 0;
 }
 
 .ui-panel-footer {
   background-color: #f5f5f5;
   border-top: inherit;
   padding: .6em .8em;
-}
-
-.ui-panel-footer p {
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .ui-content-media {
@@ -370,100 +463,38 @@
   margin-bottom: .5em;
 }
 
-/**
- * Trim white-space characters between inline-block elements.
- */
-
-.ui-space-collapse {
-  text-space-collapse: trim-inner;
+.ui-article-body {
+  margin: 1em 0 2em;
 }
 
-.ui-list-unstyled,
-.ui-list-inline,
-.ui-list-group {
-  list-style: none;
-  padding-left: 0;
+.ui-article-heading,
+.ui-article-body h1,
+.ui-article-body h2,
+.ui-article-body h3,
+.ui-article-body h4 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
 }
 
-.ui-list-inline > li {
-  display: inline-block;
-}
-
-.ui-list-inline > li + li {
-  margin-left: .8em;
-}
-
-.ui-list-inline > li + li::before {
-  margin-right: .6em;
-}
-
-.ui-list-indent dd {
-  margin-left: 2em;
-}
-
-.ui-list-horizontal dt {
-  clear: left;
-  float: left;
-  overflow: hidden;
-  text-align: right;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 10em;
-}
-
-.ui-list-horizontal dd {
-  margin-left: 12em;
-}
-
-.ui-list-numbered {
-  counter-reset: list-counter;
-}
-
-.ui-list-numbered > dt::before {
-  content: counter(list-counter) ". ";
-  counter-increment: list-counter;
-}
-
-.ui-list-group {
-  border: 1px solid #ccc;
-  border-radius: .4rem;
-  display: inline-block;
-}
-
-.ui-list-group > li {
-  padding: .4em .8em;
-}
-
-.ui-list-group > a {
+.ui-article-image,
+.ui-article-body img,
+.ui-article-body svg,
+.ui-article-body figure {
   display: block;
-  line-height: 1.71428;
-  padding: .4em .8em;
+  margin: 1em auto;
+  text-align: center;
 }
 
-.ui-list-group > li + li,
-.ui-list-group > a + a {
-  border-top: 1px solid #ccc;
-}
-
-.ui-list-group h4 {
-  margin: 0;
-}
-
-.ui-list-group p {
-  margin-top: 0;
-}
-
-.ui-book-contents ol {
+.ui-article-contents ol {
   counter-reset: section;
   list-style-type: none;
 }
 
-.ui-book-contents > ol {
+.ui-article-contents > ol {
   padding-left: 0;
 }
 
-.ui-book-contents li::before {
+.ui-article-contents li::before {
   counter-increment: section;
   content: counters(section, ".") " ";
 }
-

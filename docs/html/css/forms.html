@@ -7,11 +7,11 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../dist/ui-schema.min.css" media="all">
-    <link rel="stylesheet" href="../../../docs/css/prism.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.2.6.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/prism-0.0.1.min.css" media="all">
   </head>
   <body>
-    <header role="banner" class="ui-header-navbar ui-container-fluid ui-grid-fluid">
+    <header role="banner" class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-header-brand">
         <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
       </div>
@@ -24,15 +24,29 @@
         </ul>
       </nav>
     </header>
-    <main role="main" class="ui-container-fluid ui-grid-fluid">
+    <main role="main" class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand">
         <h3 class="ui-header-primary">Modules</h3>
-        <div class="ui-content-panel">
-          <div class="ui-panel-body">
-            <div class="ui-list-group ui-zoom-large"><a href="../../../docs/html/css/base.html">Base</a><a href="../../../docs/html/css/core.html">Core</a><a href="../../../docs/html/css/grid.html">Grid</a><a href="../../../docs/html/css/navigation.html">Navigation</a><a href="../../../docs/html/css/menus.html">Menus</a><a href="../../../docs/html/css/typography.html">Typography</a><a href="../../../docs/html/css/forms.html" class="ui-state-active">Forms</a><a href="../../../docs/html/css/tables.html">Tables</a><a href="../../../docs/html/css/images.html">Images</a><a href="../../../docs/html/css/icons.html">Icons</a><a href="../../../docs/html/css/colors.html">Colors</a><a href="../../../docs/html/css/effects.html">Effects</a><a href="../../../docs/html/css/shapes.html">Shapes</a><a href="../../../docs/html/css/events.html">Events</a><a href="../../../docs/html/css/mobile.html">Mobile</a><a href="../../../docs/html/css/print.html">Print</a><a href="../../../docs/html/css/utilities.html">Utilities</a><a href="../../../docs/html/css/variables.html">Variables</a>
-            </div>
-          </div>
-        </div>
+        <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
+                    <li><a href="../../../docs/html/css/base.html">Base</a></li>
+                    <li><a href="../../../docs/html/css/core.html">Core</a></li>
+                    <li><a href="../../../docs/html/css/grid.html">Grid</a></li>
+                    <li><a href="../../../docs/html/css/navigation.html">Navigation</a></li>
+                    <li><a href="../../../docs/html/css/menus.html">Menus</a></li>
+                    <li><a href="../../../docs/html/css/typography.html">Typography</a></li>
+                    <li class="ui-state-active"><a href="../../../docs/html/css/forms.html">Forms</a></li>
+                    <li><a href="../../../docs/html/css/tables.html">Tables</a></li>
+                    <li><a href="../../../docs/html/css/images.html">Images</a></li>
+                    <li><a href="../../../docs/html/css/icons.html">Icons</a></li>
+                    <li><a href="../../../docs/html/css/colors.html">Colors</a></li>
+                    <li><a href="../../../docs/html/css/effects.html">Effects</a></li>
+                    <li><a href="../../../docs/html/css/shapes.html">Shapes</a></li>
+                    <li><a href="../../../docs/html/css/events.html">Events</a></li>
+                    <li><a href="../../../docs/html/css/mobile.html">Mobile</a></li>
+                    <li><a href="../../../docs/html/css/print.html">Print</a></li>
+                    <li><a href="../../../docs/html/css/utilities.html">Utilities</a></li>
+                    <li><a href="../../../docs/html/css/variables.html">Variables</a></li>
+        </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Forms</h3>
@@ -70,7 +84,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary">Inline Form</h4>
-          <div class="ui-grid-fluid">
+          <div class="ui-container-grid">
             <form action="http://arxitics.com/search" method="get" role="form" class="ui-grid-50">
               <input type="search" name="q" placeholder="Search or type a command" title="Type &quot;help&quot; to redirect to the help center">
               <button type="submit">Go!</button>
@@ -89,7 +103,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary">Block Form</h4>
-          <div class="ui-grid-fluid">
+          <div class="ui-container-grid">
             <form action="http://arxitics.com/browse" method="get" role="form" class="ui-grid-50 ui-form-block">
               <label for="categories">Categories</label>
               <input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" title="Multiple categories are separated by commas" required>
@@ -133,9 +147,9 @@
         </section>
         <section>
           <h4 class="ui-header-secondary">Fluid Form</h4>
-          <div class="ui-grid-fluid">
+          <div class="ui-container-grid">
             <form action="http://arxitics.com/search" method="get" role="form" class="ui-form-fluid">
-              <div class="ui-grid-fluid">
+              <div class="ui-container-grid">
                 <label for="title" class="ui-grid-20">Title</label>
                 <div class="ui-grid-80">
                   <input id="title" type="text" name="title" placeholder="Bayesian probabilistic matrix factorization" title="Pattern matching for the &amp;quot;title&amp;quot; field is case-insensitive">
@@ -159,7 +173,7 @@
             </form>
           </div>
           <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form"&gt;
-  &lt;div class="ui-grid-fluid"&gt;
+  &lt;div class="ui-container-grid"&gt;
     &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
     &lt;div class="ui-grid-80"&gt;
       &lt;input id="title" type="text" name="title" placeholder="Bayesian probabilistic matrix factorization"&gt;
@@ -184,7 +198,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary">Button Groups</h4>
-          <div class="ui-grid-fluid">
+          <div class="ui-container-grid">
             <div class="ui-button-toolbar">
               <div class="ui-button-group ui-space-collapse">
                 <button title="View chat history">View</button>
@@ -276,7 +290,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary">Input Addons</h4>
-          <div class="ui-grid-fluid">
+          <div class="ui-container-grid">
             <div class="ui-grid-50">
               <div class="ui-input-addon">
                 <label for="email" title="Email"><i data-schema-icon="envelope-o">Email</i></label>
@@ -297,15 +311,19 @@
 &lt;div class="ui-input-addon"&gt;
   &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
   &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
         </section>
       </article>
     </main>
     <footer role="contentinfo" class="ui-container-fluid">
       <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2015 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="../../../dist/jquery.min.js"></script>
-    <script src="../../../dist/ui-schema.min.js"></script>
-    <script src="../../../docs/js/prism.min.js"></script>
+    <script src="../../../dist/jquery-2.1.3.min.js"></script>
+    <script src="../../../dist/prism-0.0.1.min.js"></script>
+    <script src="../../../dist/ui-schema-0.2.6.min.js"></script>
+    <script src="../../../js/icons/account.js"></script>
+    <script src="../../../js/icons/editor.js"></script>
+    <script src="../../../js/icons/forms.js"></script>
   </body>
 </html>
