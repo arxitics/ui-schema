@@ -7,7 +7,7 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.2.6.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.2.7.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-0.0.1.min.css" media="all">
   </head>
   <body>
@@ -102,9 +102,9 @@
 &lt;/form&gt;</code></pre>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Block Form</h4>
+          <h4 class="ui-header-secondary">Fluid Form</h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/browse" method="get" role="form" class="ui-grid-50 ui-form-block">
+            <form action="http://arxitics.com/browse" method="get" role="form" class="ui-grid-50 ui-form-fluid">
               <label for="categories">Categories</label>
               <input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" title="Multiple categories are separated by commas" required>
               <label for="keywords">Keywords</label>
@@ -117,21 +117,31 @@
                 <button type="reset" class="ui-offset-medium">Reset</button>
               </div>
             </form>
-            <form action="http://arxitics.com/browse" method="get" role="form" class="ui-grid-50 ui-form-block">
+            <form action="http://arxitics.com/search" method="get" role="form" class="ui-grid-50 ui-form-fluid">
               <label for="subjects">Subjects</label>
-              <input id="subjects" type="text" name="subjects" placeholder="11.15.Ha, 81T25, J.2, C87" title="Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class" class="ui-input-fluid">
-              <label for="authors">Authors</label>
-              <input id="authors" type="text" name="authors" placeholder="Albert Einstein, John von Neumann" title="Multiple authors are separated by commas" class="ui-input-fluid">
-              <label>
-                <input type="checkbox" name="abstract" value="true"> Display eprint abstracts
-              </label>
+              <input id="subjects" type="text" name="subjects" placeholder="11.15.Ha, 81T25, J.2, C87" title="Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class">
+              <label for="journal">Journal</label>
+              <select id="journal" name="journal">
+                <option value="Phys. Rev. A">Physical Review A</option>
+                <option value="Phys. Rev. B">Physical Review B</option>
+                <option value="Phys. Rev. C">Physical Review C</option>
+                <option value="Phys. Rev. D">Physical Review D</option>
+                <option value="Phys. Rev. E">Physical Review E</option>
+                <option value="Phys. Rev. X">Physical Review X</option>
+              </select>
+              <div>
+                <input type="radio" name="date-range" value="any" checked> Any time
+                <input type="radio" name="date-range" value="past-week" class="ui-offset-small"> Past week
+                <input type="radio" name="date-range" value="past-month" class="ui-offset-small"> Past month
+                <input type="radio" name="date-range" value="past-year" class="ui-offset-small"> Past year
+              </div>
               <div class="ui-skip-large">
                 <button type="submit" class="ui-button-primary">Submit</button>
                 <button type="reset" class="ui-offset-medium">Reset</button>
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form class="ui-form-block" action="http://arxitics.com/browse" method="get" role="form"&gt;
+          <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get" role="form"&gt;
   &lt;label for="categories"&gt;Categories&lt;/label&gt;
   &lt;input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" required&gt;
   &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
@@ -146,9 +156,9 @@
 &lt;/form&gt;</code></pre>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Fluid Form</h4>
+          <h4 class="ui-header-secondary">Horizontal Form</h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/search" method="get" role="form" class="ui-form-fluid">
+            <form action="http://arxitics.com/search" method="get" role="form" class="ui-form-horizontal">
               <div class="ui-container-grid">
                 <label for="title" class="ui-grid-20">Title</label>
                 <div class="ui-grid-80">
@@ -172,7 +182,7 @@
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form"&gt;
+          <pre><code class="language-markup">&lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get" role="form"&gt;
   &lt;div class="ui-container-grid"&gt;
     &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
     &lt;div class="ui-grid-80"&gt;
@@ -312,6 +322,7 @@
   &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
   &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
 &lt;/div&gt;
+
 </code></pre>
         </section>
       </article>
@@ -321,9 +332,9 @@
     </footer>
     <script src="../../../dist/jquery-2.1.3.min.js"></script>
     <script src="../../../dist/prism-0.0.1.min.js"></script>
-    <script src="../../../dist/ui-schema-0.2.6.min.js"></script>
-    <script src="../../../js/icons/account.js"></script>
-    <script src="../../../js/icons/editor.js"></script>
-    <script src="../../../js/icons/forms.js"></script>
+    <script src="../../../dist/ui-schema-0.2.7.min.js"></script>
+    <script src="../../../dist/icons/account.js"></script>
+    <script src="../../../dist/icons/editor.js"></script>
+    <script src="../../../dist/icons/forms.js"></script>
   </body>
 </html>

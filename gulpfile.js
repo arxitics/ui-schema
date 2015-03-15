@@ -50,7 +50,8 @@ gulp.task('minify-css', function() {
   gulp.src('css/import.css')
     .pipe(minifyCSS({
       keepSpecialComments: 0,
-      processImport: true
+      processImport: true,
+      advanced: false
     }))
     .pipe(header(banner, {
       version : pkg.version

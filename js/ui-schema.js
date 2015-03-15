@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.2.6 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.2.4 (https://github.com/arxitics/ui-schema)
  * Copyright 2014 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
@@ -32,13 +32,18 @@ var schema = {};
       namespace: '.white-space.text-node.schema',
       selector: '.ui-space-collapse'
     },
+    extract: {
+      type: 'create',
+      namespace: '.dom.data-api.schema',
+      selector: '[data-schema-extract]'
+    },
     validate: {
       type: 'validate',
       namespace: '.form-validate.form.data-api.schema',
       selector: 'form[data-schema-validate]'
     },
     sprite: {
-      type: 'generate',
+      type: 'create',
       namespace: '.icons.svg.data-api.schema',
       selector: '[data-schema-icon]'
     }
@@ -166,7 +171,7 @@ var schema = {};
             var keyValueArray = keyValuePair.split(/\s*:\s*/);
             var optionKey = keyValueArray[0].toLowerCase();
             var optionValue = keyValueArray[1].replace(/\,/g, ' ').trim();
-            if (optionValue.search(/\s+/) !== -1) {
+            if(optionValue.search(/\s+/) !== -1) {
               optionValue = optionValue.split(/\s+/);
             }
             optionsObject[optionKey] = optionValue;
@@ -202,7 +207,8 @@ var schema = {};
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var requireChanged = ($_data.schemaValidate === 'changed');
+      var validateOption = $_data.schemaValidate;
+      var requireChanged = (validateOption === 'changed');
       $_this.find(':input').one('change', function () {
         $_this.data('changed', true);
       });
@@ -217,7 +223,7 @@ var schema = {};
               $_input.prop('disabled', true).data('disabled', true);
             }
           });
-          if ($_data.schemaValidate === 'once') {
+          if (validateOption === 'once') {
             $_this.find(':submit').prop('disabled', true);
           }
           $_form.submit();
@@ -256,6 +262,23 @@ var schema = {};
       return this.nodeType === 3;
     }).remove();
   };
+  
+  schema.extract = function (event, options) {
+    var eventSelector = schema.events.extract.selector;
+    var optionalSelector = options && options.selector;
+    var $_elements = $(eventSelector).add(optionalSelector);
+    $_elements.each(function () {
+      var $_this = $(this);
+      var $_data = schema.parseData($_this.data());
+      var extractOption = $_data.schemaExtract;
+      if (extractOption === 'url') {
+        var urlPattern = /\bhttps?\:\/\/[^\s\"]+(\/|\b)/g;
+        $_this.html($_this.html().replace(urlPattern, function (url) {
+          return '<a href="' + url + '" target="_blank">' + url + '</a>';
+        }));
+      }
+    });
+  };
 
   schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
@@ -276,7 +299,7 @@ var schema = {};
       query: (function () {
         var queryObject = {};
         var queryString = anchor.search.replace(/(^\?&?)|(&$)/g, '');
-        if(queryString.indexOf('=') === -1) {
+        if (queryString.indexOf('=') === -1) {
           return queryString;
         }
         queryString.split(/&+/).forEach(function (keyValuePair) {
@@ -314,8 +337,8 @@ var schema = {};
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var iconName = $_data.schemaIcon || 'square';
-      var iconData = iconsData[iconName] || iconsData.square;
+      var iconName = $_data.schemaIcon || 'unknown';
+      var iconData = iconsData[iconName] || iconsData.unknown;
       if (typeof iconData === 'string') {
         iconData = iconsData[iconData];
       }
@@ -364,6 +387,8 @@ var schema = {};
     });
   };
 
-  schema.icons = {};
+  schema.icons = {
+    'unknown': [32, 32, 'M27.429 7.429v17.143q0 2.125-1.509 3.634t-3.634 1.509h-17.143q-2.125 0-3.634-1.509t-1.509-3.634v-17.143q0-2.125 1.509-3.634t3.634-1.509h17.143q2.125 0 3.634 1.509t1.509 3.634z']
+  };
 
 })(jQuery);

@@ -13,6 +13,23 @@
       return this.nodeType === 3;
     }).remove();
   };
+  
+  schema.extract = function (event, options) {
+    var eventSelector = schema.events.extract.selector;
+    var optionalSelector = options && options.selector;
+    var $_elements = $(eventSelector).add(optionalSelector);
+    $_elements.each(function () {
+      var $_this = $(this);
+      var $_data = schema.parseData($_this.data());
+      var extractOption = $_data.schemaExtract;
+      if (extractOption === 'url') {
+        var urlPattern = /\bhttps?\:\/\/[^\s\"]+(\/|\b)/g;
+        $_this.html($_this.html().replace(urlPattern, function (url) {
+          return '<a href="' + url + '" target="_blank">' + url + '</a>';
+        }));
+      }
+    });
+  };
 
   schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
@@ -33,7 +50,7 @@
       query: (function () {
         var queryObject = {};
         var queryString = anchor.search.replace(/(^\?&?)|(&$)/g, '');
-        if(queryString.indexOf('=') === -1) {
+        if (queryString.indexOf('=') === -1) {
           return queryString;
         }
         queryString.split(/&+/).forEach(function (keyValuePair) {

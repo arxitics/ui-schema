@@ -4,7 +4,7 @@
 cd "$(dirname $0)/"
 
 # copyright Information
-version="0.2.6"
+version="0.2.7"
 copyright="/*! UI Schema v$version | (c) 2015 Arxitics | MIT license */"
 echo "current version: v$version"
 
@@ -12,8 +12,8 @@ echo "current version: v$version"
 echo "minifying ui-schema.css ..."
 cd css
 rm ../dist/ui-schema*.min.css
-cssfile="../dist/ui-schema.min.css"
-cleancss --source-map --s0 import.css -o $cssfile
+cssfile="../dist/ui-schema-$version.min.css"
+cleancss --s0 import.css --skip-advanced --output $cssfile
 echo "$copyright" | cat - $cssfile > tmp.css && mv tmp.css $cssfile
 echo "done"
 
@@ -21,9 +21,9 @@ echo "done"
 echo "minifying ui-schema.js ..."
 cd ../js
 rm ../dist/ui-schema*.min.js
-jsfile="../dist/ui-schema.min.js"
+jsfile="../dist/ui-schema-$version.min.js"
 find ui-schema.js -delete
 cat setup.js core.js forms.js utilities.js icons.js >> ui-schema.js
-uglifyjs -mt -o $jsfile ui-schema.js
+uglifyjs --mangle --output $jsfile ui-schema.js
 echo "$copyright" | cat - $jsfile > tmp.js && mv tmp.js $jsfile
 echo "done"

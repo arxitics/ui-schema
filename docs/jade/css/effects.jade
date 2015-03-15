@@ -2,23 +2,30 @@ extends ../layout
 
 block variables
   - var pageID = 'css/effects'
-  - var pageTitle = 'Visual effects'
+  - var pageTitle = 'Visual Effects'
 
 block aside
   include modules
 
 block article
   h3.ui-header-primary Visual Effects
-  h4.ui-header-secondary Progress Bars
-  div
-    progress(value='60' max='100' title='60%' role='progressbar') 60% completed
-    progress.ui-progress-success.ui-skip-small(value='60' max='100' title='60%' role='progressbar') 60% completed
-    progress.ui-progress-info.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%' role='progressbar') 60% completed
-    progress.ui-progress-warning.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%' role='progressbar') 60% completed
-    progress.ui-progress-danger.ui-skip-small(max='100' title='no value' role='progressbar') no value
-  pre: code.language-markup.
-    &lt;progress value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
-    &lt;progress class="ui-progress-success" value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
-    &lt;progress class="ui-progress-info ui-progress-striped" value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
-    &lt;progress class="ui-progress-warning ui-progress-striped" value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
-    &lt;progress class="ui-progress-danger" max="100" title="no value" role="progressbar"&gt;no value&lt;/progress&gt;
+  section
+    h4.ui-header-secondary Progress Bars
+    div
+      progress(value='60' max='100' title='60%' role='progressbar') 60% completed
+      progress.ui-progress-success.ui-skip-small(value='60' max='100' title='60%' role='progressbar') 60% completed
+      progress.ui-progress-info.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%' role='progressbar') 60% completed
+      progress.ui-progress-warning.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%' role='progressbar') 60% completed
+      progress.ui-progress-danger.ui-skip-small(max='100' title='no value' role='progressbar') no value
+    pre: code.language-markup.
+      &lt;progress value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
+      &lt;progress class="ui-progress-success" value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
+      &lt;progress class="ui-progress-info ui-progress-striped" value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
+      &lt;progress class="ui-progress-warning ui-progress-striped" value="60" max="100" title="60%" role="progressbar"&gt;60% completed&lt;/progress&gt;
+      &lt;progress class="ui-progress-danger" max="100" title="no value" role="progressbar"&gt;no value&lt;/progress&gt;
+  section
+    h4.ui-header-secondary Range Sliders
+    div
+      input(type='range' min='0' max='100' step='1' value='60' aria-valuemin='0' aria-valuemax='100' aria-valuenow='60' role='slider')
+    pre: code.language-markup.
+      &lt;input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" role="slider"&gt;

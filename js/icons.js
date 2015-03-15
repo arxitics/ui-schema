@@ -15,8 +15,8 @@
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var iconName = $_data.schemaIcon || 'square';
-      var iconData = iconsData[iconName] || iconsData.square;
+      var iconName = $_data.schemaIcon || 'unknown';
+      var iconData = iconsData[iconName] || iconsData.unknown;
       if (typeof iconData === 'string') {
         iconData = iconsData[iconData];
       }
@@ -65,6 +65,8 @@
     });
   };
 
-  schema.icons = {};
+  schema.icons = {
+    'unknown': [32, 32, 'M27.429 7.429v17.143q0 2.125-1.509 3.634t-3.634 1.509h-17.143q-2.125 0-3.634-1.509t-1.509-3.634v-17.143q0-2.125 1.509-3.634t3.634-1.509h17.143q2.125 0 3.634 1.509t1.509 3.634z']
+  };
 
 })(jQuery);

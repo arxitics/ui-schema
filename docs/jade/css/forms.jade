@@ -57,9 +57,9 @@ block article
         &lt;button type="submit"&gt;Go!&lt;/button&gt;
       &lt;/form&gt;
   section
-    h4.ui-header-secondary Block Form
+    h4.ui-header-secondary Fluid Form
     .ui-container-grid
-      form.ui-grid-50.ui-form-block(action='http://arxitics.com/browse' method='get' role='form')
+      form.ui-grid-50.ui-form-fluid(action='http://arxitics.com/browse' method='get' role='form')
         label(for='categories') Categories
         input(id='categories' type='text' name='categories' placeholder='math-ph, math.MP, cs.CC' title='Multiple categories are separated by commas' required)
         label(for='keywords') Keywords
@@ -70,19 +70,31 @@ block article
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
-      form.ui-grid-50.ui-form-block(action='http://arxitics.com/browse' method='get' role='form')
+      form.ui-grid-50.ui-form-fluid(action='http://arxitics.com/search' method='get' role='form')
         label(for='subjects') Subjects
-        input.ui-input-fluid(id='subjects' type='text' name='subjects' placeholder='11.15.Ha, 81T25, J.2, C87' title='Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class')
-        label(for='authors') Authors
-        input.ui-input-fluid(id='authors' type='text' name='authors' placeholder='Albert Einstein, John von Neumann' title='Multiple authors are separated by commas')
-        label
-          input(type='checkbox' name='abstract' value='true')
-          |  Display eprint abstracts
+        input(id='subjects' type='text' name='subjects' placeholder='11.15.Ha, 81T25, J.2, C87' title='Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class')
+        label(for='journal') Journal
+        select(id='journal' name='journal')
+          option(value='Phys. Rev. A') Physical Review A
+          option(value='Phys. Rev. B') Physical Review B
+          option(value='Phys. Rev. C') Physical Review C
+          option(value='Phys. Rev. D') Physical Review D
+          option(value='Phys. Rev. E') Physical Review E
+          option(value='Phys. Rev. X') Physical Review X
+        div
+          input(type='radio' name='date-range' value='any' checked)
+          |  Any time
+          input.ui-offset-small(type='radio' name='date-range' value='past-week')
+          |  Past week
+          input.ui-offset-small(type='radio' name='date-range' value='past-month')
+          |  Past month
+          input.ui-offset-small(type='radio' name='date-range' value='past-year')
+          |  Past year
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
     pre: code.language-markup.
-      &lt;form class="ui-form-block" action="http://arxitics.com/browse" method="get" role="form"&gt;
+      &lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get" role="form"&gt;
         &lt;label for="categories"&gt;Categories&lt;/label&gt;
         &lt;input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" required&gt;
         &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
@@ -96,9 +108,9 @@ block article
         &lt;/div&gt;
       &lt;/form&gt;
   section
-    h4.ui-header-secondary Fluid Form
+    h4.ui-header-secondary Horizontal Form
     .ui-container-grid
-      form.ui-form-fluid(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-form-horizontal(action='http://arxitics.com/search' method='get' role='form')
         .ui-container-grid
           label.ui-grid-20(for='title') Title
           .ui-grid-80
@@ -120,7 +132,7 @@ block article
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
     pre: code.language-markup.
-      &lt;form class="ui-form-fluid" action="http://arxitics.com/search" method="get" role="form"&gt;
+      &lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get" role="form"&gt;
         &lt;div class="ui-container-grid"&gt;
           &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
           &lt;div class="ui-grid-80"&gt;
@@ -250,6 +262,7 @@ block article
         &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
         &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
       &lt;/div&gt;
+
 
 block append foot
   script(src='#{appIcons}/account.js')

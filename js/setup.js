@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.2.6 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.2.4 (https://github.com/arxitics/ui-schema)
  * Copyright 2014 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
@@ -32,13 +32,18 @@ var schema = {};
       namespace: '.white-space.text-node.schema',
       selector: '.ui-space-collapse'
     },
+    extract: {
+      type: 'create',
+      namespace: '.dom.data-api.schema',
+      selector: '[data-schema-extract]'
+    },
     validate: {
       type: 'validate',
       namespace: '.form-validate.form.data-api.schema',
       selector: 'form[data-schema-validate]'
     },
     sprite: {
-      type: 'generate',
+      type: 'create',
       namespace: '.icons.svg.data-api.schema',
       selector: '[data-schema-icon]'
     }
