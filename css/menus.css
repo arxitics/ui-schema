@@ -69,22 +69,22 @@
   width: 100%;
 }
 
-.ui-menu-dropdown.ui-placement-left:hover > ul,
-.ui-menu-dropdown.ui-placement-right:hover > ul {
+.ui-menu-dropdown:hover > .ui-placement-left,
+.ui-menu-dropdown:hover > .ui-placement-right {
   margin-top: -.4em;
   display: inline-block;
 }
 
-.ui-menu-dropdown.ui-placement-top > ul {
+.ui-menu-dropdown > .ui-placement-top {
   margin-bottom: -2.4em;
   bottom: 100%;
 }
 
-.ui-menu-dropdown.ui-pull-left > ul {
+.ui-menu-dropdown > .ui-pull-left {
   margin-top: -2.4em;
   right: 100%;
 }
 
-.ui-menu-dropdown.ui-pull-right > ul {
+.ui-menu-dropdown > .ui-pull-right {
   right: 0;
 }

@@ -151,6 +151,26 @@
   width: 90%;
 }
 
+.ui-box-tiny {
+  width: 4em;
+}
+
+.ui-box-small {
+  width: 8em;
+}
+
+.ui-box-medium {
+  width: 16em;
+}
+
+.ui-box-large {
+  width: 24em;
+}
+
+.ui-box-huge {
+  width: 32em;
+}
+
 .ui-offset-10 {
   margin-left: 10%;
 }

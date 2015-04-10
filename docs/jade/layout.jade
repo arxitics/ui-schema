@@ -1,7 +1,7 @@
 block variables
 
 - var locale = 'en'
-- var version = '0.2.7'
+- var version = '0.2.8'
 - var appTitle = 'UI Schema'
 - var appKeywords = 'UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development'
 - var appDescription = 'A cutting edge, lightweight, and powerful front-end framework for faster and easier web development'
@@ -27,7 +27,7 @@ html(id=pageID lang=locale)
       block header
         .ui-header-brand
           h2: a(href='#{appDocs}/index.html' accesskey='h')= appTitle
-        nav.ui-grid-33.ui-mobile-auto(role='navigation')
+        nav(role='navigation')
           ul
             li: a(href='#{appDocs}/css.html' accesskey='c') CSS
             li: a(href='#{appDocs}/javascript.html' accesskey='j') JavaScript

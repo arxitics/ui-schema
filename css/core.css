@@ -66,6 +66,12 @@ html {
   }
 }
 
+@media print {
+  html {
+    font-size: 8pt;
+  }
+}
+
 /**
  * 1. Set `line-height` to 20/14.
  * 2. 
@@ -120,6 +126,8 @@ header {
 p {
   margin: .8em 0;
   line-height: 1.42857;
+  orphans: 2;
+  widows: 2;
 }
 
 /* Links
@@ -162,6 +170,10 @@ i > svg {
   overflow: visible;
   stroke: none;
   fill: currentColor;
+}
+
+canvas {
+  image-resizing: pixelated;
 }
 
 /**

@@ -20,6 +20,7 @@
 
 .ui-header-navbar > .ui-header-brand {
   float: left;
+  margin-right: 1.2em;
   padding-bottom: .5em;
   padding-top: .5em;
 }
@@ -104,16 +105,13 @@
 .ui-nav-tabs > li {
   margin-bottom: -1px;
   border: 1px solid transparent;
+  border-bottom-color: #ddd;
   border-radius: .4rem .4rem 0 0;
 }
 
 .ui-nav-tabs > li.ui-state-active {
   background-color: #fff;
   border-color: #ccc #ccc #fff;
-}
-
-.ui-nav-tabs.ui-nav-justified > li:not(.ui-state-active) {
-  border-bottom: 1px solid #ddd;
 }
 
 .ui-nav-justified {
@@ -194,20 +192,4 @@
 .ui-nav-pagination > li > :only-child:focus {
   background-color: #eee;
   border-color: #ddd;
-}
-
-.ui-nav-pagination.ui-space-collapse > li > :only-child {
-  border-left-width: 0;
-  border-radius: 0;
-}
-
-.ui-nav-pagination.ui-space-collapse > li:first-child > :only-child {
-  border-left-width: 1px;
-  border-top-left-radius: 0.4rem;
-  border-bottom-left-radius: 0.4rem;
-}
-
-.ui-nav-pagination.ui-space-collapse > li:last-child > :only-child {
-  border-top-right-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
 }

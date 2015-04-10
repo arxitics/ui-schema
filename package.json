@@ -1,6 +1,6 @@
 {
   "name": "ui-schema",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A cutting edge, lightweight, and powerful front-end framework for faster and easier web development",
   "keywords": [
     "CSS",
@@ -29,7 +29,7 @@
     "url": "https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt"
   },
   "engines": {
-    "node": "0.12.0"
+    "node": "0.12.2"
   },
   "os": [
     "linux"

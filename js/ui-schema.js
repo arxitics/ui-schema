@@ -272,9 +272,9 @@ var schema = {};
       var $_data = schema.parseData($_this.data());
       var extractOption = $_data.schemaExtract;
       if (extractOption === 'url') {
-        var urlPattern = /\bhttps?\:\/\/[^\s\"]+(\/|\b)/g;
+        var urlPattern = /\b(https?|ftp)\:\/\/[^\s\"]+(\/|\b)/g;
         $_this.html($_this.html().replace(urlPattern, function (url) {
-          return '<a href="' + url + '" target="_blank">' + url + '</a>';
+          return '<a href="' + url + '">' + url + '</a>';
         }));
       }
     });

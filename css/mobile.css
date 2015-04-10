@@ -7,7 +7,7 @@
     display: none;
   }
   .ui-mobile-expand {
-    display: block;
+    float: left;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
@@ -18,7 +18,7 @@
     column-count: 1;
   }
   .ui-mobile-expand + .ui-mobile-expand:not(ul) {
-    margin-top: 2em;
+    margin-top: 1em;
   }
   .ui-mobile-doubling > .ui-grid-17,
   .ui-mobile-doubling > .ui-fluid-17 {
@@ -27,6 +27,21 @@
   .ui-mobile-doubling > .ui-grid-25,
   .ui-mobile-doubling > .ui-fluid-25 {
     width: 50%;
+  }
+  .ui-mobile-halving > .ui-box-tiny {
+    width: 2em;
+  }
+  .ui-mobile-halving > .ui-box-small {
+    width: 4em;
+  }
+  .ui-mobile-halving > .ui-box-medium {
+    width: 8em;
+  }
+  .ui-mobile-halving > .ui-box-large {
+    width: 16em;
+  }
+  .ui-mobile-halving > .ui-box-huge {
+    width: 24em;
   }
   .ui-mobile-auto,
   .ui-mobile-collapse {
@@ -49,40 +64,12 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-  .ui-tablet-hidden {
-    display: none;
-  }
-  .ui-tablet-expand {
-    display: block;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
-    -moz-column-count: 1;
-    -webkit-column-count: 1;
-    column-count: 1;
-  }
-  .ui-tablet-expand + .ui-tablet-expand:not(ul) {
-    margin-top: 2em;
-  }
-  .ui-tablet-doubling > .ui-grid-17,
-  .ui-tablet-doubling > .ui-fluid-17 {
-    width: 33.3333%;
-  }
-  .ui-tablet-doubling > .ui-grid-25,
-  .ui-tablet-doubling > .ui-fluid-25 {
-    width: 50%;
-  }
-}
-
 @media (max-width: 767px) {
   .ui-phone-hidden {
     display: none;
   }
   .ui-phone-expand {
-    display: block;
+    float: left;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
@@ -93,7 +80,7 @@
     column-count: 1;
   }
   .ui-phone-expand + .ui-phone-expand:not(ul) {
-    margin-top: 2em;
+    margin-top: 1em;
   }
   .ui-phone-doubling > .ui-grid-17,
   .ui-phone-doubling > .ui-fluid-17 {
@@ -102,5 +89,20 @@
   .ui-phone-doubling > .ui-grid-25,
   .ui-phone-doubling > .ui-fluid-25 {
     width: 50%;
+  }
+  .ui-phone-halving > .ui-box-tiny {
+    width: 2em;
+  }
+  .ui-phone-halving > .ui-box-small {
+    width: 4em;
+  }
+  .ui-phone-halving > .ui-box-medium {
+    width: 8em;
+  }
+  .ui-phone-halving > .ui-box-large {
+    width: 16em;
+  }
+  .ui-phone-halving > .ui-box-huge {
+    width: 24em;
   }
 }

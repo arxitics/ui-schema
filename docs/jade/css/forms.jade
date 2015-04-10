@@ -44,10 +44,10 @@ block article
   section
     h4.ui-header-secondary Inline Form
     .ui-container-grid
-      form.ui-grid-50(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand(action='http://arxitics.com/search' method='get' role='form')
         input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
         button(type='submit') Go!
-      form.ui-grid-50(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand(action='http://arxitics.com/search' method='get' role='form')
         .ui-input-addon
           input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
           button(type='submit'): i(data-schema-icon='search') Go!
@@ -59,7 +59,7 @@ block article
   section
     h4.ui-header-secondary Fluid Form
     .ui-container-grid
-      form.ui-grid-50.ui-form-fluid(action='http://arxitics.com/browse' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand.ui-form-fluid(action='http://arxitics.com/browse' method='get' role='form')
         label(for='categories') Categories
         input(id='categories' type='text' name='categories' placeholder='math-ph, math.MP, cs.CC' title='Multiple categories are separated by commas' required)
         label(for='keywords') Keywords
@@ -70,7 +70,7 @@ block article
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
-      form.ui-grid-50.ui-form-fluid(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand.ui-form-fluid(action='http://arxitics.com/search' method='get' role='form')
         label(for='subjects') Subjects
         input(id='subjects' type='text' name='subjects' placeholder='11.15.Ha, 81T25, J.2, C87' title='Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class')
         label(for='journal') Journal
@@ -244,12 +244,12 @@ block article
   section
     h4.ui-header-secondary Input Addons
     .ui-container-grid
-      .ui-grid-50
+      .ui-grid-50.ui-phone-expand
         .ui-input-addon
           label(for='email' title='Email')
             i(data-schema-icon='envelope-o') Email
           input(id='email' type='email' name='email' title='Please input your email')
-      .ui-grid-50
+      .ui-grid-50.ui-phone-expand
         .ui-input-addon
           input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
           button.ui-button-primary Go!

@@ -46,12 +46,12 @@ block article
   section
     h4.ui-header-secondary Lists
     .ui-container-grid
-      ul.ui-grid-50.ui-list-inline
+      ul.ui-grid-50.ui-phone-expand.ui-list-inline
         li: a(href='http://arxitics.com/site/about') About
         li: a(href='http://arxitics.com/site/terms') Terms
         li: a(href='http://arxitics.com/site/privacy') Privacy
         li: a(href='http://arxitics.com/site/disclaimer') Disclaimer
-      ul.ui-grid-50.ui-list-inline.ui-seperator-bullet
+      ul.ui-grid-50.ui-phone-expand.ui-list-inline.ui-seperator-bullet
         li: a(href='http://arxitics.com/site/about') About
         li: a(href='http://arxitics.com/site/terms') Terms
         li: a(href='http://arxitics.com/site/privacy') Privacy
@@ -80,13 +80,13 @@ block article
   section
     h4.ui-header-secondary List Group
     .ui-container-grid
-      .ui-grid-50
+      .ui-grid-50.ui-phone-expand
         .ui-list-group.ui-block-fluid
           a(href='./navigation.html') Navigation
           a(href='./menus.html') Menus
           a.ui-state-active(href='./typography.html') Typography
           a(href='./forms.html') Forms
-      .ui-grid-50
+      .ui-grid-50.ui-phone-expand
         ul.ui-list-group.ui-block-fluid
           li.ui-item-success Success
           li.ui-item-info Info
@@ -111,7 +111,7 @@ block article
   section
     h4.ui-header-secondary Panels
     .ui-container-grid
-      .ui-grid-50
+      .ui-grid-50.ui-phone-expand
         .ui-content-panel
           .ui-panel-header
             h4 Links
@@ -120,7 +120,7 @@ block article
               li: a(href='http://arxiv.org/abs/1212.5605') Abstract on arXiv.org
               li: a(href='http://arxiv.org/pdf/1212.5605') View preprint PDF
               li: a(href='http://arxiv.org/e-print/1212.5605') Download TeX source
-      .ui-grid-50
+      .ui-grid-50.ui-phone-expand
         .ui-content-panel
           .ui-panel-header
             h4 Basic Information
@@ -203,30 +203,30 @@ block article
         &lt;p&gt;We encourage frank, open, and constructive conversation, but frankness doesn't mean lack of civility or lack of respect for others.&lt;/p&gt;
       &lt;/div&gt;
   section
-    h4.ui-header-secondary Media Object
+    h4.ui-header-secondary Content Links
     .ui-container-grid
       .ui-content-link
-        a.ui-content-media.ui-zoom-huge(href='http://arxitics.com/search')
-          .ui-fluid-20.ui-media-object.ui-text-center
+        a.ui-zoom-huge.ui-phone-halving(href='http://arxitics.com/search')
+          .ui-box-small.ui-text-center
             i(data-schema-icon='search')
             h4.ui-header-compact Search
-          .ui-fluid-80.ui-media-body.ui-text-active
+          .ui-text-active
             p Advanced search interface to find articles
       .ui-content-link.ui-skip-large
-        a.ui-content-media.ui-zoom-huge(href='http://arxitics.com/explore')
-          .ui-fluid-20.ui-media-object.ui-text-center
+        a.ui-zoom-huge.ui-phone-halving(href='http://arxitics.com/explore')
+          .ui-box-small.ui-text-center
             i(data-schema-icon='bar-chart')
             h4.ui-header-compact Explore
-          .ui-fluid-80.ui-media-body.ui-text-active
+          .ui-text-active
             p Analysis, visualization, and recommendations
     pre: code.language-markup.
       &lt;div class="ui-content-link"&gt;
-        &lt;a class="ui-content-media ui-zoom-huge" href="http://arxitics.com/search"&gt;
-          &lt;div class="ui-fluid-20 ui-media-object ui-text-center"&gt;
+        &lt;a class="ui-zoom-huge ui-phone-halving" href="http://arxitics.com/search"&gt;
+          &lt;div class="ui-box-small ui-text-center"&gt;
             &lt;i data-schema-icon="search"&gt;&lt;/i&gt;
             &lt;h4 class="ui-header-compact"&gt;Search&lt;/h4&gt;
           &lt;/div&gt;
-          &lt;div class="ui-fluid-80 ui-media-body ui-text-active"&gt;
+          &lt;div class="ui-text-active"&gt;
             &lt;p&gt;Advanced search interface to find articles&lt;/p&gt;
           &lt;/div&gt;
         &lt;/a&gt;
