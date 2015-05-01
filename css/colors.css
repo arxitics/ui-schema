@@ -38,7 +38,8 @@
 }
 
 .ui-text-warning,
-.ui-color-warning {
+.ui-color-warning,
+.ui-color-highlight {
   color: #8a6d3b;
 }
 
@@ -47,7 +48,8 @@
 }
 
 .ui-text-danger,
-.ui-color-danger {
+.ui-color-danger,
+.ui-color-emphasis {
   color: #a94442;
 }
 

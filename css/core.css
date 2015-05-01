@@ -74,7 +74,7 @@ html {
 
 /**
  * 1. Set `line-height` to 20/14.
- * 2. 
+ * 2. Emphasize geometric precision over rendering speed and legibility.
  */
 
 body {
@@ -83,7 +83,7 @@ body {
   color: #333;
   font-size: 1.4rem;
   line-height: 1.42857; /* 1 */
-  text-rendering: geometricPrecision;
+  text-rendering: geometricPrecision; /* 2 */
 }
 
 /**
@@ -91,7 +91,7 @@ body {
  */
 
 main {
-  margin: 4rem 0;
+  margin: 4rem 0; /* 1 */
   min-height: 60vh;
 }
 
@@ -172,8 +172,18 @@ i > svg {
   fill: currentColor;
 }
 
+/**
+ * Specify nearest-neighbor upscaling and "auto" downscaling.
+ * Only available in Chrome 41+ or Opera 26+.
+ */
+
 canvas {
   image-resizing: pixelated;
+}
+
+audio,
+video {
+  width: 100%;
 }
 
 /**
@@ -379,11 +389,11 @@ input[type="file"]::-ms-browse {
 }
 
 input[type="file"]::-webkit-file-upload-button {
-  cursor: pointer;
   padding: .4em .8em;
+  background-color: transparent;
   border: 1px solid #ccc;
   border-radius: .4rem;
-  background-color: transparent;
+  cursor: pointer;
   outline: none;
 }
 
@@ -509,16 +519,25 @@ label[for] {
   font-weight: bold;
 }
 
+/**
+ * 1. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
+ * 2. Reset the default appearance of select in Firefox 35+.
+ * 3. Use a caret as the background:
+ *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 20 32">
+ *      <path d="M6 14h12l-6 6z"/>
+ *    </svg>
+ */
+
 select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  -webkit-appearance: none; /* 1 */
+  -moz-appearance: none; /* 2 */
   appearance: none;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 1.42857em;
   cursor: pointer;
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDIwIDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA2eiIvPjwvc3ZnPg==") no-repeat scroll 100%;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDIwIDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA2eiIvPjwvc3ZnPg==") no-repeat scroll 100%; /* 3 */
 }
 
 select::-ms-expand {

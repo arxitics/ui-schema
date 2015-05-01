@@ -5,6 +5,7 @@
 (function ($) {
   'use strict';
 
+  // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
     var eventSelector = schema.events.trim.selector;
     var optionalSelector = options && options.selector;
@@ -13,7 +14,8 @@
       return this.nodeType === 3;
     }).remove();
   };
-  
+
+  // Extract data from text contents
   schema.extract = function (event, options) {
     var eventSelector = schema.events.extract.selector;
     var optionalSelector = options && options.selector;
@@ -31,6 +33,7 @@
     });
   };
 
+  // Parse a URL into an object
   schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
     anchor.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');

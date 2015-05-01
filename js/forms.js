@@ -5,6 +5,7 @@
 (function ($) {
   'use strict';
 
+  // Validate user input
   schema.validate = function (event, options) {
     var eventSelector = schema.events.validate.selector;
     var optionalSelector = options && options.selector;

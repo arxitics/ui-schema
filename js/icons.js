@@ -6,6 +6,7 @@
 (function ($) {
   'use strict';
 
+  // Create SVG icons
   schema.sprite = function (event, options) {
     var iconsData = schema.icons;
     var eventSelector = schema.events.sprite.selector;

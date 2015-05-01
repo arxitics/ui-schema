@@ -299,30 +299,31 @@
   display: inline-block;
 }
 
-.ui-list-group a {
+.ui-list-group > a,
+.ui-list-group > li > a {
   display: block;
 }
 
-.ui-list-group > li,
-.ui-list-group > a {
+.ui-list-group > a,
+.ui-list-group > li {
   line-height: 1.81924;
   padding: .4em .8em;
 }
 
-.ui-list-group > li:first-child,
-.ui-list-group > a:first-child {
+.ui-list-group > a:first-child,
+.ui-list-group > li:first-child {
   border-top-left-radius: .4rem;
   border-top-right-radius: .4rem;
 }
 
-.ui-list-group > li:last-child,
-.ui-list-group > a:last-child {
+.ui-list-group > a:last-child,
+.ui-list-group > li:last-child {
   border-bottom-left-radius: .4rem;
   border-bottom-right-radius: .4rem;
 }
 
-.ui-list-group > li + li,
-.ui-list-group > a + a {
+.ui-list-group > a + a,
+.ui-list-group > li + li {
   border-top: 1px solid #ccc;
 }
 

@@ -12,6 +12,7 @@
   font-size: 1.5em;
   font-weight: normal;
   margin: 0;
+  white-space: nowrap;
 }
 
 .ui-header-navbar a {

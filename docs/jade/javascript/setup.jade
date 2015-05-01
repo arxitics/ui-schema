@@ -8,5 +8,43 @@ block aside
   include components
 
 block article
-  h3.ui-header-primary Setup
-  p 
+  h3.ui-header-primary Setup 
+  .ui-grid-container
+    pre: code.language-javascript.
+      // Default setup options
+      schema.setup = {
+        classPrefix: 'ui',
+        dataPrefix: 'schema',
+        autoLoad: true,
+        autoBind: '.schema',
+        autoTrigger: '.schema'
+      };
+
+      // Register schema events
+      schema.events = {
+        retrieve: {
+          type: 'retrieve',
+          namespace: '.options.data-api.schema',
+          selector: '[data-schema-options]'
+        },
+        trim: {
+          type: 'remove',
+          namespace: '.white-space.text-node.schema',
+          selector: '.ui-space-collapse'
+        },
+        extract: {
+          type: 'create',
+          namespace: '.dom.data-api.schema',
+          selector: '[data-schema-extract]'
+        },
+        validate: {
+          type: 'validate',
+          namespace: '.form-validate.form.data-api.schema',
+          selector: 'form[data-schema-validate]'
+        },
+        sprite: {
+          type: 'create',
+          namespace: '.icons.svg.data-api.schema',
+          selector: 'i[data-schema-icon]'
+        }
+      };

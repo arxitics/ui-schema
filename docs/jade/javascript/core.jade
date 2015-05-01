@@ -9,4 +9,29 @@ block aside
 
 block article
   h3.ui-header-primary Core
-  p 
+  .ui-grid-container
+    pre: code.language-javascript.
+      // Create a new schema object
+      schema.create = (options) => Object.create(schema);
+
+      // Bind and trigger schema events
+      schema.load = (setup, events) => {
+        for (var event of events) {
+          $(document).on(event);
+          $(document).trigger(event);
+        }
+      };
+
+      // Assign an integer as the delegation of an event
+      schema.delegate = (event) => {
+        switch (delegation) {
+          case 3: bind && trigger;
+          case 2: bind;
+          default: null;
+        }
+      };
+
+      // Retrieve schema event options and store as event data
+      schema.retrieve = (event, options) => {
+        $(event.selector).data(options);
+      };

@@ -1,6 +1,6 @@
 /*!
- * UI Schema v0.2.4 (https://github.com/arxitics/ui-schema)
- * Copyright 2014 Arxitics <help@arxitics.com>
+ * UI Schema v0.2.9 (https://github.com/arxitics/ui-schema)
+ * Copyright 2015 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
 
@@ -8,46 +8,49 @@ if (typeof jQuery === 'undefined') {
   throw new Error('jQuery has not been loaded yet for context');
 }
 
-var schema = {};
+var schema = jQuery.isPlainObject(schema) ? schema : {};
 
 (function ($) {
   'use strict';
 
-  schema.setup = {
-    classPrefix: 'ui',
-    dataPrefix: 'schema',
-    autoLoad: true,
-    autoBind: '.schema',
-    autoTrigger: '.schema'
-  };
-
-  schema.events = {
-    retrieve: {
-      type: 'retrieve',
-      namespace: '.options.data-api.schema',
-      selector: '[data-schema-options]'
+  schema = $.extend(true, {
+    // Default setup options
+    setup: {
+      classPrefix: 'ui',
+      dataPrefix: 'schema',
+      autoLoad: true,
+      autoBind: '.schema',
+      autoTrigger: '.schema'
     },
-    trim: {
-      type: 'remove',
-      namespace: '.white-space.text-node.schema',
-      selector: '.ui-space-collapse'
-    },
-    extract: {
-      type: 'create',
-      namespace: '.dom.data-api.schema',
-      selector: '[data-schema-extract]'
-    },
-    validate: {
-      type: 'validate',
-      namespace: '.form-validate.form.data-api.schema',
-      selector: 'form[data-schema-validate]'
-    },
-    sprite: {
-      type: 'create',
-      namespace: '.icons.svg.data-api.schema',
-      selector: '[data-schema-icon]'
+    // Register schema events
+    events: {
+      retrieve: {
+        type: 'retrieve',
+        namespace: '.options.data-api.schema',
+        selector: '[data-schema-options]'
+      },
+      trim: {
+        type: 'remove',
+        namespace: '.white-space.text-node.schema',
+        selector: '.ui-space-collapse'
+      },
+      extract: {
+        type: 'create',
+        namespace: '.dom.data-api.schema',
+        selector: '[data-schema-extract]'
+      },
+      validate: {
+        type: 'validate',
+        namespace: '.form-validate.form.data-api.schema',
+        selector: 'form[data-schema-validate]'
+      },
+      sprite: {
+        type: 'create',
+        namespace: '.icons.svg.data-api.schema',
+        selector: 'i[data-schema-icon]'
+      }
     }
-  };
+  }, schema);
 
   $(function () {
     if (schema.setup.autoLoad && schema.load) {
@@ -64,11 +67,13 @@ var schema = {};
 (function ($) {
   'use strict';
 
+  // Create a new schema object
   schema.create = function (options) {
     this.setup = $.extend({}, schema.setup, options);
     return Object.create(schema);
   };
 
+  // Bind and trigger schema events
   schema.load = function (setup, events) {
     var schemaSetup = $.extend({}, schema.setup, setup);
     var schemaEvents = $.extend({}, schema.events, events);
@@ -96,6 +101,7 @@ var schema = {};
     }
   };
 
+  // Assign an integer as the delegation of an event
   schema.delegate = function (event) {
     var schemaSetup = schema.setup;
     var eventsBind = schemaSetup.autoBind.split(' ');
@@ -119,6 +125,7 @@ var schema = {};
     return eventDelegation;
   };
 
+  // Retrieve schema event options and store as event data
   schema.retrieve = function (event, options) {
     var eventSelector = schema.events.retrieve.selector;
     var optionalSelector = options && options.selector;
@@ -135,6 +142,7 @@ var schema = {};
     });
   };
 
+  // Parse and normalize schema data
   schema.parseData = function (data) {
     var dataObject = {};
     var schemaDataPrefix = schema.setup.dataPrefix;
@@ -152,6 +160,7 @@ var schema = {};
     return dataObject;
   };
 
+  // Parse and normalize schema options
   schema.parseOptions = function (options) {
     var optionsObject = {};
     var parsedOptionsObject = {};
@@ -200,6 +209,7 @@ var schema = {};
 (function ($) {
   'use strict';
 
+  // Validate user input
   schema.validate = function (event, options) {
     var eventSelector = schema.events.validate.selector;
     var optionalSelector = options && options.selector;
@@ -254,6 +264,7 @@ var schema = {};
 (function ($) {
   'use strict';
 
+  // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
     var eventSelector = schema.events.trim.selector;
     var optionalSelector = options && options.selector;
@@ -262,7 +273,8 @@ var schema = {};
       return this.nodeType === 3;
     }).remove();
   };
-  
+
+  // Extract data from text contents
   schema.extract = function (event, options) {
     var eventSelector = schema.events.extract.selector;
     var optionalSelector = options && options.selector;
@@ -280,6 +292,7 @@ var schema = {};
     });
   };
 
+  // Parse a URL into an object
   schema.parseURL = function (url) {
     var anchor =  document.createElement('a');
     anchor.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
@@ -328,6 +341,7 @@ var schema = {};
 (function ($) {
   'use strict';
 
+  // Create SVG icons
   schema.sprite = function (event, options) {
     var iconsData = schema.icons;
     var eventSelector = schema.events.sprite.selector;
