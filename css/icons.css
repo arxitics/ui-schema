@@ -45,13 +45,13 @@
 }
 
 .ui-icon-spin > svg {
-  -webkit-animation: spin 2s infinite linear;
   -moz-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
   animation: spin 2s infinite linear;
 }
 
 .ui-icon-pulse > svg {
-  -webkit-animation: spin 1s infinite steps(8);
   -moz-animation: spin 1s infinite steps(8);
+  -webkit-animation: spin 1s infinite steps(8);
   animation: spin 1s infinite steps(8);
 }

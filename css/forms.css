@@ -52,9 +52,9 @@
 }
 
 .ui-input-addon {
-  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
+  display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   height: 2.34694em;
@@ -67,10 +67,10 @@
 }
 
 .ui-input-addon > input {
-  -webkit-box-flex: 1;
   -moz-box-flex: 1;
-  -webkit-flex: 1;
   -ms-flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
   flex: 1;
 }
 
@@ -153,11 +153,11 @@
 }
 
 .ui-button-group > label {
+  border: 1px solid #ccc;
+  border-radius: .4rem;
   display: inline-block;
   font-weight: normal;
   padding: .4em .8em;
-  border: 1px solid #ccc;
-  border-radius: .4rem;
 }
 
 .ui-button-group > div {
@@ -180,15 +180,15 @@
 }
 
 .ui-button-link {
-  padding: 0;
-  color: #428bca;
   border: none;
+  color: #428bca;
+  padding: 0;
 }
 
 .ui-button-link:hover,
 .ui-button-link:focus {
-  color: #3071a9;
   background-color: transparent;
+  color: #3071a9;
 }
 
 .ui-button-link path {

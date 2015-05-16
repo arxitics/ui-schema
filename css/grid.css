@@ -26,9 +26,9 @@
 }
 
 .ui-container-flex {
-  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
+  display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   flex-flow: row wrap;
@@ -297,13 +297,13 @@
 }
 
 .ui-fixed-top {
-  top: 0;
   border-width: 0 0 1px;
+  top: 0;
 }
 
 .ui-fixed-bottom {
-  bottom: 0;
   border-width: 1px 0 0;
+  bottom: 0;
 }
 
 .ui-fixed-width {

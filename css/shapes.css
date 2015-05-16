@@ -59,19 +59,19 @@
 }
 
 .ui-shape-wrapper {
-  position: relative;
   display: inline-block;
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
 .ui-shape-container {
-  position: absolute;
-  width: 100%;
+  color: #fff;
   height: 100%;
   overflow: hidden;
-  color: #fff;
+  position: absolute;
   text-align: center;
+  width: 100%;
 }
 
 .ui-shape-container > img {
@@ -79,32 +79,32 @@
 }
 
 .ui-shape-container > .ui-image-reveal {
+  background-color: rgba(0, 0, 0, .65);
+  bottom: 100%;
+  padding: 50% 0;
   position: absolute;
   width: 100%;
-  padding: 50% 0;
-  bottom: 100%;
-  background-color: rgba(0,0,0,.65);
   -webkit-transition: top .2s ease-out, bottom .2s ease-out, .2s padding .2s ease-out;
   -moz-transition: top .2s ease-out, bottom .2s ease-out, .2s padding .2s ease-out;
   transition: top .2s ease-out, bottom .2s ease-out, .2s padding .2s ease-out;
 }
 
 .ui-shape-container:hover > .ui-image-reveal {
-  top: -25%;
   bottom: -25%;
+  top: -25%;
 }
 
 .ui-shape-hexagon {
   padding-bottom: 115.47%;
-  -webkit-transform: rotate(-60deg) skewY(30deg);
   -moz-transform: rotate(-60deg) skewY(30deg);
   -ms-transform: rotate(-60deg) skewY(30deg);
+  -webkit-transform: rotate(-60deg) skewY(30deg);
   transform: rotate(-60deg) skewY(30deg);
 }
 
 .ui-shape-hexagon > .ui-shape-container {
-  -webkit-transform: skewY(-30deg) rotate(60deg);
   -moz-transform: skewY(-30deg) rotate(60deg);
   -ms-transform: skewY(-30deg) rotate(60deg);
+  -webkit-transform: skewY(-30deg) rotate(60deg);
   transform: skewY(-30deg) rotate(60deg);
 }

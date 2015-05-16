@@ -7,15 +7,15 @@
     display: none;
   }
   .ui-mobile-expand {
-    float: left;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
   }
   .ui-mobile-expand + .ui-mobile-expand:not(ul) {
     margin-top: 1em;
@@ -69,15 +69,15 @@
     display: none;
   }
   .ui-phone-expand {
-    float: left;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
   }
   .ui-phone-expand + .ui-phone-expand:not(ul) {
     margin-top: 1em;

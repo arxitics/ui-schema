@@ -79,8 +79,8 @@ html {
 
 body {
   background-color: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
   color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
   font-size: 1.4rem;
   line-height: 1.42857; /* 1 */
   text-rendering: geometricPrecision; /* 2 */
@@ -91,8 +91,17 @@ body {
  */
 
 main {
-  margin: 4rem 0; /* 1 */
+  margin: 4rem 0 3rem; /* 1 */
   min-height: 60vh;
+}
+
+article,
+aside {
+  margin-bottom: 1rem;
+}
+
+header {
+  font-size: 1.6rem;
 }
 
 h1 {
@@ -119,10 +128,6 @@ h6 {
   font-size: 1.2rem;
 }
 
-header {
-  font-size: 1.6rem;
-}
-
 p {
   margin: .8em 0;
   line-height: 1.42857;
@@ -138,6 +143,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #3071a9;
+}
+
 /**
  * Set cursor for placeholder hyperlink without the `href` attribute.
  */
@@ -146,30 +155,12 @@ a:not([href]) {
   cursor: pointer;
 }
 
-a:hover {
-  color: #3071a9;
-}
-
 /* Embedded content
    ========================================================================== */
 
-img {
-  vertical-align: middle;
-}
-
-i {
-  display: inline-block;
-  height: 1.25em;
-  font-style: normal;
-  vertical-align: text-bottom;
-}
-
-i > svg {
-  height: 100%;
+audio,
+video {
   width: 100%;
-  overflow: visible;
-  stroke: none;
-  fill: currentColor;
 }
 
 /**
@@ -181,9 +172,23 @@ canvas {
   image-resizing: pixelated;
 }
 
-audio,
-video {
+i {
+  display: inline-block;
+  font-style: normal;
+  height: 1.25em;
+  vertical-align: text-bottom;
+}
+
+i > svg {
+  fill: currentColor;
+  height: 100%;
+  overflow: visible;
+  stroke: none;
   width: 100%;
+}
+
+img {
+  vertical-align: middle;
 }
 
 /**
@@ -196,23 +201,19 @@ progress {
   background-color: #f5f5f5;
   border: none;
   border-radius: .5em;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
   color: #428bca;
   height: 1.5em;
   overflow: hidden;
   width: 100%;
 }
 
-/**
- * Reset the appearance for the indeterminate state in Firefox.
- */
-
-progress:not([value])::-moz-progress-bar {
-  background-color: #f5f5f5;
-}
-
 progress::-moz-progress-bar {
   background-color: #428bca;
+}
+
+progress::-ms-fill {
+  border: 0;
 }
 
 progress::-webkit-progress-bar {
@@ -224,18 +225,21 @@ progress::-webkit-progress-value {
   background-color: #428bca;
 }
 
-progress::-ms-fill {
-  border: 0;
+/**
+ * Reset the appearance for the indeterminate state in Firefox.
+ */
+
+progress:not([value])::-moz-progress-bar {
+  background-color: #f5f5f5;
 }
 
 /* Grouping content
    ========================================================================== */
 
-hr {
-  border: 0;
-  border-top: 1px solid #eee;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+address {
+  font-style: normal;
+  line-height: 1.71428;
+  margin-bottom: 1em;
 }
 
 blockquote {
@@ -249,12 +253,6 @@ blockquote {
 blockquote > footer {
   font-size: 80%;
   text-align: right;
-}
-
-address {
-  margin-bottom: 1em;
-  font-style: normal;
-  line-height: 1.71428;
 }
 
 code,
@@ -278,6 +276,13 @@ pre > code {
   white-space: pre-wrap;
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
 /* Lists
    ========================================================================== */
 
@@ -285,23 +290,23 @@ pre > code {
  * Set `line-height` to 24/14.
  */
 
-ul,
+dl,
 ol,
-dl {
+ul {
   line-height: 1.71428;
   margin: 0 0 1em;
 }
 
-ul,
-ol {
+ol,
+ul {
   padding-left: 3rem;
 }
 
-ul ul,
-ul ol,
-ol ul,
+dl dl,
 ol ol,
-dl dl {
+ol ul,
+ul ol,
+ul ul {
   margin-bottom: 0;
 }
 
@@ -321,26 +326,26 @@ form {
 }
 
 fieldset {
-  margin: 1.5em 0;
-  padding: .8em 1.2em;
   border: 1px solid #ccc;
   border-radius: .4rem;
+  margin: 1.5em 0;
+  padding: .8em 1.2em;
 }
 
 legend {
-  padding: 0 .4em;
   color: #999;
+  padding: 0 .4em;
 }
 
 button,
 input,
 select,
 textarea {
-  display: inline-block;
   border: 1px solid #ccc;
   border-radius: .4rem;
-  padding: .4em .8em;
+  display: inline-block;
   outline: none;
+  padding: .4em .8em;
 }
 
 button {
@@ -348,31 +353,58 @@ button {
   cursor: pointer;
   margin: 0;
   text-align: center;
-  white-space: nowrap;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-user-select: none;
   user-select: none;
+  white-space: nowrap;
 }
 
-button:hover,
-button:focus {
+button:focus,
+button:hover {
   background-color: #ebebeb;
 }
 
 input {
-  height: 1.42857em;
   background-color: #fff;
+  height: 1.42857em;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 .4em rgba(102, 175, 233, .6);
+}
+
+input:invalid,
+textarea:invalid {
+  border-color: #a94442;
+}
+
+input:invalid:focus,
+textarea:invalid:focus {
+  border-color: #843534;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 .3em #ce8483;
 }
 
 input[type="checkbox"],
-input[type="radio"],
 input[type="file"],
+input[type="radio"],
 input[type="range"] {
-  padding: 0;
   border: none;
   cursor: pointer;
+  padding: 0;
   vertical-align: middle;
+}
+
+input[type="checkbox"]:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="range"]:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: none;
 }
 
 input[type="file"] {
@@ -380,8 +412,8 @@ input[type="file"] {
   width: 100%;
 }
 
-input[type="file"]::-ms-value,
-input[type="file"]::-ms-browse {
+input[type="file"]::-ms-browse,
+input[type="file"]::-ms-value {
   background: transparent;
   border: 1px solid #ccc;
   border-radius: .4rem;
@@ -389,12 +421,12 @@ input[type="file"]::-ms-browse {
 }
 
 input[type="file"]::-webkit-file-upload-button {
-  padding: .4em .8em;
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: .4rem;
   cursor: pointer;
   outline: none;
+  padding: .4em .8em;
 }
 
 input[type="range"] {
@@ -402,60 +434,24 @@ input[type="range"] {
   width: 100%;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: .4em;
-  background: #ddd;
-  border: none;
-  border-radius: .2em;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: none;
-  height: 1.2em;
-  width: 1.2em;
-  border-radius: 50%;
-  background: #428bca;
-  margin-top: -.4em;
-}
-
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: #ccc;
-}
-
-input[type="range"]::-moz-range-track {
-  width: 100%;
-  height: .4em;
-  background: #ddd;
-  border: none;
-  border-radius: .2em;
-}
-
-input[type="range"]::-moz-range-thumb {
-  border: none;
-  height: 1.2em;
-  width: 1.2em;
-  border-radius: 50%;
-  background: #428bca;
-}
-
 input[type="range"]::-moz-focus-outer {
   border: none;
 }
 
-input[type="range"]:focus::-moz-range-track {
-  background: #ccc;
+input[type="range"]::-moz-range-track {
+  background: #ddd;
+  border: none;
+  border-radius: .2em;
+  height: .4em;
+  width: 100%;
 }
 
-input[type="range"]::-ms-track {
-  width: 100%;
-  height: .4em;
-  background: transparent;
-  border-color: transparent;
-  border-width: .4em 0;
-  color: transparent;
-  cursor: pointer;
+input[type="range"]::-moz-range-thumb {
+  background: #428bca;
+  border: none;
+  border-radius: 50%;
+  height: 1.2em;
+  width: 1.2em;
 }
 
 input[type="range"]::-ms-fill-lower {
@@ -469,11 +465,43 @@ input[type="range"]::-ms-fill-upper {
 }
 
 input[type="range"]::-ms-thumb {
+  background: #428bca;
   border: none;
+  border-radius: 50%;
   height: 1.2em;
   width: 1.2em;
-  border-radius: 50%;
+}
+
+input[type="range"]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: .4em 0;
+  color: transparent;
+  cursor: pointer;
+  height: .4em;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #ddd;
+  border: none;
+  border-radius: .2em;
+  height: .4em;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   background: #428bca;
+  border: none;
+  border-radius: 50%;
+  height: 1.2em;
+  margin-top: -.4em;
+  width: 1.2em;
+}
+
+input[type="range"]:focus::-moz-range-track {
+  background: #ccc;
 }
 
 input[type="range"]:focus::-ms-fill-lower {
@@ -484,31 +512,8 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #ccc;
 }
 
-input:invalid,
-textarea:invalid {
-  border-color: #a94442;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #66afe9;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 .4em rgba(102,175,233,.6);
-}
-
-input:invalid:focus,
-textarea:invalid:focus {
-  border-color: #843534;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 .3em #ce8483;
-}
-
-input[type="checkbox"]:focus,
-input[type="radio"]:focus,
-input[type="file"]:focus,
-input[type="range"]:focus {
-  border-color: none;
-  box-shadow: none;
-  outline: none;
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
 }
 
 label {
@@ -520,8 +525,8 @@ label[for] {
 }
 
 /**
- * 1. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
- * 2. Reset the default appearance of select in Firefox 35+.
+ * 1. Reset the default appearance of select in Firefox 35+.
+ * 2. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
  * 3. Use a caret as the background:
  *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 20 32">
  *      <path d="M6 14h12l-6 6z"/>
@@ -529,15 +534,15 @@ label[for] {
  */
 
 select {
-  -webkit-appearance: none; /* 1 */
-  -moz-appearance: none; /* 2 */
+  -moz-appearance: none; /* 1 */
+  -webkit-appearance: none; /* 2 */
   appearance: none;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDIwIDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA2eiIvPjwvc3ZnPg==") no-repeat scroll 100%; /* 3 */
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  height: 1.42857em;
   cursor: pointer;
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDIwIDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA2eiIvPjwvc3ZnPg==") no-repeat scroll 100%; /* 3 */
+  height: 1.42857em;
 }
 
 select::-ms-expand {
@@ -550,8 +555,8 @@ select > option {
 
 select[multiple],
 select[size] {
-  height: auto;
   background: transparent;
+  height: auto;
 }
 
 select[multiple] > option,
@@ -574,7 +579,7 @@ select[size] > option {
 /**
  * Placeholder style for Firefox 4-18.
  */
- 
+
 :-moz-placeholder {
   color: #999;
 }
@@ -603,6 +608,14 @@ select[size] > option {
   color: #999;
 }
 
+/**
+ * Placeholder style in CSS4.
+ */
+
+:placeholder-shown {
+  color: #999;
+}
+
 :disabled,
 [disabled] {
   background-color: #eee;
@@ -611,14 +624,14 @@ select[size] > option {
 }
 
 ::-moz-selection {
-  color: #fff;
   background-color: #3071a9;
+  color: #fff;
 }
 
 ::selection { 
-  color: #fff;
   background-color: #3071a9;
-} 
+  color: #fff;
+}
 
 /* Tables
    ========================================================================== */
@@ -634,9 +647,9 @@ thead {
 
 td,
 th {
+  border-bottom: 1px solid #ddd;
   padding: .6em .8em;
   vertical-align: middle;
-  border-bottom: 1px solid #ddd;
 }
 
 tr:last-child > td {
