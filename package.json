@@ -1,6 +1,6 @@
 {
   "name": "ui-schema",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A cutting edge, lightweight, and powerful front-end framework for faster and easier web development",
   "keywords": [
     "CSS",
@@ -24,12 +24,9 @@
   "bugs": {
     "url": "https://github.com/arxitics/ui-schema/issues"
   },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt"
-  },
+  "license": "MIT",
   "engines": {
-    "node": "0.12.3"
+    "node": "0.12.4"
   },
   "os": [
     "linux"
@@ -39,13 +36,13 @@
     "gulp-concat": "2.5.2",
     "gulp-csslint": "0.1.5",
     "gulp-header": "1.2.2",
-    "gulp-jade": "1.0.0",
-    "gulp-jshint": "1.9.2",
-    "gulp-minify-css": "0.5.1",
-    "gulp-rename": "1.2.0",
-    "gulp-uglify": "1.1.0",
-    "clean-css": "3.1.4",
-    "uglify-js": "2.4.16",
-    "jade": "1.9.2"
+    "gulp-jade": "1.0.1",
+    "gulp-jshint": "1.11.0",
+    "gulp-minify-css": "1.1.1",
+    "gulp-rename": "1.2.2",
+    "gulp-uglify": "1.2.0",
+    "clean-css": "3.2.10",
+    "uglify-js": "2.4.23",
+    "jade": "1.10.0"
   }
 }

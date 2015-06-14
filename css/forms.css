@@ -183,6 +183,8 @@
   border: none;
   color: #428bca;
   padding: 0;
+  text-align: left;
+  white-space: normal;
 }
 
 .ui-button-link:hover,
