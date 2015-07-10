@@ -43,7 +43,8 @@
   width: 100%;
 }
 
-.ui-form-horizontal input {
+.ui-form-horizontal input,
+.ui-form-horizontal select {
   height: 2.34694em;
 }
 
