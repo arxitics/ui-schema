@@ -10,7 +10,6 @@ var csslint = require('gulp-csslint');
 var minifyCSS = require('gulp-minify-css');
 var jshint = require('gulp-jshint');
 var uglifyJS = require('gulp-uglify');
-var ghpages = require('gulp-gh-pages');
 var jade = require('gulp-jade');
 
 var pkg = require('./package.json');
@@ -132,11 +131,4 @@ gulp.task('watch', function () {
   gulp.watch('docs/jade/{*,*/}*.jade', [
     'compile-jade'
   ]);
-});
-
-gulp.task('deploy', function () {
-  gulp.src([
-    'dist',
-    'docs/html/**/*'
-  ]).pipe(ghpages());
 });
