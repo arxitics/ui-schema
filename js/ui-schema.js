@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.3.2 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.3.3 (https://github.com/arxitics/ui-schema)
  * Copyright 2015 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt)
  */
@@ -150,7 +150,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
         var dataKey = 'schema-' + key.slice(dataPrefixLength);
-        var dataValue = data[key].trim();
+        var dataValue = data[key];
         dataKey = dataKey.replace(/\-\w/g, function (matchedSubstr) {
           return matchedSubstr.charAt(1).toUpperCase();
         });
@@ -346,7 +346,6 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var iconsData = schema.icons;
     var eventSelector = schema.events.sprite.selector;
     var optionalSelector = options && options.selector;
-    var colorEnabled = options && options.colorEnabled;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.each(function () {
       var $_this = $(this);
@@ -361,7 +360,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var iconHeight = $_data.schemaHeight || iconData[1];
       var iconPath = $_data.schemaPath || iconData[2];
       var iconColor = $_data.schemaColor || iconData[3];
-      var iconColorEnabled = $_data.schemaColorEnabled || colorEnabled;
+      var iconColorEnabled = $_data.schemaColorEnabled;
       if (iconColorEnabled === undefined && iconColor) {
         iconColorEnabled = true;
       }

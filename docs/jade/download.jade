@@ -10,5 +10,6 @@ block aside
 block article
   h3.ui-header-primary Download
   ul
-    li: a(href='https://github.com/arxitics/ui-schema/archive/master.zip') Latest development version from GitHub
-    li: a(href='http://oss.arxitics.com/ui-schema/releases/ui-schema-#{version}.zip') UI Schema production version #{version}
+    - var archive = 'https://github.com/arxitics/ui-schema/archive'
+    li: a(href='#{archive}/master.zip') Latest development version from GitHub
+    li: a(href='#{archive}/#{version}.zip') UI Schema production version #{version}

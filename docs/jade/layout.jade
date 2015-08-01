@@ -1,12 +1,13 @@
 block variables
 
+- var env = 'pro'
 - var locale = 'en'
-- var version = '0.3.2'
+- var version = '0.3.3'
 - var appTitle = 'UI Schema'
 - var appKeywords = 'UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development'
 - var appDescription = 'A cutting edge, lightweight, and powerful front-end framework for faster and easier web development'
-- var appRoot = '../..' + ((pageID || '').replace(/[^\/]/g, '').replace(/\//g, '/..'))
-- var appDocs = appRoot + '/docs/html'
+- var appRoot = (env === 'dev' ? '../..' : '.') + (pageID || '').replace(/[^\/]/g, '').replace(/\//g, '/..')
+- var appDocs = appRoot + (env === 'dev' ? '/docs/html' : '')
 - var appIcons = appRoot + '/dist/icons'
 
 doctype html

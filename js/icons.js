@@ -11,7 +11,6 @@
     var iconsData = schema.icons;
     var eventSelector = schema.events.sprite.selector;
     var optionalSelector = options && options.selector;
-    var colorEnabled = options && options.colorEnabled;
     var $_elements = $(eventSelector).add(optionalSelector);
     $_elements.each(function () {
       var $_this = $(this);
@@ -26,7 +25,7 @@
       var iconHeight = $_data.schemaHeight || iconData[1];
       var iconPath = $_data.schemaPath || iconData[2];
       var iconColor = $_data.schemaColor || iconData[3];
-      var iconColorEnabled = $_data.schemaColorEnabled || colorEnabled;
+      var iconColorEnabled = $_data.schemaColorEnabled;
       if (iconColorEnabled === undefined && iconColor) {
         iconColorEnabled = true;
       }
