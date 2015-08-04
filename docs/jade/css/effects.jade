@@ -29,3 +29,25 @@ block article
       input(type='range' min='0' max='100' step='1' value='60' aria-valuemin='0' aria-valuemax='100' aria-valuenow='60' role='slider')
     pre: code.language-markup.
       &lt;input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" role="slider"&gt;
+  section
+    h4.ui-header-secondary Audio
+    div
+      audio(controls)
+        source(src='https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg' type='audio/ogg')
+        span.ui-color-danger Your browser does not support the #[code audio] element.
+    pre: code.language-markup.
+      &lt;audio controls&gt;
+        &lt;source src="https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg" type="audio/ogg"&gt;
+        &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;audio&lt;/code&gt; element.&lt;/span&gt;
+      &lt;/audio&gt;
+  section
+    h4.ui-header-secondary Video
+    div
+      video(controls)
+        source(src='https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm' type='video/webm')
+        span.ui-color-danger Your browser does not support the #[code video] element.
+    pre: code.language-markup.
+      &lt;video controls&gt;
+        &lt;source src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm" type="video/webm"&gt;
+        &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;video&lt;/code&gt; element.&lt;/span&gt;
+      &lt;/video&gt;
