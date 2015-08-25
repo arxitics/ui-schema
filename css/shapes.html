@@ -50,29 +50,85 @@
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Shapes</h3>
-        <div class="ui-container-grid">
-          <div class="ui-grid-20">
-            <div class="ui-shape-wrapper ui-shape-hexagon">
-              <div class="ui-shape-container"><img height="100" src="https://openclipart.org/download/22265/StudioFibonacci-Cartoon-Hillside-with-Butterfly-and-Flowers.svg" alt="Cartoon Hillside with Butterfly and Flowers">
-                <div class="ui-image-reveal">
-                  <h4 class="ui-header-compact">Butterfly</h4>
-                  <p>Uploaded by StudioFibonacci</p>
+        <section>
+          <h4 class="ui-header-secondary">Tooltips</h4>
+          <div class="ui-container-grid">
+            <div class="ui-grid-25">
+              <div class="ui-tooltip-top">Tooltip on top</div>
+            </div>
+            <div class="ui-grid-25">
+              <div class="ui-tooltip-right">Tooltip on right</div>
+            </div>
+            <div class="ui-grid-25">
+              <div class="ui-tooltip-bottom">Tooltip on bottom</div>
+            </div>
+            <div class="ui-grid-25">
+              <div class="ui-tooltip-left">Tooltip on left</div>
+            </div>
+          </div>
+          <div class="ui-container-grid ui-skip-large">
+            <div class="ui-grid-50">
+              <div class="ui-tooltip-top">
+                <div class="ui-tooltip-header">
+                  <h4>Links</h4>
+                </div>
+                <div class="ui-tooltip-body">
+                  <ul class="ui-list-group">
+                    <li><a href="http://arxiv.org/abs/1212.5605">Abstract on arXiv.org</a></li>
+                    <li><a href="http://arxiv.org/pdf/1212.5605">View preprint PDF</a></li>
+                    <li><a href="http://arxiv.org/e-print/1212.5605">Download TeX source</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ui-grid-50">
+              <div class="ui-tooltip-top">
+                <div class="ui-tooltip-header">
+                  <h4>Basic Information</h4>
+                </div>
+                <div class="ui-tooltip-body">
+                  <table class="ui-table-fluid ui-table-columns-2">
+                    <tr>
+                      <td>Name</td>
+                      <td>Zan Pan</td>
+                    </tr>
+                    <tr>
+                      <td>Location</td>
+                      <td>Beijing, China</td>
+                    </tr>
+                    <tr>
+                      <td>Website</td>
+                      <td><a href="http://github.com/photino" rel="external" target="_blank">http://github.com/photino</a></td>
+                    </tr>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <pre><code class="language-markup">&lt;div class="ui-grid-20"&gt;
-  &lt;div class="ui-shape-wrapper ui-shape-hexagon"&gt;
-    &lt;div class="ui-shape-container"&gt;
-      &lt;img height="100" src="https://openclipart.org/download/22265/StudioFibonacci-Cartoon-Hillside-with-Butterfly-and-Flowers.svg" alt="Cartoon Hillside with Butterfly and Flowers"&gt;
-      &lt;div class="ui-image-reveal"&gt;
-        &lt;h4 class="ui-header-compact"&gt;Butterfly&lt;/h4&gt;
-        &lt;p&gt;Uploaded by StudioFibonacci&lt;/p&gt;
-      &lt;/div&gt;
+          <pre><code class="language-markup">&lt;div class="ui-grid-50"&gt;
+  &lt;div class="ui-tooltip-top"&gt;
+    &lt;div class="ui-tooltip-header"&gt;
+      &lt;h4&gt;Basic Information&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-tooltip-body"&gt;
+      &lt;table class="ui-table-fluid ui-table-columns-2"&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Name&lt;/td&gt;
+          &lt;td&gt;Zan Pan&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Location&lt;/td&gt;
+          &lt;td&gt;Beijing, China&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Website&lt;/td&gt;
+          &lt;td&gt;&lt;a href="http://github.com/photino" rel="external" target="_blank"&gt;http://github.com/photino&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+        </section>
       </article>
     </main>
     <footer role="contentinfo" class="ui-container-fluid">
