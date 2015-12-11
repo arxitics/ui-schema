@@ -1,11 +1,9 @@
-extends ../layout
+
+extends modules
 
 block variables
   - var pageID = 'css/navigation'
   - var pageTitle = 'Navigation'
-
-block aside
-  include modules
 
 block article
   h3.ui-header-primary Navigation
@@ -97,7 +95,7 @@ block article
         ul
           li: a(href='http://arxitics.com/browse') Browse
           li.ui-menu-dropdown
-            a Explore 
+            a(aria-haspopup='true') Explore 
               span.ui-caret-down
             ul.ui-seamless-top(role='menu')
               li: a(href='http://arxitics.com/articles') Collaborative Filtering
@@ -120,7 +118,7 @@ block article
           &lt;ul&gt;
             &lt;li&gt;&lt;a href="http://arxitics.com/browse"&gt;Browse&lt;/a&gt;&lt;/li&gt;
             &lt;li class="ui-menu-dropdown"&gt;
-              &lt;a&gt;Explore &lt;span class="ui-caret-down"&gt;&lt;/span&gt;&lt;/a&gt;
+              &lt;a aria-haspopup="true"&gt;Explore &lt;span class="ui-caret-down"&gt;&lt;/span&gt;&lt;/a&gt;
               &lt;ul class="ui-seamless-top" role="menu"&gt;
                 &lt;li&gt;&lt;a href="http://arxitics.com/articles"&gt;Collaborative Filtering&lt;/a&gt;&lt;/li&gt;
                 &lt;li&gt;&lt;a href="http://arxitics.com/search"&gt;Advanced Search&lt;/a&gt;&lt;/li&gt;

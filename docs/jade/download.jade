@@ -1,16 +1,14 @@
-extends layout
+
+extends links
 
 block variables
   - var pageID = 'download'
   - var pageTitle = 'Download'
 
-block aside
-  include links
-
 block article
   h3.ui-header-primary Download
   ul
     - var archive = 'https://github.com/arxitics/ui-schema/archive'
-    - var release = '0.3.4'
+    - var release = '0.3.5'
     li: a(href='#{archive}/master.zip') Latest development version from GitHub
     li: a(href='#{archive}/#{release}.zip') UI Schema production version #{release}

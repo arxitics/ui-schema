@@ -1,7 +1,11 @@
 
-h3.ui-header-primary Contents
-ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
-  mixin link(page, text)
-    li(class=(pageID === ('examples/' + page) ? 'ui-state-active': ''))
-      a(href='#{appDocs}/examples/#{page}.html')= text
-  +link('login', 'Login')
+extends ../layout
+
+mixin link(page, text)
+  li(class=(pageID === ('examples/' + page) ? 'ui-state-active': ''))
+    a(href='#{appDocs}/examples/#{page}.html')= text
+
+block aside
+  h3.ui-header-primary Contents
+  ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
+    +link('login', 'Login')

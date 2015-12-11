@@ -1,23 +1,22 @@
-extends ../layout
+
+extends components
 
 block variables
   - var pageID = 'javascript/icons'
   - var pageTitle = 'Icons'
 
-block aside
-  include components
+mixin icon(name, alias)
+  .ui-grid-25
+    i.ui-fixed-width(data-schema-icon=name)
+    |  
+    span= name
+      if alias
+        |  
+        span.ui-text-muted (alias)
 
 block article
   h3.ui-header-primary Icons
   p
-  mixin icon(name, alias)
-    .ui-grid-25
-      i.ui-fixed-width(data-schema-icon=name)
-      |  
-      span= name
-        if alias
-          |  
-          span.ui-text-muted (alias)
   section
     h4.ui-header-secondary Brand Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear

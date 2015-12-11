@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html id="css/tables" lang="en">
+<html id="css/pages" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Tables | UI Schema</title>
+    <title>Pages | UI Schema</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
@@ -35,7 +35,7 @@
           <li><a href="../../../docs/html/css/menus.html">Menus</a></li>
           <li><a href="../../../docs/html/css/typography.html">Typography</a></li>
           <li><a href="../../../docs/html/css/forms.html">Forms</a></li>
-          <li class="ui-state-active"><a href="../../../docs/html/css/tables.html">Tables</a></li>
+          <li><a href="../../../docs/html/css/tables.html">Tables</a></li>
           <li><a href="../../../docs/html/css/images.html">Images</a></li>
           <li><a href="../../../docs/html/css/icons.html">Icons</a></li>
           <li><a href="../../../docs/html/css/colors.html">Colors</a></li>
@@ -44,76 +44,39 @@
           <li><a href="../../../docs/html/css/events.html">Events</a></li>
           <li><a href="../../../docs/html/css/mobile.html">Mobile</a></li>
           <li><a href="../../../docs/html/css/print.html">Print</a></li>
-          <li><a href="../../../docs/html/css/pages.html">Pages</a></li>
+          <li class="ui-state-active"><a href="../../../docs/html/css/pages.html">Pages</a></li>
           <li><a href="../../../docs/html/css/utilities.html">Utilities</a></li>
           <li><a href="../../../docs/html/css/variables.html">Variables</a></li>
         </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
-        <h3 class="ui-header-primary">Tables</h3>
-        <p> </p>
-        <table class="ui-table-fluid ui-table-striped ui-table-bordered">
-          <thead class="ui-text-center">
-            <tr>
-              <th>Field</th>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody class="ui-text-center">
-            <tr>
-              <td>id</td>
-              <td>String</td>
-              <td>ArXiv identifer of the form <code class="ui-color-emphasis">yymm.nnnn</code> or <code class="ui-color-emphasis">arch-ive/yymmnnn</code>.</td>
-            </tr>
-            <tr>
-              <td>published</td>
-              <td>ISODate</td>
-              <td>Published date in the form <code class="ui-color-emphasis">yyyy-mm-ddThh:mm:ssZ</code>.</td>
-            </tr>
-            <tr>
-              <td>title</td>
-              <td>String</td>
-              <td>Queries for the <code class="ui-color-emphasis">title</code> field are converted to regular expressions by default.</td>
-            </tr>
-            <tr>
-              <td>authors</td>
-              <td>Array::String</td>
-              <td>You should use the exact match for the author name.</td>
-            </tr>
-          </tbody>
-        </table>
-        <pre><code class="language-markup">&lt;table class="ui-table-fluid ui-table-striped ui-table-bordered"&gt;
-  &lt;thead class="ui-text-center"&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Field&lt;/th&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody class="ui-text-center"&gt;
-    &lt;tr&gt;
-      &lt;td&gt;id&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
-      &lt;td&gt;ArXiv identifer of the form &lt;code class="ui-color-emphasis"&gt;yymm.nnnn&lt;/code&gt; or &lt;code class="ui-color-emphasis"&gt;arch-ive/yymmnnn&lt;/code&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;published&lt;/td&gt;
-      &lt;td&gt;ISODate&lt;/td&gt;
-      &lt;td&gt;Published date in the form &lt;code class="ui-color-emphasis"&gt;yyyy-mm-ddThh:mm:ssZ&lt;/code&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;title&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
-      &lt;td&gt;Queries for the &lt;code class="ui-color-emphasis"&gt;title&lt;/code&gt; field are converted to regular expressions by default.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;authors&lt;/td&gt;
-      &lt;td&gt;Array::String&lt;/td&gt;
-      &lt;td&gt;You should use the exact match for the author name.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
+        <h3 class="ui-header-primary">Pages</h3>
+        <section>
+          <h4 class="ui-header-secondary">Page sizes</h4>
+          <p>We define the following page sizes with fixed width and height:</p>
+          <div class="ui-container-responsive">
+            <table class="ui-table-fluid ui-table-striped">
+              <thead class="ui-text-center">
+                <tr>
+                  <th>Page</th>
+                  <th><code>.ui-a4-paper</code></th>
+                  <th><code>.ui-a5-paper</code></th>
+                  <th><code>.ui-b5-paper</code></th>
+                  <th><code>.ui-letter-paper</code></th>
+                </tr>
+              </thead>
+              <tbody class="ui-text-center">
+                <tr>
+                  <td>Size (mm x mm)</td>
+                  <td>210 x 297</td>
+                  <td>148 x 210</td>
+                  <td>176 x 250</td>
+                  <td>215.9 x 279.4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </article>
     </main>
     <footer role="contentinfo" class="ui-container-fluid">

@@ -1,11 +1,15 @@
 
-h3.ui-header-primary Components
-ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
-  mixin link(page, text)
-    li(class=(pageID === ('javascript/' + page) ? 'ui-state-active': ''))
-      a(href='#{appDocs}/javascript/#{page}.html')= text
-  +link('setup', 'Setup')
-  +link('core', 'Core')
-  +link('forms', 'Forms')
-  +link('icons', 'Icons')
-  +link('utilities', 'Utilities')
+extends ../layout
+
+mixin link(page, text)
+  li(class=(pageID === ('javascript/' + page) ? 'ui-state-active': ''))
+    a(href='#{appDocs}/javascript/#{page}.html')= text
+
+block aside
+  h3.ui-header-primary Components
+  ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
+    +link('setup', 'Setup')
+    +link('core', 'Core')
+    +link('forms', 'Forms')
+    +link('icons', 'Icons')
+    +link('utilities', 'Utilities')

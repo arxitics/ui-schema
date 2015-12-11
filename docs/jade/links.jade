@@ -1,10 +1,14 @@
 
-h3.ui-header-primary Links
-ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
-  mixin link(page, text)
-    li(class=(pageID === page ? 'ui-state-active': ''))
-      a(href='#{appDocs}/#{page}.html')= text
-  +link('download', 'Download')
-  +link('structure', 'Directory Structure')
-  +link('template', 'Basic Template')
-  +link('notes', 'Release Notes')
+extends layout
+
+mixin link(page, text)
+  li(class=(pageID === page ? 'ui-state-active': ''))
+    a(href='#{appDocs}/#{page}.html')= text
+
+block aside
+  h3.ui-header-primary Links
+  ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
+    +link('download', 'Download')
+    +link('structure', 'Directory Structure')
+    +link('template', 'Basic Template')
+    +link('notes', 'Release Notes')
