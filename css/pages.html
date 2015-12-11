@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html id="css/core" lang="en">
+<html id="css/pages" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Core Styles | UI Schema</title>
+    <title>Pages | UI Schema</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
@@ -29,7 +29,7 @@
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="./../css/base.html">Base</a></li>
-          <li class="ui-state-active"><a href="./../css/core.html">Core</a></li>
+          <li><a href="./../css/core.html">Core</a></li>
           <li><a href="./../css/grid.html">Grid</a></li>
           <li><a href="./../css/navigation.html">Navigation</a></li>
           <li><a href="./../css/menus.html">Menus</a></li>
@@ -44,76 +44,39 @@
           <li><a href="./../css/events.html">Events</a></li>
           <li><a href="./../css/mobile.html">Mobile</a></li>
           <li><a href="./../css/print.html">Print</a></li>
-          <li><a href="./../css/pages.html">Pages</a></li>
+          <li class="ui-state-active"><a href="./../css/pages.html">Pages</a></li>
           <li><a href="./../css/utilities.html">Utilities</a></li>
           <li><a href="./../css/variables.html">Variables</a></li>
         </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
-        <h3 class="ui-header-primary">Core Styles</h3>
+        <h3 class="ui-header-primary">Pages</h3>
         <section>
-          <h4 class="ui-header-secondary">Font Sizing</h4>
-          <p>We use the following media queries to set the value of rem unit:</p>
+          <h4 class="ui-header-secondary">Page sizes</h4>
+          <p>We define the following page sizes with fixed width and height:</p>
           <div class="ui-container-responsive">
             <table class="ui-table-fluid ui-table-striped">
               <thead class="ui-text-center">
                 <tr>
-                  <th>min-width</th>
-                  <th>N/A</th>
-                  <th>768px</th>
-                  <th>992px</th>
-                  <th>1248px</th>
-                  <th>1334px</th>
-                  <th>1408px</th>
-                  <th>1568px</th>
-                  <th>1888px</th>
-                  <th>2016px</th>
+                  <th>Page</th>
+                  <th><code>.ui-a4-paper</code></th>
+                  <th><code>.ui-a5-paper</code></th>
+                  <th><code>.ui-b5-paper</code></th>
+                  <th><code>.ui-letter-paper</code></th>
                 </tr>
               </thead>
               <tbody class="ui-text-center">
                 <tr>
-                  <td>rem unit</td>
-                  <td>8px</td>
-                  <td>9px</td>
-                  <td>10px</td>
-                  <td>11px</td>
-                  <td>12px</td>
-                  <td>13px</td>
-                  <td>14px</td>
-                  <td>15px</td>
-                  <td>16px</td>
+                  <td>Size (mm x mm)</td>
+                  <td>210 x 297</td>
+                  <td>148 x 210</td>
+                  <td>176 x 250</td>
+                  <td>215.9 x 279.4</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
-        <p>Then all font sizes are specified with rems and ems. For headings, we have</p>
-        <div class="ui-container-responsive">
-          <table class="ui-table-fluid ui-table-striped">
-            <thead class="ui-text-center">
-              <tr>
-                <th>Heading</th>
-                <th>h1</th>
-                <th>h2</th>
-                <th>h3</th>
-                <th>h4</th>
-                <th>h5</th>
-                <th>h6</th>
-              </tr>
-            </thead>
-            <tbody class="ui-text-center">
-              <tr>
-                <td>font-size</td>
-                <td>3.6rem</td>
-                <td>3rem</td>
-                <td>2.4rem</td>
-                <td>1.8rem</td>
-                <td>1.4rem</td>
-                <td>1.2rem</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </article>
     </main>
     <footer role="contentinfo" class="ui-container-fluid">
