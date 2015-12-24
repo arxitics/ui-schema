@@ -4,7 +4,7 @@
 cd "$(dirname $0)/"
 
 # copyright Information
-version="0.3.5"
+version="0.3.6"
 copyright="/*! UI Schema v$version | (c) 2015 Arxitics | MIT license */"
 echo "current version: v$version"
 

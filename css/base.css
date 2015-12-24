@@ -2,7 +2,7 @@
  * Base
  */
 
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.3 | MIT License | git.io/normalize */
 
 /**
  * 1. Set default font family to sans-serif.
@@ -319,15 +319,12 @@ input::-moz-focus-inner {
 }
 
 /**
- * 1. Remove rounded corners on input form on iOS, iPad, iPhone.
- * 2. Address Firefox 4+ setting `line-height` on `input` using `!important` in
- *    the UA stylesheet.
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
  */
 
 input {
-  -webkit-appearance: none; /* 1 */
-  -webkit-border-radius: 0; /* 1 */
-  line-height: normal; /* 2 */
+  line-height: normal;
 }
 
 /**

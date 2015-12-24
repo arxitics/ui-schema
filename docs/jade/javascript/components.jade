@@ -2,7 +2,7 @@
 extends ../layout
 
 mixin link(page, text)
-  li(class=(pageID === ('javascript/' + page) ? 'ui-state-active': ''))
+  li(class={'ui-state-active': pageID === ('javascript/' + page)})
     a(href='#{appDocs}/javascript/#{page}.html')= text
 
 block aside
