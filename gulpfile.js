@@ -14,7 +14,7 @@ var jade = require('gulp-jade');
 
 var pkg = require('./package.json');
 var version = pkg.version;
-var banner = '/*! UI Schema v<%= version %> | (c) 2015 Arxitics | MIT license */\n';
+var banner = '/*! UI Schema v<%= version %> | (c) 2016 Arxitics | MIT license */\n';
 
 gulp.task('default', [
   'csslint',
