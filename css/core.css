@@ -379,7 +379,7 @@ button:hover {
   background-color: #ebebeb;
 }
 
-input {
+input:not([type="checkbox"]):not([type="radio"]) {
   background-color: #fff;
   height: 1.42857em;
 }
@@ -632,7 +632,7 @@ select[size] > option {
 
 :disabled,
 [disabled] {
-  background-color: #eee;
+  background-color: #eee !important;
   opacity: .65;
   pointer-events: none;
 }

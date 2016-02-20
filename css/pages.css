@@ -23,5 +23,8 @@
 }
 
 .ui-page-wrapper {
+  background-color: #fff;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10mm 16.18mm;
 }

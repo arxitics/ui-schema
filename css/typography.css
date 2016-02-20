@@ -339,6 +339,18 @@
   counter-increment: list;
 }
 
+.ui-list-bibliography {
+  counter-reset: citation;
+  list-style: none;
+  padding-left: 1.6em;
+}
+
+.ui-list-bibliography > li::before {
+  content: "[" counter(citation) "]\2002";
+  counter-increment: citation;
+  margin-left: -1.6em;
+}
+
 .ui-content-link > a,
 .ui-content-link > a > div {
   display: table-cell !important;

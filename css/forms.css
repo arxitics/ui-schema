@@ -43,7 +43,7 @@
   width: 100%;
 }
 
-.ui-form-horizontal input,
+.ui-form-horizontal input:not([type="checkbox"]):not([type="radio"]),
 .ui-form-horizontal select {
   height: 2.34694em;
 }
@@ -76,7 +76,7 @@
 }
 
 .ui-input-addon > :first-child,
-.ui-input-addon > input,
+.ui-input-addon > input:not([type="checkbox"]):not([type="radio"]),
 .ui-input-addon > :last-child {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

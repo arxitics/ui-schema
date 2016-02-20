@@ -115,7 +115,7 @@ block article
           .ui-grid-80
             input(id='comments' type='text' name='comments' placeholder='Les Houches summer school' title='Pattern matching for the &quot;comments&quot; field is case-insensitive')
           label.ui-grid-20(for='sort') Sort by
-          .ui-grid-80
+          .ui-grid-80.ui-skip-tiny
             input(id='sort' type='radio' name='sort' value='published' checked)
             |  Published date
             input.ui-offset-small(type='radio' name='sort' value='updated')
@@ -139,7 +139,7 @@ block article
             &lt;input id="comments" type="text" name="comments" placeholder="Les Houches summer school"&gt;
           &lt;/div&gt;
           &lt;label for="sort" class="ui-grid-20"&gt;Sort by&lt;/label&gt;
-          &lt;div class="ui-grid-80"&gt;
+          &lt;div class="ui-grid-80 ui-skip-tiny"&gt;
             &lt;input id="sort" type="radio" name="sort" value="published" checked&gt; Published date
             &lt;input class="ui-offset-small" type="radio" name="sort" value="updated"&gt; Updated date
             &lt;input class="ui-offset-small" type="radio" name="sort" value="views"&gt; Article views
