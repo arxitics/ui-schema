@@ -7,15 +7,15 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.3.7.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.3.8.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-0.0.2.min.css" media="all">
   </head>
   <body>
-    <header role="banner" class="ui-header-navbar ui-container-fluid ui-container-grid">
+    <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-header-brand">
         <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
       </div>
-      <nav role="navigation">
+      <nav>
         <ul>
           <li><a href="../../../docs/html/css.html" accesskey="c">CSS</a></li>
           <li><a href="../../../docs/html/javascript.html" accesskey="j">JavaScript</a></li>
@@ -24,7 +24,7 @@
         </ul>
       </nav>
     </header>
-    <main role="main" class="ui-container-fluid ui-container-grid">
+    <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
@@ -86,18 +86,18 @@
         <section>
           <h4 class="ui-header-secondary">Inline Form</h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/search" method="get" role="form" class="ui-grid-50 ui-phone-expand">
+            <form action="http://arxitics.com/search" method="get" class="ui-grid-50 ui-phone-expand">
               <input type="search" name="q" placeholder="Search or type a command" title="Type &quot;help&quot; to redirect to the help center">
               <button type="submit">Go!</button>
             </form>
-            <form action="http://arxitics.com/search" method="get" role="form" class="ui-grid-50 ui-phone-expand">
+            <form action="http://arxitics.com/search" method="get" class="ui-grid-50 ui-phone-expand">
               <div class="ui-input-addon">
                 <input type="search" name="q" placeholder="Search or type a command" title="Type &quot;help&quot; to redirect to the help center">
                 <button type="submit"><i data-schema-icon="search">Go!</i></button>
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form action="http://arxitics.com/search" method="get" role="form"&gt;
+          <pre><code class="language-markup">&lt;form action="http://arxitics.com/search" method="get"&gt;
   &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
   &lt;button type="submit"&gt;Go!&lt;/button&gt;
 &lt;/form&gt;</code></pre>
@@ -105,7 +105,7 @@
         <section>
           <h4 class="ui-header-secondary">Fluid Form</h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/browse" method="get" role="form" class="ui-grid-50 ui-phone-expand ui-form-fluid">
+            <form action="http://arxitics.com/browse" method="get" class="ui-grid-50 ui-phone-expand ui-form-fluid">
               <label for="categories">Categories</label>
               <input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" title="Multiple categories are separated by commas" required>
               <label for="keywords">Keywords</label>
@@ -118,7 +118,7 @@
                 <button type="reset" class="ui-offset-medium">Reset</button>
               </div>
             </form>
-            <form action="http://arxitics.com/search" method="get" role="form" class="ui-grid-50 ui-phone-expand ui-form-fluid">
+            <form action="http://arxitics.com/search" method="get" class="ui-grid-50 ui-phone-expand ui-form-fluid">
               <label for="subjects">Subjects</label>
               <input id="subjects" type="text" name="subjects" placeholder="11.15.Ha, 81T25, J.2, C87" title="Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class">
               <label for="journal">Journal</label>
@@ -141,7 +141,7 @@
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get" role="form"&gt;
+          <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get"&gt;
   &lt;label for="categories"&gt;Categories&lt;/label&gt;
   &lt;input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" required&gt;
   &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
@@ -158,7 +158,7 @@
         <section>
           <h4 class="ui-header-secondary">Horizontal Form</h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/search" method="get" role="form" class="ui-form-horizontal">
+            <form action="http://arxitics.com/search" method="get" class="ui-form-horizontal">
               <div class="ui-container-grid">
                 <label for="title" class="ui-grid-20">Title</label>
                 <div class="ui-grid-80">
@@ -182,7 +182,7 @@
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get" role="form"&gt;
+          <pre><code class="language-markup">&lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get"&gt;
   &lt;div class="ui-container-grid"&gt;
     &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
     &lt;div class="ui-grid-80"&gt;
@@ -327,12 +327,12 @@
         </section>
       </article>
     </main>
-    <footer role="contentinfo" class="ui-container-fluid">
+    <footer class="ui-container-fluid">
       <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
     <script src="../../../dist/jquery-2.1.3.min.js"></script>
     <script src="../../../dist/prism-0.0.2.min.js"></script>
-    <script src="../../../dist/ui-schema-0.3.7.min.js"></script>
+    <script src="../../../dist/ui-schema-0.3.8.min.js"></script>
     <script src="../../../dist/icons/account.js"></script>
     <script src="../../../dist/icons/editor.js"></script>
     <script src="../../../dist/icons/forms.js"></script>

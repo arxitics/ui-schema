@@ -379,7 +379,7 @@ button:hover {
   background-color: #ebebeb;
 }
 
-input:not([type="checkbox"]):not([type="radio"]) {
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
   background-color: #fff;
   height: 1.42857em;
 }
@@ -530,11 +530,8 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #ccc;
 }
 
-label {
-  cursor: pointer;
-}
-
 label[for] {
+  cursor: pointer;
   font-weight: bold;
 }
 

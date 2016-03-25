@@ -2,6 +2,10 @@
  * Effects
  */
 
+.ui-line-preserve {
+  white-space: pre-line;
+}
+
 /**
  * Trim white-space characters between inline-block elements.
  */

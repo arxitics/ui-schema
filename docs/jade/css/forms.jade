@@ -42,22 +42,22 @@ block article
   section
     h4.ui-header-secondary Inline Form
     .ui-container-grid
-      form.ui-grid-50.ui-phone-expand(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand(action='http://arxitics.com/search' method='get')
         input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
         button(type='submit') Go!
-      form.ui-grid-50.ui-phone-expand(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand(action='http://arxitics.com/search' method='get')
         .ui-input-addon
           input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
           button(type='submit'): i(data-schema-icon='search') Go!
     pre: code.language-markup.
-      &lt;form action="http://arxitics.com/search" method="get" role="form"&gt;
+      &lt;form action="http://arxitics.com/search" method="get"&gt;
         &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
         &lt;button type="submit"&gt;Go!&lt;/button&gt;
       &lt;/form&gt;
   section
     h4.ui-header-secondary Fluid Form
     .ui-container-grid
-      form.ui-grid-50.ui-phone-expand.ui-form-fluid(action='http://arxitics.com/browse' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand.ui-form-fluid(action='http://arxitics.com/browse' method='get')
         label(for='categories') Categories
         input(id='categories' type='text' name='categories' placeholder='math-ph, math.MP, cs.CC' title='Multiple categories are separated by commas' required)
         label(for='keywords') Keywords
@@ -68,7 +68,7 @@ block article
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
-      form.ui-grid-50.ui-phone-expand.ui-form-fluid(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-grid-50.ui-phone-expand.ui-form-fluid(action='http://arxitics.com/search' method='get')
         label(for='subjects') Subjects
         input(id='subjects' type='text' name='subjects' placeholder='11.15.Ha, 81T25, J.2, C87' title='Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class')
         label(for='journal') Journal
@@ -90,7 +90,7 @@ block article
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
     pre: code.language-markup.
-      &lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get" role="form"&gt;
+      &lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get"&gt;
         &lt;label for="categories"&gt;Categories&lt;/label&gt;
         &lt;input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" required&gt;
         &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
@@ -106,7 +106,7 @@ block article
   section
     h4.ui-header-secondary Horizontal Form
     .ui-container-grid
-      form.ui-form-horizontal(action='http://arxitics.com/search' method='get' role='form')
+      form.ui-form-horizontal(action='http://arxitics.com/search' method='get')
         .ui-container-grid
           label.ui-grid-20(for='title') Title
           .ui-grid-80
@@ -128,7 +128,7 @@ block article
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
     pre: code.language-markup.
-      &lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get" role="form"&gt;
+      &lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get"&gt;
         &lt;div class="ui-container-grid"&gt;
           &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
           &lt;div class="ui-grid-80"&gt;

@@ -107,6 +107,16 @@
   border-top-left-radius: 0;
 }
 
+.ui-input-underline {
+  border: none;
+  border-bottom: 1px solid #333;
+  border-radius: 0;
+}
+
+.ui-input-underline:focus {
+  box-shadow: none !important;
+}
+
 .ui-button-toolbar > .ui-button-group,
 .ui-button-toolbar > .ui-button-switch {
   display: inline-block;

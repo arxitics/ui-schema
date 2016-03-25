@@ -2,6 +2,12 @@
  * Typography
  */
 
+.ui-font-normal {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
+
 /**
  * Known issue: Chrome's default setting of minimum font-size is 12px.
  */
