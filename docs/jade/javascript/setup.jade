@@ -25,16 +25,6 @@ block article
           namespace: '.options.data-api.schema',
           selector: '[data-schema-options]'
         },
-        trim: {
-          type: 'remove',
-          namespace: '.white-space.text-node.schema',
-          selector: '.ui-space-collapse'
-        },
-        extract: {
-          type: 'create',
-          namespace: '.dom.data-api.schema',
-          selector: '[data-schema-extract]'
-        },
         validate: {
           type: 'validate',
           namespace: '.form-validate.form.data-api.schema',
@@ -44,5 +34,15 @@ block article
           type: 'create',
           namespace: '.icons.svg.data-api.schema',
           selector: 'i[data-schema-icon]'
+        },
+        trim: {
+          type: 'remove',
+          namespace: '.white-space.text-node.schema',
+          selector: '.ui-space-trim'
+        },
+        extract: {
+          type: 'create',
+          namespace: '.dom.data-api.schema',
+          selector: 'body [data-schema-extract]'
         }
       };

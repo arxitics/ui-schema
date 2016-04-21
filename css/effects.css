@@ -8,43 +8,44 @@
 
 /**
  * Trim white-space characters between inline-block elements.
+ * https://drafts.csswg.org/css-text-4/#white-space-trim
  */
 
-.ui-space-collapse {
-  text-space-collapse: trim-inner;
+.ui-space-trim {
+  text-space-trim: trim-inner;
 }
 
-.ui-space-collapse > a,
-.ui-space-collapse > button,
-.ui-space-collapse > label,
-.ui-space-collapse > li > :only-child {
+.ui-space-trim > a,
+.ui-space-trim > button,
+.ui-space-trim > label,
+.ui-space-trim > li > :only-child {
   border-left-width: 0;
   border-radius: 0;
 }
 
-.ui-space-collapse > a:first-child,
-.ui-space-collapse > button:first-child,
-.ui-space-collapse > div:first-child > button:first-of-type,
-.ui-space-collapse > label:first-of-type,
-.ui-space-collapse > li:first-child > :only-child {
-  border-bottom-left-radius: .4rem;
-  border-top-left-radius: .4rem;
+.ui-space-trim > a:first-child,
+.ui-space-trim > button:first-child,
+.ui-space-trim > div:first-child > button:first-of-type,
+.ui-space-trim > label:first-of-type,
+.ui-space-trim > li:first-child > :only-child {
+  border-bottom-left-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
 }
 
-.ui-space-collapse > a:last-child,
-.ui-space-collapse > button:last-child,
-.ui-space-collapse > div:last-child > button:last-of-type,
-.ui-space-collapse > label:last-of-type,
-.ui-space-collapse > li:last-child > :only-child {
-  border-bottom-right-radius: .4rem;
-  border-top-right-radius: .4rem;
+.ui-space-trim > a:last-child,
+.ui-space-trim > button:last-child,
+.ui-space-trim > div:last-child > button:last-of-type,
+.ui-space-trim > label:last-of-type,
+.ui-space-trim > li:last-child > :only-child {
+  border-bottom-right-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
 }
 
-.ui-space-collapse > a:first-child,
-.ui-space-collapse > button:first-child,
-.ui-space-collapse > div:first-child > button:first-of-type,
-.ui-space-collapse > label:first-of-type,
-.ui-space-collapse > li:first-child > :only-child {
+.ui-space-trim > a:first-child,
+.ui-space-trim > button:first-child,
+.ui-space-trim > div:first-child > button:first-of-type,
+.ui-space-trim > label:first-of-type,
+.ui-space-trim > li:first-child > :only-child {
   border-left-width: 1px;
 }
 
@@ -71,11 +72,11 @@
 .ui-frame-circular,
 .ui-frame-stadium {
   border: 1px solid #ccc;
-  padding: .4em .8em;
+  padding: 0.4em 0.8em;
 }
 
 .ui-frame-rounded {
-  border-radius: .4rem;
+  border-radius: 0.4rem;
 }
 
 .ui-frame-circular {

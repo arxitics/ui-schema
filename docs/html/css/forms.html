@@ -7,8 +7,8 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.3.8.min.css" media="all">
-    <link rel="stylesheet" href="../../../dist/prism-0.0.2.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.3.9.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
@@ -210,23 +210,23 @@
           <h4 class="ui-header-secondary">Button Groups</h4>
           <div class="ui-container-grid">
             <div class="ui-button-toolbar">
-              <div class="ui-button-group ui-space-collapse">
+              <div class="ui-button-group ui-space-trim">
                 <button title="View chat history">View</button>
                 <button title="Clear current chat room">Clear</button>
                 <button title="Export chat data as JSON">Export</button>
                 <button title="Delete all chat data">Delete</button>
               </div>
-              <div class="ui-button-group ui-space-collapse">
+              <div class="ui-button-group ui-space-trim">
                 <button title="Refresh this page">Refresh</button>
                 <button title="Close the connection">Close</button>
               </div>
             </div>
             <div class="ui-button-toolbar ui-skip-medium">
-              <div class="ui-button-group ui-space-collapse">
+              <div class="ui-button-group ui-space-trim">
                 <input id="published-date" type="radio" name="sort" value="published" checked>
                 <label for="published-date">Published Date</label>
-                <input id="updated-date" type="radio" name="sort" value="updated">
-                <label for="updated-date">Updated Date</label>
+                <input id="updated-date" type="radio" name="sort" value="updated" class="ui-phone-hidden">
+                <label for="updated-date" class="ui-phone-hidden">Updated Date</label>
                 <input id="reader-counts" type="radio" name="sort" value="readers">
                 <label for="reader-counts">Reader Counts</label>
                 <input id="rating-score" type="radio" name="sort" value="rating">
@@ -237,39 +237,39 @@
                 <label for="sort-order"><span><i data-schema-icon="sort-amount-asc" title="Ascending">Asc</i></span><span><i data-schema-icon="sort-amount-desc" title="Descending">Desc</i></span></label>
               </div>
             </div>
-            <div class="ui-button-group ui-space-collapse ui-skip-medium">
+            <div class="ui-button-group ui-space-trim ui-skip-medium">
               <input id="physics" type="checkbox" name="groups" value="physics" checked>
               <label for="physics">Physics</label>
               <input id="math" type="checkbox" name="groups" value="math">
               <label for="math">Mathematics</label>
-              <input id="cs" type="checkbox" name="groups" value="cs">
-              <label for="cs">Computer Science</label>
-              <input id="q-bio" type="checkbox" name="groups" value="q-bio">
-              <label for="q-bio">Quantitative Biology</label>
-              <input id="q-fin" type="checkbox" name="groups" value="q-fin">
-              <label for="q-fin">Quantitative Finance</label>
+              <input id="cs" type="checkbox" name="groups" value="cs" class="ui-phone-hidden">
+              <label for="cs" class="ui-phone-hidden">Computer Science</label>
+              <input id="q-bio" type="checkbox" name="groups" value="q-bio" class="ui-phone-hidden">
+              <label for="q-bio" class="ui-phone-hidden">Quantitative Biology</label>
+              <input id="q-fin" type="checkbox" name="groups" value="q-fin" class="ui-phone-hidden">
+              <label for="q-fin" class="ui-phone-hidden">Quantitative Finance</label>
               <input id="stats" type="checkbox" name="groups" value="stats">
               <label for="stats">Statistics</label>
             </div>
           </div>
           <pre><code class="language-markup">&lt;div class="ui-button-toolbar"&gt;
-  &lt;div class="ui-button-group ui-space-collapse"&gt;
+  &lt;div class="ui-button-group ui-space-trim"&gt;
     &lt;button title="View chat history"&gt;View&lt;/button&gt;
     &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
     &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
     &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
   &lt;/div&gt;
-  &lt;div class="ui-button-group ui-space-collapse"&gt;
+  &lt;div class="ui-button-group ui-space-trim"&gt;
     &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
     &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="ui-button-toolbar ui-skip-medium"&gt;
-  &lt;div class="ui-button-group ui-space-collapse"&gt;
+  &lt;div class="ui-button-group ui-space-trim"&gt;
     &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
     &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
-    &lt;input id="updated-date" type="radio" name="sort" value="updated"&gt;
-    &lt;label for="updated-date"&gt;Updated Date&lt;/label&gt;
+    &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
+    &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
     &lt;input id="reader-counts" type="radio" name="sort" value="readers"&gt;
     &lt;label for="reader-counts"&gt;Reader Counts&lt;/label&gt;
     &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
@@ -283,17 +283,17 @@
     &lt;/label&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="ui-button-group ui-space-collapse ui-skip-medium"&gt;
+&lt;div class="ui-button-group ui-space-trim ui-skip-medium"&gt;
   &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
   &lt;label for="physics"&gt;Physics&lt;/label&gt;
   &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
   &lt;label for="math"&gt;Mathematics&lt;/label&gt;
-  &lt;input id="cs" type="checkbox" name="groups" value="cs"&gt;
-  &lt;label for="cs"&gt;Computer Science&lt;/label&gt;
-  &lt;input id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
-  &lt;label for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
-  &lt;input id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
-  &lt;label for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
+  &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
+  &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
+  &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
   &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
   &lt;label for="stats"&gt;Statistics&lt;/label&gt;
 &lt;/div&gt;</code></pre>
@@ -331,8 +331,8 @@
       <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE.txt" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
     <script src="../../../dist/jquery-2.1.3.min.js"></script>
-    <script src="../../../dist/prism-0.0.2.min.js"></script>
-    <script src="../../../dist/ui-schema-0.3.8.min.js"></script>
+    <script src="../../../dist/prism-1.4.1.min.js"></script>
+    <script src="../../../dist/ui-schema-0.3.9.min.js"></script>
     <script src="../../../dist/icons/account.js"></script>
     <script src="../../../dist/icons/editor.js"></script>
     <script src="../../../dist/icons/forms.js"></script>

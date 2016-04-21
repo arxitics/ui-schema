@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.3.8 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.3.9 (https://github.com/arxitics/ui-schema)
  * Copyright 2016 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
@@ -29,16 +29,6 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         namespace: '.options.data-api.schema',
         selector: '[data-schema-options]'
       },
-      trim: {
-        type: 'remove',
-        namespace: '.white-space.text-node.schema',
-        selector: '.ui-space-collapse'
-      },
-      extract: {
-        type: 'create',
-        namespace: '.dom.data-api.schema',
-        selector: '[data-schema-extract]'
-      },
       validate: {
         type: 'validate',
         namespace: '.form-validate.form.data-api.schema',
@@ -48,6 +38,16 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         type: 'create',
         namespace: '.icons.svg.data-api.schema',
         selector: 'i[data-schema-icon]'
+      },
+      trim: {
+        type: 'remove',
+        namespace: '.white-space.text-node.schema',
+        selector: '.ui-space-trim'
+      },
+      extract: {
+        type: 'create',
+        namespace: '.dom.data-api.schema',
+        selector: 'body [data-schema-extract]'
       }
     }
   }, schema);
@@ -74,27 +74,22 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   };
 
   // Bind and trigger schema events
-  schema.load = function (setup, events) {
-    var schemaSetup = $.extend({}, schema.setup, setup);
-    var schemaEvents = $.extend({}, schema.events, events);
-
-    var schemaDataPrefix = schemaSetup.dataPrefix;
-    var dataPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
-
-    for (var key in schemaEvents) {
-      if (schemaEvents.hasOwnProperty(key)) {
-        var schemaFunction = schema[key];
-        var eventObject = schemaEvents[key];
-        var eventDelegation = eventObject.delegation;
-        if (!eventObject.hasOwnProperty('delegation')) {
-          eventDelegation = schema.delegate(eventObject);
-          eventObject.delegation = eventDelegation;
+  schema.load = function (options) {
+    var events = $.extend({}, schema.events, options);
+    for (var key in events) {
+      if (events.hasOwnProperty(key)) {
+        var func = schema[key];
+        var event = events[key];
+        var delegation = event.delegation;
+        if (!event.hasOwnProperty('delegation')) {
+          delegation = schema.delegate(event);
+          event.delegation = delegation;
         }
-        if (eventDelegation > 1) {
-          var eventName = eventObject.type + eventObject.namespace;
-          $(document).on(eventName, schemaFunction);
-          if (eventDelegation > 2) {
-            $(document).trigger(eventName);
+        if (delegation > 1) {
+          var name = event.type + event.namespace;
+          $(document).on(name, func);
+          if (delegation > 2) {
+            $(document).trigger(name);
           }
         }
       }
@@ -103,40 +98,39 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Assign an integer as the delegation of an event
   schema.delegate = function (event) {
-    var schemaSetup = schema.setup;
-    var eventsBind = schemaSetup.autoBind.split(' ');
-    var eventsTrigger = schemaSetup.autoTrigger.split(' ');
-    var eventName = event.type + event.namespace;
-    var eventArray = eventName.replace(/^\./, '').split('.');
+    var setup = schema.setup;
+    var bindings = setup.autoBind.split(' ');
+    var triggers = setup.autoTrigger.split(' ');
+    var name = event.type + event.namespace;
+    var phrases = name.replace(/^\./, '').split('.');
 
-    var eventDelegation = eventsBind.some(function (bindEvent) {
-      var bindArray = bindEvent.replace(/^\./, '').split('.');
-      return bindArray.every(function (eventKeyword) {
-        return eventArray.indexOf(eventKeyword) !== -1;
+    var delegation = bindings.some(function (binding) {
+      var keywords = binding.replace(/^\./, '').split('.');
+      return keywords.every(function (keyword) {
+        return phrases.indexOf(keyword) !== -1;
       });
     }) ? 2 : 0;
-    eventDelegation += eventsTrigger.some(function (triggerEvent) {
-      var triggerArray = triggerEvent.replace(/^\./, '').split('.');
-      return triggerArray.every(function(eventKeyword) {
-        return eventArray.indexOf(eventKeyword) !== -1;
+    delegation += triggers.some(function (trigger) {
+      var keywords = trigger.replace(/^\./, '').split('.');
+      return keywords.every(function(keyword) {
+        return phrases.indexOf(keyword) !== -1;
       });
     }) ? 1 : 0;
 
-    return eventDelegation;
+    return delegation;
   };
 
   // Retrieve schema event options and store as event data
   schema.retrieve = function (event, options) {
-    var eventSelector = schema.events.retrieve.selector;
-    var optionalSelector = options && options.selector;
-    var $_elements = $(eventSelector).add(optionalSelector);
+    var selector = schema.events.retrieve.selector;
+    var $_elements = $(selector).add(options && options.selector);
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var schemaOptions = schema.parseOptions($_data.schemaOptions);
-      for (var key in schemaOptions) {
-        if (schemaOptions.hasOwnProperty(key)) {
-          $_this.data(key, schemaOptions[key]);
+      var $_options = schema.parseOptions($_data.options);
+      for (var key in $_options) {
+        if ($_options.hasOwnProperty(key)) {
+          $_this.data(key, $_options[key]);
         }
       }
     });
@@ -144,60 +138,61 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Parse and normalize schema data
   schema.parseData = function (data) {
-    var dataObject = {};
-    var schemaDataPrefix = schema.setup.dataPrefix;
-    var dataPrefixLength = schemaDataPrefix && schemaDataPrefix.length;
+    var output = {};
+    var prefix = schema.setup.dataPrefix;
+    var length = prefix && prefix.length || 0;
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
-        var dataKey = 'schema-' + key.slice(dataPrefixLength);
-        var dataValue = data[key];
-        dataKey = dataKey.replace(/\-\w/g, function (matchedSubstr) {
-          return matchedSubstr.charAt(1).toUpperCase();
+        var index = key.slice(length);
+        var value = data[key];
+        index = index.replace(/^[A-Z]/, function (substr) {
+          return substr.toLowerCase();
         });
-        dataObject[dataKey] = (dataValue === '' ? true : dataValue);
+        output[index] = (value === '' ? true : value);
       }
     }
-    return dataObject;
+    return output;
   };
 
   // Parse and normalize schema options
   schema.parseOptions = function (options) {
-    var optionsObject = {};
-    var parsedOptionsObject = {};
-    var schemaDataPrefix = schema.setup.dataPrefix;
-    var optionsPrefix = schemaDataPrefix ? schemaDataPrefix + '-' : '';
-    var optionsType = Object.prototype.toString.call(options).slice(8, -1);
-    if (optionsType === 'Object') {
-      optionsObject = options;
-    }
-    if (optionsType === 'String') {
+    var output = {};
+    var object = {};
+    var prefix = schema.setup.dataPrefix;
+    var type = Object.prototype.toString.call(options).slice(8, -1);
+    if (type === 'Object') {
+      object = options;
+    } else if (type === 'String') {
       try {
-        optionsObject = JSON.parse(options);
-      } catch (parseError) {
+        object = JSON.parse(options);
+      } catch (error) {
         if (options.indexOf(':') !== -1) {
           options = options.trim().replace(/\s*;$/, '');
-          options.split(/\s*;\s*/).forEach(function (keyValuePair) {
-            var keyValueArray = keyValuePair.split(/\s*:\s*/);
-            var optionKey = keyValueArray[0].toLowerCase();
-            var optionValue = keyValueArray[1].replace(/\,/g, ' ').trim();
-            if(optionValue.search(/\s+/) !== -1) {
-              optionValue = optionValue.split(/\s+/);
+          options.split(/\s*;\s*/).forEach(function (entry) {
+            var entries = entry.split(/\s*:\s*/);
+            var key = entries[0].toLowerCase();
+            var value = entries[1].replace(/\,/g, ' ').trim();
+            if(value.search(/\s+/) !== -1) {
+              value = value.split(/\s+/);
             }
-            optionsObject[optionKey] = optionValue;
+            object[key] = kalue;
           });
         }
       }
     }
-    for (var key in optionsObject) {
-      if (optionsObject.hasOwnProperty(key)) {
-        var optionKey = optionsPrefix + key;
-        optionKey = optionKey.replace(/\-\w/g, function (matchedSubstr) {
-          return matchedSubstr.charAt(1).toUpperCase();
+    if (prefix && prefix.length) {
+      prefix += '-';
+    }
+    for (var key in object) {
+      if (object.hasOwnProperty(key)) {
+        var index = prefix + key;
+        index = index.replace(/\-\w/g, function (substr) {
+          return substr.charAt(1).toUpperCase();
         });
-        parsedOptionsObject[optionKey] = optionsObject[key];
+        output[index] = object[key];
       }
     }
-    return parsedOptionsObject;
+    return output;
   };
 
 })(jQuery);
@@ -211,20 +206,18 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Validate user input
   schema.validate = function (event, options) {
-    var eventSelector = schema.events.validate.selector;
-    var optionalSelector = options && options.selector;
-    var $_elements = $(eventSelector).add(optionalSelector);
+    var selector = schema.events.validate.selector;
+    var $_elements = $(selector).add(options && options.selector);
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var validateOption = $_data.schemaValidate;
-      var requireChanged = (validateOption === 'changed');
+      var validate = $_data.validate;
       $_this.find(':input').one('change', function () {
         $_this.data('changed', true);
       });
       $_this.on('submit', function (event) {
         var $_form = $(this);
-        var validated = (requireChanged) ? $_form.data('changed') : true;
+        var validated = (validate === 'changed') ? $_form.data('changed') : true;
         if (validated) {
           $_form.find('input, textarea').each(function () {
             var $_input = $(this);
@@ -233,7 +226,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
               $_input.prop('disabled', true).data('disabled', true);
             }
           });
-          if (validateOption === 'once') {
+          if (validate === 'once') {
             $_this.find(':submit').prop('disabled', true);
           }
           $_form.submit();
@@ -266,9 +259,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
-    var eventSelector = schema.events.trim.selector;
-    var optionalSelector = options && options.selector;
-    var $_elements = $(eventSelector).add(optionalSelector);
+    var selector = schema.events.trim.selector;
+    var $_elements = $(selector).add(options && options.selector);
     $_elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
@@ -276,63 +268,90 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Extract data from text contents
   schema.extract = function (event, options) {
-    var eventSelector = schema.events.extract.selector;
-    var optionalSelector = options && options.selector;
-    var $_elements = $(eventSelector).add(optionalSelector);
+    var selector = schema.events.extract.selector;
+    var $_elements = $(selector).add(options && options.selector);
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var extractOption = $_data.schemaExtract;
-      if (extractOption === 'url') {
-        var urlPattern = /\b(https?|ftp)\:\/\/[^\s\"]+(\/|\b)/g;
-        $_this.html($_this.html().replace(urlPattern, function (url) {
-          return '<a href="' + url + '">' + url + '</a>';
+      var tags = $_data.extract.split(/\s*\,\s*/);
+      if (tags.indexOf('url') !== -1) {
+        var url = /\b(https?|ftp)\:\/\/[^\s\"]+(\/|\b)/g;
+        $_this.html($_this.html().replace(url, function (str) {
+          return schema.format('<a href="${href}">${href}</a>', {href: str});
+        }));
+      }
+      if (tags.indexOf('emoji') !== -1 && $_data.emoji) {
+        var emoji = /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g;
+        $_this.html($_this.html().replace(emoji, function (str, p1, p2, p3) {
+          return schema.format('${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}" />', {
+            sep: p1,
+            src: $_data.emoji.replace(/\/*$/, '/') + p3.replace(/\_/g, '-') + '.svg',
+            height: Math.round(+$_this.css('font-size').slice(0, -2) * 1.2),
+            alt: p2,
+            title: p3
+          });
         }));
       }
     });
   };
 
+  // Format strings with positional parameters
+  schema.format = function (template, data) {
+    var string = String(template);
+    var type = Object.prototype.toString.call(data).slice(8, -1);
+    if (type === 'Object') {
+      string.match(/\$\{[^\{\}]+\}/g).forEach(function (placeholder, index) {
+        var key = placeholder.replace(/^\$\{\s*(.+)\s*\}$/, '$1');
+        if (data.hasOwnProperty(key)) {
+          string = string.replace(placeholder, function () {
+            return data[key];
+          });
+        }
+      });
+    }
+    return string;
+  };
+
   // Parse a URL into an object
   schema.parseURL = function (url) {
-    var anchor =  document.createElement('a');
-    anchor.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
+    var a =  document.createElement('a');
+    a.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
     return {
-      href: anchor.href,
-      origin: anchor.origin,
-      protocol: anchor.protocol,
-      username: anchor.username,
-      password: anchor.password,
-      host: anchor.host,
-      hostname: anchor.hostname,
-      port: anchor.port,
-      path: anchor.pathname + anchor.search,
-      pathname: anchor.pathname,
-      segments: anchor.pathname.replace(/^\/+/, '').split('/'),
-      search: anchor.search,
+      href: a.href,
+      origin: a.origin,
+      protocol: a.protocol,
+      username: a.username,
+      password: a.password,
+      host: a.host,
+      hostname: a.hostname,
+      port: a.port,
+      path: a.pathname + a.search,
+      pathname: a.pathname,
+      segments: a.pathname.replace(/^\/+/, '').split('/'),
+      search: a.search,
       query: (function () {
-        var queryObject = {};
-        var queryString = anchor.search.replace(/(^\?&?)|(&$)/g, '');
-        if (queryString.indexOf('=') === -1) {
-          return queryString;
+        var object = {};
+        var string = a.search.replace(/(^\?&?)|(&$)/g, '');
+        if (string.indexOf('=') === -1) {
+          return string;
         }
-        queryString.split(/&+/).forEach(function (keyValuePair) {
-          var keyValueArray = decodeURIComponent(keyValuePair).split('=');
-          var paramKey = keyValueArray[0];
-          var paramValue = keyValueArray[1];
-          if (queryObject.hasOwnProperty(paramKey)) {
-            paramValue = [].concat(queryObject[paramKey], paramValue);
+        string.split(/&+/).forEach(function (entry) {
+          var entries = decodeURIComponent(entry).split('=');
+          var key = entries[0];
+          var value = entries[1];
+          if (object.hasOwnProperty(key)) {
+            value = [].concat(object[key], value);
           }
-          queryObject[paramKey] = paramValue;
+          object[key] = value;
         });
-        return queryObject;
+        return object;
       })(),
-      hash: anchor.hash,
-      fragment: anchor.hash.replace(/^#/, '')
+      hash: a.hash,
+      fragment: a.hash.replace(/^#/, '')
     };
   };
 
 })(jQuery);
-
 
 /*!
  * Icons
@@ -343,65 +362,64 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Create SVG icons
   schema.sprite = function (event, options) {
-    var iconsData = schema.icons;
-    var eventSelector = schema.events.sprite.selector;
-    var optionalSelector = options && options.selector;
-    var $_elements = $(eventSelector).add(optionalSelector);
+    var icons = schema.icons;
+    var selector = schema.events.sprite.selector;
+    var $_elements = $(selector).add(options && options.selector);
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var iconName = $_data.schemaIcon || 'unknown';
-      var iconData = iconsData[iconName] || iconsData.unknown;
-      if (typeof iconData === 'string') {
-        iconData = iconsData[iconData];
+      var name = $_data.icon || 'unknown';
+      var icon = icons[name] || icons.unknown;
+      if (typeof icon === 'string') {
+        icon = icons[icon];
       }
 
-      var iconWidth = $_data.schemaWidth || iconData[0];
-      var iconHeight = $_data.schemaHeight || iconData[1];
-      var iconPath = $_data.schemaPath || iconData[2];
-      var iconColor = $_data.schemaColor || iconData[3];
-      var iconColorEnabled = $_data.schemaColorEnabled;
-      if (iconColorEnabled === undefined && iconColor) {
-        iconColorEnabled = true;
+      var width = $_data.width || icon[0];
+      var height = $_data.height || icon[1];
+      var path = $_data.path || icon[2];
+      var color = $_data.color || icon[3];
+      var colorEnabled = $_data.colorEnabled;
+      if (colorEnabled === undefined && color) {
+        colorEnabled = true;
       }
 
       // Create <svg> element
-      var svgNamespace = 'http://www.w3.org/2000/svg';
-      var svgDoc = document.createElementNS(svgNamespace, 'svg');
-      svgDoc.setAttribute('width', iconWidth);
-      svgDoc.setAttribute('height', iconHeight);
-      svgDoc.setAttribute('viewBox', '0 0 ' + iconWidth + ' ' + iconHeight);
+      var namespace = 'http://www.w3.org/2000/svg';
+      var svg = document.createElementNS(namespace, 'svg');
+      svg.setAttribute('width', width);
+      svg.setAttribute('height', height);
+      svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
 
       // Create <path> element
-      if (Array.isArray(iconPath)) {
-        iconPath.forEach(function (pathSegment, index) {
-          var pathTag = document.createElementNS(svgNamespace, 'path');
-          if(iconColorEnabled && iconColor) {
-            pathTag.setAttribute('fill', Array.isArray(iconColor) ? iconColor[index] : iconColor);
+      if (Array.isArray(path)) {
+        path.forEach(function (segment, index) {
+          var element = document.createElementNS(namespace, 'path');
+          if(colorEnabled && color) {
+            element.setAttribute('fill', Array.isArray(color) ? color[index] : color);
           }
-          pathTag.setAttribute('d', pathSegment);
-          svgDoc.appendChild(pathTag);
+          element.setAttribute('d', segment);
+          svg.appendChild(element);
         });
       } else {
-        var pathTag = document.createElementNS(svgNamespace, 'path');
-        if (iconColorEnabled && iconColor) {
-          pathTag.setAttribute('fill', iconColor);
+        var element = document.createElementNS(namespace, 'path');
+        if (colorEnabled && color) {
+          element.setAttribute('fill', color);
         }
-        pathTag.setAttribute('d', iconPath);
-        svgDoc.appendChild(pathTag);
+        element.setAttribute('d', path);
+        svg.appendChild(element);
       }
 
-      $_this.empty().append(svgDoc).css({
+      $_this.empty().append(svg).css({
         'width': $_this.hasClass('ui-fixed-width') ||
           $_this.hasClass('ui-icon-circle') ?
             $_this.css('height') :
-            $_this.css('height').slice(0, -2) * iconWidth / iconHeight
+            $_this.css('height').slice(0, -2) * width / height
       });
     });
   };
 
   schema.icons = {
-    'unknown': [32, 32, 'M27.429 7.429v17.143q0 2.125-1.509 3.634t-3.634 1.509h-17.143q-2.125 0-3.634-1.509t-1.509-3.634v-17.143q0-2.125 1.509-3.634t3.634-1.509h17.143q2.125 0 3.634 1.509t1.509 3.634z']
+    'unknown': [32, 32, 'M1 1h31v31h-31zM3 3v27h27v-27z']
   };
 
 })(jQuery);

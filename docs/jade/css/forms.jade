@@ -155,20 +155,20 @@ block article
     h4.ui-header-secondary Button Groups
     .ui-container-grid
       .ui-button-toolbar
-        .ui-button-group.ui-space-collapse
+        .ui-button-group.ui-space-trim
           button(title='View chat history') View
           button(title='Clear current chat room') Clear
           button(title='Export chat data as JSON') Export
           button(title='Delete all chat data') Delete
-        .ui-button-group.ui-space-collapse
+        .ui-button-group.ui-space-trim
           button(title='Refresh this page') Refresh
           button(title='Close the connection') Close
       .ui-button-toolbar.ui-skip-medium
-        .ui-button-group.ui-space-collapse
+        .ui-button-group.ui-space-trim
           input(id='published-date' type='radio' name='sort' value='published' checked)
           label(for='published-date') Published Date
-          input(id='updated-date' type='radio' name='sort' value='updated')
-          label(for='updated-date') Updated Date
+          input.ui-phone-hidden(id='updated-date' type='radio' name='sort' value='updated')
+          label.ui-phone-hidden(for='updated-date') Updated Date
           input(id='reader-counts' type='radio' name='sort' value='readers')
           label(for='reader-counts') Reader Counts
           input(id='rating-score' type='radio' name='sort' value='rating')
@@ -178,38 +178,38 @@ block article
           label(for='sort-order')
             span: i(data-schema-icon='sort-amount-asc' title='Ascending') Asc
             span: i(data-schema-icon='sort-amount-desc' title='Descending') Desc
-      .ui-button-group.ui-space-collapse.ui-skip-medium
+      .ui-button-group.ui-space-trim.ui-skip-medium
         input(id='physics' type='checkbox' name='groups' value='physics' checked)
         label(for='physics') Physics
         input(id='math' type='checkbox' name='groups' value='math')
         label(for='math') Mathematics
-        input(id='cs' type='checkbox' name='groups' value='cs')
-        label(for='cs') Computer Science
-        input(id='q-bio' type='checkbox' name='groups' value='q-bio')
-        label(for='q-bio') Quantitative Biology
-        input(id='q-fin' type='checkbox' name='groups' value='q-fin')
-        label(for='q-fin') Quantitative Finance
+        input.ui-phone-hidden(id='cs' type='checkbox' name='groups' value='cs')
+        label.ui-phone-hidden(for='cs') Computer Science
+        input.ui-phone-hidden(id='q-bio' type='checkbox' name='groups' value='q-bio')
+        label.ui-phone-hidden(for='q-bio') Quantitative Biology
+        input.ui-phone-hidden(id='q-fin' type='checkbox' name='groups' value='q-fin')
+        label.ui-phone-hidden(for='q-fin') Quantitative Finance
         input(id='stats' type='checkbox' name='groups' value='stats')
         label(for='stats') Statistics
     pre: code.language-markup.
       &lt;div class="ui-button-toolbar"&gt;
-        &lt;div class="ui-button-group ui-space-collapse"&gt;
+        &lt;div class="ui-button-group ui-space-trim"&gt;
           &lt;button title="View chat history"&gt;View&lt;/button&gt;
           &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
           &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
           &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
         &lt;/div&gt;
-        &lt;div class="ui-button-group ui-space-collapse"&gt;
+        &lt;div class="ui-button-group ui-space-trim"&gt;
           &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
           &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="ui-button-toolbar ui-skip-medium"&gt;
-        &lt;div class="ui-button-group ui-space-collapse"&gt;
+        &lt;div class="ui-button-group ui-space-trim"&gt;
           &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
           &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
-          &lt;input id="updated-date" type="radio" name="sort" value="updated"&gt;
-          &lt;label for="updated-date"&gt;Updated Date&lt;/label&gt;
+          &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
+          &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
           &lt;input id="reader-counts" type="radio" name="sort" value="readers"&gt;
           &lt;label for="reader-counts"&gt;Reader Counts&lt;/label&gt;
           &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
@@ -223,17 +223,17 @@ block article
           &lt;/label&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class="ui-button-group ui-space-collapse ui-skip-medium"&gt;
+      &lt;div class="ui-button-group ui-space-trim ui-skip-medium"&gt;
         &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
         &lt;label for="physics"&gt;Physics&lt;/label&gt;
         &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
         &lt;label for="math"&gt;Mathematics&lt;/label&gt;
-        &lt;input id="cs" type="checkbox" name="groups" value="cs"&gt;
-        &lt;label for="cs"&gt;Computer Science&lt;/label&gt;
-        &lt;input id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
-        &lt;label for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
-        &lt;input id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
-        &lt;label for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
+        &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
+        &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
+        &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
+        &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
+        &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
+        &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
         &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
         &lt;label for="stats"&gt;Statistics&lt;/label&gt;
       &lt;/div&gt;

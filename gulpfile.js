@@ -53,7 +53,7 @@ gulp.task('minify-css', function() {
       advanced: false
     }))
     .pipe(header(banner, {
-      version : pkg.version
+      version : version
     }))
     .pipe(rename('ui-schema-' + version + '.min.css'))
     .pipe(gulp.dest('dist/'))
@@ -62,7 +62,8 @@ gulp.task('minify-css', function() {
 gulp.task('jshint', function () {
   gulp.src([
       'js/*.js',
-      'js/icons/*.js'
+      'js/icons/*.js',
+      'js/plugins/*.js'
     ])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
@@ -84,7 +85,7 @@ gulp.task('minify-js', ['concat-js'], function () {
   gulp.src('js/ui-schema.js')
     .pipe(uglifyJS())
     .pipe(header(banner, {
-      version : pkg.version
+      version : version
     }))
     .pipe(rename('ui-schema-' + version + '.min.js'))
     .pipe(gulp.dest('dist/'));
