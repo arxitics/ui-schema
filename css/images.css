@@ -40,7 +40,6 @@
   right: 0;
   text-align: center;
   top: 0;
-  -moz-transition: opacity 0.5s linear;
   -webkit-transition: opacity 0.5s linear;
   transition: opacity 0.5s linear;
 }

@@ -16,7 +16,83 @@ mixin icon(name, alias)
 
 block article
   h3.ui-header-primary Icons
-  section
+  table.ui-table-fluid.ui-table-bordered
+    thead.ui-text-center
+      tr
+        th Categories
+        th Libraries
+        th Count
+    tbody.ui-text-center
+      tr
+        td: a(href='#brands') Brands
+        td: code Font Awesome, IcoMoon Free
+        td: code 82
+      tr
+        td: a(href='#software') Software
+        td: code Devicons, Font Mfizz, File Icons
+        td: code 46
+      tr
+        td: a(href='#devices') Devices
+        td: code Font Awesome, Material Design Icons, Octicons
+        td: code 51
+      tr
+        td: a(href='#account') Account
+        td: code Font Awesome, IcoMoon Free, Entypo+
+        td: code 82
+      tr
+        td: a(href='#forms') Forms
+        td: code Font Awesome, Material Design Icons
+        td: code 65
+      tr
+        td: a(href='#arrows') Arrows
+        td: code Font Awesome
+        td: code 72
+      tr
+        td: a(href='#editor') Editor
+        td: code Font Awesome, Material Design Icons, IcoMoon Free, Octicons
+        td: code 136
+      tr
+        td: a(href='#video') Video
+        td: code Font Awesome
+        td: code 38
+      tr
+        td: a(href='#finance') Finance
+        td: code Font Awesome
+        td: code 43
+      tr
+        td: a(href='#files') Files
+        td: code Font Awesome
+        td: code 18
+      tr
+        td: a(href='#licenses') Licenses
+        td: code Entypo+
+        td: code 15
+      tr
+        td: a(href='#emoji') Emoji
+        td: code IcoMoon Free
+        td: code 36
+      tr
+        td: a(href='#transportation') Transportation
+        td: code Font Awesome, IcoMoon Free
+        td: code 24
+      tr
+        td: a(href='#healthcare') Healthcare
+        td: code Font Awesome
+        td: code 12
+      tr
+        td: a(href='#games') Games
+        td: code Font Awesome, IcoMoon Free
+        td: code 19
+      tr
+        td: a(href='#culture') Culture
+        td: code Font Awesome, IcoMoon Free, Entypo+
+        td: code 19
+      tr
+        td: a(href='#nature') Nature
+        td: code Font Awesome, IcoMoon Free, Entypo+
+        td: code 8
+
+  section#brands.ui-toggle-content
     h4.ui-header-secondary Brand Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('alipay-square')
@@ -27,7 +103,7 @@ block article
       +icon('bitbucket-square')
       +icon('chrome')
       +icon('codepen')
-      +icon('css3')
+      +icon('debian')
       +icon('digg')
       +icon('dropbox')
       +icon('edge')
@@ -39,7 +115,6 @@ block article
       +icon('flickr')
       +icon('flickr-circle')
       +icon('flickr-square')
-      +icon('git')
       +icon('github')
       +icon('github-circle')
       +icon('github-square')
@@ -52,8 +127,6 @@ block article
       +icon('google-plus-circle')
       +icon('google-plus-square')
       +icon('google-wallet')
-      +icon('html5')
-      +icon('html5-o')
       +icon('icomoon')
       +icon('ie')
       +icon('jsfiddle')
@@ -79,7 +152,6 @@ block article
       +icon('spotify')
       +icon('stack-exchange')
       +icon('stack-overflow')
-      +icon('svg')
       +icon('taobao')
       +icon('taobao-square')
       +icon('tencent-weibo')
@@ -88,6 +160,8 @@ block article
       +icon('twitter')
       +icon('twitter-circle')
       +icon('twitter-square')
+      +icon('ubuntu')
+      +icon('ubuntu-circle')
       +icon('vk')
       +icon('vk-circle')
       +icon('vk-square')
@@ -103,7 +177,58 @@ block article
       +icon('y-combinator')
       +icon('yahoo')
       +icon('youtube')
-  section
+
+  section#software.ui-toggle-content
+    h4.ui-header-secondary Software Icons
+    .ui-container-flex.ui-phone-doubling.ui-float-clear
+      +icon('angularjs')
+      +icon('c')
+      +icon('cpp')
+      +icon('csharp')
+      +icon('css')
+      +icon('css3')
+      +icon('docker')
+      +icon('elm')
+      +icon('erlang')
+      +icon('git')
+      +icon('hadoop')
+      +icon('haskell')
+      +icon('html')
+      +icon('html5')
+      +icon('html5-o')
+      +icon('jade')
+      +icon('java')
+      +icon('java-duke')
+      +icon('jquery')
+      +icon('js')
+      +icon('js-badge')
+      +icon('julia')
+      +icon('markdown')
+      +icon('mongodb')
+      +icon('mysql')
+      +icon('mysql-alt')
+      +icon('nginx')
+      +icon('nginx-alt')
+      +icon('nodejs')
+      +icon('objc')
+      +icon('perl')
+      +icon('php')
+      +icon('postgres')
+      +icon('postgres-o')
+      +icon('python')
+      +icon('redis')
+      +icon('ruby')
+      +icon('ruby-on-rails')
+      +icon('rust')
+      +icon('rust-ferris')
+      +icon('scala')
+      +icon('script')
+      +icon('shell')
+      +icon('svg')
+      +icon('svg-alt')
+      +icon('swift')
+
+  section#devices.ui-toggle-content
     h4.ui-header-secondary Device Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('adjust')
@@ -157,7 +282,8 @@ block article
       +icon('watch')
       +icon('wifi')
       +icon('wrench')
-  section
+
+  section#account.ui-toggle-content
     h4.ui-header-secondary User Account Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('at')
@@ -242,7 +368,8 @@ block article
       +icon('user-plus')
       +icon('user-secret')
       +icon('user-times')
-  section
+
+  section#forms.ui-toggle-content
     h4.ui-header-secondary Form Control Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('asterisk')
@@ -310,7 +437,8 @@ block article
       +icon('square-o')
       +icon('zoom-in', true)
       +icon('zoom-out', true)
-  section
+
+  section#arrows.ui-toggle-content
     h4.ui-header-secondary Directional Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('angle-double-down')
@@ -385,7 +513,8 @@ block article
       +icon('triangle-left')
       +icon('triangle-right')
       +icon('triangle-up')
-  section
+
+  section#editor.ui-toggle-content
     h4.ui-header-secondary Editor Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('align-center')
@@ -457,7 +586,6 @@ block article
       +icon('list-alt')
       +icon('list-ol')
       +icon('list-ul')
-      +icon('markdown')
       +icon('milestone')
       +icon('mirror')
       +icon('move-down')
@@ -525,7 +653,8 @@ block article
       +icon('vertical-align-middle')
       +icon('vertical-align-top')
       +icon('video')
-  section
+
+  section#video.ui-toggle-content
     h4.ui-header-secondary Video Player Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('backward')
@@ -566,7 +695,8 @@ block article
       +icon('volume-mute-alt')
       +icon('youtube-play')
       +icon('youtube-play-o')
-  section
+  
+  section#finance.ui-toggle-content
     h4.ui-header-secondary Financial Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('bank')
@@ -612,7 +742,8 @@ block article
       +icon('xrp')
       +icon('yen', true)
       +icon('yuan')
-  section
+
+  section#files.ui-toggle-content
     h4.ui-header-secondary File Type Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('file')
@@ -633,7 +764,8 @@ block article
       +icon('file-word-o')
       +icon('file-video-o')
       +icon('file-zip-o', true)
-  section
+
+  section#licenses.ui-toggle-content
     h4.ui-header-secondary License Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('cc')
@@ -643,6 +775,7 @@ block article
       +icon('cc-nc-us')
       +icon('cc-nd')
       +icon('cc-pd')
+      +icon('cc-pd-alt')
       +icon('cc-remix')
       +icon('cc-sa')
       +icon('cc-share')
@@ -650,7 +783,8 @@ block article
       +icon('copyright')
       +icon('registered')
       +icon('trademark')
-  section
+
+  section#emoji.ui-toggle-content
     h4.ui-header-secondary Emotion Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('angry')
@@ -689,8 +823,8 @@ block article
       +icon('wink-o')
       +icon('wondering')
       +icon('wondering-o')
-
-  section
+  
+  section#transportation.ui-toggle-content
     h4.ui-header-secondary Transportation Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('ambulance')
@@ -718,7 +852,7 @@ block article
       +icon('truck')
       +icon('wheelchair')
 
-  section
+  section#healthcare.ui-toggle-content
     h4.ui-header-secondary Healthcare Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('bed')
@@ -734,7 +868,7 @@ block article
       +icon('stethoscope')
       +icon('umbrella')
 
-  section
+  section#games.ui-toggle-content
     h4.ui-header-secondary Game Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('clubs')
@@ -757,7 +891,7 @@ block article
       +icon('spades')
       +icon('trophy')
 
-  section
+  section#culture.ui-toggle-content
     h4.ui-header-secondary Culture Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('balance-scale')
@@ -780,15 +914,15 @@ block article
       +icon('telescope')
       +icon('ticket')
 
-  section
+  section#nature.ui-toggle-content
     h4.ui-header-secondary Nature Icons
     .ui-container-flex.ui-phone-doubling.ui-float-clear
       +icon('diamond')
+      +icon('diamond-alt')
       +icon('fire')
       +icon('leaf')
       +icon('magnet')
       +icon('road')
-      +icon('ruby')
       +icon('squirrel')
       +icon('tree')
 
@@ -807,6 +941,7 @@ block append foot
   script(src='#{appIcons}/healthcare.js')
   script(src='#{appIcons}/licenses.js')
   script(src='#{appIcons}/nature.js')
+  script(src='#{appIcons}/software.js')
   script(src='#{appIcons}/transportation.js')
   script(src='#{appIcons}/video.js')
   script(src='#{appIcons}/weather.js')

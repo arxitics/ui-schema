@@ -38,7 +38,7 @@
   fill: #fff;
 }
 
-.ui-icon-outline > svg > path {
+.ui-icon-stroked > svg > path {
   fill: none;
   stroke: currentColor;
   stroke-width: 1px;

@@ -1,6 +1,6 @@
 {
   "name": "ui-schema",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "A cutting edge, lightweight, and powerful front-end framework for faster and easier web development",
   "keywords": [
     "CSS",
@@ -26,7 +26,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "0.12.10"
+    "node": "0.12.13"
   },
   "os": [
     "linux"

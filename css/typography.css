@@ -206,11 +206,14 @@
 .ui-text-label,
 .ui-text-badge {
   background-color: #999;
-  border-radius: 0.4rem;
   color: #fff;
   display: inline-block;
   line-height: 100%;
-  padding: 0.4em;
+  padding: 0.2em 0.4em;
+}
+
+.ui-text-label {
+  border-radius: 0.2em;
 }
 
 .ui-text-label[href]:hover,
@@ -219,6 +222,7 @@
 }
 
 .ui-text-badge {
+  border-radius: 0.8em;
   font-size: 80%;
   font-weight: bold;
   text-align: center;
@@ -325,9 +329,7 @@
 .ui-list-horizontal > dt {
   clear: left;
   float: left;
-  overflow: hidden;
   text-align: right;
-  text-overflow: ellipsis;
   white-space: nowrap;
   width: 10em;
 }
@@ -394,7 +396,6 @@
 
 .ui-content-jumbotron p {
   font-size: 150%;
-  font-weight: 200;
   margin-bottom: 1.5rem;
 }
 

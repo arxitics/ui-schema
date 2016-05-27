@@ -7,4 +7,46 @@ block variables
 
 block article
   h3.ui-header-primary Utilities
-  p 
+  section
+    h4.ui-header-secondary Extract Data
+    div(data-schema-extract='url,emoji' data-schema-emoji='http://oss.arxitics.com/images/emoji')
+      p We have created an organization https://github.com/arxitics on GitHub. :smile:
+    pre: code.language-markup.
+      &lt;div data-schema-extract='url,emoji' data-schema-emoji='http://oss.arxitics.com/images/emoji'&gt;
+        &lt;p&gt;We have created an organization https://github.com/arxitics on GitHub. :smile:&lt;/p&gt;
+      &lt;/div&gt;
+  section
+    h4.ui-header-secondary Format Strings
+    pre: code.language-javascript.
+      template = 'https://www.reddit.com/submit?url=${url}&amp;title=${title}';
+      data = {
+        url: 'http://arxitics.com',
+        title: 'arXiv Analytics'
+      };
+      schema.format(template, data) =&gt; 'https://www.reddit.com/submit?url=http://arxitics.com&amp;title=arXiv Analytics'
+  section
+    h4.ui-header-secondary Parse URLs
+    pre: code.language-javascript.
+      url = 'https://www.reddit.com/submit?url=http://arxitics.com&amp;title=arXiv+Analytics';
+      schema.parseURL(url) =&gt; {
+        href: 'https://www.reddit.com/submit?url=http://arxitics.com&amp;title=arXiv%20Analytics',
+        origin: 'https://www.reddit.com',
+        protocol: 'https:',
+        username: '',
+        password: '',
+        host: 'www.reddit.com',
+        hostname: 'www.reddit.com',
+        port: '',
+        path: '/submit?url=http://arxitics.com&amp;title=arXiv%20Analytics',
+        pathname: '/submit',
+        segments: [
+          'submit'
+        ],
+        search: '?url=http://arxitics.com&amp;title=arXiv%20Analytics',
+        query: {
+          'url': 'http://arxitics.com',
+          'title': 'arXiv Analytics'
+        },
+        hash: '',
+        fragment: ''
+      }

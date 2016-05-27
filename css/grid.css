@@ -262,9 +262,9 @@
 }
 
 .ui-vertical-center {
-  display: table-cell !important;
-  height: 50vh;
-  vertical-align: middle;
+  margin: 50vh auto 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .ui-float-left {

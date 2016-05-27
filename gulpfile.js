@@ -104,17 +104,17 @@ gulp.task('compile-jade', function () {
     }))
     .pipe(gulp.dest('docs/html/css/'));
 
-  gulp.src('docs/jade/examples/!(contents).jade')
-    .pipe(jade({
-      pretty: true
-    }))
-    .pipe(gulp.dest('docs/html/examples/'));
-
   gulp.src('docs/jade/javascript/!(components).jade')
     .pipe(jade({
       pretty: true
     }))
     .pipe(gulp.dest('docs/html/javascript/'));
+
+  gulp.src('docs/jade/examples/!(contents).jade')
+    .pipe(jade({
+      pretty: true
+    }))
+    .pipe(gulp.dest('docs/html/examples/'));
 });
 
 gulp.task('watch', function () {
