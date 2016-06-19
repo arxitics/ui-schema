@@ -37,7 +37,6 @@
 .ui-form-horizontal select,
 .ui-form-horizontal textarea {
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 1.5rem;
   width: 100%;
@@ -79,7 +78,6 @@
 .ui-input-addon > input:not([type="checkbox"]):not([type="radio"]),
 .ui-input-addon > :last-child {
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
   height: 100%;

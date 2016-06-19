@@ -63,7 +63,6 @@
 .ui-menu-dropdown > ul > li > a,
 .ui-menu-dropdown > ul > li > span {
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
   padding: 0.2em 0.8em;
@@ -88,4 +87,3 @@
 .ui-menu-selection > ul > li {
   padding: 0.4em 0.8em;
 }
-

@@ -133,7 +133,6 @@
 .ui-nav-justified > li > a,
 .ui-nav-stacked > li > a {
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
 }

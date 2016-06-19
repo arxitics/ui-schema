@@ -28,3 +28,31 @@
   box-sizing: border-box;
   padding: 10mm 16.18mm;
 }
+
+.ui-slides-wrapper {
+  font-size: 200%;
+}
+
+.ui-slides-wrapper > .ui-page-slide {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 5vh 10vw;
+}
+
+.ui-slides-wrapper:hover > .ui-page-slide > div {
+  display: none;
+}
+
+.ui-slides-wrapper > .ui-page-slide:hover > div {
+  display: block;
+}
+
+.ui-page-slide > div > h2 {
+  font-size: 200%;
+}
+
+.ui-page-slide > div > h3 {
+  font-size: 150%;
+  margin-top: 0;
+}

@@ -78,7 +78,6 @@ html {
  */
 
 body {
-  background-color: #fff;
   color: #333;
   font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
   font-size: 1.4rem;
@@ -429,7 +428,6 @@ textarea:invalid:focus {
 
 input[type="search"] {
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -580,7 +578,6 @@ select {
   appearance: none;
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA4eiIvPjwvc3ZnPg==") no-repeat scroll 100% / 1.42857em; /* 3 */
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   cursor: pointer;
   height: 1.42857em;

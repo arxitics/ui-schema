@@ -8,6 +8,18 @@
   font-weight: normal;
 }
 
+.ui-font-serif {
+  font-family: Georgia, "Times New Roman", "Droid Serif", Times, SimSun, serif;
+}
+
+.ui-font-monospace {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.ui-font-cursive {
+  font-family: "Lucida Calligraphy", "URW Chancery L", KaiTi, SimKai, "AR PL UKai", cursive;
+}
+
 /**
  * Known issue: Chrome's default setting of minimum font-size is 12px.
  */

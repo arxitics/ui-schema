@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html id="examples/slides" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Slides | UI Schema</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
+    <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.1.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
+  </head>
+  <body>
+    <div class="ui-slides-wrapper">
+      <section id="cover" class="ui-page-slide">
+        <div>
+          <h2>User Guide for arXiv Analytics</h2>
+          <ul>
+            <li><strong>Website</strong>: <a href="http://arxitics.com">http://arxitics.com</a></li>
+            <li><strong>Service</strong>: <a href="mailto:help@arxitics.com">help@arxitics.com</a></li>
+            <li><strong>Project</strong>: <a href="https://github.com/arxitics/arxiv-analytics">https://github.com/arxitics/arxiv-analytics</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="search-engine" class="ui-page-slide">
+        <div>
+          <h3>Search Engine</h3>
+          <ul>
+            <li>Powered by <a href="http://www.mongodb.org/">MongoDB</a></li>
+            <li>More than 1 million documents</li>
+            <li>As many as 50+ metadata fields</li>
+            <li>17 single field indexes and 1 text index</li>
+            <li>Supports full-text search, but sometimes <span class="ui-color-emphasis">slow</span></li>
+            <li>Accepts <a href="http://json.org/">JSON</a> to construct complicated query expressions</li>
+          </ul>
+        </div>
+      </section>
+      <section id="metadata-fields" class="ui-page-slide">
+        <div>
+          <h3>Metadata Fields</h3>
+          <table class="ui-table-fluid">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Examples or Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td>String</td>
+                <td>hep-th/0312171, 1212.5605</td>
+              </tr>
+              <tr>
+                <td>version</td>
+                <td>String</td>
+                <td>v2</td>
+              </tr>
+              <tr>
+                <td>published</td>
+                <td>ISODate</td>
+                <td>2003-12-15T20:11:07Z</td>
+              </tr>
+              <tr>
+                <td>updated</td>
+                <td>ISODate</td>
+                <td>2004-10-06T16:01:38Z</td>
+              </tr>
+              <tr>
+                <td>title</td>
+                <td>String</td>
+                <td>Use regular expressions for match</td>
+              </tr>
+              <tr>
+                <td>authors</td>
+                <td>Array::String</td>
+                <td>Edward Witten, E. Witten</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <ol class="ui-nav-pagination ui-fixed-bottom ui-offset-medium">
+      <li><a href="#cover"></a></li>
+      <li><a href="#search-engine"></a></li>
+      <li><a href="#metadata-fields"></a></li>
+    </ol>
+    <script src="../../../dist/jquery-3.0.0.min.js"></script>
+    <script src="../../../dist/prism-1.4.1.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.1.min.js"></script>
+  </body>
+</html>
