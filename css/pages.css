@@ -31,6 +31,7 @@
 
 .ui-slides-wrapper {
   font-size: 200%;
+  min-width: 768px;
 }
 
 .ui-slides-wrapper > .ui-page-slide {
@@ -55,4 +56,20 @@
 .ui-page-slide > div > h3 {
   font-size: 150%;
   margin-top: 0;
+}
+
+.ui-overflow-hidden {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.ui-scroll-mandatory {
+  height: 100vh;
+  overflow-y: auto;
+  -ms-scroll-snap-type: mandatory;
+  -webkit-scroll-snap-type: mandatory;
+  scroll-snap-type: mandatory;
+  -ms-scroll-snap-points-y: repeat(100%);
+  -webkit-scroll-snap-points-y: repeat(100%);
+  scroll-snap-points-y: repeat(100%);
 }

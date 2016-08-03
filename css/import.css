@@ -1,14 +1,6 @@
 /*!
- * UI Schema v0.4.0 (https://github.com/arxitics/ui-schema)
- * Copyright 2016 Arxitics <help@arxitics.com>
- * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
+ * Import
  */
-
-/**
- * Set the encoding of the style sheet to Unicode UTF-8.
- */
-
-@charset "UTF-8";
 
 /**
  * Remove inconsistencies using normalize.css.
@@ -117,3 +109,9 @@
  */
 
 @import "utilities.css";
+
+/**
+ * Variables.
+ */
+
+@import "variables.css";

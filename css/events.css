@@ -3,8 +3,7 @@
  */
 
 .ui-tab-pane,
-.ui-toggle-content,
-.ui-tooltip-target {
+.ui-toggle-content {
   display: none;
 }
 

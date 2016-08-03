@@ -4,6 +4,7 @@ extends modules
 block variables
   - var pageID = 'css/images'
   - var pageTitle = 'Images'
+  - var prism = true
 
 block article
   h3.ui-header-primary Images
@@ -11,14 +12,32 @@ block article
     img.ui-image-circular(height='100' src='http://oss.arxitics.com/images/favicon.svg' alt='Arxitics')
     img.ui-image-rounded.ui-offset-large(height='100' src='http://oss.arxitics.com/images/favicon.svg' alt='Arxitics')
     img.ui-image-thumbnail.ui-offset-large(height='100' src='http://oss.arxitics.com/images/favicon.svg' alt='Arxitics')
-    a.ui-image-lightbox.ui-offset-large(rel='external' target='_blank' href='http://arxitics.com/')
+    a.ui-image-lightbox.ui-offset-large(href='#arxitics')
       img.ui-image-thumbnail(height='100' src='http://oss.arxitics.com/images/favicon.svg' alt='Arxitics')
       span.ui-image-reveal Arxitics
+    .ui-lightbox-target#arxitics
+      figure
+        a.ui-lightbox-close(href='#')
+        a(href='http://arxitics.com/' target='_blank')
+          img(height='300' src='http://oss.arxitics.com/images/favicon.svg' alt='Arxitics')
+        figcaption.ui-skip-medium.
+          ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing arXiv eprints.
   pre: code.language-markup.
     &lt;img class="ui-image-circular" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
     &lt;img class="ui-image-rounded" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
     &lt;img class="ui-image-thumbnail" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
-    &lt;a class="ui-image-lightbox" rel="external" target="_blank" href="http://arxitics.com/"&gt;
+    &lt;a class="ui-image-lightbox ui-offset-large" href="#arxitics"&gt;
       &lt;img class="ui-image-thumbnail" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
       &lt;span class="ui-image-reveal"&gt;Arxitics&lt;/span&gt;
     &lt;/a&gt;
+    &lt;div class="ui-lightbox-target" id="arxitics"&gt;
+      &lt;figure&gt;
+        &lt;a class="ui-lightbox-close" href="#"&gt;&lt;/a&gt;
+        &lt;a href="http://arxitics.com/" target="_blank"&gt;
+          &lt;img height="300" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
+        &lt;/a&gt;
+        &lt;figcaption class="ui-skip-medium"&gt;
+          ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing arXiv eprints.
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;

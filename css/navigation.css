@@ -120,13 +120,12 @@
 }
 
 /**
- * 1.
- * 2. Ensure that `float` will not modify the computed value of `display`.
+ * 1. Ensure that `float` will not modify the computed value of `display`.
  */
 
 .ui-nav-justified > li {
-  display: table-cell !important; /* 1 */
-  float: none !important; /* 2 */
+  display: table-cell !important;
+  float: none !important; /* 1 */
   width: 1%;
 }
 

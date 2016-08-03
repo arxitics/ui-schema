@@ -18,6 +18,7 @@ var banner = '/*! UI Schema v<%= version %> | (c) 2016 Arxitics | MIT license */
 
 gulp.task('default', [
   'csslint',
+  'concat-css',
   'minify-css',
   'jshint',
   'concat-js',
@@ -43,6 +44,32 @@ gulp.task('csslint', function() {
       'vendor-prefix': false
     }))
     .pipe(csslint.reporter('default'));
+});
+
+gulp.task('concat-css', function () {
+  gulp.src([
+      'css/base.css',
+      'css/core.css',
+      'css/grid.css',
+      'css/navigation.css',
+      'css/menus.css',
+      'css/typography.css',
+      'css/forms.css',
+      'css/tables.css',
+      'css/images.css',
+      'css/icons.css',
+      'css/colors.css',
+      'css/effects.css',
+      'css/shapes.css',
+      'css/events.css',
+      'css/mobile.css',
+      'css/print.css',
+      'css/pages.css',
+      'css/utilities.css',
+      'css/variables.css'
+    ])
+    .pipe(concat('ui-schema-' + version + '.css'))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('minify-css', function() {
@@ -77,12 +104,12 @@ gulp.task('concat-js', function () {
       'js/utilities.js',
       'js/icons.js'
     ])
-    .pipe(concat('ui-schema.js'))
-    .pipe(gulp.dest('js/'));
+    .pipe(concat('ui-schema-' + version + '.js'))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('minify-js', ['concat-js'], function () {
-  gulp.src('js/ui-schema.js')
+  gulp.src('dist/ui-schema-' + version + '.js')
     .pipe(uglifyJS())
     .pipe(header(banner, {
       version : version
@@ -120,6 +147,7 @@ gulp.task('compile-jade', function () {
 gulp.task('watch', function () {
   gulp.watch('css/*.css', [
     'csslint',
+    'concat-css',
     'minify-css'
   ]);
 

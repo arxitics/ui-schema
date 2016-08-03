@@ -296,7 +296,13 @@ pre {
 }
 
 pre > code {
-  white-space: pre-wrap;
+  white-space: pre;
+}
+
+@media print {
+  pre > code {
+    white-space: pre-wrap !important;
+  }
 }
 
 hr {
@@ -656,8 +662,8 @@ select[size] > option {
 
 :disabled,
 [disabled] {
+  cursor: not-allowed;
   opacity: 0.65;
-  pointer-events: none;
 }
 
 ::-moz-selection {

@@ -3,7 +3,7 @@ block variables
 
 - var env = 'dev'
 - var locale = 'en'
-- var version = '0.4.1'
+- var version = '0.4.2'
 - var appTitle = 'UI Schema'
 - var appKeywords = 'UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development'
 - var appDescription = 'A cutting edge, lightweight, and powerful front-end framework for faster and easier web development'
@@ -23,7 +23,8 @@ html(id=pageID lang=locale)
       meta(name='description' content=pageDescription || appDescription)
       meta(name='viewport' content='width=device-width, initial-scale=1.0')
       link(rel='stylesheet' href='#{appRoot}/dist/ui-schema-#{version}.min.css' media='all')
-      link(rel='stylesheet' href='#{appRoot}/dist/prism-1.4.1.min.css' media='all')
+      if prism
+        link(rel='stylesheet' href='#{appRoot}/dist/prism-1.4.1.min.css' media='all')
   body
     if minimal
       block body
@@ -57,5 +58,6 @@ html(id=pageID lang=locale)
                 | .
     block foot
       script(src='#{appRoot}/dist/jquery-3.0.0.min.js')
-      script(src='#{appRoot}/dist/prism-1.4.1.min.js')
+      if prism
+        script(src='#{appRoot}/dist/prism-1.4.1.min.js')
       script(src='#{appRoot}/dist/ui-schema-#{version}.min.js')
