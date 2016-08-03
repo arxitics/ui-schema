@@ -7,7 +7,7 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../dist/ui-schema-0.4.1.min.css" media="all">
+    <link rel="stylesheet" href="./../dist/ui-schema-0.4.2.min.css" media="all">
     <link rel="stylesheet" href="./../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
@@ -51,14 +51,31 @@
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Images</h3>
-        <div><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-circular"><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-rounded ui-offset-large"><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-thumbnail ui-offset-large"><a rel="external" target="_blank" href="http://arxitics.com/" class="ui-image-lightbox ui-offset-large"><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-thumbnail"><span class="ui-image-reveal">Arxitics</span></a></div>
+        <div><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-circular"><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-rounded ui-offset-large"><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-thumbnail ui-offset-large"><a href="#arxitics" class="ui-image-lightbox ui-offset-large"><img height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics" class="ui-image-thumbnail"><span class="ui-image-reveal">Arxitics</span></a>
+          <div id="arxitics" class="ui-lightbox-target">
+            <figure><a href="#" class="ui-lightbox-close"></a><a href="http://arxitics.com/" target="_blank"><img height="300" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"></a>
+              <figcaption class="ui-skip-medium">ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing arXiv eprints.</figcaption>
+            </figure>
+          </div>
+        </div>
         <pre><code class="language-markup">&lt;img class="ui-image-circular" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
 &lt;img class="ui-image-rounded" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
 &lt;img class="ui-image-thumbnail" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
-&lt;a class="ui-image-lightbox" rel="external" target="_blank" href="http://arxitics.com/"&gt;
+&lt;a class="ui-image-lightbox ui-offset-large" href="#arxitics"&gt;
   &lt;img class="ui-image-thumbnail" height="100" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
   &lt;span class="ui-image-reveal"&gt;Arxitics&lt;/span&gt;
-&lt;/a&gt;</code></pre>
+&lt;/a&gt;
+&lt;div class="ui-lightbox-target" id="arxitics"&gt;
+  &lt;figure&gt;
+    &lt;a class="ui-lightbox-close" href="#"&gt;&lt;/a&gt;
+    &lt;a href="http://arxitics.com/" target="_blank"&gt;
+      &lt;img height="300" src="http://oss.arxitics.com/images/favicon.svg" alt="Arxitics"&gt;
+    &lt;/a&gt;
+    &lt;figcaption class="ui-skip-medium"&gt;
+      ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing arXiv eprints.
+    &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</code></pre>
       </article>
     </main>
     <footer class="ui-container-fluid">
@@ -66,6 +83,6 @@
     </footer>
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
-    <script src="./../dist/ui-schema-0.4.1.min.js"></script>
+    <script src="./../dist/ui-schema-0.4.2.min.js"></script>
   </body>
 </html>
