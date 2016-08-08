@@ -30,6 +30,7 @@ gulp.task('default', [
 gulp.task('csslint', function() {
   gulp.src('css/!(import).css')
     .pipe(csslint({
+      'box-model': false,
       'box-sizing': false,
       'compatible-vendor-prefixes': false,
       'gradients': false,

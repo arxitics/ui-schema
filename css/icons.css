@@ -12,16 +12,19 @@
   width: 100%;
 }
 
-.ui-icon-bordered {
+.ui-icon-bordered,
+.ui-icon-circular {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  width: 1.25em;
   padding: 0.2em 0.2em;
 }
 
+.ui-icon-bordered {
+  border-radius: 0.4rem;
+}
+
 .ui-icon-circular {
-  border: 1px solid #ccc;
   border-radius: 50%;
-  padding: 0.2em 0.2em;
 }
 
 .ui-icon-inverse {

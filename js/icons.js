@@ -54,12 +54,7 @@
         svg.appendChild(element);
       }
 
-      $_this.empty().append(svg).css({
-        'width': $_this.hasClass('ui-fixed-width') ||
-          $_this.hasClass('ui-icon-circle') ?
-            $_this.css('height') :
-            $_this.css('height').slice(0, -2) * width / height
-      });
+      $_this.empty().append(svg);
     });
   };
 

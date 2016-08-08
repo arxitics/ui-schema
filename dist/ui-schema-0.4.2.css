@@ -611,6 +611,7 @@ figure {
 i {
   display: inline-block;
   font-style: normal;
+  max-width: 1.25em;
   height: 1.25em;
   vertical-align: text-bottom;
 }
@@ -868,7 +869,6 @@ input[type="range"] {
   border: none;
   cursor: pointer;
   padding: 0;
-  vertical-align: middle;
 }
 
 input[type="checkbox"]:focus,
@@ -2690,16 +2690,19 @@ tr:last-child > td {
   width: 100%;
 }
 
-.ui-icon-bordered {
+.ui-icon-bordered,
+.ui-icon-circular {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  width: 1.25em;
   padding: 0.2em 0.2em;
 }
 
+.ui-icon-bordered {
+  border-radius: 0.4rem;
+}
+
 .ui-icon-circular {
-  border: 1px solid #ccc;
   border-radius: 50%;
-  padding: 0.2em 0.2em;
 }
 
 .ui-icon-inverse {

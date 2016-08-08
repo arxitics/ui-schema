@@ -187,6 +187,7 @@ figure {
 i {
   display: inline-block;
   font-style: normal;
+  max-width: 1.25em;
   height: 1.25em;
   vertical-align: text-bottom;
 }
@@ -444,7 +445,6 @@ input[type="range"] {
   border: none;
   cursor: pointer;
   padding: 0;
-  vertical-align: middle;
 }
 
 input[type="checkbox"]:focus,
