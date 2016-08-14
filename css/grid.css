@@ -63,7 +63,7 @@
   padding-right: 2rem;
 }
 
-.ui-grid-collpase {
+.ui-grid-collapse {
   padding-left: 0;
   padding-right: 0;
 }
@@ -260,12 +260,6 @@
   width: 100% !important;
 }
 
-.ui-vertical-center {
-  margin: 50vh auto 0;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
 .ui-float-left {
   float: left !important;
 }
@@ -331,6 +325,19 @@
 .ui-fixed-left,
 .ui-absolute-left {
   left: 0;
+}
+
+.ui-absolute-center {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.ui-vertical-center {
+  display: table-cell !important;
+  vertical-align: middle;
 }
 
 .ui-columns-2 {

@@ -42,12 +42,17 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       trim: {
         type: 'remove',
         namespace: '.white-space.text-node.schema',
-        selector: '.ui-space-trim'
+        selector: '[data-schema-trim]'
       },
       extract: {
         type: 'create',
         namespace: '.dom.data-api.schema',
         selector: 'body [data-schema-extract]'
+      },
+      autoplay: {
+        type: 'toggle',
+        namespace: '.event.data-api.schema',
+        selector: '[data-schema-autoplay]'
       }
     }
   }, schema);

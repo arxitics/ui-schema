@@ -17,7 +17,8 @@ cssfile="../dist/ui-schema-$version.min.css"
 cat base.css core.css grid.css navigation.css menus.css typography.css forms.css tables.css images.css icons.css colors.css effects.css shapes.css events.css mobile.css print.css pages.css utilities.css variables.css >> $cssdist
 cleancss --s0 import.css --skip-advanced --output $cssfile
 echo "$copyright" | cat - $cssfile > tmp.css && mv tmp.css $cssfile
-echo "done"
+echo cat $cssfile | openssl dgst -sha384 -binary | openssl enc -base64 -A
+echo "\ndone"
 
 # Minify JS files
 echo "minifying ui-schema.js ..."
@@ -26,6 +27,7 @@ rm ../dist/ui-schema*.js
 jsdist="../dist/ui-schema-$version.js"
 jsfile="../dist/ui-schema-$version.min.js"
 cat setup.js core.js forms.js utilities.js icons.js >> $jsdist
-uglifyjs --mangle --output $jsfile $jsdist
+uglifyjs --compress --mangle --output $jsfile $jsdist
 echo "$copyright" | cat - $jsfile > tmp.js && mv tmp.js $jsfile
-echo "done"
+echo cat $jsfile | openssl dgst -sha384 -binary | openssl enc -base64 -A
+echo "\ndone"

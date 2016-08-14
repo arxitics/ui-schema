@@ -210,19 +210,19 @@
           <h4 class="ui-header-secondary">Button Groups</h4>
           <div class="ui-container-grid">
             <div class="ui-button-toolbar">
-              <div class="ui-button-group ui-space-trim">
+              <div data-schema-trim class="ui-button-group ui-space-trim">
                 <button title="View chat history">View</button>
                 <button title="Clear current chat room">Clear</button>
                 <button title="Export chat data as JSON">Export</button>
                 <button title="Delete all chat data">Delete</button>
               </div>
-              <div class="ui-button-group ui-space-trim">
+              <div data-schema-trim class="ui-button-group ui-space-trim">
                 <button title="Refresh this page">Refresh</button>
                 <button title="Close the connection">Close</button>
               </div>
             </div>
             <div class="ui-button-toolbar ui-skip-medium">
-              <div class="ui-button-group ui-space-trim">
+              <div data-schema-trim class="ui-button-group ui-space-trim">
                 <input id="published-date" type="radio" name="sort" value="published" checked>
                 <label for="published-date">Published Date</label>
                 <input id="updated-date" type="radio" name="sort" value="updated" class="ui-phone-hidden">
@@ -237,7 +237,7 @@
                 <label for="sort-order"><span><i data-schema-icon="sort-amount-asc" title="Ascending">Asc</i></span><span><i data-schema-icon="sort-amount-desc" title="Descending">Desc</i></span></label>
               </div>
             </div>
-            <div class="ui-button-group ui-space-trim ui-skip-medium">
+            <div data-schema-trim class="ui-button-group ui-space-trim ui-skip-medium">
               <input id="physics" type="checkbox" name="groups" value="physics" checked>
               <label for="physics">Physics</label>
               <input id="math" type="checkbox" name="groups" value="math">
@@ -253,19 +253,19 @@
             </div>
           </div>
           <pre><code class="language-markup">&lt;div class="ui-button-toolbar"&gt;
-  &lt;div class="ui-button-group ui-space-trim"&gt;
+  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
     &lt;button title="View chat history"&gt;View&lt;/button&gt;
     &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
     &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
     &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
   &lt;/div&gt;
-  &lt;div class="ui-button-group ui-space-trim"&gt;
+  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
     &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
     &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="ui-button-toolbar ui-skip-medium"&gt;
-  &lt;div class="ui-button-group ui-space-trim"&gt;
+  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
     &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
     &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
     &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
@@ -283,7 +283,7 @@
     &lt;/label&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="ui-button-group ui-space-trim ui-skip-medium"&gt;
+&lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
   &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
   &lt;label for="physics"&gt;Physics&lt;/label&gt;
   &lt;input id="math" type="checkbox" name="groups" value="math"&gt;

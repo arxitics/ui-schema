@@ -3,7 +3,7 @@
  */
 
 /**
- * Set default font size to 10pt.
+ * Set default font size to 8px.
  */
 
 html {
@@ -13,49 +13,49 @@ html {
 /* SVGA 800x600 */
 @media (min-width: 768px) {
   html {
-    font-size: 56.25%;
+    font-size: calc(56.25% + (100vw - 768px) / 224);
   }
 }
 
 /* XGA 1024x768 */
 @media (min-width: 992px) {
   html {
-    font-size: 62.5%;
+    font-size: calc(62.5% + (100vw - 992px) / 256);
   }
 }
 
 /* WXGA 1280x800 */
 @media (min-width: 1248px) {
   html {
-    font-size: 68.75%;
+    font-size: calc(68.75% + (100vw - 1248px) / 86);
   }
 }
 
 /* HD 1366x768 */
 @media (min-width: 1334px) {
   html {
-    font-size: 75%;
+    font-size: calc(75% + (100vw - 1334px) / 74);
   }
 }
 
 /* WXGA+ 1440x900 */
 @media (min-width: 1408px) {
   html {
-    font-size: 81.25%;
+    font-size: calc(81.25% + (100vw - 1408px) / 160);
   }
 }
 
 /* HD+ 1600x900 */
 @media (min-width: 1568px) {
   html {
-    font-size: 87.5%;
+    font-size: calc(87.5% + (100vw - 1568px) / 320);
   }
 }
 
 /* FHD 1920x1080 */
 @media (min-width: 1888px) {
   html {
-    font-size: 93.75%;
+    font-size: calc(93.75% + (100vw - 1888px) / 128);
   }
 }
 
@@ -259,7 +259,7 @@ address {
 blockquote {
   background-color: #f5f5f5;
   border-left: 0.4em solid #ddd;
-  margin: 0 0 1.6em;
+  margin: 0.8em 0;
   overflow: hidden;
   padding: 0.5em 1em;
 }

@@ -2,12 +2,62 @@
  * Events
  */
 
-.ui-tab-pane,
-.ui-toggle-content {
+.ui-resize-both {
+  max-width: 100%;
+  overflow: auto;
+  padding-bottom: 0.8em;
+  padding-right: 0.4em;
+  resize: both;
+}
+
+.ui-resize-horizontal {
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 0.4em;
+  resize: horizontal;
+}
+
+.ui-resize-vertical {
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 0.8em;
+  resize: vertical;
+}
+
+.ui-toggle-content,
+.ui-toggle-target > input,
+.ui-toggle-target > input + div,
+.ui-carousel-content > input,
+.ui-carousel-content > div:not(:last-child),
+.ui-accordion-content > input,
+.ui-accordion-content > div > div:not(:first-child) {
   display: none;
 }
 
-.ui-tab-pane:target,
-.ui-toggle-content:target {
+.ui-toggle-content:target,
+.ui-toggle-target > input:checked + div,
+.ui-carousel-content > div:target,
+.ui-carousel-content > input:checked + div,
+.ui-accordion-content > div:focus > div,
+.ui-accordion-content > input:checked + div > div {
   display: block;
+}
+
+.ui-accordion-content > div {
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ui-accordion-content > div:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.ui-accordion-content > div > div:first-child {
+  cursor: pointer;
+}
+
+.ui-accordion-content > div > div:first-child label {
+  display: inline-block;
+  width: 100%;
 }

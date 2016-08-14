@@ -42,12 +42,17 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       trim: {
         type: 'remove',
         namespace: '.white-space.text-node.schema',
-        selector: '.ui-space-trim'
+        selector: '[data-schema-trim]'
       },
       extract: {
         type: 'create',
         namespace: '.dom.data-api.schema',
         selector: 'body [data-schema-extract]'
+      },
+      autoplay: {
+        type: 'toggle',
+        namespace: '.event.data-api.schema',
+        selector: '[data-schema-autoplay]'
       }
     }
   }, schema);
@@ -264,6 +269,31 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     $_elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
+  };
+
+  // Autoplay event with a specific interval
+  schema.autoplay = function (event, options) {
+    var selector = schema.events.autoplay.selector;
+    var $_elements = $(selector).add(options && options.selector);
+    $_elements.each(function () {
+      var $_this = $(this);
+      var $_data = schema.parseData($_this.data());
+      var $_inputs = $_this.children('input[type=radio]');
+      var state = $_this.find('label').first().attr('class');
+      var interval = +$_data.autoplay || 5000;
+      var length = $_inputs.length;
+      var counter = 1;
+      setInterval(function () {
+        var $_input = $_inputs.eq(counter % length);
+        var id = $_input.attr('id');
+        if (id) {
+          $_this.find('label[class="' + state + '"]').removeClass(state);
+          $_this.find('label[for="' + id + '"]').addClass(state);
+        }
+        $_input.prop('checked', true);
+        counter++;
+      }, interval);
+    });
   };
 
   // Extract data from text contents

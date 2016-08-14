@@ -7,7 +7,7 @@ block variables
   - var minimal = true
 
 block body
-  main.ui-grid-50.ui-offset-25.ui-mobile-expand
+  .ui-grid-50.ui-absolute-center.ui-phone-expand
     form.ui-form-fluid(data-schema-validate action='/auth/login' method='post')
       input(type='hidden' name='_csrf' value='KQ9eU2Ky-8I5DBx6oZK05K_Jh_OpGnNIF2_Y')
       fieldset
@@ -20,4 +20,3 @@ block body
           .ui-text-center.ui-skip-large
             button.ui-button-primary(type='submit') Submit
             button.ui-offset-medium(type='reset') Reset
-        
