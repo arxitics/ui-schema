@@ -8,6 +8,7 @@
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../dist/ui-schema-0.4.2.min.css" media="all">
+    <link rel="stylesheet" href="./../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
@@ -50,13 +51,167 @@
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Events</h3>
-        <p> </p>
+        <section>
+          <h4 class="ui-header-secondary">Resizable</h4>
+          <div class="ui-container-grid">
+            <div class="ui-grid-40 ui-float-left ui-frame-rounded ui-resize-horizontal">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
+            <div class="ui-grid-40 ui-float-right ui-frame-rounded ui-resize-vertical">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
+          </div>
+          <pre><code class="language-markup">&lt;div class="ui-frame-rounded ui-resize-horizontal"&gt;
+  Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary">Accordion</h4>
+          <div class="ui-accordion-content">
+            <div tabindex="1" class="ui-content-panel">
+              <div class="ui-panel-header">
+                <h4>Universal search</h4>
+              </div>
+              <div class="ui-panel-body">
+                <p>In the top of every page, you can see a "Search or type a command" box, that is our universal search interface. It supports the most complex and powerful expressions, for example</p>
+                <div>
+                  <pre><code>"dark matter phenomenology" category: astro-ph.CO, hep-ph authors[$size]: 2 title: (W|Z|Higgs).*boson</code></pre>
+                </div>
+                <p>We will explain this syntax later. If you input the arXiv identifier of an article, you will be directed to the abstract page.</p>
+              </div>
+            </div>
+            <div tabindex="2" class="ui-content-panel">
+              <div class="ui-panel-header">
+                <h4>Advanced search</h4>
+              </div>
+              <div class="ui-panel-body">
+                <p>If you enter no words into the search box for universal searching, you will be redirected to the advanced search interface. You can also visit the page by entering the URL in your browser's address bar directly. It gives some examples and provides an overview for the syntax. When hovering on the input fields, you can get more hints.</p>
+              </div>
+            </div>
+            <div tabindex="3" class="ui-content-panel">
+              <div class="ui-panel-header">
+                <h4>Simple search</h4>
+              </div>
+              <div class="ui-panel-body">
+                <p>As mentioned before, you can browse your subscription of eprints based on filters like categories, subjects, topics, keywords, etc. In fact, this is also a simple search interface.</p>
+              </div>
+            </div>
+          </div>
+          <pre><code class="language-markup">&lt;div class="ui-accordion-content"&gt;
+  &lt;div class="ui-content-panel" tabindex="1"&gt;
+    &lt;div class="ui-panel-header"&gt;
+      &lt;h4&gt;Universal search&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-panel-body"&gt;
+      &lt;p&gt;In the top of every page, you can see a "Search or type a command" box, that is our universal search interface. It supports the most complex and powerful expressions, for example&lt;/p&gt;
+      &lt;div&gt;
+        &lt;pre&gt;&lt;code&gt;"dark matter phenomenology" category: astro-ph.CO, hep-ph authors[$size]: 2 title: (W|Z|Higgs).*boson&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+      &lt;p&gt;We will explain this syntax later. If you input the arXiv identifier of an article, you will be directed to the abstract page.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-content-panel" tabindex="2"&gt;
+    &lt;div class="ui-panel-header"&gt;
+      &lt;h4&gt;Advanced search&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-panel-body"&gt;
+      &lt;p&gt;If you enter no words into the search box for universal searching, you will be redirected to the advanced search interface. You can also visit the page by entering the URL in your browser's address bar directly. It gives some examples and provides an overview for the syntax. When hovering on the input fields, you can get more hints.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-content-panel" tabindex="3"&gt;
+    &lt;div class="ui-panel-header"&gt;
+      &lt;h4&gt;Simple search&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-panel-body"&gt;
+      &lt;p&gt;As mentioned before, you can browse your subscription of eprints based on filters like categories, subjects, topics, keywords, etc. In fact, this is also a simple search interface.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary">Carousel</h4>
+          <div data-schema-autoplay="5000" class="ui-carousel-content">
+            <input type="radio" name="carousel" id="quote-1" checked>
+            <div>
+              <blockquote class="ui-alert-success">
+                <p>The time of tasks for me is over. If age has brought me anything, it is lightness.</p>
+                <footer>&mdash; Alexander Grothendieck, 
+                  <cite>Esquisse d'un Programme (1984)</cite>.
+                </footer>
+              </blockquote>
+            </div>
+            <input type="radio" name="carousel" id="quote-2">
+            <div>
+              <blockquote class="ui-alert-info">
+                <p>Mathematics, more than any other art or science, is a young man's game.</p>
+                <footer>&mdash; Godfrey Harold Hardy, 
+                  <cite>A Mathematician's Apology (1941)</cite>.
+                </footer>
+              </blockquote>
+            </div>
+            <input type="radio" name="carousel" id="quote-3">
+            <div>
+              <blockquote class="ui-alert-warning">
+                <p>In so far as a scientific statement speaks about reality, it must be falsifiable.</p>
+                <footer>&mdash; Karl Popper, 
+                  <cite>The Logic of Scientific Discovery (1934)</cite>.
+                </footer>
+              </blockquote>
+            </div>
+            <div class="ui-block-center ui-text-center">
+              <ol class="ui-nav-pagination">
+                <li>
+                  <label for="quote-1" class="ui-state-active ui-zoom-large"></label>
+                </li>
+                <li>
+                  <label for="quote-2"></label>
+                </li>
+                <li>
+                  <label for="quote-3"></label>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <pre><code class="language-markup">&lt;div class="ui-carousel-content" data-schema-autoplay="5000"&gt;
+  &lt;input type="radio" name="carousel" id="quote-1" checked&gt;
+  &lt;div&gt;
+    &lt;blockquote class="ui-alert-success"&gt;
+      &lt;p&gt;The time of tasks for me is over. If age has brought me anything, it is lightness.&lt;/p&gt;
+      &lt;footer&gt;
+        &amp;mdash; Alexander Grothendieck, &lt;cite&gt;Esquisse d'un Programme (1984)&lt;/cite&gt;.
+      &lt;/footer&gt;
+    &lt;/blockquote&gt;
+  &lt;/div&gt;
+  &lt;input type="radio" name="carousel" id="quote-2"&gt;
+  &lt;div&gt;
+    &lt;blockquote class="ui-alert-info"&gt;
+      &lt;p&gt;Mathematics, more than any other art or science, is a young man's game.&lt;/p&gt;
+      &lt;footer&gt;
+        &amp;mdash; Godfrey Harold Hardy, &lt;cite&gt;A Mathematician's Apology (1941)&lt;/cite&gt;.
+      &lt;/footer&gt;
+    &lt;/blockquote&gt;
+  &lt;/div&gt;
+  &lt;input type="radio" name="carousel" id="quote-3"&gt;
+  &lt;div&gt;
+    &lt;blockquote class="ui-alert-warning"&gt;
+      &lt;p&gt;In so far as a scientific statement speaks about reality, it must be falsifiable.&lt;/p&gt;
+      &lt;footer&gt;
+        &amp;mdash; Karl Popper, &lt;cite&gt;The Logic of Scientific Discovery (1934)&lt;/cite&gt;.
+      &lt;/footer&gt;
+    &lt;/blockquote&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-block-center ui-text-center"&gt;
+    &lt;ol class="ui-nav-pagination"&gt;
+      &lt;li&gt;&lt;label class="ui-state-active ui-zoom-large" for="quote-1"&gt;&lt;/label&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;label for="quote-2"&gt;&lt;/label&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;label for="quote-3"&gt;&lt;/label&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
       </article>
     </main>
     <footer class="ui-container-fluid">
       <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
     <script src="./../dist/jquery-3.0.0.min.js"></script>
+    <script src="./../dist/prism-1.4.1.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
   </body>
 </html>
