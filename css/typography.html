@@ -52,23 +52,33 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Typography</h3>
         <section>
-          <h4 class="ui-header-secondary">Code</h4>
+          <h4 class="ui-header-secondary"><span>Code</span>
+            <label for="code-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
             <p>You can manually adjust the size by <code class="ui-color-emphasis"><kbd>Ctrl</kbd> + <kbd>+</kbd></code> or <code class="ui-color-emphasis"><kbd>Ctrl</kbd> + <kbd>-</kbd></code>.</p>
             <pre><code class="language-markup">&lt;p class="ui-text-lowercase"&gt;Lowercased text.&lt;/p&gt;
 &lt;p class="ui-text-uppercase"&gt;Uppercased text.&lt;/p&gt;
 &lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;</code></pre>
           </div>
-          <pre><code class="language-markup">&lt;!-- Inline code --&gt;
+          <div class="ui-toggle-target">
+            <input id="code-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;!-- Inline code --&gt;
 &lt;p&gt;You can manually adjust the size by &lt;code class="ui-color-emphasis"&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;+&lt;/kbd&gt;&lt;/code&gt; or &lt;code class="ui-color-emphasis"&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;-&lt;/kbd&gt;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;!-- Code block --&gt;
 &lt;pre&gt;&lt;code&gt;&lt;p class="ui-text-lowercase"&gt;Lowercased text.&lt;/p&gt;
 &lt;p class="ui-text-uppercase"&gt;Uppercased text.&lt;/p&gt;
-&lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;&lt;/code&gt;&lt;/pre&gt;</code></pre>
+&lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Blockquotes</h4>
+          <h4 class="ui-header-secondary"><span>Blockquotes</span>
+            <label for="blockquotes-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
             <blockquote>
               <p>Education is a self organising system, where learning is an emergent phenomenon.</p>
@@ -77,25 +87,41 @@
               </footer>
             </blockquote>
           </div>
-          <pre><code class="language-markup">&lt;blockquote&gt;
+          <div class="ui-toggle-target">
+            <input id="blockquotes-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;blockquote&gt;
   &lt;p&gt;Education is a self organising system, where learning is an emergent phenomenon.&lt;/p&gt;
   &lt;footer&gt;
     &amp;mdash; Sugata Mitra, &lt;cite&gt;TED Talks: The Child-driven Education (2010)&lt;/cite&gt;.
   &lt;/footer&gt;
-&lt;/blockquote&gt;</code></pre>
+&lt;/blockquote&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Labels</h4>
+          <h4 class="ui-header-secondary"><span>Labels</span>
+            <label for="labels-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-text-list"><span class="ui-text-label">Default</span><span class="ui-text-label ui-label-primary">Primary</span><span class="ui-text-label ui-label-success">Success</span><span class="ui-text-label ui-label-info">Info</span><span class="ui-text-label ui-label-warning">Warning</span><span class="ui-text-label ui-label-danger">Danger</span></div>
-          <pre><code class="language-markup">&lt;span class="ui-text-label"&gt;Default&lt;/span&gt;
+          <div class="ui-toggle-target">
+            <input id="labels-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;span class="ui-text-label"&gt;Default&lt;/span&gt;
 &lt;span class="ui-text-label ui-label-primary"&gt;Primary&lt;/span&gt;
 &lt;span class="ui-text-label ui-label-success"&gt;Success&lt;/span&gt;
 &lt;span class="ui-text-label ui-label-info"&gt;Info&lt;/span&gt;
 &lt;span class="ui-text-label ui-label-warning"&gt;Warning&lt;/span&gt;
-&lt;span class="ui-text-label ui-label-danger"&gt;Danger&lt;/span&gt;</code></pre>
+&lt;span class="ui-text-label ui-label-danger"&gt;Danger&lt;/span&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Lists</h4>
+          <h4 class="ui-header-secondary"><span>Lists</span>
+            <label for="lists-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <ul class="ui-grid-50 ui-phone-expand ui-list-inline">
               <li><a href="http://arxitics.com/site/about">About</a></li>
@@ -121,7 +147,10 @@
               <li>T. Amdeberhan <em>et. al.</em>, <em>Ramanujan&apos;s Master Theorem</em>, <a href="http://dx.doi.org/10.1007/s11139-011-9333-y" target="_blank">Ramanujan J. <strong>29</strong> (2012) 29:103-120</a>.</li>
             </ol>
           </div>
-          <pre><code class="language-markup">&lt;!-- Inline list --&gt;
+          <div class="ui-toggle-target">
+            <input id="lists-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;!-- Inline list --&gt;
 &lt;ul class="ui-list-inline"&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/site/about"&gt;About&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/site/terms"&gt;Terms&lt;/a&gt;&lt;/li&gt;
@@ -142,10 +171,15 @@
   &lt;li&gt;I. Gonzalez, I. Schmidt, &lt;em&gt;Optimized negative dimensional integration method (NDIM) and multiloop Feynman diagram calculation&lt;/em&gt;, &lt;a href="http://dx.doi.org/10.1016/j.nuclphysb.2007.01.031" target="_blank"&gt;Nucl. Phys. B &lt;strong&gt;769&lt;/strong&gt; (2007) 124-173&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;I. Gonzalez, V.H. Moll, I. Schmidt, &lt;em&gt;A generalized Ramanujan Master Theorem applied to the evaluation of Feynman diagrams&lt;/em&gt;, &lt;a href="http://arxiv.org/abs/1103.0588" target="_blank"&gt;arXiv:1103.0588 [math-ph]&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;T. Amdeberhan &lt;em&gt;et. al.&lt;/em&gt;, &lt;em&gt;Ramanujan&apos;s Master Theorem&lt;/em&gt;, &lt;a href="http://dx.doi.org/10.1007/s11139-011-9333-y" target="_blank"&gt;Ramanujan J. &lt;strong&gt;29&lt;/strong&gt; (2012) 29:103-120&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
+&lt;/ol&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">List Group</h4>
+          <h4 class="ui-header-secondary"><span>List Group</span>
+            <label for="list-group-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand">
               <div class="ui-list-group ui-block-fluid"><a href="./navigation.html">Navigation</a><a href="./menus.html">Menus</a><a href="./typography.html" class="ui-state-active">Typography</a><a href="./forms.html">Forms</a></div>
@@ -159,7 +193,10 @@
               </ul>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;!-- Linkify list group items by using anchor tags --&gt;
+          <div class="ui-toggle-target">
+            <input id="list-group-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;!-- Linkify list group items by using anchor tags --&gt;
 &lt;div class="ui-list-group"&gt;
   &lt;a href="./navigation.html"&gt;Navigation&lt;/a&gt;
   &lt;a href="./menus.html"&gt;Menus&lt;/a&gt;
@@ -173,10 +210,15 @@
   &lt;li class="ui-item-info"&gt;Info&lt;/li&gt;
   &lt;li class="ui-item-warning"&gt;Warning&lt;/li&gt;
   &lt;li class="ui-item-danger"&gt;Danger&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Panels</h4>
+          <h4 class="ui-header-secondary"><span>Panels</span>
+            <label for="panels-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand">
               <div class="ui-content-panel">
@@ -216,7 +258,10 @@
               </div>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;!-- Panel with list groups --&gt;
+          <div class="ui-toggle-target">
+            <input id="panels-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;!-- Panel with list groups --&gt;
 &lt;div class="ui-content-panel"&gt;
   &lt;div class="ui-panel-header"&gt;
     &lt;h4&gt;Links&lt;/h4&gt;
@@ -251,12 +296,17 @@
       &lt;/tr&gt;
     &lt;/table&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Alerts</h4>
+          <h4 class="ui-header-secondary"><span>Alerts</span>
+            <label for="alerts-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
-            <div class="ui-content-alert ui-alert-success">
+            <div class="ui-content-alert ui-alert-success"><span data-schema-dismiss class="ui-symbol-button">&times;</span>
               <p>ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing <a href="http://arxiv.org/" rel="external" target="_blank">arXiv eprints</a>.</p>
             </div>
             <div class="ui-content-alert ui-alert-info">
@@ -269,7 +319,11 @@
               <p>We encourage frank, open, and constructive conversation, but frankness doesn't mean lack of civility or lack of respect for others.</p>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-content-alert ui-alert-success"&gt;
+          <div class="ui-toggle-target">
+            <input id="alerts-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-content-alert ui-alert-success"&gt;
+  &lt;span class="ui-symbol-button" data-schema-dismiss&gt;&amp;times;&lt;/span&gt;
   &lt;p&gt;ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing &lt;a href="http://arxiv.org/" rel="external" target="_blank"&gt;arXiv eprints&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="ui-content-alert ui-alert-info"&gt;
@@ -280,10 +334,15 @@
 &lt;/div&gt;
 &lt;div class="ui-content-alert ui-panel-danger"&gt;
   &lt;p&gt;We encourage frank, open, and constructive conversation, but frankness doesn't mean lack of civility or lack of respect for others.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Content Links</h4>
+          <h4 class="ui-header-secondary"><span>Content Links</span>
+            <label for="content-links-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-content-link"><a href="http://arxitics.com/search" class="ui-zoom-huge ui-phone-halving">
                 <div class="ui-box-small ui-text-center"><i data-schema-icon="search"></i>
@@ -300,7 +359,10 @@
                   <p>Analysis, visualization, and recommendations</p>
                 </div></a></div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-content-link"&gt;
+          <div class="ui-toggle-target">
+            <input id="content-links-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-content-link"&gt;
   &lt;a class="ui-zoom-huge ui-phone-halving" href="http://arxitics.com/search"&gt;
     &lt;div class="ui-box-small ui-text-center"&gt;
       &lt;i data-schema-icon="search"&gt;&lt;/i&gt;
@@ -310,19 +372,29 @@
       &lt;p&gt;Advanced search interface to find articles&lt;/p&gt;
     &lt;/div&gt;
   &lt;/a&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Jumbotron</h4>
+          <h4 class="ui-header-secondary"><span>Jumbotron</span>
+            <label for="jumbotron-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-content-jumbotron">
             <h3>403 Forbidden: <span class="ui-text-muted">You need login to join the chat room.</span></h3>
             <p>Please contact <strong>help<span aria-hidden="true">.855322</span>@arxitics.com</strong> if you think this should not happen again.</p>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-content-jumbotron"&gt;
+          <div class="ui-toggle-target">
+            <input id="jumbotron-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-content-jumbotron"&gt;
   &lt;h3&gt;403 Forbidden: &lt;span class="ui-text-muted"&gt;You need login to join the chat room.&lt;/span&gt;&lt;/h3&gt;
   &lt;p&gt;Please contact &lt;strong&gt;help&lt;span aria-hidden="true"&gt;.855322&lt;/span&gt;@arxitics.com&lt;/strong&gt; if you think this should not happen again.&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -332,6 +404,7 @@
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./../dist/icons/editor.js"></script>
     <script src="./../dist/icons/editor.js"></script>
     <script src="./../dist/icons/forms.js"></script>
   </body>

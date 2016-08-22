@@ -50,7 +50,9 @@
         </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
-        <h3 class="ui-header-primary">Grid System</h3>
+        <h3 class="ui-header-primary"><span>Grid System</span>
+          <label for="grid-system-src" class="ui-float-right"><i data-schema-icon="code" class="ui-zoom-small"></i></label>
+        </h3>
         <div class="ui-text-center">
           <div class="ui-container-grid ui-frame-rounded ui-columns-seperated">
             <div class="ui-grid-50">50%</div>
@@ -77,7 +79,10 @@
             <div class="ui-grid-30 ui-offset-20 ui-frame-rounded">30%</div>
           </div>
         </div>
-        <pre><code class="language-markup">&lt;div class="ui-container-grid"&gt;
+        <div class="ui-toggle-target">
+          <input id="grid-system-src" type="checkbox">
+          <div>
+            <pre><code class="language-markup">&lt;div class="ui-container-grid"&gt;
   &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
   &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
 &lt;/div&gt;
@@ -101,6 +106,8 @@
   &lt;div class="ui-grid-20 ui-offset-10"&gt;20%&lt;/div&gt;
   &lt;div class="ui-grid-30 ui-offset-20"&gt;30%&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+          </div>
+        </div>
       </article>
     </main>
     <footer class="ui-container-fluid">
@@ -109,5 +116,6 @@
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./../dist/icons/editor.js"></script>
   </body>
 </html>

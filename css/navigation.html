@@ -52,7 +52,9 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Navigation</h3>
         <section>
-          <h4 class="ui-header-secondary">Navs</h4>
+          <h4 class="ui-header-secondary"><span>Navs</span>
+            <label for="navs-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <p>Navs available in UI Schema have shared markup as well as shared states. Swap modifier classes to switch between each style.</p>
           <div class="ui-container-grid">
             <div class="ui-fluid-40 ui-phone-expand ui-float-left">
@@ -112,7 +114,10 @@
               </ul>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;!-- Tabs --&gt;
+          <div class="ui-toggle-target">
+            <input id="navs-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;!-- Tabs --&gt;
 &lt;ul class="ui-nav-tabs"&gt;
   &lt;li class="ui-state-active"&gt;&lt;a href="http://arxitics.com/"&gt;Home&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/browse"&gt;Browse&lt;/a&gt;&lt;/li&gt;
@@ -145,10 +150,15 @@
   &lt;li class="ui-state-active"&gt;&lt;a href="http://arxitics.com/"&gt;Home&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/browse"&gt;Browse&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/explore"&gt;Explore&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Navbar</h4>
+          <h4 class="ui-header-secondary"><span>Navbar</span>
+            <label for="navbar-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <header class="ui-header-navbar ui-container-fluid ui-container-grid">
             <div class="ui-header-brand">
               <h2><a href="http://arxitics.com/">Arxitics</a></h2>
@@ -174,7 +184,10 @@
               </div>
             </form>
           </header>
-          <pre><code class="language-markup">&lt;header class="ui-header-navbar ui-container-fluid ui-container-grid"&gt;
+          <div class="ui-toggle-target">
+            <input id="navbar-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;header class="ui-header-navbar ui-container-fluid ui-container-grid"&gt;
   &lt;div class="ui-header-brand"&gt;
     &lt;h2&gt;&lt;a href="http://arxitics.com/"&gt;Arxitics&lt;/a&gt;&lt;/h2&gt;
   &lt;/div&gt;
@@ -201,10 +214,15 @@
       &lt;button type="submit"&gt;&lt;i data-schema-icon="search"&gt;Go!&lt;/i&gt;&lt;/button&gt;
     &lt;/div&gt;
   &lt;/form&gt;
-&lt;/header&gt;</code></pre>
+&lt;/header&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Breadcrumbs</h4>
+          <h4 class="ui-header-secondary"><span>Breadcrumbs</span>
+            <label for="breadcrumbs-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <ol class="ui-nav-breadcrumb">
             <li><a href="http://arxitics.com/">Arxitics</a></li>
             <li><a href="http://arxitics.com/explore">Explore</a></li>
@@ -215,14 +233,22 @@
             <li><a href="http://arxitics.com/explore">Explore</a></li>
             <li class="ui-text-muted">Data Visualization</li>
           </ol>
-          <pre><code class="language-markup">&lt;ol class="ui-nav-breadcrumb"&gt;
+          <div class="ui-toggle-target">
+            <input id="breadcrumbs-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;ol class="ui-nav-breadcrumb"&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/"&gt;Arxitics&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/explore"&gt;Explore&lt;/a&gt;&lt;/li&gt;
   &lt;li class="ui-state-active"&gt;Data Visualization&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
+&lt;/ol&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Pagination</h4>
+          <h4 class="ui-header-secondary"><span>Pagination</span>
+            <label for="pagination-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <ol class="ui-nav-pagination">
             <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2" title="Previous page">&laquo;</a></li>
             <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=1">1</a></li>
@@ -241,7 +267,10 @@
             <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=5">5</a></li>
             <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4" title="Next page">&raquo;</a></li>
           </ol>
-          <pre><code class="language-markup">&lt;ol class="ui-nav-pagination"&gt;
+          <div class="ui-toggle-target">
+            <input id="pagination-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;ol class="ui-nav-pagination"&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=2" title="Previous page"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=1"&gt;1&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=2"&gt;2&lt;/a&gt;&lt;/li&gt;
@@ -251,6 +280,8 @@
   &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=4" title="Next page"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -260,6 +291,7 @@
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./../dist/icons/editor.js"></script>
     <script src="./../dist/icons/forms.js"></script>
   </body>
 </html>

@@ -50,10 +50,14 @@
         </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
-        <h3 class="ui-header-primary">Icons</h3>
-        <p> </p>
+        <h3 class="ui-header-primary"><span>Icons</span>
+          <label for="icons-src" class="ui-float-right"><i data-schema-icon="code" class="ui-zoom-small"> </i></label>
+        </h3>
         <div class="ui-container-grid"><span><i data-schema-icon="cc"></i> <i data-schema-icon="cc-by" class="ui-text-primary"></i> <i data-schema-icon="cc-sa" data-schema-color="#3c763d"></i> <i data-schema-icon="chrome"></i></span><span class="ui-offset-large"> <i data-schema-icon="spinner" class="ui-icon-spin"></i> <i data-schema-icon="spinner-notch" class="ui-icon-spin"></i> <i data-schema-icon="spinner-ring" class="ui-icon-pulse"></i></span><span class="ui-offset-large"><i data-schema-icon="shield"></i> <i data-schema-icon="shield" class="ui-rotate-90"></i> <i data-schema-icon="shield" class="ui-rotate-180"></i> <i data-schema-icon="shield" class="ui-rotate-270"></i> <i data-schema-icon="shield" class="ui-flip-horizontal"></i> <i data-schema-icon="shield" class="ui-flip-vertical"></i></span><span class="ui-offset-large"><i data-schema-icon="weibo" class="ui-icon-circular"></i> <i data-schema-icon="weibo" class="ui-icon-circular ui-icon-inverse"></i> <i data-schema-icon="twitter" class="ui-icon-bordered"></i> <i data-schema-icon="twitter" class="ui-icon-bordered ui-icon-stroked"></i></span></div>
-        <pre><code class="language-markup">&lt;!-- Basic icons --&gt;
+        <div class="ui-toggle-target">
+          <input id="icons-src" type="checkbox">
+          <div>
+            <pre><code class="language-markup">&lt;!-- Basic icons --&gt;
 &lt;i data-schema-icon="cc"&gt;&lt;/i&gt;
 &lt;i class="ui-text-primary" data-schema-icon="cc-by"&gt;&lt;/i&gt;
 &lt;i data-schema-icon="cc-sa" data-schema-color="#3c763d"&gt;&lt;/i&gt;
@@ -78,6 +82,8 @@
 &lt;i class="ui-icon-bordered" data-schema-icon="twitter"&gt;&lt;/i&gt;
 &lt;i class="ui-icon-bordered ui-icon-stroked" data-schema-icon="twitter"&gt;&lt;/i&gt;
 </code></pre>
+          </div>
+        </div>
       </article>
     </main>
     <footer class="ui-container-fluid">
@@ -86,18 +92,11 @@
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./../dist/icons/editor.js"></script>
     <script src="./../dist/icons/account.js"></script>
-    <script src="./../dist/icons/arrows.js"></script>
     <script src="./../dist/icons/brands.js"></script>
     <script src="./../dist/icons/devices.js"></script>
-    <script src="./../dist/icons/editor.js"></script>
-    <script src="./../dist/icons/emoji.js"></script>
-    <script src="./../dist/icons/files.js"></script>
-    <script src="./../dist/icons/finance.js"></script>
     <script src="./../dist/icons/forms.js"></script>
-    <script src="./../dist/icons/healthcare.js"></script>
     <script src="./../dist/icons/licenses.js"></script>
-    <script src="./../dist/icons/video.js"></script>
-    <script src="./../dist/icons/weather.js"></script>
   </body>
 </html>
