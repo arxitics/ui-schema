@@ -9,7 +9,10 @@ block variables
 block article
   h3.ui-header-primary Forms
   section
-    h4.ui-header-secondary Buttons
+    h4.ui-header-secondary
+      span Buttons
+      label.ui-float-right(for='buttons-src')
+        i(data-schema-icon='code')
     div
       button(type='button') Default
       button.ui-button-primary(type='button') Primary
@@ -26,22 +29,29 @@ block article
       button.ui-zoom-medium(type='button') Medium
       button.ui-zoom-small(type='button') Small
       button.ui-zoom-tiny(type='button') Tiny
-    pre: code.language-markup.
-      &lt;button type="button"&gt;Default&lt;/button&gt;
-      &lt;button class="ui-button-primary" type="button"&gt;Primary&lt;/button&gt;
-      &lt;button class="ui-button-success" type="button"&gt;Success&lt;/button&gt;
-      &lt;button class="ui-button-info" type="button"&gt;Info&lt;/button&gt;
-      &lt;button class="ui-button-warning" type="button"&gt;Warning&lt;/button&gt;
-      &lt;button class="ui-button-danger" type="button"&gt;Danger&lt;/button&gt;
-      &lt;button type="button" disabled&gt;Disabled&lt;/button&gt;
-      &lt;a class="ui-text-button ui-button-primary" href="http://arxitics.com/"&gt;Link&lt;/a&gt;
-      &lt;button class="ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
-      &lt;button class="ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
-      &lt;button class="ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
-      &lt;button class="ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
-      &lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
+    .ui-toggle-target
+      input#buttons-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;button type="button"&gt;Default&lt;/button&gt;
+          &lt;button class="ui-button-primary" type="button"&gt;Primary&lt;/button&gt;
+          &lt;button class="ui-button-success" type="button"&gt;Success&lt;/button&gt;
+          &lt;button class="ui-button-info" type="button"&gt;Info&lt;/button&gt;
+          &lt;button class="ui-button-warning" type="button"&gt;Warning&lt;/button&gt;
+          &lt;button class="ui-button-danger" type="button"&gt;Danger&lt;/button&gt;
+          &lt;button type="button" disabled&gt;Disabled&lt;/button&gt;
+          &lt;a class="ui-text-button ui-button-primary" href="http://arxitics.com/"&gt;Link&lt;/a&gt;
+          &lt;button class="ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
+          &lt;button class="ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
+          &lt;button class="ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
+          &lt;button class="ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
+          &lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
+
   section
-    h4.ui-header-secondary Inline Form
+    h4.ui-header-secondary
+      span Inline Form
+      label.ui-float-right(for='inline-form-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       form.ui-grid-50.ui-phone-expand(action='http://arxitics.com/search' method='get')
         input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
@@ -50,13 +60,20 @@ block article
         .ui-input-addon
           input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
           button(type='submit'): i(data-schema-icon='search') Go!
-    pre: code.language-markup.
-      &lt;form action="http://arxitics.com/search" method="get"&gt;
-        &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
-        &lt;button type="submit"&gt;Go!&lt;/button&gt;
-      &lt;/form&gt;
+    .ui-toggle-target
+      input#inline-form-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;form action="http://arxitics.com/search" method="get"&gt;
+            &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
+            &lt;button type="submit"&gt;Go!&lt;/button&gt;
+          &lt;/form&gt;
+
   section
-    h4.ui-header-secondary Fluid Form
+    h4.ui-header-secondary
+      span Fluid Form
+      label.ui-float-right(for='fluid-form-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       form.ui-grid-50.ui-phone-expand.ui-form-fluid(action='http://arxitics.com/browse' method='get')
         label(for='categories') Categories
@@ -90,22 +107,29 @@ block article
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
-    pre: code.language-markup.
-      &lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get"&gt;
-        &lt;label for="categories"&gt;Categories&lt;/label&gt;
-        &lt;input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" required&gt;
-        &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
-        &lt;input id="keywords" type="text" name="keywords" placeholder="perturbative gauge theory"&gt;
-        &lt;label&gt;
-          &lt;input type="checkbox" name="extend" value="true"&gt; Use the extend mode to see more
-        &lt;/label&gt;
-        &lt;div class="ui-skip-large"&gt;
-          &lt;button type="submit" class="ui-button-primary"&gt;Submit&lt;/button&gt;
-          &lt;button type="reset" class="ui-offset-medium"&gt;Reset&lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/form&gt;
+    .ui-toggle-target
+      input#fluid-form-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get"&gt;
+            &lt;label for="categories"&gt;Categories&lt;/label&gt;
+            &lt;input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" required&gt;
+            &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
+            &lt;input id="keywords" type="text" name="keywords" placeholder="perturbative gauge theory"&gt;
+            &lt;label&gt;
+              &lt;input type="checkbox" name="extend" value="true"&gt; Use the extend mode to see more
+            &lt;/label&gt;
+            &lt;div class="ui-skip-large"&gt;
+              &lt;button type="submit" class="ui-button-primary"&gt;Submit&lt;/button&gt;
+              &lt;button type="reset" class="ui-offset-medium"&gt;Reset&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+
   section
-    h4.ui-header-secondary Horizontal Form
+    h4.ui-header-secondary
+      span Horizontal Form
+      label.ui-float-right(for='horizontal-form-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       form.ui-form-horizontal(action='http://arxitics.com/search' method='get')
         .ui-container-grid
@@ -128,32 +152,39 @@ block article
         .ui-text-center.ui-skip-large
           button.ui-button-primary(type='submit') Submit
           button.ui-offset-medium(type='reset') Reset
-    pre: code.language-markup.
-      &lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get"&gt;
-        &lt;div class="ui-container-grid"&gt;
-          &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
-          &lt;div class="ui-grid-80"&gt;
-            &lt;input id="title" type="text" name="title" placeholder="Bayesian probabilistic matrix factorization"&gt;
-          &lt;/div&gt;
-          &lt;label for="comments" class="ui-grid-20"&gt;Comments&lt;/label&gt;
-          &lt;div class="ui-grid-80"&gt;
-            &lt;input id="comments" type="text" name="comments" placeholder="Les Houches summer school"&gt;
-          &lt;/div&gt;
-          &lt;label for="sort" class="ui-grid-20"&gt;Sort by&lt;/label&gt;
-          &lt;div class="ui-grid-80 ui-skip-tiny"&gt;
-            &lt;input id="sort" type="radio" name="sort" value="published" checked&gt; Published date
-            &lt;input class="ui-offset-small" type="radio" name="sort" value="updated"&gt; Updated date
-            &lt;input class="ui-offset-small" type="radio" name="sort" value="views"&gt; Article views
-            &lt;input class="ui-offset-small" type="radio" name="sort" value="rating"&gt; Rating score
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class="ui-text-center ui-skip-large"&gt;
-          &lt;button class="ui-button-primary" type="submit"&gt;Submit&lt;/button&gt;
-          &lt;button class="ui-offset-medium" type="reset"&gt;Reset&lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/form&gt;
+    .ui-toggle-target
+      input#horizontal-form-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get"&gt;
+            &lt;div class="ui-container-grid"&gt;
+              &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
+              &lt;div class="ui-grid-80"&gt;
+                &lt;input id="title" type="text" name="title" placeholder="Bayesian probabilistic matrix factorization"&gt;
+              &lt;/div&gt;
+              &lt;label for="comments" class="ui-grid-20"&gt;Comments&lt;/label&gt;
+              &lt;div class="ui-grid-80"&gt;
+                &lt;input id="comments" type="text" name="comments" placeholder="Les Houches summer school"&gt;
+              &lt;/div&gt;
+              &lt;label for="sort" class="ui-grid-20"&gt;Sort by&lt;/label&gt;
+              &lt;div class="ui-grid-80 ui-skip-tiny"&gt;
+                &lt;input id="sort" type="radio" name="sort" value="published" checked&gt; Published date
+                &lt;input class="ui-offset-small" type="radio" name="sort" value="updated"&gt; Updated date
+                &lt;input class="ui-offset-small" type="radio" name="sort" value="views"&gt; Article views
+                &lt;input class="ui-offset-small" type="radio" name="sort" value="rating"&gt; Rating score
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="ui-text-center ui-skip-large"&gt;
+              &lt;button class="ui-button-primary" type="submit"&gt;Submit&lt;/button&gt;
+              &lt;button class="ui-offset-medium" type="reset"&gt;Reset&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+
   section
-    h4.ui-header-secondary Button Groups
+    h4.ui-header-secondary
+      span Button Groups
+      label.ui-float-right(for='button-groups-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       .ui-button-toolbar
         .ui-button-group.ui-space-trim(data-schema-trim)
@@ -192,54 +223,61 @@ block article
         label.ui-phone-hidden(for='q-fin') Quantitative Finance
         input(id='stats' type='checkbox' name='groups' value='stats')
         label(for='stats') Statistics
-    pre: code.language-markup.
-      &lt;div class="ui-button-toolbar"&gt;
-        &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-          &lt;button title="View chat history"&gt;View&lt;/button&gt;
-          &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
-          &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
-          &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
-        &lt;/div&gt;
-        &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-          &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
-          &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="ui-button-toolbar ui-skip-medium"&gt;
-        &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-          &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
-          &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
-          &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
-          &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
-          &lt;input id="reader-counts" type="radio" name="sort" value="readers"&gt;
-          &lt;label for="reader-counts"&gt;Reader Counts&lt;/label&gt;
-          &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
-          &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
-        &lt;/div&gt;
-        &lt;div class="ui-button-switch"&gt;
-          &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
-          &lt;label for="sort-order"&gt;
-            &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
-            &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
-          &lt;/label&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
-        &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
-        &lt;label for="physics"&gt;Physics&lt;/label&gt;
-        &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
-        &lt;label for="math"&gt;Mathematics&lt;/label&gt;
-        &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
-        &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
-        &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
-        &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
-        &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
-        &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
-        &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
-        &lt;label for="stats"&gt;Statistics&lt;/label&gt;
-      &lt;/div&gt;
+    .ui-toggle-target
+      input#button-groups-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-button-toolbar"&gt;
+            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+              &lt;button title="View chat history"&gt;View&lt;/button&gt;
+              &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
+              &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
+              &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+              &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
+              &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="ui-button-toolbar ui-skip-medium"&gt;
+            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+              &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
+              &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
+              &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
+              &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
+              &lt;input id="reader-counts" type="radio" name="sort" value="readers"&gt;
+              &lt;label for="reader-counts"&gt;Reader Counts&lt;/label&gt;
+              &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
+              &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class="ui-button-switch"&gt;
+              &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
+              &lt;label for="sort-order"&gt;
+                &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
+            &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
+            &lt;label for="physics"&gt;Physics&lt;/label&gt;
+            &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
+            &lt;label for="math"&gt;Mathematics&lt;/label&gt;
+            &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
+            &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
+            &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
+            &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
+            &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
+            &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
+            &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
+            &lt;label for="stats"&gt;Statistics&lt;/label&gt;
+          &lt;/div&gt;
+
   section
-    h4.ui-header-secondary Input Addons
+    h4.ui-header-secondary
+      span Input Addons
+      label.ui-float-right(for='input-addons-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       .ui-grid-50.ui-phone-expand
         .ui-input-addon
@@ -250,16 +288,18 @@ block article
         .ui-input-addon
           input(type='search' name='q' placeholder='Search or type a command' title='Type "help" to redirect to the help center')
           button.ui-button-primary Go!
-    pre: code.language-markup.
-      &lt;div class="ui-input-addon"&gt;
-        &lt;label for="email" title="Email"&gt;&lt;i data-schema-icon="envelope-o"&gt;Email&lt;/i&gt;&lt;/label&gt;
-        &lt;input id="email" type="email" name="email"&gt;
-      &lt;/div&gt;
-      &lt;div class="ui-input-addon"&gt;
-        &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
-        &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
-      &lt;/div&gt;
-
+    .ui-toggle-target
+      input#input-addons-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-input-addon"&gt;
+            &lt;label for="email" title="Email"&gt;&lt;i data-schema-icon="envelope-o"&gt;Email&lt;/i&gt;&lt;/label&gt;
+            &lt;input id="email" type="email" name="email"&gt;
+          &lt;/div&gt;
+          &lt;div class="ui-input-addon"&gt;
+            &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
+            &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
+          &lt;/div&gt;
 
 block append foot
   script(src='#{appIcons}/account.js')

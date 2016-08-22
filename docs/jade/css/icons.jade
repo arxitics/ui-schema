@@ -7,8 +7,10 @@ block variables
   - var prism = true
 
 block article
-  h3.ui-header-primary Icons
-  p 
+  h3.ui-header-primary
+    span Icons
+    label.ui-float-right(for='icons-src')
+      i.ui-zoom-small(data-schema-icon='code') 
   .ui-container-grid
     span
       i(data-schema-icon='cc')
@@ -44,43 +46,38 @@ block article
       i.ui-icon-bordered(data-schema-icon='twitter')
       |  
       i.ui-icon-bordered.ui-icon-stroked(data-schema-icon='twitter')
-  pre: code.language-markup.
-    &lt;!-- Basic icons --&gt;
-    &lt;i data-schema-icon="cc"&gt;&lt;/i&gt;
-    &lt;i class="ui-text-primary" data-schema-icon="cc-by"&gt;&lt;/i&gt;
-    &lt;i data-schema-icon="cc-sa" data-schema-color="#3c763d"&gt;&lt;/i&gt;
-    &lt;i data-schema-icon="chrome"&gt;&lt;/i&gt;
+  .ui-toggle-target
+    input#icons-src(type='checkbox')
+    div
+      pre: code.language-markup.
+        &lt;!-- Basic icons --&gt;
+        &lt;i data-schema-icon="cc"&gt;&lt;/i&gt;
+        &lt;i class="ui-text-primary" data-schema-icon="cc-by"&gt;&lt;/i&gt;
+        &lt;i data-schema-icon="cc-sa" data-schema-color="#3c763d"&gt;&lt;/i&gt;
+        &lt;i data-schema-icon="chrome"&gt;&lt;/i&gt;
 
-    &lt;!-- Animated icons --&gt;
-    &lt;i class="ui-icon-spin" data-schema-icon="spinner"&gt;&lt;/i&gt;
-    &lt;i class="ui-icon-spin" data-schema-icon="spinner-notch"&gt;&lt;/i&gt;
-    &lt;i class="ui-icon-pulse" data-schema-icon="spinner-ring"&gt;&lt;/i&gt;
+        &lt;!-- Animated icons --&gt;
+        &lt;i class="ui-icon-spin" data-schema-icon="spinner"&gt;&lt;/i&gt;
+        &lt;i class="ui-icon-spin" data-schema-icon="spinner-notch"&gt;&lt;/i&gt;
+        &lt;i class="ui-icon-pulse" data-schema-icon="spinner-ring"&gt;&lt;/i&gt;
 
-    &lt;!-- Rotated and flipped icons --&gt;
-    &lt;i data-schema-icon="shield"&gt;&lt;/i&gt;
-    &lt;i class="ui-rotate-90" data-schema-icon="shield"&gt;&lt;/i&gt;
-    &lt;i class="ui-rotate-180" data-schema-icon="shield"&gt;&lt;/i&gt;
-    &lt;i class="ui-rotate-270" data-schema-icon="shield"&gt;&lt;/i&gt;
-    &lt;i class="ui-flip-horizontal" data-schema-icon="shield"&gt;&lt;/i&gt;
-    &lt;i class="ui-flip-vertical" data-schema-icon="shield"&gt;&lt;/i&gt;
+        &lt;!-- Rotated and flipped icons --&gt;
+        &lt;i data-schema-icon="shield"&gt;&lt;/i&gt;
+        &lt;i class="ui-rotate-90" data-schema-icon="shield"&gt;&lt;/i&gt;
+        &lt;i class="ui-rotate-180" data-schema-icon="shield"&gt;&lt;/i&gt;
+        &lt;i class="ui-rotate-270" data-schema-icon="shield"&gt;&lt;/i&gt;
+        &lt;i class="ui-flip-horizontal" data-schema-icon="shield"&gt;&lt;/i&gt;
+        &lt;i class="ui-flip-vertical" data-schema-icon="shield"&gt;&lt;/i&gt;
 
-    &lt;!-- Circular and bordered icons --&gt;
-    &lt;i class="ui-icon-circular" data-schema-icon="weibo"&gt;&lt;/i&gt;
-    &lt;i class="ui-icon-circular ui-icon-inverse" data-schema-icon="weibo"&gt;&lt;/i&gt;
-    &lt;i class="ui-icon-bordered" data-schema-icon="twitter"&gt;&lt;/i&gt;
-    &lt;i class="ui-icon-bordered ui-icon-stroked" data-schema-icon="twitter"&gt;&lt;/i&gt;
+        &lt;!-- Circular and bordered icons --&gt;
+        &lt;i class="ui-icon-circular" data-schema-icon="weibo"&gt;&lt;/i&gt;
+        &lt;i class="ui-icon-circular ui-icon-inverse" data-schema-icon="weibo"&gt;&lt;/i&gt;
+        &lt;i class="ui-icon-bordered" data-schema-icon="twitter"&gt;&lt;/i&gt;
+        &lt;i class="ui-icon-bordered ui-icon-stroked" data-schema-icon="twitter"&gt;&lt;/i&gt;
 
 block append foot
   script(src='#{appIcons}/account.js')
-  script(src='#{appIcons}/arrows.js')
   script(src='#{appIcons}/brands.js')
   script(src='#{appIcons}/devices.js')
-  script(src='#{appIcons}/editor.js')
-  script(src='#{appIcons}/emoji.js')
-  script(src='#{appIcons}/files.js')
-  script(src='#{appIcons}/finance.js')
   script(src='#{appIcons}/forms.js')
-  script(src='#{appIcons}/healthcare.js')
   script(src='#{appIcons}/licenses.js')
-  script(src='#{appIcons}/video.js')
-  script(src='#{appIcons}/weather.js')

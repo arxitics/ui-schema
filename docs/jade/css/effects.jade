@@ -9,44 +9,71 @@ block variables
 block article
   h3.ui-header-primary Visual Effects
   section
-    h4.ui-header-secondary Progress Bars
+    h4.ui-header-secondary
+      span Progress Bars
+      label.ui-float-right(for='progress-bars-src')
+        i(data-schema-icon='code')
     div
       progress(value='60' max='100' title='60%') 60% completed
       progress.ui-progress-success.ui-skip-small(value='60' max='100' title='60%') 60% completed
       progress.ui-progress-info.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%') 60% completed
       progress.ui-progress-warning.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%') 60% completed
       progress.ui-progress-danger.ui-skip-small(max='100' title='no value') no value
-    pre: code.language-markup.
-      &lt;progress value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-      &lt;progress class="ui-progress-success" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-      &lt;progress class="ui-progress-info ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-      &lt;progress class="ui-progress-warning ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-      &lt;progress class="ui-progress-danger" max="100" title="no value"&gt;no value&lt;/progress&gt;
+    .ui-toggle-target
+      input#progress-bars-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;progress value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-success" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-info ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-warning ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-danger" max="100" title="no value"&gt;no value&lt;/progress&gt;
+
   section
-    h4.ui-header-secondary Range Sliders
+    h4.ui-header-secondary
+      span Range Sliders
+      label.ui-float-right(for='range-sliders-src')
+        i(data-schema-icon='code')
     div
       input(type='range' min='0' max='100' step='1' value='60' aria-valuemin='0' aria-valuemax='100' aria-valuenow='60')
-    pre: code.language-markup.
-      &lt;input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"&gt;
+    .ui-toggle-target
+      input#range-sliders-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"&gt;
+
   section
-    h4.ui-header-secondary Audio
+    h4.ui-header-secondary
+      span Audio
+      label.ui-float-right(for='audio-src')
+        i(data-schema-icon='code')
     div
       audio(controls)
         source(src='https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg' type='audio/ogg')
         span.ui-color-danger Your browser does not support the #[code audio] element.
-    pre: code.language-markup.
-      &lt;audio controls&gt;
-        &lt;source src="https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg" type="audio/ogg"&gt;
-        &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;audio&lt;/code&gt; element.&lt;/span&gt;
-      &lt;/audio&gt;
+    .ui-toggle-target
+      input#audio-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;audio controls&gt;
+            &lt;source src="https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg" type="audio/ogg"&gt;
+            &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;audio&lt;/code&gt; element.&lt;/span&gt;
+          &lt;/audio&gt;
+
   section
-    h4.ui-header-secondary Video
+    h4.ui-header-secondary
+      span Video
+      label.ui-float-right(for='video-src')
+        i(data-schema-icon='code')
     div
       video(controls)
         source(src='https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm' type='video/webm')
         span.ui-color-danger Your browser does not support the #[code video] element.
-    pre: code.language-markup.
-      &lt;video controls&gt;
-        &lt;source src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm" type="video/webm"&gt;
-        &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;video&lt;/code&gt; element.&lt;/span&gt;
-      &lt;/video&gt;
+    .ui-toggle-target
+      input#video-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;video controls&gt;
+            &lt;source src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm" type="video/webm"&gt;
+            &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;video&lt;/code&gt; element.&lt;/span&gt;
+          &lt;/video&gt;

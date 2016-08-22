@@ -52,7 +52,9 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Menus</h3>
         <section>
-          <h4 class="ui-header-secondary">Dropdown</h4>
+          <h4 class="ui-header-secondary"><span>Dropdown</span>
+            <label for="dropdown-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-20">
               <div class="ui-menu-dropdown"><a aria-haspopup="true">Arxitics <span class="ui-caret-down"></span></a>
@@ -150,7 +152,10 @@
               </div>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-menu-dropdown"&gt;
+          <div class="ui-toggle-target">
+            <input id="dropdown-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-menu-dropdown"&gt;
   &lt;a aria-haspopup="true"&gt;Arxitics &lt;span class="ui-caret-down"&gt;&lt;/span&gt;&lt;/a&gt;
   &lt;ul role="menu"&gt;
     &lt;li class="ui-text-muted" role="presentation"&gt;&lt;span&gt;Navigation&lt;/span&gt;&lt;/li&gt;
@@ -171,10 +176,15 @@
     &lt;li class="ui-seperator-horizontal" role="presentation"&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="http://arxitics.com/auth/login"&gt;Sign in&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Selection</h4>
+          <h4 class="ui-header-secondary"><span>Selection</span>
+            <label for="selection-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-33 ui-phone-expand ui-menu-selection">
               <ul role="listbox">
@@ -199,7 +209,10 @@
               </ul>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-menu-selection"&gt;
+          <div class="ui-toggle-target">
+            <input id="selection-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-menu-selection"&gt;
   &lt;ul role="listbox"&gt;
     &lt;li class="ui-text-left-right" aria-haspopup="true"&gt;
       &lt;span&gt;List of Categories&lt;/span&gt;
@@ -213,6 +226,8 @@
     &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=stat"&gt;Statistics&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -222,5 +237,6 @@
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
     <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/icons/editor.js"></script>
   </body>
 </html>

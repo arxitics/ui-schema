@@ -52,7 +52,9 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Shapes</h3>
         <section>
-          <h4 class="ui-header-secondary">Tooltips</h4>
+          <h4 class="ui-header-secondary"><span>Tooltips</span>
+            <label for="tooltips-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-25">
               <div class="ui-tooltip-top">Tooltip on top</div>
@@ -106,7 +108,10 @@
               </div>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-grid-50"&gt;
+          <div class="ui-toggle-target">
+            <input id="tooltips-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-grid-50"&gt;
   &lt;div class="ui-tooltip-top"&gt;
     &lt;div class="ui-tooltip-header"&gt;
       &lt;h4&gt;Basic Information&lt;/h4&gt;
@@ -129,6 +134,8 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -138,5 +145,6 @@
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
     <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/icons/editor.js"></script>
   </body>
 </html>

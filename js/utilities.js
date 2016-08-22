@@ -23,10 +23,10 @@
       var $_data = schema.parseData($_this.data());
       var $_inputs = $_this.children('input[type=radio]');
       var state = $_this.find('label').first().attr('class');
-      var interval = +$_data.autoplay || 5000;
+      var interval = (+$_data.autoplay - 1) || 5000;
       var length = $_inputs.length;
       var counter = 1;
-      setInterval(function () {
+      window.setInterval(function () {
         var $_input = $_inputs.eq(counter % length);
         var id = $_input.attr('id');
         if (id) {
@@ -36,6 +36,25 @@
         $_input.prop('checked', true);
         counter++;
       }, interval);
+    });
+  };
+
+  // Dismiss any alert inline.
+  schema.dismiss = function (event, options) {
+    var selector = schema.events.dismiss.selector;
+    var $_elements = $(selector).add(options && options.selector);
+    $_elements.each(function () {
+      var $_this = $(this);
+      var $_data = schema.parseData($_this.data());
+      var interval = +$_data.dismiss - 1;
+      $_this.one('click', function () {
+        $_this.parent().remove();
+      });
+      if (interval > 0) {
+        window.setTimeout(function () {
+          $_this.click();
+        }, interval);
+      }
     });
   };
 

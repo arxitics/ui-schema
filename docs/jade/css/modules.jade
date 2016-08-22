@@ -27,3 +27,7 @@ block aside
     +link('pages', 'Pages')
     +link('utilities', 'Utilities')
     +link('variables', 'Variables')
+
+block append foot
+  if prism
+    script(src='#{appIcons}/editor.js')

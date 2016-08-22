@@ -52,7 +52,9 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Visual Effects</h3>
         <section>
-          <h4 class="ui-header-secondary">Progress Bars</h4>
+          <h4 class="ui-header-secondary"><span>Progress Bars</span>
+            <label for="progress-bars-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
             <progress value="60" max="100" title="60%">60% completed</progress>
             <progress value="60" max="100" title="60%" class="ui-progress-success ui-skip-small">60% completed</progress>
@@ -60,42 +62,71 @@
             <progress value="60" max="100" title="60%" class="ui-progress-warning ui-progress-striped ui-skip-small">60% completed</progress>
             <progress max="100" title="no value" class="ui-progress-danger ui-skip-small">no value</progress>
           </div>
-          <pre><code class="language-markup">&lt;progress value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
+          <div class="ui-toggle-target">
+            <input id="progress-bars-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;progress value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
 &lt;progress class="ui-progress-success" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
 &lt;progress class="ui-progress-info ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
 &lt;progress class="ui-progress-warning ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-&lt;progress class="ui-progress-danger" max="100" title="no value"&gt;no value&lt;/progress&gt;</code></pre>
+&lt;progress class="ui-progress-danger" max="100" title="no value"&gt;no value&lt;/progress&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Range Sliders</h4>
+          <h4 class="ui-header-secondary"><span>Range Sliders</span>
+            <label for="range-sliders-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
             <input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
           </div>
-          <pre><code class="language-markup">&lt;input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"&gt;</code></pre>
+          <div class="ui-toggle-target">
+            <input id="range-sliders-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Audio</h4>
+          <h4 class="ui-header-secondary"><span>Audio</span>
+            <label for="audio-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
             <audio controls>
               <source src="https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg" type="audio/ogg"><span class="ui-color-danger">Your browser does not support the <code>audio</code> element.</span>
             </audio>
           </div>
-          <pre><code class="language-markup">&lt;audio controls&gt;
+          <div class="ui-toggle-target">
+            <input id="audio-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;audio controls&gt;
   &lt;source src="https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg" type="audio/ogg"&gt;
   &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;audio&lt;/code&gt; element.&lt;/span&gt;
-&lt;/audio&gt;</code></pre>
+&lt;/audio&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Video</h4>
+          <h4 class="ui-header-secondary"><span>Video</span>
+            <label for="video-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
             <video controls>
               <source src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm" type="video/webm"><span class="ui-color-danger">Your browser does not support the <code>video</code> element.</span>
             </video>
           </div>
-          <pre><code class="language-markup">&lt;video controls&gt;
+          <div class="ui-toggle-target">
+            <input id="video-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;video controls&gt;
   &lt;source src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm" type="video/webm"&gt;
   &lt;span class="ui-color-danger"&gt;Your browser does not support the &lt;code&gt;video&lt;/code&gt; element.&lt;/span&gt;
 &lt;/video&gt;</code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -105,5 +136,6 @@
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
     <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/icons/editor.js"></script>
   </body>
 </html>

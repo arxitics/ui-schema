@@ -9,7 +9,10 @@ block variables
 block article
   h3.ui-header-primary Shapes
   section
-    h4.ui-header-secondary Tooltips
+    h4.ui-header-secondary
+      span Tooltips
+      label.ui-float-right(for='tooltips-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       .ui-grid-25
         .ui-tooltip-top Tooltip on top
@@ -44,27 +47,30 @@ block article
               tr
                 td Website
                 td: a(href='http://github.com/photino' rel='external' target='_blank') http://github.com/photino
-    pre: code.language-markup.
-      &lt;div class="ui-grid-50"&gt;
-        &lt;div class="ui-tooltip-top"&gt;
-          &lt;div class="ui-tooltip-header"&gt;
-            &lt;h4&gt;Basic Information&lt;/h4&gt;
+    .ui-toggle-target
+      input#tooltips-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-grid-50"&gt;
+            &lt;div class="ui-tooltip-top"&gt;
+              &lt;div class="ui-tooltip-header"&gt;
+                &lt;h4&gt;Basic Information&lt;/h4&gt;
+              &lt;/div&gt;
+              &lt;div class="ui-tooltip-body"&gt;
+                &lt;table class="ui-table-fluid ui-table-columns-2"&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;Name&lt;/td&gt;
+                    &lt;td&gt;Zan Pan&lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;Location&lt;/td&gt;
+                    &lt;td&gt;Beijing, China&lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;Website&lt;/td&gt;
+                    &lt;td&gt;&lt;a href="http://github.com/photino" rel="external" target="_blank"&gt;http://github.com/photino&lt;/a&gt;&lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
           &lt;/div&gt;
-          &lt;div class="ui-tooltip-body"&gt;
-            &lt;table class="ui-table-fluid ui-table-columns-2"&gt;
-              &lt;tr&gt;
-                &lt;td&gt;Name&lt;/td&gt;
-                &lt;td&gt;Zan Pan&lt;/td&gt;
-              &lt;/tr&gt;
-              &lt;tr&gt;
-                &lt;td&gt;Location&lt;/td&gt;
-                &lt;td&gt;Beijing, China&lt;/td&gt;
-              &lt;/tr&gt;
-              &lt;tr&gt;
-                &lt;td&gt;Website&lt;/td&gt;
-                &lt;td&gt;&lt;a href="http://github.com/photino" rel="external" target="_blank"&gt;http://github.com/photino&lt;/a&gt;&lt;/td&gt;
-              &lt;/tr&gt;
-            &lt;/table&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;

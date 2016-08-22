@@ -52,17 +52,27 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Events</h3>
         <section>
-          <h4 class="ui-header-secondary">Resizable</h4>
+          <h4 class="ui-header-secondary"><span>Resizable</span>
+            <label for="resizable-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-40 ui-float-left ui-frame-rounded ui-resize-horizontal">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
             <div class="ui-grid-40 ui-float-right ui-frame-rounded ui-resize-vertical">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-frame-rounded ui-resize-horizontal"&gt;
+          <div class="ui-toggle-target">
+            <input id="resizable-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-frame-rounded ui-resize-horizontal"&gt;
   Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Accordion</h4>
+          <h4 class="ui-header-secondary"><span>Accordion</span>
+            <label for="accordion-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-accordion-content">
             <div tabindex="1" class="ui-content-panel">
               <div class="ui-panel-header">
@@ -93,7 +103,10 @@
               </div>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-accordion-content"&gt;
+          <div class="ui-toggle-target">
+            <input id="accordion-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-accordion-content"&gt;
   &lt;div class="ui-content-panel" tabindex="1"&gt;
     &lt;div class="ui-panel-header"&gt;
       &lt;h4&gt;Universal search&lt;/h4&gt;
@@ -122,10 +135,15 @@
       &lt;p&gt;As mentioned before, you can browse your subscription of eprints based on filters like categories, subjects, topics, keywords, etc. In fact, this is also a simple search interface.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Carousel</h4>
+          <h4 class="ui-header-secondary"><span>Carousel</span>
+            <label for="carousel-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div data-schema-autoplay="5000" class="ui-carousel-content">
             <input type="radio" name="carousel" id="quote-1" checked>
             <div>
@@ -168,7 +186,10 @@
               </ol>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-carousel-content" data-schema-autoplay="5000"&gt;
+          <div class="ui-toggle-target">
+            <input id="carousel-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-carousel-content" data-schema-autoplay="5000"&gt;
   &lt;input type="radio" name="carousel" id="quote-1" checked&gt;
   &lt;div&gt;
     &lt;blockquote class="ui-alert-success"&gt;
@@ -204,6 +225,8 @@
     &lt;/ol&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -213,5 +236,6 @@
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
     <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/icons/editor.js"></script>
   </body>
 </html>

@@ -56,27 +56,32 @@ schema.events = {
   },
   validate: {
     type: 'validate',
-    namespace: '.form-validate.form.data-api.schema',
+    namespace: '.validation.form.data-api.schema',
     selector: 'form[data-schema-validate]'
   },
   sprite: {
     type: 'create',
-    namespace: '.icons.svg.data-api.schema',
+    namespace: '.icon.svg.data-api.schema',
     selector: 'i[data-schema-icon]'
   },
   trim: {
     type: 'remove',
-    namespace: '.white-space.text-node.schema',
-    selector: '[data-schema-trim]'
+    namespace: '.text-node.dom.data-api.schema',
+    selector: 'body [data-schema-trim]'
   },
   extract: {
     type: 'create',
     namespace: '.dom.data-api.schema',
     selector: 'body [data-schema-extract]'
   },
+  dismiss: {
+    type: 'remove',
+    namespace: '.action.dom.data-api.schema',
+    selector: 'body [data-schema-dismiss]'
+  },
   autoplay: {
     type: 'toggle',
-    namespace: '.event.data-api.schema',
+    namespace: '.action.data-api.schema',
     selector: '[data-schema-autoplay]'
   }
 };</code></pre>

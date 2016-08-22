@@ -503,7 +503,7 @@ html {
 
 body {
   color: #333;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
+  font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
   font-size: 1.4rem;
   line-height: 1.42857; /* 1 */
   text-rendering: geometricPrecision; /* 2 */
@@ -1127,6 +1127,7 @@ tr:last-child > td {
 
 /* ARIA
    ========================================================================== */
+[hidden],
 [aria-hidden="true"] {
   display: none;
 }
@@ -1462,6 +1463,7 @@ tr:last-child > td {
 }
 
 .ui-fixed-top,
+.ui-sticky-top,
 .ui-absolute-top {
   top: 0;
 }
@@ -1472,6 +1474,7 @@ tr:last-child > td {
 }
 
 .ui-fixed-bottom,
+.ui-sticky-bottom,
 .ui-absolute-bottom {
   bottom: 0;
 }
@@ -1479,6 +1482,12 @@ tr:last-child > td {
 .ui-fixed-left,
 .ui-absolute-left {
   left: 0;
+}
+
+.ui-sticky-top,
+.ui-sticky-bottom {
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .ui-absolute-center {
@@ -2670,23 +2679,12 @@ tr:last-child > td {
   box-shadow: 0 0 1em #ccc;
   display: block;
   margin: 5% 10%;
-  padding: 1em 2em;
+  padding: 1.2em 1.6em;
   text-align: center;
 }
 
 .ui-lightbox-target:target {
   display: block;
-}
-
-.ui-lightbox-close {
-  float: right;
-  margin-right: -1.5em;
-  margin-top: -1.5em;
-}
-
-.ui-lightbox-close::after {
-  content: "\00d7";
-  font-size: 150%;
 }
 
 /*!
@@ -3409,6 +3407,20 @@ tr:last-child > td {
 /*!
  * Events
  */
+
+.ui-symbol-button {
+  float: right;
+  font-size: 150%;
+  opacity: 0.65;
+  position: relative;
+  right: -0.4em;
+  top: -0.8em;
+}
+
+.ui-symbol-button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
 
 .ui-resize-both {
   max-width: 100%;

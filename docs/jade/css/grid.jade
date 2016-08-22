@@ -7,7 +7,10 @@ block variables
   - var prism = true
 
 block article
-  h3.ui-header-primary Grid System
+  h3.ui-header-primary
+    span Grid System
+    label.ui-float-right(for='grid-system-src')
+      i.ui-zoom-small(data-schema-icon='code')
   .ui-text-center
     .ui-container-grid.ui-frame-rounded.ui-columns-seperated
       .ui-grid-50 50%
@@ -27,28 +30,31 @@ block article
       .ui-grid-20.ui-frame-rounded 20%
       .ui-grid-20.ui-offset-10.ui-frame-rounded 20%
       .ui-grid-30.ui-offset-20.ui-frame-rounded 30%
-  pre: code.language-markup.
-    &lt;div class="ui-container-grid"&gt;
-      &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
-      &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="ui-container-grid"&gt;
-      &lt;div class="ui-grid-33"&gt;33.3333%&lt;/div&gt;
-      &lt;div class="ui-grid-67 ui-grid-collapse"&gt;
-        &lt;div class="ui-grid-33"&gt;22.2222%&lt;/div&gt;
-        &lt;div class="ui-grid-67"&gt;44.4444%&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="ui-container-grid"&gt;
-      &lt;div class="ui-grid-25"&gt;25%&lt;/div&gt;
-      &lt;div class="ui-grid-75 ui-grid-collapse"&gt;
-        &lt;div class="ui-grid-17"&gt;12.5%&lt;/div&gt;
-        &lt;div class="ui-grid-33"&gt;25%&lt;/div&gt;
-        &lt;div class="ui-grid-50"&gt;37.5%&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="ui-container-grid"&gt;
-      &lt;div class="ui-grid-20"&gt;20%&lt;/div&gt;
-      &lt;div class="ui-grid-20 ui-offset-10"&gt;20%&lt;/div&gt;
-      &lt;div class="ui-grid-30 ui-offset-20"&gt;30%&lt;/div&gt;
-    &lt;/div&gt;
+  .ui-toggle-target
+    input#grid-system-src(type='checkbox')
+    div
+      pre: code.language-markup.
+        &lt;div class="ui-container-grid"&gt;
+          &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
+          &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="ui-container-grid"&gt;
+          &lt;div class="ui-grid-33"&gt;33.3333%&lt;/div&gt;
+          &lt;div class="ui-grid-67 ui-grid-collapse"&gt;
+            &lt;div class="ui-grid-33"&gt;22.2222%&lt;/div&gt;
+            &lt;div class="ui-grid-67"&gt;44.4444%&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="ui-container-grid"&gt;
+          &lt;div class="ui-grid-25"&gt;25%&lt;/div&gt;
+          &lt;div class="ui-grid-75 ui-grid-collapse"&gt;
+            &lt;div class="ui-grid-17"&gt;12.5%&lt;/div&gt;
+            &lt;div class="ui-grid-33"&gt;25%&lt;/div&gt;
+            &lt;div class="ui-grid-50"&gt;37.5%&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="ui-container-grid"&gt;
+          &lt;div class="ui-grid-20"&gt;20%&lt;/div&gt;
+          &lt;div class="ui-grid-20 ui-offset-10"&gt;20%&lt;/div&gt;
+          &lt;div class="ui-grid-30 ui-offset-20"&gt;30%&lt;/div&gt;
+        &lt;/div&gt;

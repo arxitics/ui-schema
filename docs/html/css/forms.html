@@ -52,7 +52,9 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Forms</h3>
         <section>
-          <h4 class="ui-header-secondary">Buttons</h4>
+          <h4 class="ui-header-secondary"><span>Buttons</span>
+            <label for="buttons-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div>
             <button type="button">Default</button>
             <button type="button" class="ui-button-primary">Primary</button>
@@ -69,7 +71,10 @@
             <button type="button" class="ui-zoom-small">Small</button>
             <button type="button" class="ui-zoom-tiny">Tiny</button>
           </div>
-          <pre><code class="language-markup">&lt;button type="button"&gt;Default&lt;/button&gt;
+          <div class="ui-toggle-target">
+            <input id="buttons-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;button type="button"&gt;Default&lt;/button&gt;
 &lt;button class="ui-button-primary" type="button"&gt;Primary&lt;/button&gt;
 &lt;button class="ui-button-success" type="button"&gt;Success&lt;/button&gt;
 &lt;button class="ui-button-info" type="button"&gt;Info&lt;/button&gt;
@@ -81,10 +86,15 @@
 &lt;button class="ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
 &lt;button class="ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
 &lt;button class="ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
-&lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;</code></pre>
+&lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Inline Form</h4>
+          <h4 class="ui-header-secondary"><span>Inline Form</span>
+            <label for="inline-form-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <form action="http://arxitics.com/search" method="get" class="ui-grid-50 ui-phone-expand">
               <input type="search" name="q" placeholder="Search or type a command" title="Type &quot;help&quot; to redirect to the help center">
@@ -97,13 +107,21 @@
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form action="http://arxitics.com/search" method="get"&gt;
+          <div class="ui-toggle-target">
+            <input id="inline-form-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;form action="http://arxitics.com/search" method="get"&gt;
   &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
   &lt;button type="submit"&gt;Go!&lt;/button&gt;
-&lt;/form&gt;</code></pre>
+&lt;/form&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Fluid Form</h4>
+          <h4 class="ui-header-secondary"><span>Fluid Form</span>
+            <label for="fluid-form-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <form action="http://arxitics.com/browse" method="get" class="ui-grid-50 ui-phone-expand ui-form-fluid">
               <label for="categories">Categories</label>
@@ -141,7 +159,10 @@
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get"&gt;
+          <div class="ui-toggle-target">
+            <input id="fluid-form-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get"&gt;
   &lt;label for="categories"&gt;Categories&lt;/label&gt;
   &lt;input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" required&gt;
   &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
@@ -153,10 +174,15 @@
     &lt;button type="submit" class="ui-button-primary"&gt;Submit&lt;/button&gt;
     &lt;button type="reset" class="ui-offset-medium"&gt;Reset&lt;/button&gt;
   &lt;/div&gt;
-&lt;/form&gt;</code></pre>
+&lt;/form&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Horizontal Form</h4>
+          <h4 class="ui-header-secondary"><span>Horizontal Form</span>
+            <label for="horizontal-form-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <form action="http://arxitics.com/search" method="get" class="ui-form-horizontal">
               <div class="ui-container-grid">
@@ -182,7 +208,10 @@
               </div>
             </form>
           </div>
-          <pre><code class="language-markup">&lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get"&gt;
+          <div class="ui-toggle-target">
+            <input id="horizontal-form-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get"&gt;
   &lt;div class="ui-container-grid"&gt;
     &lt;label for="title" class="ui-grid-20"&gt;Title&lt;/label&gt;
     &lt;div class="ui-grid-80"&gt;
@@ -204,10 +233,15 @@
     &lt;button class="ui-button-primary" type="submit"&gt;Submit&lt;/button&gt;
     &lt;button class="ui-offset-medium" type="reset"&gt;Reset&lt;/button&gt;
   &lt;/div&gt;
-&lt;/form&gt;</code></pre>
+&lt;/form&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Button Groups</h4>
+          <h4 class="ui-header-secondary"><span>Button Groups</span>
+            <label for="button-groups-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-button-toolbar">
               <div data-schema-trim class="ui-button-group ui-space-trim">
@@ -252,7 +286,10 @@
               <label for="stats">Statistics</label>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-button-toolbar"&gt;
+          <div class="ui-toggle-target">
+            <input id="button-groups-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-button-toolbar"&gt;
   &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
     &lt;button title="View chat history"&gt;View&lt;/button&gt;
     &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
@@ -296,10 +333,15 @@
   &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
   &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
   &lt;label for="stats"&gt;Statistics&lt;/label&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary">Input Addons</h4>
+          <h4 class="ui-header-secondary"><span>Input Addons</span>
+            <label for="input-addons-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand">
               <div class="ui-input-addon">
@@ -314,7 +356,10 @@
               </div>
             </div>
           </div>
-          <pre><code class="language-markup">&lt;div class="ui-input-addon"&gt;
+          <div class="ui-toggle-target">
+            <input id="input-addons-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-input-addon"&gt;
   &lt;label for="email" title="Email"&gt;&lt;i data-schema-icon="envelope-o"&gt;Email&lt;/i&gt;&lt;/label&gt;
   &lt;input id="email" type="email" name="email"&gt;
 &lt;/div&gt;
@@ -322,8 +367,9 @@
   &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
   &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
 &lt;/div&gt;
-
 </code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -333,6 +379,7 @@
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
     <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/icons/editor.js"></script>
     <script src="../../../dist/icons/account.js"></script>
     <script src="../../../dist/icons/editor.js"></script>
     <script src="../../../dist/icons/forms.js"></script>

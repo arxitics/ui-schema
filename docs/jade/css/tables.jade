@@ -7,8 +7,10 @@ block variables
   - var prism = true
 
 block article
-  h3.ui-header-primary Tables
-  p 
+  h3.ui-header-primary
+    span Tables
+    label.ui-float-right(for='tables-src')
+      i.ui-zoom-small(data-schema-icon='code')
   table.ui-table-fluid.ui-table-striped.ui-table-bordered
     thead.ui-text-center
       tr
@@ -40,35 +42,38 @@ block article
         td authors
         td Array::String
         td You should use the exact match for the author name.
-  pre: code.language-markup.
-    &lt;table class="ui-table-fluid ui-table-striped ui-table-bordered"&gt;
-      &lt;thead class="ui-text-center"&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Field&lt;/th&gt;
-          &lt;th&gt;Type&lt;/th&gt;
-          &lt;th&gt;Description&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody class="ui-text-center"&gt;
-        &lt;tr&gt;
-          &lt;td&gt;id&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;ArXiv identifer of the form &lt;code class="ui-color-emphasis"&gt;yymm.nnnn&lt;/code&gt; or &lt;code class="ui-color-emphasis"&gt;arch-ive/yymmnnn&lt;/code&gt;.&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;published&lt;/td&gt;
-          &lt;td&gt;ISODate&lt;/td&gt;
-          &lt;td&gt;Published date in the form &lt;code class="ui-color-emphasis"&gt;yyyy-mm-ddThh:mm:ssZ&lt;/code&gt;.&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;title&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;Queries for the &lt;code class="ui-color-emphasis"&gt;title&lt;/code&gt; field are converted to regular expressions by default.&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;authors&lt;/td&gt;
-          &lt;td&gt;Array::String&lt;/td&gt;
-          &lt;td&gt;You should use the exact match for the author name.&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
+  .ui-toggle-target
+    input#tables-src(type='checkbox')
+    div
+      pre: code.language-markup.
+        &lt;table class="ui-table-fluid ui-table-striped ui-table-bordered"&gt;
+          &lt;thead class="ui-text-center"&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Field&lt;/th&gt;
+              &lt;th&gt;Type&lt;/th&gt;
+              &lt;th&gt;Description&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody class="ui-text-center"&gt;
+            &lt;tr&gt;
+              &lt;td&gt;id&lt;/td&gt;
+              &lt;td&gt;String&lt;/td&gt;
+              &lt;td&gt;ArXiv identifer of the form &lt;code class="ui-color-emphasis"&gt;yymm.nnnn&lt;/code&gt; or &lt;code class="ui-color-emphasis"&gt;arch-ive/yymmnnn&lt;/code&gt;.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;published&lt;/td&gt;
+              &lt;td&gt;ISODate&lt;/td&gt;
+              &lt;td&gt;Published date in the form &lt;code class="ui-color-emphasis"&gt;yyyy-mm-ddThh:mm:ssZ&lt;/code&gt;.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;title&lt;/td&gt;
+              &lt;td&gt;String&lt;/td&gt;
+              &lt;td&gt;Queries for the &lt;code class="ui-color-emphasis"&gt;title&lt;/code&gt; field are converted to regular expressions by default.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;authors&lt;/td&gt;
+              &lt;td&gt;Array::String&lt;/td&gt;
+              &lt;td&gt;You should use the exact match for the author name.&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;

@@ -66,21 +66,10 @@
   box-shadow: 0 0 1em #ccc;
   display: block;
   margin: 5% 10%;
-  padding: 1em 2em;
+  padding: 1.2em 1.6em;
   text-align: center;
 }
 
 .ui-lightbox-target:target {
   display: block;
-}
-
-.ui-lightbox-close {
-  float: right;
-  margin-right: -1.5em;
-  margin-top: -1.5em;
-}
-
-.ui-lightbox-close::after {
-  content: "\00d7";
-  font-size: 150%;
 }

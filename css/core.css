@@ -79,7 +79,7 @@ html {
 
 body {
   color: #333;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", "Apple LiGothic Medium", sans-serif;
+  font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
   font-size: 1.4rem;
   line-height: 1.42857; /* 1 */
   text-rendering: geometricPrecision; /* 2 */
@@ -703,6 +703,7 @@ tr:last-child > td {
 
 /* ARIA
    ========================================================================== */
+[hidden],
 [aria-hidden="true"] {
   display: none;
 }

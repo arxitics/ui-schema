@@ -9,7 +9,10 @@ block variables
 block article
   h3.ui-header-primary Menus
   section
-    h4.ui-header-secondary Dropdown
+    h4.ui-header-secondary
+      span Dropdown
+      label.ui-float-right(for='dropdown-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       .ui-grid-20
         .ui-menu-dropdown
@@ -106,31 +109,38 @@ block article
                 li: a(href='http://arxitics.com/visual') Data Visualization
             li.ui-seperator-horizontal(role='presentation')
             li: a(href='http://arxitics.com/auth/login') Sign in
-    pre: code.language-markup.
-      &lt;div class="ui-menu-dropdown"&gt;
-        &lt;a aria-haspopup="true"&gt;Arxitics &lt;span class="ui-caret-down"&gt;&lt;/span&gt;&lt;/a&gt;
-        &lt;ul role="menu"&gt;
-          &lt;li class="ui-text-muted" role="presentation"&gt;&lt;span&gt;Navigation&lt;/span&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/"&gt;Home&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/browse"&gt;Browse&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="ui-menu-dropdown ui-space-trim" data-schema-trim&gt;
-            &lt;a class="ui-text-left-right" aria-haspopup="true"&gt;
-              &lt;span&gt;Explore&lt;/span&gt;
-              &lt;span class="ui-caret-right"&gt;&lt;/span&gt;
-            &lt;/a&gt;
-            &lt;ul class="ui-placement-right" role="menu"&gt;
-              &lt;li&gt;&lt;a href="http://arxitics.com/articles"&gt;Collaborative Filtering&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="http://arxitics.com/search"&gt;Advanced Search&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="http://arxitics.com/articles/random"&gt;Random Article&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="http://arxitics.com/visual"&gt;Data Visualization&lt;/a&gt;&lt;/li&gt;
+    .ui-toggle-target
+      input#dropdown-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-menu-dropdown"&gt;
+            &lt;a aria-haspopup="true"&gt;Arxitics &lt;span class="ui-caret-down"&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;ul role="menu"&gt;
+              &lt;li class="ui-text-muted" role="presentation"&gt;&lt;span&gt;Navigation&lt;/span&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/browse"&gt;Browse&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="ui-menu-dropdown ui-space-trim" data-schema-trim&gt;
+                &lt;a class="ui-text-left-right" aria-haspopup="true"&gt;
+                  &lt;span&gt;Explore&lt;/span&gt;
+                  &lt;span class="ui-caret-right"&gt;&lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class="ui-placement-right" role="menu"&gt;
+                  &lt;li&gt;&lt;a href="http://arxitics.com/articles"&gt;Collaborative Filtering&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="http://arxitics.com/search"&gt;Advanced Search&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="http://arxitics.com/articles/random"&gt;Random Article&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="http://arxitics.com/visual"&gt;Data Visualization&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li class="ui-seperator-horizontal" role="presentation"&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/auth/login"&gt;Sign in&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li class="ui-seperator-horizontal" role="presentation"&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/auth/login"&gt;Sign in&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;
+          &lt;/div&gt;
+
   section
-    h4.ui-header-secondary Selection
+    h4.ui-header-secondary
+      span Selection
+      label.ui-float-right(for='selection-src')
+        i(data-schema-icon='code')
     .ui-container-grid
       .ui-grid-33.ui-phone-expand.ui-menu-selection
         ul(role='listbox')
@@ -154,18 +164,21 @@ block article
           li: a(href='http://arxitics.com/help/categories?group=q-bio') Qualitative Biology
           li: a(href='http://arxitics.com/help/categories?group=q-fin') Qualitative Fiance
           li: a(href='http://arxitics.com/help/categories?group=stat') Statistics
-    pre: code.language-markup.
-      &lt;div class="ui-menu-selection"&gt;
-        &lt;ul role="listbox"&gt;
-          &lt;li class="ui-text-left-right" aria-haspopup="true"&gt;
-            &lt;span&gt;List of Categories&lt;/span&gt;
-            &lt;span class="ui-offset-large ui-caret-down"&gt;&lt;/span&gt;
-          &lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/help/categories"&gt;Physics&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=math"&gt;Mathematics&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=cs"&gt;Computer Science&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=q-bio"&gt;Qualitative Biology&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=q-fin"&gt;Qualitative Fiance&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=stat"&gt;Statistics&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;
+    .ui-toggle-target
+      input#selection-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-menu-selection"&gt;
+            &lt;ul role="listbox"&gt;
+              &lt;li class="ui-text-left-right" aria-haspopup="true"&gt;
+                &lt;span&gt;List of Categories&lt;/span&gt;
+                &lt;span class="ui-offset-large ui-caret-down"&gt;&lt;/span&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/help/categories"&gt;Physics&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=math"&gt;Mathematics&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=cs"&gt;Computer Science&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=q-bio"&gt;Qualitative Biology&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=q-fin"&gt;Qualitative Fiance&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="http://arxitics.com/help/categories?group=stat"&gt;Statistics&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
