@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="./../css/base.html">Base</a></li>
@@ -115,7 +115,7 @@
             </div>
           </div>
           <div class="ui-toggle-target">
-            <input id="navs-src" type="checkbox">
+            <input id="navs-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;!-- Tabs --&gt;
 &lt;ul class="ui-nav-tabs"&gt;
@@ -249,24 +249,30 @@
           <h4 class="ui-header-secondary"><span>Pagination</span>
             <label for="pagination-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
-          <ol class="ui-nav-pagination">
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2" title="Previous page">&laquo;</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=1">1</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2">2</a></li>
-            <li class="ui-state-active"><span>3</span></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4">4</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=5">5</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4" title="Next page">&raquo;</a></li>
-          </ol>
-          <ol data-schema-trim class="ui-offset-10 ui-nav-pagination ui-space-trim">
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2" title="Previous page">&laquo;</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=1">1</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2">2</a></li>
-            <li class="ui-state-active"><span title="Current page">3</span></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4">4</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=5">5</a></li>
-            <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4" title="Next page">&raquo;</a></li>
-          </ol>
+          <div class="ui-container-grid">
+            <div class="ui-fluid-40 ui-phone-expand ui-float-left">
+              <ol class="ui-nav-pagination">
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2" title="Previous page">&laquo;</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=1">1</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2">2</a></li>
+                <li class="ui-state-active"><span>3</span></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4">4</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=5">5</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4" title="Next page">&raquo;</a></li>
+              </ol>
+            </div>
+            <div class="ui-fluid-50 ui-phone-expand ui-float-right">
+              <ol data-schema-trim class="ui-nav-pagination ui-space-trim">
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2" title="Previous page">&laquo;</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=1">1</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2">2</a></li>
+                <li class="ui-state-active"><span title="Current page">3</span></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4">4</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=5">5</a></li>
+                <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=4" title="Next page">&raquo;</a></li>
+              </ol>
+            </div>
+          </div>
           <div class="ui-toggle-target">
             <input id="pagination-src" type="checkbox">
             <div>

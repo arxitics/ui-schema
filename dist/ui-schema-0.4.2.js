@@ -31,8 +31,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       },
       validate: {
         type: 'validate',
-        namespace: '.validation.form.data-api.schema',
+        namespace: '.form.data-api.schema',
         selector: 'form[data-schema-validate]'
+      },
+      lazyload: {
+        type: 'load',
+        namespace: '.image.data-api.schema',
+        selector: 'img[data-schema-lazyload]'
       },
       sprite: {
         type: 'create',
@@ -51,13 +56,18 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       },
       dismiss: {
         type: 'remove',
-        namespace: '.action.dom.data-api.schema',
+        namespace: '.dom.data-api.schema',
         selector: 'body [data-schema-dismiss]'
       },
       autoplay: {
-        type: 'toggle',
-        namespace: '.action.data-api.schema',
+        type: 'animate',
+        namespace: '.dom.data-api.schema',
         selector: '[data-schema-autoplay]'
+      },
+      toggle: {
+        type: 'toggle',
+        namespace: '.class.data-api.schema',
+        selector: '[data-schema-toggle]'
       }
     }
   }, schema);
@@ -91,7 +101,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         var func = schema[key];
         var event = events[key];
         var delegation = event.delegation;
-        if (!event.hasOwnProperty('delegation')) {
+        if (delegation === undefined) {
           delegation = schema.delegate(event);
           event.delegation = delegation;
         }
@@ -99,7 +109,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           var name = event.type + event.namespace;
           $(document).on(name, func);
           if (delegation > 2) {
-            $(document).trigger(name);
+            $(document).trigger(name, event.options || {});
           }
         }
       }
@@ -122,7 +132,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     }) ? 2 : 0;
     delegation += triggers.some(function (trigger) {
       var keywords = trigger.replace(/^\./, '').split('.');
-      return keywords.every(function(keyword) {
+      return keywords.every(function (keyword) {
         return phrases.indexOf(keyword) !== -1;
       });
     }) ? 1 : 0;
@@ -182,10 +192,10 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
             var entries = entry.split(/\s*:\s*/);
             var key = entries[0].toLowerCase();
             var value = entries[1].replace(/\,/g, ' ').trim();
-            if(value.search(/\s+/) !== -1) {
+            if (value.search(/\s+/) !== -1) {
               value = value.split(/\s+/);
             }
-            object[key] = kalue;
+            object[key] = value;
           });
         }
       }
@@ -261,6 +271,41 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 })(jQuery);
 
 /*!
+ * Images
+ */
+
+(function ($) {
+  'use strict';
+
+  // Defer image loading until it becomes visible on the screen
+  schema.lazyload = function (event, options) {
+    var selector = schema.events.lazyload.selector;
+    var $_elements = $(selector).add(options && options.selector);
+    var height = $(window).height();
+    $(window).on('scroll', function () {
+      var scrollTop = $(window).scrollTop();
+      $_elements.each(function () {
+        var $_this = $(this);
+        var $_data = schema.parseData($_this.data());
+        var src = $_data.src || $_this.attr('srcset');
+        if (src !== $_this.attr('src')) {
+          var lazyload = (+$_data.lazyload - 1) || 200;
+          var distance = $_this.offset().top - height - scrollTop;
+          if (distance < lazyload) {
+            var delay = (+$_data.delay - 1) || 0;
+            window.setTimeout(function () {
+              $_this.attr('src', src);
+            }, delay);
+          }
+        }
+      });
+    });
+    $(window).scroll();
+  };
+
+})(jQuery);
+
+/*!
  * Utilities
  */
 
@@ -276,6 +321,22 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     }).remove();
   };
 
+  // Toggle a CSS class
+  schema.toggle = function (event, options) {
+    var selector = schema.events.toggle.selector;
+    var $_elements = $(selector).add(options && options.selector);
+    $_elements.each(function () {
+      var $_this = $(this);
+      var $_data = schema.parseData($_this.data());
+      var $_target = $($_data.toggle);
+      var toggler = schema.parseData($_target.data()).toggler;
+      var events = $_data.trigger || 'click';
+      $_this.on(events, function () {
+        $_target.toggleClass(toggler);
+      });
+    });
+  };
+
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
     var selector = schema.events.autoplay.selector;
@@ -284,7 +345,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
       var $_inputs = $_this.children('input[type=radio]');
-      var state = $_this.find('label').first().attr('class');
+      var $_div = $_this.find('div').last();
+      var state = $_div.find('label').first().attr('class');
       var interval = (+$_data.autoplay - 1) || 5000;
       var length = $_inputs.length;
       var counter = 1;
@@ -292,8 +354,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         var $_input = $_inputs.eq(counter % length);
         var id = $_input.attr('id');
         if (id) {
-          $_this.find('label[class="' + state + '"]').removeClass(state);
-          $_this.find('label[for="' + id + '"]').addClass(state);
+          $_div.find('label[class="' + state + '"]').removeClass(state);
+          $_div.find('label[for="' + id + '"]').addClass(state);
         }
         $_input.prop('checked', true);
         counter++;
@@ -308,7 +370,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var interval = +$_data.dismiss - 1;
+      var interval = (+$_data.dismiss - 1) || 0;
       $_this.one('click', function () {
         $_this.parent().remove();
       });
@@ -337,7 +399,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       if (tags.indexOf('emoji') !== -1 && $_data.emoji) {
         var emoji = /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g;
         $_this.html($_this.html().replace(emoji, function (str, p1, p2, p3) {
-          return schema.format('${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}" />', {
+          var template = '${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}" />';
+          return schema.format(template, {
             sep: p1,
             src: $_data.emoji.replace(/\/*$/, '/') + p3.replace(/\_/g, '-') + '.svg',
             height: Math.round(+$_this.css('font-size').slice(0, -2) * 1.2),

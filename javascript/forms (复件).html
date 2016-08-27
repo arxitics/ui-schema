@@ -7,54 +7,53 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../dist/ui-schema-0.4.2.min.css" media="all">
-    <link rel="stylesheet" href="./../dist/prism-1.4.1.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.2.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-header-brand">
-        <h2><a href="./../index.html" accesskey="h">UI Schema</a></h2>
+        <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
       </div>
       <nav>
         <ul>
-          <li><a href="./../css.html" accesskey="c">CSS</a></li>
-          <li><a href="./../javascript.html" accesskey="j">JavaScript</a></li>
-          <li><a href="./../examples.html" accesskey="e">Examples</a></li>
+          <li><a href="../../../docs/html/css.html" accesskey="c">CSS</a></li>
+          <li><a href="../../../docs/html/javascript.html" accesskey="j">JavaScript</a></li>
+          <li><a href="../../../docs/html/examples.html" accesskey="e">Examples</a></li>
           <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g">GitHub</a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
+      <aside class="ui-grid-25 ui-mobile-expand">
         <h3 class="ui-header-primary">Components</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
-          <li><a href="./../javascript/setup.html">Setup</a></li>
-          <li><a href="./../javascript/core.html">Core</a></li>
-          <li class="ui-state-active"><a href="./../javascript/forms.html">Forms</a></li>
-          <li><a href="./../javascript/images.html">Images</a></li>
-          <li><a href="./../javascript/icons.html">Icons</a></li>
-          <li><a href="./../javascript/utilities.html">Utilities</a></li>
+          <li><a href="../../../docs/html/javascript/setup.html">Setup</a></li>
+          <li><a href="../../../docs/html/javascript/core.html">Core</a></li>
+          <li class="ui-state-active"><a href="../../../docs/html/javascript/forms.html">Forms</a></li>
+          <li><a href="../../../docs/html/javascript/icons.html">Icons</a></li>
+          <li><a href="../../../docs/html/javascript/utilities.html">Utilities</a></li>
         </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Forms</h3>
         <div class="ui-container-grid">
           <pre><code class="language-markup">&lt;!-- Validate the form and do not submit empty fields --&gt;
-&lt;form action="/search" method="post" data-schema-validate&gt;
+&lt;form data-schema-validate action="/search" method="post"&gt;
 
 &lt;!-- Only submit the form when some fields have been changed --&gt;
-&lt;form action="/articles/1212.5605/edit" method="post" data-schema-validate="changed"&gt;
+&lt;form data-schema-validate="changed" action="/articles/1212.5605/edit" method="post"&gt;
 
 &lt;!-- Only allow to submit the form once --&gt;
-&lt;form action="/auth/login" method="post" data-schema-validate="once"&gt;</code></pre>
+&lt;form data-schema-validate="once" action="/auth/login" method="post"&gt;</code></pre>
         </div>
       </article>
     </main>
     <footer class="ui-container-fluid">
       <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="./../dist/jquery-3.0.0.min.js"></script>
-    <script src="./../dist/prism-1.4.1.min.js"></script>
-    <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/jquery-3.0.0.min.js"></script>
+    <script src="../../../dist/prism-1.4.1.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
   </body>
 </html>

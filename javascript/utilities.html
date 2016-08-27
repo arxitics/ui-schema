@@ -25,12 +25,13 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Components</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="./../javascript/setup.html">Setup</a></li>
           <li><a href="./../javascript/core.html">Core</a></li>
           <li><a href="./../javascript/forms.html">Forms</a></li>
+          <li><a href="./../javascript/images.html">Images</a></li>
           <li><a href="./../javascript/icons.html">Icons</a></li>
           <li class="ui-state-active"><a href="./../javascript/utilities.html">Utilities</a></li>
         </ul>
@@ -38,13 +39,25 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Utilities</h3>
         <section>
+          <h4 class="ui-header-secondary">Toggle CSS Classes</h4>
+          <div>
+            <input placeholder="Toggle on focus" data-schema-toggle="#target" data-schema-trigger="focus blur"><a data-schema-toggle="#target" class="ui-text-button ui-offset-medium">Click to toggle</a>
+            <button id="target" data-schema-toggler="ui-button-success ui-zoom-large" class="ui-button-success ui-offset-medium">Target button</button>
+          </div>
+          <pre><code class="language-markup">&lt;input placeholder="Toggle on focus" data-schema-toggle="#target" data-schema-trigger='focus blur'&gt;
+&lt;a class="ui-text-button ui-offset-medium" data-schema-toggle="#target"&gt;Click to toggle&lt;/a&gt;
+&lt;button id="target" class="ui-button-success ui-offset-medium" data-schema-toggler="ui-button-success ui-zoom-large"&gt;Target button&lt;/button&gt;
+</code></pre>
+        </section>
+        <section>
           <h4 class="ui-header-secondary">Extract Data</h4>
           <div data-schema-extract="url,emoji" data-schema-emoji="http://oss.arxitics.com/images/emoji">
             <p>We have created an organization https://github.com/arxitics on GitHub. :smile:</p>
           </div>
           <pre><code class="language-markup">&lt;div data-schema-extract="url,emoji" data-schema-emoji="http://oss.arxitics.com/images/emoji"&gt;
   &lt;p&gt;We have created an organization https://github.com/arxitics on GitHub. :smile:&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
         </section>
         <section>
           <h4 class="ui-header-secondary">Format Strings</h4>
@@ -53,7 +66,8 @@ data = {
   url: 'http://arxitics.com',
   title: 'arXiv Analytics'
 };
-schema.format(template, data) =&gt; 'https://www.reddit.com/submit?url=http://arxitics.com&amp;title=arXiv Analytics'</code></pre>
+schema.format(template, data) =&gt; 'https://www.reddit.com/submit?url=http://arxitics.com&amp;title=arXiv Analytics'
+</code></pre>
         </section>
         <section>
           <h4 class="ui-header-secondary">Parse URLs</h4>

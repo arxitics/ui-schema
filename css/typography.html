@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="./../css/base.html">Base</a></li>
@@ -62,7 +62,7 @@
 &lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;</code></pre>
           </div>
           <div class="ui-toggle-target">
-            <input id="code-src" type="checkbox">
+            <input id="code-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;!-- Inline code --&gt;
 &lt;p&gt;You can manually adjust the size by &lt;code class="ui-color-emphasis"&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;+&lt;/kbd&gt;&lt;/code&gt; or &lt;code class="ui-color-emphasis"&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;-&lt;/kbd&gt;&lt;/code&gt;.&lt;/p&gt;
@@ -101,24 +101,6 @@
           </div>
         </section>
         <section>
-          <h4 class="ui-header-secondary"><span>Labels</span>
-            <label for="labels-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
-          </h4>
-          <div class="ui-text-list"><span class="ui-text-label">Default</span><span class="ui-text-label ui-label-primary">Primary</span><span class="ui-text-label ui-label-success">Success</span><span class="ui-text-label ui-label-info">Info</span><span class="ui-text-label ui-label-warning">Warning</span><span class="ui-text-label ui-label-danger">Danger</span></div>
-          <div class="ui-toggle-target">
-            <input id="labels-src" type="checkbox">
-            <div>
-              <pre><code class="language-markup">&lt;span class="ui-text-label"&gt;Default&lt;/span&gt;
-&lt;span class="ui-text-label ui-label-primary"&gt;Primary&lt;/span&gt;
-&lt;span class="ui-text-label ui-label-success"&gt;Success&lt;/span&gt;
-&lt;span class="ui-text-label ui-label-info"&gt;Info&lt;/span&gt;
-&lt;span class="ui-text-label ui-label-warning"&gt;Warning&lt;/span&gt;
-&lt;span class="ui-text-label ui-label-danger"&gt;Danger&lt;/span&gt;
-</code></pre>
-            </div>
-          </div>
-        </section>
-        <section>
           <h4 class="ui-header-secondary"><span>Lists</span>
             <label for="lists-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
@@ -143,7 +125,6 @@
             </dl>
             <ol class="ui-list-bibliography">
               <li>I. Gonzalez, I. Schmidt, <em>Optimized negative dimensional integration method (NDIM) and multiloop Feynman diagram calculation</em>, <a href="http://dx.doi.org/10.1016/j.nuclphysb.2007.01.031" target="_blank">Nucl. Phys. B <strong>769</strong> (2007) 124-173</a>.</li>
-              <li>I. Gonzalez, V.H. Moll, I. Schmidt, <em>A generalized Ramanujan Master Theorem applied to the evaluation of Feynman diagrams</em>, <a href="http://arxiv.org/abs/1103.0588" target="_blank">arXiv:1103.0588 [math-ph]</a>.</li>
               <li>T. Amdeberhan <em>et. al.</em>, <em>Ramanujan&apos;s Master Theorem</em>, <a href="http://dx.doi.org/10.1007/s11139-011-9333-y" target="_blank">Ramanujan J. <strong>29</strong> (2012) 29:103-120</a>.</li>
             </ol>
           </div>
@@ -169,9 +150,36 @@
 &lt;!-- Bibliography --&gt;
 &lt;ol class="ui-list-bibliography"&gt;
   &lt;li&gt;I. Gonzalez, I. Schmidt, &lt;em&gt;Optimized negative dimensional integration method (NDIM) and multiloop Feynman diagram calculation&lt;/em&gt;, &lt;a href="http://dx.doi.org/10.1016/j.nuclphysb.2007.01.031" target="_blank"&gt;Nucl. Phys. B &lt;strong&gt;769&lt;/strong&gt; (2007) 124-173&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;I. Gonzalez, V.H. Moll, I. Schmidt, &lt;em&gt;A generalized Ramanujan Master Theorem applied to the evaluation of Feynman diagrams&lt;/em&gt;, &lt;a href="http://arxiv.org/abs/1103.0588" target="_blank"&gt;arXiv:1103.0588 [math-ph]&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;T. Amdeberhan &lt;em&gt;et. al.&lt;/em&gt;, &lt;em&gt;Ramanujan&apos;s Master Theorem&lt;/em&gt;, &lt;a href="http://dx.doi.org/10.1007/s11139-011-9333-y" target="_blank"&gt;Ramanujan J. &lt;strong&gt;29&lt;/strong&gt; (2012) 29:103-120&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
+</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary"><span>Labels</span>
+            <label for="labels-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
+          <div class="ui-container-grid">
+            <div class="ui-grid-60 ui-phone-expand ui-float-left ui-text-list"><span class="ui-text-label">Default</span><span class="ui-text-label ui-label-primary">Primary</span><span class="ui-text-label ui-label-success">Success</span><span class="ui-text-label ui-label-info">Info</span><span class="ui-text-label ui-label-warning">Warning</span><span class="ui-text-label ui-label-danger">Danger</span></div>
+            <div class="ui-grid-40 ui-phone-expand ui-float-right ui-text-list"><span class="ui-text-badge">1</span><span class="ui-text-badge ui-label-primary">23</span><span class="ui-text-badge ui-label-success">a</span><span class="ui-text-badge ui-label-info">bc</span><span class="ui-text-badge ui-label-warning">A</span><span class="ui-text-badge ui-label-danger">BC</span></div>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="labels-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;span class="ui-text-label"&gt;Default&lt;/span&gt;
+&lt;span class="ui-text-label ui-label-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="ui-text-label ui-label-success"&gt;Success&lt;/span&gt;
+&lt;span class="ui-text-label ui-label-info"&gt;Info&lt;/span&gt;
+&lt;span class="ui-text-label ui-label-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="ui-text-label ui-label-danger"&gt;Danger&lt;/span&gt;
+
+&lt;span class="ui-text-badge"&gt;1&lt;/span&gt;
+&lt;span class="ui-text-badge ui-label-primary"&gt;23&lt;/span&gt;
+&lt;span class="ui-text-badge ui-label-success"&gt;a&lt;/span&gt;
+&lt;span class="ui-text-badge ui-label-info"&gt;bc&lt;/span&gt;
+&lt;span class="ui-text-badge ui-label-warning"&gt;A&lt;/span&gt;
+&lt;span class="ui-text-badge ui-label-danger"&gt;BC&lt;/span&gt;
 </code></pre>
             </div>
           </div>
@@ -306,7 +314,7 @@
             <label for="alerts-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
-            <div class="ui-content-alert ui-alert-success"><span data-schema-dismiss class="ui-symbol-button">&times;</span>
+            <div class="ui-content-alert ui-alert-success"><span data-schema-dismiss class="ui-nav-right">&times;</span>
               <p>ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing <a href="http://arxiv.org/" rel="external" target="_blank">arXiv eprints</a>.</p>
             </div>
             <div class="ui-content-alert ui-alert-info">
@@ -323,7 +331,7 @@
             <input id="alerts-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;div class="ui-content-alert ui-alert-success"&gt;
-  &lt;span class="ui-symbol-button" data-schema-dismiss&gt;&amp;times;&lt;/span&gt;
+  &lt;span class="ui-nav-right" data-schema-dismiss&gt;&amp;times;&lt;/span&gt;
   &lt;p&gt;ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing &lt;a href="http://arxiv.org/" rel="external" target="_blank"&gt;arXiv eprints&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="ui-content-alert ui-alert-info"&gt;
@@ -344,14 +352,14 @@
             <label for="content-links-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <div class="ui-content-link"><a href="http://arxitics.com/search" class="ui-zoom-huge ui-phone-halving">
+            <div class="ui-content-link"><a href="http://arxitics.com/search" class="ui-zoom-huge ui-phone-half">
                 <div class="ui-box-small ui-text-center"><i data-schema-icon="search"></i>
                   <h4 class="ui-header-compact">Search</h4>
                 </div>
                 <div class="ui-text-active">
                   <p>Advanced search interface to find articles</p>
                 </div></a></div>
-            <div class="ui-content-link ui-skip-large"><a href="http://arxitics.com/explore" class="ui-zoom-huge ui-phone-halving">
+            <div class="ui-content-link ui-skip-large"><a href="http://arxitics.com/explore" class="ui-zoom-huge ui-phone-half">
                 <div class="ui-box-small ui-text-center"><i data-schema-icon="bar-chart"></i>
                   <h4 class="ui-header-compact">Explore</h4>
                 </div>
@@ -363,7 +371,7 @@
             <input id="content-links-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;div class="ui-content-link"&gt;
-  &lt;a class="ui-zoom-huge ui-phone-halving" href="http://arxitics.com/search"&gt;
+  &lt;a class="ui-zoom-huge ui-phone-half" href="http://arxitics.com/search"&gt;
     &lt;div class="ui-box-small ui-text-center"&gt;
       &lt;i data-schema-icon="search"&gt;&lt;/i&gt;
       &lt;h4 class="ui-header-compact"&gt;Search&lt;/h4&gt;
@@ -391,6 +399,42 @@
               <pre><code class="language-markup">&lt;div class="ui-content-jumbotron"&gt;
   &lt;h3&gt;403 Forbidden: &lt;span class="ui-text-muted"&gt;You need login to join the chat room.&lt;/span&gt;&lt;/h3&gt;
   &lt;p&gt;Please contact &lt;strong&gt;help&lt;span aria-hidden="true"&gt;.855322&lt;/span&gt;@arxitics.com&lt;/strong&gt; if you think this should not happen again.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary"><span>Media Object</span>
+            <label for="media-object-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
+          <div class="ui-container-grid">
+            <div class="ui-grid-50 ui-phone-expand ui-content-media">
+              <div class="ui-media-object"><img width="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert" class="ui-image-thumbnail"></div>
+              <div class="ui-media-body">
+                <h4>Definition of desert</h4>
+                <p>A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.</p>
+              </div>
+            </div>
+            <div class="ui-grid-50 ui-phone-expand ui-content-media">
+              <div class="ui-media-object ui-float-right"><img width="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert" class="ui-image-thumbnail"></div>
+              <div class="ui-media-body">
+                <h4>Definition of desert</h4>
+                <p>A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="media-object-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-content-media"&gt;
+  &lt;div class="ui-media-object"&gt;
+    &lt;img class="ui-image-thumbnail" width="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-media-body"&gt;
+    &lt;h4&gt;Definition of desert&lt;/h4&gt;
+    &lt;p&gt;A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
             </div>

@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="./../css/base.html">Base</a></li>
@@ -51,6 +51,25 @@
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Visual Effects</h3>
+        <section>
+          <h4 class="ui-header-secondary"><span>Meters</span>
+            <label for="meters-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
+          <div>
+            <meter value="30" min="0" low="33" high="66" optimum="100" max="100">30</meter>
+            <meter value="60" min="0" low="33" high="66" optimum="100" max="100" class="ui-skip-small">60</meter>
+            <meter value="90" min="0" low="33" high="66" optimum="100" max="100" class="ui-skip-small">90</meter>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="meters-src" type="checkbox" checked>
+            <div>
+              <pre><code class="language-markup">&lt;meter value="30" min="0" low="33" high="66" optimum="100" max="100"&gt;30&lt;/meter&gt;
+&lt;meter value="60" min="0" low="33" high="66" optimum="100" max="100"&gt;60&lt;/meter&gt;
+&lt;meter value="90" min="0" low="33" high="66" optimum="100" max="100"&gt;90&lt;/meter&gt;
+</code></pre>
+            </div>
+          </div>
+        </section>
         <section>
           <h4 class="ui-header-secondary"><span>Progress Bars</span>
             <label for="progress-bars-src" class="ui-float-right"><i data-schema-icon="code"></i></label>

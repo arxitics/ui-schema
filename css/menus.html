@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="./../css/base.html">Base</a></li>
@@ -55,8 +55,8 @@
           <h4 class="ui-header-secondary"><span>Dropdown</span>
             <label for="dropdown-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
-          <div class="ui-container-grid">
-            <div class="ui-grid-20">
+          <div class="ui-container-grid ui-phone-double">
+            <div class="ui-grid-17">
               <div class="ui-menu-dropdown"><a aria-haspopup="true">Arxitics <span class="ui-caret-down"></span></a>
                 <ul role="menu">
                   <li role="presentation" class="ui-text-muted"><span>Navigation</span></li>
@@ -75,7 +75,7 @@
                 </ul>
               </div>
             </div>
-            <div class="ui-grid-20">
+            <div class="ui-grid-17">
               <div class="ui-menu-dropdown ui-block-inline"><a aria-haspopup="true">Arxitics <span class="ui-caret-down"></span></a>
                 <ul role="menu" class="ui-pull-right">
                   <li role="presentation" class="ui-text-muted"><span>Navigation</span></li>
@@ -94,7 +94,7 @@
                 </ul>
               </div>
             </div>
-            <div class="ui-grid-20">
+            <div class="ui-grid-17">
               <div class="ui-menu-dropdown"><a aria-haspopup="true">Arxitics <span class="ui-caret-right"></span></a>
                 <ul role="menu" class="ui-placement-right">
                   <li role="presentation" class="ui-text-muted"><span>Navigation</span></li>
@@ -113,7 +113,7 @@
                 </ul>
               </div>
             </div>
-            <div class="ui-grid-20">
+            <div class="ui-grid-17">
               <div data-schema-trim class="ui-menu-dropdown ui-space-trim"><a aria-haspopup="true">Arxitics <span class="ui-caret-right"></span></a>
                 <ul role="menu" class="ui-placement-right">
                   <li role="presentation" class="ui-text-muted"><span>Navigation</span></li>
@@ -132,7 +132,26 @@
                 </ul>
               </div>
             </div>
-            <div class="ui-grid-20">
+            <div class="ui-grid-17">
+              <div class="ui-menu-dropdown ui-block-inline"><a aria-haspopup="true">Arxitics <span class="ui-caret-up"></span></a>
+                <ul role="menu" class="ui-placement-top ui-pull-right">
+                  <li role="presentation" class="ui-text-muted"><span>Navigation</span></li>
+                  <li><a href="http://arxitics.com/">Home</a></li>
+                  <li><a href="http://arxitics.com/browse">Browse</a></li>
+                  <li data-schema-trim class="ui-menu-dropdown ui-space-trim"><a class="ui-text-left-right"><span>Explore</span><span class="ui-caret-right"></span></a>
+                    <ul role="menu" class="ui-placement-right">
+                      <li><a href="http://arxitics.com/articles">Collaborative Filtering</a></li>
+                      <li><a href="http://arxitics.com/search">Advanced Search</a></li>
+                      <li><a href="http://arxitics.com/articles/random">Random Article</a></li>
+                      <li><a href="http://arxitics.com/visual">Data Visualization</a></li>
+                    </ul>
+                  </li>
+                  <li role="presentation" class="ui-seperator-horizontal"></li>
+                  <li><a href="http://arxitics.com/auth/login">Sign in</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="ui-grid-17">
               <div class="ui-menu-dropdown ui-block-inline"><a aria-haspopup="true">Arxitics <span class="ui-caret-up"></span></a>
                 <ul role="menu" class="ui-placement-top ui-pull-right">
                   <li role="presentation" class="ui-text-muted"><span>Navigation</span></li>
@@ -153,7 +172,7 @@
             </div>
           </div>
           <div class="ui-toggle-target">
-            <input id="dropdown-src" type="checkbox">
+            <input id="dropdown-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;div class="ui-menu-dropdown"&gt;
   &lt;a aria-haspopup="true"&gt;Arxitics &lt;span class="ui-caret-down"&gt;&lt;/span&gt;&lt;/a&gt;
@@ -186,7 +205,7 @@
             <label for="selection-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <div class="ui-grid-33 ui-phone-expand ui-menu-selection">
+            <div class="ui-grid-50 ui-menu-selection">
               <ul role="listbox">
                 <li aria-haspopup="true" class="ui-text-left-right"><span>List of Categories</span><span class="ui-offset-large ui-caret-down"></span></li>
                 <li><a href="http://arxitics.com/help/categories">Physics</a></li>
@@ -197,7 +216,7 @@
                 <li><a href="http://arxitics.com/help/categories?group=stat">Statistics</a></li>
               </ul>
             </div>
-            <div class="ui-grid-33 ui-phone-expand ui-menu-selection">
+            <div class="ui-grid-50 ui-menu-selection">
               <ul role="listbox" class="ui-rows-seperated">
                 <li aria-haspopup="true" class="ui-text-left-right"><span>List of Categories</span><span class="ui-offset-large ui-caret-down"></span></li>
                 <li><a href="http://arxitics.com/help/categories">Physics</a></li>
