@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="../../../docs/html/css/base.html">Base</a></li>
@@ -55,38 +55,157 @@
           <h4 class="ui-header-secondary"><span>Buttons</span>
             <label for="buttons-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
-          <div>
-            <button type="button">Default</button>
-            <button type="button" class="ui-button-primary">Primary</button>
-            <button type="button" class="ui-button-success">Success</button>
-            <button type="button" class="ui-button-info">Info</button>
-            <button type="button" class="ui-button-warning">Warning</button>
-            <button type="button" class="ui-button-danger">Danger</button>
-            <button type="button" disabled>Disabled</button> <a href="http://arxitics.com/" class="ui-text-button ui-button-primary">Link</a>
+          <div class="ui-container-grid">
+            <div class="ui-fluid-50 ui-phone-expand ui-float-left">
+              <button type="button">Default</button>
+              <button type="button" disabled>Disabled</button> <a href="http://arxitics.com/" class="ui-text-button">Hyperlink</a>
+            </div>
+            <div class="ui-fluid-50 ui-phone-expand ui-float-right">
+              <button type="button" class="ui-button-primary">Primary</button>
+              <button type="button" class="ui-button-success">Success</button>
+              <button type="button" class="ui-button-info">Info</button>
+              <button type="button" class="ui-button-warning">Warning</button>
+              <button type="button" class="ui-button-danger">Danger</button>
+            </div>
           </div>
-          <div class="ui-skip-medium">
-            <button type="button" class="ui-zoom-huge">Huge</button>
-            <button type="button" class="ui-zoom-large">Large</button>
-            <button type="button" class="ui-zoom-medium">Medium</button>
-            <button type="button" class="ui-zoom-small">Small</button>
-            <button type="button" class="ui-zoom-tiny">Tiny</button>
+          <div class="ui-container-grid ui-skip-medium">
+            <div class="ui-fluid-50 ui-phone-expand ui-float-left">
+              <button type="button" class="ui-zoom-huge">Huge</button>
+              <button type="button" class="ui-zoom-large">Large</button>
+              <button type="button" class="ui-zoom-medium">Medium</button>
+              <button type="button" class="ui-zoom-small">Small</button>
+              <button type="button" class="ui-zoom-tiny">Tiny</button>
+            </div>
+            <div class="ui-fluid-50 ui-phone-expand ui-float-right">
+              <div class="ui-button-block">
+                <button>Block button</button>
+              </div>
+            </div>
           </div>
           <div class="ui-toggle-target">
-            <input id="buttons-src" type="checkbox">
+            <input id="buttons-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;button type="button"&gt;Default&lt;/button&gt;
+&lt;button type="button" disabled&gt;Disabled&lt;/button&gt;
+&lt;a class="ui-text-button" href="http://arxitics.com/"&gt;Hyperlink&lt;/a&gt;
+
 &lt;button class="ui-button-primary" type="button"&gt;Primary&lt;/button&gt;
 &lt;button class="ui-button-success" type="button"&gt;Success&lt;/button&gt;
 &lt;button class="ui-button-info" type="button"&gt;Info&lt;/button&gt;
 &lt;button class="ui-button-warning" type="button"&gt;Warning&lt;/button&gt;
 &lt;button class="ui-button-danger" type="button"&gt;Danger&lt;/button&gt;
-&lt;button type="button" disabled&gt;Disabled&lt;/button&gt;
-&lt;a class="ui-text-button ui-button-primary" href="http://arxitics.com/"&gt;Link&lt;/a&gt;
+
 &lt;button class="ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
 &lt;button class="ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
 &lt;button class="ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
 &lt;button class="ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
 &lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
+
+&lt;div class="ui-button-block"&gt;
+  &lt;button type="button"&gt;Block button&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary"><span>Button Groups</span>
+            <label for="button-groups-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
+          <div class="ui-container-grid">
+            <div class="ui-button-toolbar">
+              <div data-schema-trim class="ui-button-group ui-space-trim">
+                <button title="View chat history">View</button>
+                <button title="Clear current chat room">Clear</button>
+                <button title="Export chat data as JSON">Export</button>
+                <button title="Delete all chat data">Delete</button>
+              </div>
+              <div data-schema-trim class="ui-button-group ui-offset-medium ui-space-trim">
+                <button title="Refresh this page">Refresh</button>
+                <button title="Close the connection">Close</button>
+              </div>
+            </div>
+            <div class="ui-button-toolbar ui-skip-medium">
+              <div data-schema-trim class="ui-button-group ui-space-trim">
+                <input id="published-date" type="radio" name="sort" value="published" checked>
+                <label for="published-date">Published Date</label>
+                <input id="updated-date" type="radio" name="sort" value="updated" class="ui-phone-hidden">
+                <label for="updated-date" class="ui-phone-hidden">Updated Date</label>
+                <input id="reader-counts" type="radio" name="sort" value="readers" class="ui-phone-hidden">
+                <label for="reader-counts" class="ui-phone-hidden">Reader Counts</label>
+                <input id="rating-score" type="radio" name="sort" value="rating">
+                <label for="rating-score">Rating Score</label>
+              </div>
+              <div class="ui-button-switch ui-offset-medium">
+                <input id="sort-order" type="checkbox" name="order" value="ascending">
+                <label for="sort-order"><span><i data-schema-icon="sort-amount-asc" title="Ascending">Asc</i></span><span><i data-schema-icon="sort-amount-desc" title="Descending">Desc</i></span></label>
+              </div>
+            </div>
+            <div data-schema-trim class="ui-button-group ui-space-trim ui-skip-medium">
+              <input id="physics" type="checkbox" name="groups" value="physics" checked>
+              <label for="physics">Physics</label>
+              <input id="math" type="checkbox" name="groups" value="math">
+              <label for="math">Mathematics</label>
+              <input id="cs" type="checkbox" name="groups" value="cs" class="ui-phone-hidden">
+              <label for="cs" class="ui-phone-hidden">Computer Science</label>
+              <input id="q-bio" type="checkbox" name="groups" value="q-bio" class="ui-phone-hidden">
+              <label for="q-bio" class="ui-phone-hidden">Quantitative Biology</label>
+              <input id="q-fin" type="checkbox" name="groups" value="q-fin" class="ui-phone-hidden">
+              <label for="q-fin" class="ui-phone-hidden">Quantitative Finance</label>
+              <input id="stats" type="checkbox" name="groups" value="stats">
+              <label for="stats">Statistics</label>
+            </div>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="button-groups-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-button-toolbar"&gt;
+  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+    &lt;button title="View chat history"&gt;View&lt;/button&gt;
+    &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
+    &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
+    &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+    &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
+    &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="ui-button-toolbar ui-skip-medium"&gt;
+  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+    &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
+    &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
+    &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
+    &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
+    &lt;input class="ui-phone-hidden" id="reader-counts" type="radio" name="sort" value="readers"&gt;
+    &lt;label class="ui-phone-hidden" for="reader-counts"&gt;Reader Counts&lt;/label&gt;
+    &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
+    &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-button-switch ui-offset-medium"&gt;
+    &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
+    &lt;label for="sort-order"&gt;
+      &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
+  &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
+  &lt;label for="physics"&gt;Physics&lt;/label&gt;
+  &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
+  &lt;label for="math"&gt;Mathematics&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
+  &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
+  &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
+  &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
+  &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
+  &lt;label for="stats"&gt;Statistics&lt;/label&gt;
+&lt;/div&gt;
 </code></pre>
             </div>
           </div>
@@ -150,8 +269,8 @@
               </select>
               <div>
                 <input type="radio" name="date-range" value="past-week" checked> Past week
-                <input type="radio" name="date-range" value="past-month" class="ui-offset-small"> Past month
-                <input type="radio" name="date-range" value="past-year" class="ui-offset-small"> Past year
+                <input type="radio" name="date-range" value="past-month" class="ui-offset-medium"> Past month
+                <input type="radio" name="date-range" value="past-year" class="ui-offset-medium"> Past year
               </div>
               <div class="ui-skip-large">
                 <button type="submit" class="ui-button-primary">Submit</button>
@@ -197,9 +316,9 @@
                 <label for="sort" class="ui-grid-20">Sort by</label>
                 <div class="ui-grid-80 ui-skip-tiny">
                   <input id="sort" type="radio" name="sort" value="published" checked> Published date
-                  <input type="radio" name="sort" value="updated" class="ui-offset-small"> Updated date
-                  <input type="radio" name="sort" value="views" class="ui-offset-small"> Article views
-                  <input type="radio" name="sort" value="rating" class="ui-offset-small"> Rating score
+                  <input type="radio" name="sort" value="updated" class="ui-offset-medium"> Updated date
+                  <input type="radio" name="sort" value="views" class="ui-offset-medium"> Article views
+                  <input type="radio" name="sort" value="rating" class="ui-offset-medium"> Rating score
                 </div>
               </div>
               <div class="ui-text-center ui-skip-large">
@@ -224,9 +343,9 @@
     &lt;label for="sort" class="ui-grid-20"&gt;Sort by&lt;/label&gt;
     &lt;div class="ui-grid-80 ui-skip-tiny"&gt;
       &lt;input id="sort" type="radio" name="sort" value="published" checked&gt; Published date
-      &lt;input class="ui-offset-small" type="radio" name="sort" value="updated"&gt; Updated date
-      &lt;input class="ui-offset-small" type="radio" name="sort" value="views"&gt; Article views
-      &lt;input class="ui-offset-small" type="radio" name="sort" value="rating"&gt; Rating score
+      &lt;input class="ui-offset-medium" type="radio" name="sort" value="updated"&gt; Updated date
+      &lt;input class="ui-offset-medium" type="radio" name="sort" value="views"&gt; Article views
+      &lt;input class="ui-offset-medium" type="radio" name="sort" value="rating"&gt; Rating score
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="ui-text-center ui-skip-large"&gt;
@@ -234,106 +353,6 @@
     &lt;button class="ui-offset-medium" type="reset"&gt;Reset&lt;/button&gt;
   &lt;/div&gt;
 &lt;/form&gt;
-</code></pre>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h4 class="ui-header-secondary"><span>Button Groups</span>
-            <label for="button-groups-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
-          </h4>
-          <div class="ui-container-grid">
-            <div class="ui-button-toolbar">
-              <div data-schema-trim class="ui-button-group ui-space-trim">
-                <button title="View chat history">View</button>
-                <button title="Clear current chat room">Clear</button>
-                <button title="Export chat data as JSON">Export</button>
-                <button title="Delete all chat data">Delete</button>
-              </div>
-              <div data-schema-trim class="ui-button-group ui-space-trim">
-                <button title="Refresh this page">Refresh</button>
-                <button title="Close the connection">Close</button>
-              </div>
-            </div>
-            <div class="ui-button-toolbar ui-skip-medium">
-              <div data-schema-trim class="ui-button-group ui-space-trim">
-                <input id="published-date" type="radio" name="sort" value="published" checked>
-                <label for="published-date">Published Date</label>
-                <input id="updated-date" type="radio" name="sort" value="updated" class="ui-phone-hidden">
-                <label for="updated-date" class="ui-phone-hidden">Updated Date</label>
-                <input id="reader-counts" type="radio" name="sort" value="readers">
-                <label for="reader-counts">Reader Counts</label>
-                <input id="rating-score" type="radio" name="sort" value="rating">
-                <label for="rating-score">Rating Score</label>
-              </div>
-              <div class="ui-button-switch">
-                <input id="sort-order" type="checkbox" name="order" value="ascending">
-                <label for="sort-order"><span><i data-schema-icon="sort-amount-asc" title="Ascending">Asc</i></span><span><i data-schema-icon="sort-amount-desc" title="Descending">Desc</i></span></label>
-              </div>
-            </div>
-            <div data-schema-trim class="ui-button-group ui-space-trim ui-skip-medium">
-              <input id="physics" type="checkbox" name="groups" value="physics" checked>
-              <label for="physics">Physics</label>
-              <input id="math" type="checkbox" name="groups" value="math">
-              <label for="math">Mathematics</label>
-              <input id="cs" type="checkbox" name="groups" value="cs" class="ui-phone-hidden">
-              <label for="cs" class="ui-phone-hidden">Computer Science</label>
-              <input id="q-bio" type="checkbox" name="groups" value="q-bio" class="ui-phone-hidden">
-              <label for="q-bio" class="ui-phone-hidden">Quantitative Biology</label>
-              <input id="q-fin" type="checkbox" name="groups" value="q-fin" class="ui-phone-hidden">
-              <label for="q-fin" class="ui-phone-hidden">Quantitative Finance</label>
-              <input id="stats" type="checkbox" name="groups" value="stats">
-              <label for="stats">Statistics</label>
-            </div>
-          </div>
-          <div class="ui-toggle-target">
-            <input id="button-groups-src" type="checkbox">
-            <div>
-              <pre><code class="language-markup">&lt;div class="ui-button-toolbar"&gt;
-  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-    &lt;button title="View chat history"&gt;View&lt;/button&gt;
-    &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
-    &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
-    &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-    &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
-    &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="ui-button-toolbar ui-skip-medium"&gt;
-  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-    &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
-    &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
-    &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
-    &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
-    &lt;input id="reader-counts" type="radio" name="sort" value="readers"&gt;
-    &lt;label for="reader-counts"&gt;Reader Counts&lt;/label&gt;
-    &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
-    &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="ui-button-switch"&gt;
-    &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
-    &lt;label for="sort-order"&gt;
-      &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
-      &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
-    &lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
-  &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
-  &lt;label for="physics"&gt;Physics&lt;/label&gt;
-  &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
-  &lt;label for="math"&gt;Mathematics&lt;/label&gt;
-  &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
-  &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
-  &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
-  &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
-  &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
-  &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
-  &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
-  &lt;label for="stats"&gt;Statistics&lt;/label&gt;
-&lt;/div&gt;
 </code></pre>
             </div>
           </div>

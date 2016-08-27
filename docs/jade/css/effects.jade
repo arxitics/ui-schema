@@ -10,6 +10,23 @@ block article
   h3.ui-header-primary Visual Effects
   section
     h4.ui-header-secondary
+      span Meters
+      label.ui-float-right(for='meters-src')
+        i(data-schema-icon='code')
+    div
+      meter(value='30' min='0' low='33' high='66' optimum='100' max='100') 30
+      meter.ui-skip-small(value='60' min='0' low='33' high='66' optimum='100' max='100') 60
+      meter.ui-skip-small(value='90' min='0' low='33' high='66' optimum='100' max='100') 90
+    .ui-toggle-target
+      input#meters-src(type='checkbox' checked)
+      div
+        pre: code.language-markup.
+          &lt;meter value="30" min="0" low="33" high="66" optimum="100" max="100"&gt;30&lt;/meter&gt;
+          &lt;meter value="60" min="0" low="33" high="66" optimum="100" max="100"&gt;60&lt;/meter&gt;
+          &lt;meter value="90" min="0" low="33" high="66" optimum="100" max="100"&gt;90&lt;/meter&gt;
+
+  section
+    h4.ui-header-secondary
       span Progress Bars
       label.ui-float-right(for='progress-bars-src')
         i(data-schema-icon='code')

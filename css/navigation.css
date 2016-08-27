@@ -197,3 +197,27 @@
   background-color: #eee;
   border-color: #ddd;
 }
+
+.ui-nav-left,
+.ui-nav-right {
+  font-size: 150%;
+  opacity: 0.65;
+  position: relative;
+  top: -0.8em;
+}
+
+.ui-nav-left {
+  float: left;
+  left: -0.4em;
+}
+
+.ui-nav-right {
+  float: right;
+  right: -0.4em;
+}
+
+.ui-nav-left:hover,
+.ui-nav-right:hover {
+  cursor: pointer;
+  opacity: 1;
+}

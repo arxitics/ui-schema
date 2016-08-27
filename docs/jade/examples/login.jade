@@ -7,16 +7,17 @@ block variables
   - var minimal = true
 
 block body
-  .ui-grid-50.ui-absolute-center.ui-phone-expand
-    form.ui-form-fluid(data-schema-validate action='/auth/login' method='post')
-      input(type='hidden' name='_csrf' value='KQ9eU2Ky-8I5DBx6oZK05K_Jh_OpGnNIF2_Y')
-      fieldset
-        legend Login my account
-        .ui-container-grid.ui-skip-small
-          label Username
-          input(type='text' name='username' pattern='^[a-zA-Z]{6,20}$' placeholder='username' required)
-          label Private key
-          input(type='text' name='key' pattern='^[a-zA-Z0-9]{8}$' placeholder='aBCde7yZ' required)
-          .ui-text-center.ui-skip-large
-            button.ui-button-primary(type='submit') Submit
-            button.ui-offset-medium(type='reset') Reset
+  .ui-container-fluid.ui-full-page.ui-vertical-center
+    .ui-fluid-50.ui-offset-25.ui-phone-expand
+      form.ui-form-fluid(data-schema-validate action='/auth/login' method='post')
+        input(type='hidden' name='_csrf' value='KQ9eU2Ky-8I5DBx6oZK05K_Jh_OpGnNIF2_Y')
+        fieldset
+          legend Login my account
+          .ui-container-grid.ui-skip-small
+            label Username
+            input(type='text' name='username' pattern='^[a-zA-Z]{6,20}$' placeholder='username' required)
+            label Private key
+            input(type='text' name='key' pattern='^[a-zA-Z0-9]{8}$' placeholder='aBCde7yZ' required)
+            .ui-text-center.ui-skip-large
+              button.ui-button-primary(type='submit') Submit
+              button.ui-offset-medium(type='reset') Reset

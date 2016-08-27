@@ -25,7 +25,7 @@ html(id=pageID lang=locale)
       link(rel='stylesheet' href='#{appRoot}/dist/ui-schema-#{version}.min.css' media='all')
       if prism
         link(rel='stylesheet' href='#{appRoot}/dist/prism-1.4.1.min.css' media='all')
-  body
+  body(class={'ui-scroll-indicator': indicator} data-schema-toggler=(toggle ? 'ui-overflow-hidden' : false))
     if minimal
       block body
     else
@@ -43,7 +43,7 @@ html(id=pageID lang=locale)
         if standalone
           block main
         else
-          aside.ui-grid-25.ui-mobile-expand
+          aside.ui-grid-25.ui-mobile-expand.ui-sticky-top
             block aside
           article.ui-grid-75.ui-mobile-expand
             block article

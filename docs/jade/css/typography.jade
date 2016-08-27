@@ -24,7 +24,7 @@ block article
         &lt;p class="ui-text-uppercase"&gt;Uppercased text.&lt;/p&gt;
         &lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;
     .ui-toggle-target
-      input#code-src(type='checkbox')
+      input#code-src(type='checkbox' checked)
       div
         pre: code.language-markup.
           &lt;!-- Inline code --&gt;
@@ -60,29 +60,6 @@ block article
 
   section
     h4.ui-header-secondary
-      span Labels
-      label.ui-float-right(for='labels-src')
-        i(data-schema-icon='code')
-    .ui-text-list
-      span.ui-text-label Default
-      span.ui-text-label.ui-label-primary Primary
-      span.ui-text-label.ui-label-success Success
-      span.ui-text-label.ui-label-info Info
-      span.ui-text-label.ui-label-warning Warning
-      span.ui-text-label.ui-label-danger Danger
-    .ui-toggle-target
-      input#labels-src(type='checkbox')
-      div
-        pre: code.language-markup.
-          &lt;span class="ui-text-label"&gt;Default&lt;/span&gt;
-          &lt;span class="ui-text-label ui-label-primary"&gt;Primary&lt;/span&gt;
-          &lt;span class="ui-text-label ui-label-success"&gt;Success&lt;/span&gt;
-          &lt;span class="ui-text-label ui-label-info"&gt;Info&lt;/span&gt;
-          &lt;span class="ui-text-label ui-label-warning"&gt;Warning&lt;/span&gt;
-          &lt;span class="ui-text-label ui-label-danger"&gt;Danger&lt;/span&gt;
-
-  section
-    h4.ui-header-secondary
       span Lists
       label.ui-float-right(for='lists-src')
         i(data-schema-icon='code')
@@ -105,8 +82,6 @@ block article
       ol.ui-list-bibliography
         li.
           I. Gonzalez, I. Schmidt, #[em Optimized negative dimensional integration method (NDIM) and multiloop Feynman diagram calculation], #[a(href='http://dx.doi.org/10.1016/j.nuclphysb.2007.01.031' target='_blank') Nucl. Phys. B #[strong 769] (2007) 124-173].
-        li.
-          I. Gonzalez, V.H. Moll, I. Schmidt, #[em A generalized Ramanujan Master Theorem applied to the evaluation of Feynman diagrams], #[a(href='http://arxiv.org/abs/1103.0588' target='_blank') arXiv:1103.0588 [math-ph]].
         li.
           T. Amdeberhan #[em et. al.], #[em Ramanujan&apos;s Master Theorem], #[a(href='http://dx.doi.org/10.1007/s11139-011-9333-y' target='_blank') Ramanujan J. #[strong 29] (2012) 29:103-120].
     .ui-toggle-target
@@ -132,9 +107,46 @@ block article
           &lt;!-- Bibliography --&gt;
           &lt;ol class="ui-list-bibliography"&gt;
             &lt;li&gt;I. Gonzalez, I. Schmidt, &lt;em&gt;Optimized negative dimensional integration method (NDIM) and multiloop Feynman diagram calculation&lt;/em&gt;, &lt;a href="http://dx.doi.org/10.1016/j.nuclphysb.2007.01.031" target="_blank"&gt;Nucl. Phys. B &lt;strong&gt;769&lt;/strong&gt; (2007) 124-173&lt;/a&gt;.&lt;/li&gt;
-            &lt;li&gt;I. Gonzalez, V.H. Moll, I. Schmidt, &lt;em&gt;A generalized Ramanujan Master Theorem applied to the evaluation of Feynman diagrams&lt;/em&gt;, &lt;a href="http://arxiv.org/abs/1103.0588" target="_blank"&gt;arXiv:1103.0588 [math-ph]&lt;/a&gt;.&lt;/li&gt;
             &lt;li&gt;T. Amdeberhan &lt;em&gt;et. al.&lt;/em&gt;, &lt;em&gt;Ramanujan&apos;s Master Theorem&lt;/em&gt;, &lt;a href="http://dx.doi.org/10.1007/s11139-011-9333-y" target="_blank"&gt;Ramanujan J. &lt;strong&gt;29&lt;/strong&gt; (2012) 29:103-120&lt;/a&gt;.&lt;/li&gt;
           &lt;/ol&gt;
+
+  section
+    h4.ui-header-secondary
+      span Labels
+      label.ui-float-right(for='labels-src')
+        i(data-schema-icon='code')
+    .ui-container-grid
+      .ui-grid-60.ui-phone-expand.ui-float-left.ui-text-list
+        span.ui-text-label Default
+        span.ui-text-label.ui-label-primary Primary
+        span.ui-text-label.ui-label-success Success
+        span.ui-text-label.ui-label-info Info
+        span.ui-text-label.ui-label-warning Warning
+        span.ui-text-label.ui-label-danger Danger
+      .ui-grid-40.ui-phone-expand.ui-float-right.ui-text-list
+        span.ui-text-badge 1
+        span.ui-text-badge.ui-label-primary 23
+        span.ui-text-badge.ui-label-success a
+        span.ui-text-badge.ui-label-info bc
+        span.ui-text-badge.ui-label-warning A
+        span.ui-text-badge.ui-label-danger BC
+    .ui-toggle-target
+      input#labels-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;span class="ui-text-label"&gt;Default&lt;/span&gt;
+          &lt;span class="ui-text-label ui-label-primary"&gt;Primary&lt;/span&gt;
+          &lt;span class="ui-text-label ui-label-success"&gt;Success&lt;/span&gt;
+          &lt;span class="ui-text-label ui-label-info"&gt;Info&lt;/span&gt;
+          &lt;span class="ui-text-label ui-label-warning"&gt;Warning&lt;/span&gt;
+          &lt;span class="ui-text-label ui-label-danger"&gt;Danger&lt;/span&gt;
+
+          &lt;span class="ui-text-badge"&gt;1&lt;/span&gt;
+          &lt;span class="ui-text-badge ui-label-primary"&gt;23&lt;/span&gt;
+          &lt;span class="ui-text-badge ui-label-success"&gt;a&lt;/span&gt;
+          &lt;span class="ui-text-badge ui-label-info"&gt;bc&lt;/span&gt;
+          &lt;span class="ui-text-badge ui-label-warning"&gt;A&lt;/span&gt;
+          &lt;span class="ui-text-badge ui-label-danger"&gt;BC&lt;/span&gt;
 
   section
     h4.ui-header-secondary
@@ -252,7 +264,7 @@ block article
         i(data-schema-icon='code')
     div
       .ui-content-alert.ui-alert-success
-        span.ui-symbol-button(data-schema-dismiss) &times;
+        span.ui-nav-right(data-schema-dismiss) &times;
         p ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing 
           a(href='http://arxiv.org/' rel='external' target='_blank') arXiv eprints
           | .
@@ -271,7 +283,7 @@ block article
       div
         pre: code.language-markup.
           &lt;div class="ui-content-alert ui-alert-success"&gt;
-            &lt;span class="ui-symbol-button" data-schema-dismiss&gt;&amp;times;&lt;/span&gt;
+            &lt;span class="ui-nav-right" data-schema-dismiss&gt;&amp;times;&lt;/span&gt;
             &lt;p&gt;ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing &lt;a href="http://arxiv.org/" rel="external" target="_blank"&gt;arXiv eprints&lt;/a&gt;.&lt;/p&gt;
           &lt;/div&gt;
           &lt;div class="ui-content-alert ui-alert-info"&gt;
@@ -291,14 +303,14 @@ block article
         i(data-schema-icon='code')
     .ui-container-grid
       .ui-content-link
-        a.ui-zoom-huge.ui-phone-halving(href='http://arxitics.com/search')
+        a.ui-zoom-huge.ui-phone-half(href='http://arxitics.com/search')
           .ui-box-small.ui-text-center
             i(data-schema-icon='search')
             h4.ui-header-compact Search
           .ui-text-active
             p Advanced search interface to find articles
       .ui-content-link.ui-skip-large
-        a.ui-zoom-huge.ui-phone-halving(href='http://arxitics.com/explore')
+        a.ui-zoom-huge.ui-phone-half(href='http://arxitics.com/explore')
           .ui-box-small.ui-text-center
             i(data-schema-icon='bar-chart')
             h4.ui-header-compact Explore
@@ -309,7 +321,7 @@ block article
       div
         pre: code.language-markup.
           &lt;div class="ui-content-link"&gt;
-            &lt;a class="ui-zoom-huge ui-phone-halving" href="http://arxitics.com/search"&gt;
+            &lt;a class="ui-zoom-huge ui-phone-half" href="http://arxitics.com/search"&gt;
               &lt;div class="ui-box-small ui-text-center"&gt;
                 &lt;i data-schema-icon="search"&gt;&lt;/i&gt;
                 &lt;h4 class="ui-header-compact"&gt;Search&lt;/h4&gt;
@@ -340,6 +352,40 @@ block article
           &lt;div class="ui-content-jumbotron"&gt;
             &lt;h3&gt;403 Forbidden: &lt;span class="ui-text-muted"&gt;You need login to join the chat room.&lt;/span&gt;&lt;/h3&gt;
             &lt;p&gt;Please contact &lt;strong&gt;help&lt;span aria-hidden="true"&gt;.855322&lt;/span&gt;@arxitics.com&lt;/strong&gt; if you think this should not happen again.&lt;/p&gt;
+          &lt;/div&gt;
+
+  section
+    h4.ui-header-secondary
+      span Media Object
+      label.ui-float-right(for='media-object-src')
+        i(data-schema-icon='code')
+    .ui-container-grid
+      .ui-grid-50.ui-phone-expand.ui-content-media
+        .ui-media-object
+          img.ui-image-thumbnail(width='100' src='http://oss.arxitics.com/images/emoji/desert.svg' alt='desert')
+        .ui-media-body
+          h4 Definition of desert
+          p.
+            A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.
+      .ui-grid-50.ui-phone-expand.ui-content-media
+        .ui-media-object.ui-float-right
+          img.ui-image-thumbnail(width='100' src='http://oss.arxitics.com/images/emoji/desert.svg' alt='desert')
+        .ui-media-body
+          h4 Definition of desert
+          p.
+            A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.
+    .ui-toggle-target
+      input#media-object-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-content-media"&gt;
+            &lt;div class="ui-media-object"&gt;
+              &lt;img class="ui-image-thumbnail" width="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"&gt;
+            &lt;/div&gt;
+            &lt;div class="ui-media-body"&gt;
+              &lt;h4&gt;Definition of desert&lt;/h4&gt;
+              &lt;p&gt;A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.&lt;/p&gt;
+            &lt;/div&gt;
           &lt;/div&gt;
 
 block append foot

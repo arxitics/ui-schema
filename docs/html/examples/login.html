@@ -10,23 +10,25 @@
     <link rel="stylesheet" href="../../../dist/ui-schema-0.4.2.min.css" media="all">
   </head>
   <body>
-    <div class="ui-grid-50 ui-absolute-center ui-phone-expand">
-      <form data-schema-validate action="/auth/login" method="post" class="ui-form-fluid">
-        <input type="hidden" name="_csrf" value="KQ9eU2Ky-8I5DBx6oZK05K_Jh_OpGnNIF2_Y">
-        <fieldset>
-          <legend>Login my account</legend>
-          <div class="ui-container-grid ui-skip-small">
-            <label>Username</label>
-            <input type="text" name="username" pattern="^[a-zA-Z]{6,20}$" placeholder="username" required>
-            <label>Private key</label>
-            <input type="text" name="key" pattern="^[a-zA-Z0-9]{8}$" placeholder="aBCde7yZ" required>
-            <div class="ui-text-center ui-skip-large">
-              <button type="submit" class="ui-button-primary">Submit</button>
-              <button type="reset" class="ui-offset-medium">Reset</button>
+    <div class="ui-container-fluid ui-full-page ui-vertical-center">
+      <div class="ui-fluid-50 ui-offset-25 ui-phone-expand">
+        <form data-schema-validate action="/auth/login" method="post" class="ui-form-fluid">
+          <input type="hidden" name="_csrf" value="KQ9eU2Ky-8I5DBx6oZK05K_Jh_OpGnNIF2_Y">
+          <fieldset>
+            <legend>Login my account</legend>
+            <div class="ui-container-grid ui-skip-small">
+              <label>Username</label>
+              <input type="text" name="username" pattern="^[a-zA-Z]{6,20}$" placeholder="username" required>
+              <label>Private key</label>
+              <input type="text" name="key" pattern="^[a-zA-Z0-9]{8}$" placeholder="aBCde7yZ" required>
+              <div class="ui-text-center ui-skip-large">
+                <button type="submit" class="ui-button-primary">Submit</button>
+                <button type="reset" class="ui-offset-medium">Reset</button>
+              </div>
             </div>
-          </div>
-        </fieldset>
-      </form>
+          </fieldset>
+        </form>
+      </div>
     </div>
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/ui-schema-0.4.2.min.js"></script>

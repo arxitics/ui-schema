@@ -17,9 +17,6 @@
 .ui-form-fluid textarea {
   display: block;
   margin-bottom: 1.5rem;
-  width: 96%;
-  width: -moz-calc(100% - 1.6em - 2px);
-  width: -webkit-calc(100% - 1.6em - 2px);
   width: calc(100% - 1.6em - 2px);
 }
 
@@ -31,6 +28,7 @@
 .ui-form-horizontal label[for] {
   padding: 0.4em 0;
   text-align: right;
+  white-space: nowrap;
 }
 
 .ui-form-horizontal input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
@@ -115,16 +113,10 @@
   box-shadow: none !important;
 }
 
-.ui-button-toolbar > .ui-button-group,
-.ui-button-toolbar > .ui-button-switch {
+.ui-button-group,
+.ui-button-switch {
   display: inline-block;
-  margin-left: 1rem;
   vertical-align: middle;
-}
-
-.ui-button-toolbar > .ui-button-group:first-child,
-.ui-button-toolbar > .ui-button-switch:first-child {
-  margin-left: 0;
 }
 
 .ui-button-group > input[type="radio"],

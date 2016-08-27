@@ -30,7 +30,7 @@
   padding-left: 0;
   position: absolute;
   white-space: nowrap;
-  z-index: 999;
+  z-index: 99;
 }
 
 .ui-menu-dropdown > ul,
@@ -39,7 +39,7 @@
 }
 
 .ui-menu-dropdown > ul {
-  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.175);
+  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.15);
   padding-bottom: 0.4em;
   padding-top: 0.4em;
 }

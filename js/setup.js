@@ -31,8 +31,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       },
       validate: {
         type: 'validate',
-        namespace: '.validation.form.data-api.schema',
+        namespace: '.form.data-api.schema',
         selector: 'form[data-schema-validate]'
+      },
+      lazyload: {
+        type: 'load',
+        namespace: '.image.data-api.schema',
+        selector: 'img[data-schema-lazyload]'
       },
       sprite: {
         type: 'create',
@@ -51,13 +56,18 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       },
       dismiss: {
         type: 'remove',
-        namespace: '.action.dom.data-api.schema',
+        namespace: '.dom.data-api.schema',
         selector: 'body [data-schema-dismiss]'
       },
       autoplay: {
-        type: 'toggle',
-        namespace: '.action.data-api.schema',
+        type: 'animate',
+        namespace: '.dom.data-api.schema',
         selector: '[data-schema-autoplay]'
+      },
+      toggle: {
+        type: 'toggle',
+        namespace: '.class.data-api.schema',
+        selector: '[data-schema-toggle]'
       }
     }
   }, schema);

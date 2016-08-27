@@ -58,14 +58,49 @@
   content: "|\00a0";
 }
 
-.ui-tooltip-top,
-.ui-tooltip-right,
-.ui-tooltip-bottom,
-.ui-tooltip-left {
+.ui-tooltip-wrapper {
+  position: relative;
+}
+
+.ui-tooltip-content {
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.4rem;
+  display: none;
+  min-width: 168px;
   padding: 0.4em 0.8em;
-  position: relative;
+  position: absolute;
+  z-index: 99;
+}
+
+.ui-tooltip-content > div {
+  border: none;
+  margin: -0.4em -0.8em;
+}
+
+.ui-tooltip-wrapper:hover > .ui-tooltip-content {
+  display: inline-block;
+}
+
+.ui-tooltip-top {
+  left: 0;
+  bottom: 100%;
+  margin-bottom: 0.6em;
+}
+
+.ui-tooltip-right {
+  margin-left: 0.6em;
+}
+
+.ui-tooltip-bottom {
+  left: 0;
+  margin-top: 0.6em;
+  top: 100%;
+}
+
+.ui-tooltip-left {
+  margin-right: 0.6em;
+  right: 100%;
 }
 
 .ui-tooltip-top::before,
@@ -88,14 +123,14 @@
 
 .ui-tooltip-top::before {
   border-top-color: #ccc;
-  left: 50%;
+  left: 1.2em;
   margin-left: -0.7em;
   top: 100%;
 }
 
 .ui-tooltip-top::after {
   border-top-color: #fff;
-  left: 50%;
+  left: 1.2em;
   margin-left: -0.6em;
   top: 100%;
 }
@@ -104,27 +139,27 @@
   border-right-color: #ccc;
   margin-top: -0.7em;
   right: 100%;
-  top: 50%;
+  top: 1.2em;
 }
 
 .ui-tooltip-right::after {
   border-right-color: #fff;
   margin-top: -0.6em;
   right: 100%;
-  top: 50%;
+  top: 1.2em;
 }
 
 .ui-tooltip-bottom::before {
   border-bottom-color: #ccc;
   bottom: 100%;
-  left: 50%;
+  left: 1.2em;
   margin-left: -0.7em;
 }
 
 .ui-tooltip-bottom::after {
   border-bottom-color: #fff;
   bottom: 100%;
-  left: 50%;
+  left: 1.2em;
   margin-left: -0.6em;
 }
 
@@ -132,40 +167,12 @@
   border-left-color: #ccc;
   left: 100%;
   margin-top: -0.7em;
-  top: 50%;
+  top: 1.2em;
 }
 
 .ui-tooltip-left::after {
   border-left-color: #fff;
   left: 100%;
   margin-top: -0.6em;
-  top: 50%;
-}
-
-.ui-tooltip-header {
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #ccc;
-  border-top-left-radius: 0.4rem;
-  border-top-right-radius: 0.4rem;
-  margin: -0.4em -0.8em 0;
-  padding: 0.6em 0.8em;
-}
-
-.ui-tooltip-header > h4,
-.ui-tooltip-body > .ui-table-fluid {
-  margin: 0;
-}
-
-.ui-tooltip-body {
-  margin: 0 -0.8em;
-}
-
-.ui-tooltip-body > p {
-  margin: 0.6em 0.8em;
-}
-
-.ui-tooltip-body > .ui-list-group {
-  border: none;
-  margin-bottom: 0;
-  width: 100%;
+  top: 1.2em;
 }

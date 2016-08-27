@@ -5,27 +5,10 @@ block variables
   - var pageID = 'css/events'
   - var pageTitle = 'Events'
   - var prism = true
+  - var toggle = true
 
 block article
   h3.ui-header-primary Events
-  section
-    h4.ui-header-secondary
-      span Resizable
-      label.ui-float-right(for='resizable-src')
-        i(data-schema-icon='code')
-    .ui-container-grid
-      .ui-grid-40.ui-float-left.ui-frame-rounded.ui-resize-horizontal.
-        Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
-      .ui-grid-40.ui-float-right.ui-frame-rounded.ui-resize-vertical.
-        Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
-    .ui-toggle-target
-      input#resizable-src(type='checkbox')
-      div
-        pre: code.language-markup.
-          &lt;div class="ui-frame-rounded ui-resize-horizontal"&gt;
-            Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
-          &lt;/div&gt;
-
   section
     h4.ui-header-secondary
       span Accordion
@@ -56,7 +39,7 @@ block article
           p.
             As mentioned before, you can browse your subscription of eprints based on filters like categories, subjects, topics, keywords, etc. In fact, this is also a simple search interface.
     .ui-toggle-target
-      input#accordion-src(type='checkbox')
+      input#accordion-src(type='checkbox' checked)
       div
         pre: code.language-markup.
           &lt;div class="ui-accordion-content"&gt;
@@ -164,4 +147,74 @@ block article
                 &lt;li&gt;&lt;label for="quote-3"&gt;&lt;/label&gt;&lt;/li&gt;
               &lt;/ol&gt;
             &lt;/div&gt;
+          &lt;/div&gt;
+
+  section
+    h4.ui-header-secondary
+      span Modal
+      label.ui-float-right(for='modal-src')
+        i(data-schema-icon='code')
+    div
+      label.ui-text-button.ui-button-primary(for='modal-1') View copyright policies
+      label.ui-text-button.ui-button-info.ui-offset-medium(for='modal-2') View copyright policies
+    .ui-toggle-target
+      input#modal-1(type='checkbox')
+      .ui-modal-content
+        .ui-fluid-50.ui-phone-expand.ui-content-panel
+          .ui-panel-header
+            h4 Copyright policies
+          .ui-panel-body
+            p.
+              Most articles on arXiv.org are submitted with the default arXiv license which grants arXiv a perpetual, non-exclusive license to distribute the article but does not grant any specific rights to others. So we link back to arXiv.org for downloading full-text articles.
+            .ui-container-grid
+              label.ui-text-button.ui-button-success.ui-float-right(for='modal-1') Accept the terms
+    .ui-toggle-target
+      input#modal-2(type='checkbox' data-schema-toggle='body')
+      .ui-modal-content
+        .ui-fluid-50.ui-content-panel.ui-absolute-center
+          .ui-panel-header
+            h4 Copyright policies
+          .ui-panel-body
+            p.
+              Most articles on arXiv.org are submitted with the default arXiv license which grants arXiv a perpetual, non-exclusive license to distribute the article but does not grant any specific rights to others. So we link back to arXiv.org for downloading full-text articles.
+            .ui-container-grid
+              label.ui-text-button.ui-button-success.ui-float-right(for='modal-2') Accept the terms
+    .ui-toggle-target
+      input#modal-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;label for="modal-1" class="ui-text-button ui-button-primary"&gt;View copyright policies&lt;/label&gt;
+          &lt;div class="ui-toggle-target"&gt;
+            &lt;input id="modal-1" type="checkbox"&gt;
+            &lt;div class="ui-modal-content"&gt;
+              &lt;div class="ui-fluid-50 ui-content-panel"&gt;
+                &lt;div class="ui-panel-header"&gt;
+                  &lt;h4&gt;Copyright policies&lt;/h4&gt;
+                &lt;/div&gt;
+                &lt;div class="ui-panel-body"&gt;
+                  &lt;p&gt;Most articles on arXiv.org are submitted with the default arXiv license which grants arXiv a perpetual, non-exclusive license to distribute the article but does not grant any specific rights to others. So we link back to arXiv.org for downloading full-text articles.&lt;/p&gt;
+                  &lt;div class="ui-container-grid"&gt;
+                    &lt;label for="modal-1" class="ui-text-button ui-button-success ui-float-right"&gt;Accept the terms&lt;/label&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+  section
+    h4.ui-header-secondary
+      span Resizable
+      label.ui-float-right(for='resizable-src')
+        i(data-schema-icon='code')
+    .ui-container-grid
+      .ui-grid-40.ui-float-left.ui-frame-rounded.ui-resize-horizontal.
+        Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
+      .ui-grid-40.ui-float-right.ui-frame-rounded.ui-resize-vertical.
+        Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
+    .ui-toggle-target
+      input#resizable-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-frame-rounded ui-resize-horizontal"&gt;
+            Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
           &lt;/div&gt;

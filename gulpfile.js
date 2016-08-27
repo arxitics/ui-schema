@@ -102,6 +102,7 @@ gulp.task('concat-js', function () {
       'js/setup.js',
       'js/core.js',
       'js/forms.js',
+      'js/images.js',
       'js/utilities.js',
       'js/icons.js'
     ])

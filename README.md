@@ -2,9 +2,9 @@
 
 UI Schema is a cutting edge, lightweight, and powerful front-end framework for faster and easier web development.
 
-* Firefox 24+
-* Chrome 28+
-* Opera 15+
+* Firefox 28+
+* Chrome 32+
+* Opera 20+
 * Safari 7+
 * IE 10+
 

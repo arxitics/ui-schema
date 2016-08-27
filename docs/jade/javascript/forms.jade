@@ -8,13 +8,13 @@ block variables
 
 block article
   h3.ui-header-primary Forms
-  .ui-grid-container
+  .ui-container-grid
     pre: code.language-markup.
       &lt;!-- Validate the form and do not submit empty fields --&gt;
-      &lt;form data-schema-validate action="/search" method="post"&gt;
+      &lt;form action="/search" method="post" data-schema-validate&gt;
 
       &lt;!-- Only submit the form when some fields have been changed --&gt;
-      &lt;form data-schema-validate="changed" action="/articles/1212.5605/edit" method="post"&gt;
+      &lt;form action="/articles/1212.5605/edit" method="post" data-schema-validate="changed"&gt;
 
       &lt;!-- Only allow to submit the form once --&gt;
-      &lt;form data-schema-validate="once" action="/auth/login" method="post"&gt;
+      &lt;form action="/auth/login" method="post" data-schema-validate="once"&gt;

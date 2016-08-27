@@ -63,6 +63,12 @@
   padding-right: 2rem;
 }
 
+.ui-grid-column {
+  display: table-cell;
+  float: none;
+  vertical-align: top;
+}
+
 .ui-grid-collapse {
   padding-left: 0;
   padding-right: 0;
@@ -295,7 +301,7 @@
 .ui-fixed-left {
   overflow: visible !important;
   position: fixed;
-  z-index: 1099;
+  z-index: 999;
 }
 
 .ui-absolute-top,
@@ -304,7 +310,7 @@
 .ui-absolute-left {
   overflow: visible !important;
   position: absolute;
-  z-index: 999;
+  z-index: 99;
 }
 
 .ui-fixed-top,

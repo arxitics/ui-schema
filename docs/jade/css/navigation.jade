@@ -57,7 +57,7 @@ block article
           li: a(href='http://arxitics.com/browse') Browse
           li: a(href='http://arxitics.com/explore') Explore
     .ui-toggle-target
-      input#navs-src(type='checkbox')
+      input#navs-src(type='checkbox' checked)
       div
         pre: code.language-markup.
           &lt;!-- Tabs --&gt;
@@ -182,22 +182,25 @@ block article
       span Pagination
       label.ui-float-right(for='pagination-src')
         i(data-schema-icon='code')
-    ol.ui-nav-pagination
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2' title='Previous page') &laquo;
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=1') 1
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2') 2
-      li.ui-state-active: span 3
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4') 4
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=5') 5
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4' title='Next page') &raquo;
-    ol.ui-offset-10.ui-nav-pagination.ui-space-trim(data-schema-trim)
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2' title='Previous page') &laquo;
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=1') 1
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2') 2
-      li.ui-state-active: span(title='Current page') 3
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4') 4
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=5') 5
-      li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4' title='Next page') &raquo;
+    .ui-container-grid
+      .ui-fluid-40.ui-phone-expand.ui-float-left
+        ol.ui-nav-pagination
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2' title='Previous page') &laquo;
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=1') 1
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2') 2
+          li.ui-state-active: span 3
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4') 4
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=5') 5
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4' title='Next page') &raquo;
+      .ui-fluid-50.ui-phone-expand.ui-float-right
+        ol.ui-nav-pagination.ui-space-trim(data-schema-trim)
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2' title='Previous page') &laquo;
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=1') 1
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=2') 2
+          li.ui-state-active: span(title='Current page') 3
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4') 4
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=5') 5
+          li: a(href='http://arxitics.com/search?category=atom-ph&perpage=25&page=4' title='Next page') &raquo;
     .ui-toggle-target
       input#pagination-src(type='checkbox')
       div

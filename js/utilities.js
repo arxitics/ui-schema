@@ -14,6 +14,22 @@
     }).remove();
   };
 
+  // Toggle a CSS class
+  schema.toggle = function (event, options) {
+    var selector = schema.events.toggle.selector;
+    var $_elements = $(selector).add(options && options.selector);
+    $_elements.each(function () {
+      var $_this = $(this);
+      var $_data = schema.parseData($_this.data());
+      var $_target = $($_data.toggle);
+      var toggler = schema.parseData($_target.data()).toggler;
+      var events = $_data.trigger || 'click';
+      $_this.on(events, function () {
+        $_target.toggleClass(toggler);
+      });
+    });
+  };
+
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
     var selector = schema.events.autoplay.selector;
@@ -22,7 +38,8 @@
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
       var $_inputs = $_this.children('input[type=radio]');
-      var state = $_this.find('label').first().attr('class');
+      var $_div = $_this.find('div').last();
+      var state = $_div.find('label').first().attr('class');
       var interval = (+$_data.autoplay - 1) || 5000;
       var length = $_inputs.length;
       var counter = 1;
@@ -30,8 +47,8 @@
         var $_input = $_inputs.eq(counter % length);
         var id = $_input.attr('id');
         if (id) {
-          $_this.find('label[class="' + state + '"]').removeClass(state);
-          $_this.find('label[for="' + id + '"]').addClass(state);
+          $_div.find('label[class="' + state + '"]').removeClass(state);
+          $_div.find('label[for="' + id + '"]').addClass(state);
         }
         $_input.prop('checked', true);
         counter++;
@@ -46,7 +63,7 @@
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var interval = +$_data.dismiss - 1;
+      var interval = (+$_data.dismiss - 1) || 0;
       $_this.one('click', function () {
         $_this.parent().remove();
       });
@@ -75,7 +92,8 @@
       if (tags.indexOf('emoji') !== -1 && $_data.emoji) {
         var emoji = /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g;
         $_this.html($_this.html().replace(emoji, function (str, p1, p2, p3) {
-          return schema.format('${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}" />', {
+          var template = '${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}" />';
+          return schema.format(template, {
             sep: p1,
             src: $_data.emoji.replace(/\/*$/, '/') + p3.replace(/\_/g, '-') + '.svg',
             height: Math.round(+$_this.css('font-size').slice(0, -2) * 1.2),

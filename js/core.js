@@ -19,7 +19,7 @@
         var func = schema[key];
         var event = events[key];
         var delegation = event.delegation;
-        if (!event.hasOwnProperty('delegation')) {
+        if (delegation === undefined) {
           delegation = schema.delegate(event);
           event.delegation = delegation;
         }
@@ -27,7 +27,7 @@
           var name = event.type + event.namespace;
           $(document).on(name, func);
           if (delegation > 2) {
-            $(document).trigger(name);
+            $(document).trigger(name, event.options || {});
           }
         }
       }
@@ -50,7 +50,7 @@
     }) ? 2 : 0;
     delegation += triggers.some(function (trigger) {
       var keywords = trigger.replace(/^\./, '').split('.');
-      return keywords.every(function(keyword) {
+      return keywords.every(function (keyword) {
         return phrases.indexOf(keyword) !== -1;
       });
     }) ? 1 : 0;
@@ -110,10 +110,10 @@
             var entries = entry.split(/\s*:\s*/);
             var key = entries[0].toLowerCase();
             var value = entries[1].replace(/\,/g, ' ').trim();
-            if(value.search(/\s+/) !== -1) {
+            if (value.search(/\s+/) !== -1) {
               value = value.split(/\s+/);
             }
-            object[key] = kalue;
+            object[key] = value;
           });
         }
       }

@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="../../../docs/html/css/base.html">Base</a></li>
@@ -55,56 +55,54 @@
         </h3>
         <div class="ui-text-center">
           <div class="ui-container-grid ui-frame-rounded ui-columns-seperated">
-            <div class="ui-grid-50">50%</div>
-            <div class="ui-grid-50">50%</div>
+            <div class="ui-grid-50"><code>1/2</code></div>
+            <div class="ui-grid-50"><code>1/2</code></div>
           </div>
           <div class="ui-container-grid ui-frame-rounded ui-columns-seperated ui-skip-small">
-            <div class="ui-grid-33">33.3333%</div>
+            <div class="ui-grid-33"><code>1/3</code></div>
             <div class="ui-grid-67 ui-grid-collapse ui-columns-seperated">
-              <div class="ui-grid-33">22.2222%</div>
-              <div class="ui-grid-67">44.4444%</div>
+              <div class="ui-grid-33"><code>2/9</code></div>
+              <div class="ui-grid-67"><code>4/9</code></div>
             </div>
           </div>
           <div class="ui-container-grid ui-frame-rounded ui-columns-seperated ui-skip-small">
-            <div class="ui-grid-25">25%</div>
+            <div class="ui-grid-25"><code>1/4</code></div>
             <div class="ui-grid-75 ui-grid-collapse ui-columns-seperated">
-              <div class="ui-grid-17">12.5%</div>
-              <div class="ui-grid-33">25%</div>
-              <div class="ui-grid-50">37.5%</div>
+              <div class="ui-grid-25"><code>3/16</code></div>
+              <div class="ui-grid-75"><code>9/16</code></div>
             </div>
           </div>
           <div class="ui-container-grid ui-skip-small">
-            <div class="ui-grid-20 ui-frame-rounded">20%</div>
-            <div class="ui-grid-20 ui-offset-10 ui-frame-rounded">20%</div>
-            <div class="ui-grid-30 ui-offset-20 ui-frame-rounded">30%</div>
+            <div class="ui-grid-20 ui-frame-rounded"><code>1/5</code></div>
+            <div class="ui-grid-20 ui-offset-10 ui-frame-rounded"><code>1/5</code></div>
+            <div class="ui-grid-30 ui-offset-20 ui-frame-rounded"><code>3/10</code></div>
           </div>
         </div>
         <div class="ui-toggle-target">
-          <input id="grid-system-src" type="checkbox">
+          <input id="grid-system-src" type="checkbox" checked>
           <div>
             <pre><code class="language-markup">&lt;div class="ui-container-grid"&gt;
-  &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
-  &lt;div class="ui-grid-50"&gt;50%&lt;/div&gt;
+  &lt;div class="ui-grid-50"&gt;1/2&lt;/div&gt;
+  &lt;div class="ui-grid-50"&gt;1/2&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="ui-container-grid"&gt;
-  &lt;div class="ui-grid-33"&gt;33.3333%&lt;/div&gt;
+  &lt;div class="ui-grid-33"&gt;1/3&lt;/div&gt;
   &lt;div class="ui-grid-67 ui-grid-collapse"&gt;
-    &lt;div class="ui-grid-33"&gt;22.2222%&lt;/div&gt;
-    &lt;div class="ui-grid-67"&gt;44.4444%&lt;/div&gt;
+    &lt;div class="ui-grid-33"&gt;2/9&lt;/div&gt;
+    &lt;div class="ui-grid-67"&gt;4/9&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="ui-container-grid"&gt;
-  &lt;div class="ui-grid-25"&gt;25%&lt;/div&gt;
+  &lt;div class="ui-grid-25"&gt;1/4&lt;/div&gt;
   &lt;div class="ui-grid-75 ui-grid-collapse"&gt;
-    &lt;div class="ui-grid-17"&gt;12.5%&lt;/div&gt;
-    &lt;div class="ui-grid-33"&gt;25%&lt;/div&gt;
-    &lt;div class="ui-grid-50"&gt;37.5%&lt;/div&gt;
+    &lt;div class="ui-grid-25"&gt;3/16&lt;/div&gt;
+    &lt;div class="ui-grid-75"&gt;9/16&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="ui-container-grid"&gt;
-  &lt;div class="ui-grid-20"&gt;20%&lt;/div&gt;
-  &lt;div class="ui-grid-20 ui-offset-10"&gt;20%&lt;/div&gt;
-  &lt;div class="ui-grid-30 ui-offset-20"&gt;30%&lt;/div&gt;
+  &lt;div class="ui-grid-20"&gt;1/5&lt;/div&gt;
+  &lt;div class="ui-grid-20 ui-offset-10"&gt;1/5&lt;/div&gt;
+  &lt;div class="ui-grid-30 ui-offset-20"&gt;3/10&lt;/div&gt;
 &lt;/div&gt;</code></pre>
           </div>
         </div>

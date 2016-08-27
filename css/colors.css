@@ -301,11 +301,11 @@
 }
 
 .ui-progress-success::-moz-progress-bar {
-  background-color: #5cb85c;
+  background: #5cb85c;
 }
 
 .ui-progress-success::-webkit-progress-value {
-  background-color: #5cb85c;
+  background: #5cb85c;
 }
 
 .ui-progress-info[value] {
@@ -313,11 +313,11 @@
 }
 
 .ui-progress-info::-moz-progress-bar {
-  background-color: #5bc0de;
+  background: #5bc0de;
 }
 
 .ui-progress-info::-webkit-progress-value {
-  background-color: #5bc0de;
+  background: #5bc0de;
 }
 
 .ui-progress-warning[value] {
@@ -325,11 +325,11 @@
 }
 
 .ui-progress-warning::-moz-progress-bar {
-  background-color: #f0ad4e;
+  background: #f0ad4e;
 }
 
 .ui-progress-warning::-webkit-progress-value {
-  background-color: #f0ad4e;
+  background: #f0ad4e;
 }
 
 .ui-progress-danger[value] {
@@ -337,9 +337,9 @@
 }
 
 .ui-progress-danger::-moz-progress-bar {
-  background-color: #d9534f;
+  background: #d9534f;
 }
 
 .ui-progress-danger::-webkit-progress-value {
-  background-color: #d9534f;
+  background: #d9534f;
 }

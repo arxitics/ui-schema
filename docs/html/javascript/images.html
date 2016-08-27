@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html id="javascript/forms" lang="en">
+<html id="javascript/images" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Forms | UI Schema</title>
+    <title>Images | UI Schema</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
@@ -30,24 +30,25 @@
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="../../../docs/html/javascript/setup.html">Setup</a></li>
           <li><a href="../../../docs/html/javascript/core.html">Core</a></li>
-          <li class="ui-state-active"><a href="../../../docs/html/javascript/forms.html">Forms</a></li>
-          <li><a href="../../../docs/html/javascript/images.html">Images</a></li>
+          <li><a href="../../../docs/html/javascript/forms.html">Forms</a></li>
+          <li class="ui-state-active"><a href="../../../docs/html/javascript/images.html">Images</a></li>
           <li><a href="../../../docs/html/javascript/icons.html">Icons</a></li>
           <li><a href="../../../docs/html/javascript/utilities.html">Utilities</a></li>
         </ul>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
-        <h3 class="ui-header-primary">Forms</h3>
-        <div class="ui-container-grid">
-          <pre><code class="language-markup">&lt;!-- Validate the form and do not submit empty fields --&gt;
-&lt;form action="/search" method="post" data-schema-validate&gt;
-
-&lt;!-- Only submit the form when some fields have been changed --&gt;
-&lt;form action="/articles/1212.5605/edit" method="post" data-schema-validate="changed"&gt;
-
-&lt;!-- Only allow to submit the form once --&gt;
-&lt;form action="/auth/login" method="post" data-schema-validate="once"&gt;</code></pre>
-        </div>
+        <h3 class="ui-header-primary">Images</h3>
+        <section>
+          <h4 class="ui-header-secondary">Lazy Loading</h4>
+          <div>
+            <figure><img width="600" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping" class="ui-image-circular"></figure>
+            <figure class="ui-skip-huge"><img width="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="park" data-schema-lazyload data-schema-src="http://oss.arxitics.com/images/emoji/park.svg" class="ui-image-circular"></figure>
+            <figure class="ui-skip-huge"><img width="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="beach" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/beach.svg" class="ui-image-circular"></figure>
+            <figure class="ui-skip-huge"><img width="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="island" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/island.svg" class="ui-image-circular"></figure>
+            <figure class="ui-skip-huge"><img width="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="desert" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/desert.svg" class="ui-image-circular"></figure>
+          </div>
+          <pre><code class="language-markup">&lt;img width="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="desert" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/desert.svg"&gt;</code></pre>
+        </section>
       </article>
     </main>
     <footer class="ui-container-fluid">

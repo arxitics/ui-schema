@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../../dist/ui-schema-0.4.2.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
-  <body>
+  <body data-schema-toggler="ui-overflow-hidden">
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-header-brand">
         <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
-      <aside class="ui-grid-25 ui-mobile-expand">
+      <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary">Modules</h3>
         <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
           <li><a href="../../../docs/html/css/base.html">Base</a></li>
@@ -51,24 +51,6 @@
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Events</h3>
-        <section>
-          <h4 class="ui-header-secondary"><span>Resizable</span>
-            <label for="resizable-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
-          </h4>
-          <div class="ui-container-grid">
-            <div class="ui-grid-40 ui-float-left ui-frame-rounded ui-resize-horizontal">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
-            <div class="ui-grid-40 ui-float-right ui-frame-rounded ui-resize-vertical">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
-          </div>
-          <div class="ui-toggle-target">
-            <input id="resizable-src" type="checkbox">
-            <div>
-              <pre><code class="language-markup">&lt;div class="ui-frame-rounded ui-resize-horizontal"&gt;
-  Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
-&lt;/div&gt;
-</code></pre>
-            </div>
-          </div>
-        </section>
         <section>
           <h4 class="ui-header-secondary"><span>Accordion</span>
             <label for="accordion-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
@@ -104,7 +86,7 @@
             </div>
           </div>
           <div class="ui-toggle-target">
-            <input id="accordion-src" type="checkbox">
+            <input id="accordion-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;div class="ui-accordion-content"&gt;
   &lt;div class="ui-content-panel" tabindex="1"&gt;
@@ -224,6 +206,88 @@
       &lt;li&gt;&lt;label for="quote-3"&gt;&lt;/label&gt;&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary"><span>Modal</span>
+            <label for="modal-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
+          <div>
+            <label for="modal-1" class="ui-text-button ui-button-primary">View copyright policies</label>
+            <label for="modal-2" class="ui-text-button ui-button-info ui-offset-medium">View copyright policies</label>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="modal-1" type="checkbox">
+            <div class="ui-modal-content">
+              <div class="ui-fluid-50 ui-phone-expand ui-content-panel">
+                <div class="ui-panel-header">
+                  <h4>Copyright policies</h4>
+                </div>
+                <div class="ui-panel-body">
+                  <p>Most articles on arXiv.org are submitted with the default arXiv license which grants arXiv a perpetual, non-exclusive license to distribute the article but does not grant any specific rights to others. So we link back to arXiv.org for downloading full-text articles.</p>
+                  <div class="ui-container-grid">
+                    <label for="modal-1" class="ui-text-button ui-button-success ui-float-right">Accept the terms</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="modal-2" type="checkbox" data-schema-toggle="body">
+            <div class="ui-modal-content">
+              <div class="ui-fluid-50 ui-content-panel ui-absolute-center">
+                <div class="ui-panel-header">
+                  <h4>Copyright policies</h4>
+                </div>
+                <div class="ui-panel-body">
+                  <p>Most articles on arXiv.org are submitted with the default arXiv license which grants arXiv a perpetual, non-exclusive license to distribute the article but does not grant any specific rights to others. So we link back to arXiv.org for downloading full-text articles.</p>
+                  <div class="ui-container-grid">
+                    <label for="modal-2" class="ui-text-button ui-button-success ui-float-right">Accept the terms</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="modal-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;label for="modal-1" class="ui-text-button ui-button-primary"&gt;View copyright policies&lt;/label&gt;
+&lt;div class="ui-toggle-target"&gt;
+  &lt;input id="modal-1" type="checkbox"&gt;
+  &lt;div class="ui-modal-content"&gt;
+    &lt;div class="ui-fluid-50 ui-content-panel"&gt;
+      &lt;div class="ui-panel-header"&gt;
+        &lt;h4&gt;Copyright policies&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="ui-panel-body"&gt;
+        &lt;p&gt;Most articles on arXiv.org are submitted with the default arXiv license which grants arXiv a perpetual, non-exclusive license to distribute the article but does not grant any specific rights to others. So we link back to arXiv.org for downloading full-text articles.&lt;/p&gt;
+        &lt;div class="ui-container-grid"&gt;
+          &lt;label for="modal-1" class="ui-text-button ui-button-success ui-float-right"&gt;Accept the terms&lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary"><span>Resizable</span>
+            <label for="resizable-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
+          <div class="ui-container-grid">
+            <div class="ui-grid-40 ui-float-left ui-frame-rounded ui-resize-horizontal">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
+            <div class="ui-grid-40 ui-float-right ui-frame-rounded ui-resize-vertical">Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.</div>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="resizable-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;div class="ui-frame-rounded ui-resize-horizontal"&gt;
+  Full-text search ignores stop words such as the, and, is, etc., and matches on the complete stemmed word. The $text operator performs a text search on the content of the indexed fields. It treats most punctuation in the string as delimiters, except a hyphen that negates term or a double quotes that specifies a phrase.
 &lt;/div&gt;</code></pre>
             </div>
           </div>

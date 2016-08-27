@@ -13,39 +13,146 @@ block article
       span Buttons
       label.ui-float-right(for='buttons-src')
         i(data-schema-icon='code')
-    div
-      button(type='button') Default
-      button.ui-button-primary(type='button') Primary
-      button.ui-button-success(type='button') Success
-      button.ui-button-info(type='button') Info
-      button.ui-button-warning(type='button') Warning
-      button.ui-button-danger(type='button') Danger
-      button(type='button' disabled) Disabled
-      | 
-      a.ui-text-button.ui-button-primary(href='http://arxitics.com/') Link
-    .ui-skip-medium
-      button.ui-zoom-huge(type='button') Huge
-      button.ui-zoom-large(type='button') Large
-      button.ui-zoom-medium(type='button') Medium
-      button.ui-zoom-small(type='button') Small
-      button.ui-zoom-tiny(type='button') Tiny
+    .ui-container-grid
+      .ui-fluid-50.ui-phone-expand.ui-float-left
+        button(type='button') Default
+        button(type='button' disabled) Disabled
+        | 
+        a.ui-text-button(href='http://arxitics.com/') Hyperlink
+      .ui-fluid-50.ui-phone-expand.ui-float-right
+        button.ui-button-primary(type='button') Primary
+        button.ui-button-success(type='button') Success
+        button.ui-button-info(type='button') Info
+        button.ui-button-warning(type='button') Warning
+        button.ui-button-danger(type='button') Danger
+    .ui-container-grid.ui-skip-medium
+      .ui-fluid-50.ui-phone-expand.ui-float-left
+        button.ui-zoom-huge(type='button') Huge
+        button.ui-zoom-large(type='button') Large
+        button.ui-zoom-medium(type='button') Medium
+        button.ui-zoom-small(type='button') Small
+        button.ui-zoom-tiny(type='button') Tiny
+      .ui-fluid-50.ui-phone-expand.ui-float-right
+        .ui-button-block
+          button Block button
     .ui-toggle-target
-      input#buttons-src(type='checkbox')
+      input#buttons-src(type='checkbox' checked)
       div
         pre: code.language-markup.
           &lt;button type="button"&gt;Default&lt;/button&gt;
+          &lt;button type="button" disabled&gt;Disabled&lt;/button&gt;
+          &lt;a class="ui-text-button" href="http://arxitics.com/"&gt;Hyperlink&lt;/a&gt;
+
           &lt;button class="ui-button-primary" type="button"&gt;Primary&lt;/button&gt;
           &lt;button class="ui-button-success" type="button"&gt;Success&lt;/button&gt;
           &lt;button class="ui-button-info" type="button"&gt;Info&lt;/button&gt;
           &lt;button class="ui-button-warning" type="button"&gt;Warning&lt;/button&gt;
           &lt;button class="ui-button-danger" type="button"&gt;Danger&lt;/button&gt;
-          &lt;button type="button" disabled&gt;Disabled&lt;/button&gt;
-          &lt;a class="ui-text-button ui-button-primary" href="http://arxitics.com/"&gt;Link&lt;/a&gt;
+
           &lt;button class="ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
           &lt;button class="ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
           &lt;button class="ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
           &lt;button class="ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
           &lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
+
+          &lt;div class="ui-button-block"&gt;
+            &lt;button type="button"&gt;Block button&lt;/button&gt;
+          &lt;/div&gt;
+
+  section
+    h4.ui-header-secondary
+      span Button Groups
+      label.ui-float-right(for='button-groups-src')
+        i(data-schema-icon='code')
+    .ui-container-grid
+      .ui-button-toolbar
+        .ui-button-group.ui-space-trim(data-schema-trim)
+          button(title='View chat history') View
+          button(title='Clear current chat room') Clear
+          button(title='Export chat data as JSON') Export
+          button(title='Delete all chat data') Delete
+        .ui-button-group.ui-offset-medium.ui-space-trim(data-schema-trim)
+          button(title='Refresh this page') Refresh
+          button(title='Close the connection') Close
+      .ui-button-toolbar.ui-skip-medium
+        .ui-button-group.ui-space-trim(data-schema-trim)
+          input(id='published-date' type='radio' name='sort' value='published' checked)
+          label(for='published-date') Published Date
+          input.ui-phone-hidden(id='updated-date' type='radio' name='sort' value='updated')
+          label.ui-phone-hidden(for='updated-date') Updated Date
+          input.ui-phone-hidden(id='reader-counts' type='radio' name='sort' value='readers')
+          label.ui-phone-hidden(for='reader-counts') Reader Counts
+          input(id='rating-score' type='radio' name='sort' value='rating')
+          label(for='rating-score') Rating Score
+        .ui-button-switch.ui-offset-medium
+          input(id='sort-order' type='checkbox' name='order' value='ascending')
+          label(for='sort-order')
+            span: i(data-schema-icon='sort-amount-asc' title='Ascending') Asc
+            span: i(data-schema-icon='sort-amount-desc' title='Descending') Desc
+      .ui-button-group.ui-space-trim.ui-skip-medium(data-schema-trim)
+        input(id='physics' type='checkbox' name='groups' value='physics' checked)
+        label(for='physics') Physics
+        input(id='math' type='checkbox' name='groups' value='math')
+        label(for='math') Mathematics
+        input.ui-phone-hidden(id='cs' type='checkbox' name='groups' value='cs')
+        label.ui-phone-hidden(for='cs') Computer Science
+        input.ui-phone-hidden(id='q-bio' type='checkbox' name='groups' value='q-bio')
+        label.ui-phone-hidden(for='q-bio') Quantitative Biology
+        input.ui-phone-hidden(id='q-fin' type='checkbox' name='groups' value='q-fin')
+        label.ui-phone-hidden(for='q-fin') Quantitative Finance
+        input(id='stats' type='checkbox' name='groups' value='stats')
+        label(for='stats') Statistics
+    .ui-toggle-target
+      input#button-groups-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-button-toolbar"&gt;
+            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+              &lt;button title="View chat history"&gt;View&lt;/button&gt;
+              &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
+              &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
+              &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+              &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
+              &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="ui-button-toolbar ui-skip-medium"&gt;
+            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+              &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
+              &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
+              &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
+              &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
+              &lt;input class="ui-phone-hidden" id="reader-counts" type="radio" name="sort" value="readers"&gt;
+              &lt;label class="ui-phone-hidden" for="reader-counts"&gt;Reader Counts&lt;/label&gt;
+              &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
+              &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class="ui-button-switch ui-offset-medium"&gt;
+              &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
+              &lt;label for="sort-order"&gt;
+                &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
+            &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
+            &lt;label for="physics"&gt;Physics&lt;/label&gt;
+            &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
+            &lt;label for="math"&gt;Mathematics&lt;/label&gt;
+            &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
+            &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
+            &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
+            &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
+            &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
+            &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
+            &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
+            &lt;label for="stats"&gt;Statistics&lt;/label&gt;
+          &lt;/div&gt;
 
   section
     h4.ui-header-secondary
@@ -100,9 +207,9 @@ block article
         div
           input(type='radio' name='date-range' value='past-week' checked)
           |  Past week
-          input.ui-offset-small(type='radio' name='date-range' value='past-month')
+          input.ui-offset-medium(type='radio' name='date-range' value='past-month')
           |  Past month
-          input.ui-offset-small(type='radio' name='date-range' value='past-year')
+          input.ui-offset-medium(type='radio' name='date-range' value='past-year')
           |  Past year
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
@@ -143,11 +250,11 @@ block article
           .ui-grid-80.ui-skip-tiny
             input(id='sort' type='radio' name='sort' value='published' checked)
             |  Published date
-            input.ui-offset-small(type='radio' name='sort' value='updated')
+            input.ui-offset-medium(type='radio' name='sort' value='updated')
             |  Updated date
-            input.ui-offset-small(type='radio' name='sort' value='views')
+            input.ui-offset-medium(type='radio' name='sort' value='views')
             |  Article views
-            input.ui-offset-small(type='radio' name='sort' value='rating')
+            input.ui-offset-medium(type='radio' name='sort' value='rating')
             |  Rating score
         .ui-text-center.ui-skip-large
           button.ui-button-primary(type='submit') Submit
@@ -169,9 +276,9 @@ block article
               &lt;label for="sort" class="ui-grid-20"&gt;Sort by&lt;/label&gt;
               &lt;div class="ui-grid-80 ui-skip-tiny"&gt;
                 &lt;input id="sort" type="radio" name="sort" value="published" checked&gt; Published date
-                &lt;input class="ui-offset-small" type="radio" name="sort" value="updated"&gt; Updated date
-                &lt;input class="ui-offset-small" type="radio" name="sort" value="views"&gt; Article views
-                &lt;input class="ui-offset-small" type="radio" name="sort" value="rating"&gt; Rating score
+                &lt;input class="ui-offset-medium" type="radio" name="sort" value="updated"&gt; Updated date
+                &lt;input class="ui-offset-medium" type="radio" name="sort" value="views"&gt; Article views
+                &lt;input class="ui-offset-medium" type="radio" name="sort" value="rating"&gt; Rating score
               &lt;/div&gt;
             &lt;/div&gt;
             &lt;div class="ui-text-center ui-skip-large"&gt;
@@ -179,99 +286,6 @@ block article
               &lt;button class="ui-offset-medium" type="reset"&gt;Reset&lt;/button&gt;
             &lt;/div&gt;
           &lt;/form&gt;
-
-  section
-    h4.ui-header-secondary
-      span Button Groups
-      label.ui-float-right(for='button-groups-src')
-        i(data-schema-icon='code')
-    .ui-container-grid
-      .ui-button-toolbar
-        .ui-button-group.ui-space-trim(data-schema-trim)
-          button(title='View chat history') View
-          button(title='Clear current chat room') Clear
-          button(title='Export chat data as JSON') Export
-          button(title='Delete all chat data') Delete
-        .ui-button-group.ui-space-trim(data-schema-trim)
-          button(title='Refresh this page') Refresh
-          button(title='Close the connection') Close
-      .ui-button-toolbar.ui-skip-medium
-        .ui-button-group.ui-space-trim(data-schema-trim)
-          input(id='published-date' type='radio' name='sort' value='published' checked)
-          label(for='published-date') Published Date
-          input.ui-phone-hidden(id='updated-date' type='radio' name='sort' value='updated')
-          label.ui-phone-hidden(for='updated-date') Updated Date
-          input(id='reader-counts' type='radio' name='sort' value='readers')
-          label(for='reader-counts') Reader Counts
-          input(id='rating-score' type='radio' name='sort' value='rating')
-          label(for='rating-score') Rating Score
-        .ui-button-switch
-          input(id='sort-order' type='checkbox' name='order' value='ascending')
-          label(for='sort-order')
-            span: i(data-schema-icon='sort-amount-asc' title='Ascending') Asc
-            span: i(data-schema-icon='sort-amount-desc' title='Descending') Desc
-      .ui-button-group.ui-space-trim.ui-skip-medium(data-schema-trim)
-        input(id='physics' type='checkbox' name='groups' value='physics' checked)
-        label(for='physics') Physics
-        input(id='math' type='checkbox' name='groups' value='math')
-        label(for='math') Mathematics
-        input.ui-phone-hidden(id='cs' type='checkbox' name='groups' value='cs')
-        label.ui-phone-hidden(for='cs') Computer Science
-        input.ui-phone-hidden(id='q-bio' type='checkbox' name='groups' value='q-bio')
-        label.ui-phone-hidden(for='q-bio') Quantitative Biology
-        input.ui-phone-hidden(id='q-fin' type='checkbox' name='groups' value='q-fin')
-        label.ui-phone-hidden(for='q-fin') Quantitative Finance
-        input(id='stats' type='checkbox' name='groups' value='stats')
-        label(for='stats') Statistics
-    .ui-toggle-target
-      input#button-groups-src(type='checkbox')
-      div
-        pre: code.language-markup.
-          &lt;div class="ui-button-toolbar"&gt;
-            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-              &lt;button title="View chat history"&gt;View&lt;/button&gt;
-              &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
-              &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
-              &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
-            &lt;/div&gt;
-            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-              &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
-              &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="ui-button-toolbar ui-skip-medium"&gt;
-            &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-              &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
-              &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
-              &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
-              &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
-              &lt;input id="reader-counts" type="radio" name="sort" value="readers"&gt;
-              &lt;label for="reader-counts"&gt;Reader Counts&lt;/label&gt;
-              &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
-              &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
-            &lt;/div&gt;
-            &lt;div class="ui-button-switch"&gt;
-              &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
-              &lt;label for="sort-order"&gt;
-                &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
-                &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
-              &lt;/label&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
-            &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
-            &lt;label for="physics"&gt;Physics&lt;/label&gt;
-            &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
-            &lt;label for="math"&gt;Mathematics&lt;/label&gt;
-            &lt;input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs"&gt;
-            &lt;label class="ui-phone-hidden" for="cs"&gt;Computer Science&lt;/label&gt;
-            &lt;input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio"&gt;
-            &lt;label class="ui-phone-hidden" for="q-bio"&gt;Quantitative Biology&lt;/label&gt;
-            &lt;input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin"&gt;
-            &lt;label class="ui-phone-hidden" for="q-fin"&gt;Quantitative Finance&lt;/label&gt;
-            &lt;input id="stats" type="checkbox" name="groups" value="stats"&gt;
-            &lt;label for="stats"&gt;Statistics&lt;/label&gt;
-          &lt;/div&gt;
 
   section
     h4.ui-header-secondary

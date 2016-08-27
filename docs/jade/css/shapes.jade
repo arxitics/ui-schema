@@ -14,63 +14,61 @@ block article
       label.ui-float-right(for='tooltips-src')
         i(data-schema-icon='code')
     .ui-container-grid
-      .ui-grid-25
-        .ui-tooltip-top Tooltip on top
-      .ui-grid-25
-        .ui-tooltip-right Tooltip on right
-      .ui-grid-25
-        .ui-tooltip-bottom Tooltip on bottom
-      .ui-grid-25
-        .ui-tooltip-left Tooltip on left
-    .ui-container-grid.ui-skip-large
       .ui-grid-50
-        .ui-tooltip-top
-          .ui-tooltip-header
-            h4 Links
-          .ui-tooltip-body
-            ul.ui-list-group
-              li: a(href='http://arxiv.org/abs/1212.5605') Abstract on arXiv.org
-              li: a(href='http://arxiv.org/pdf/1212.5605') View preprint PDF
-              li: a(href='http://arxiv.org/e-print/1212.5605') Download TeX source
+        .ui-tooltip-wrapper
+          button Tooltip on top
+          span.ui-tooltip-content.ui-tooltip-top A pure CSS tooltip without JavaScript
       .ui-grid-50
-        .ui-tooltip-top
-          .ui-tooltip-header
-            h4 Basic Information
-          .ui-tooltip-body
-            table.ui-table-fluid.ui-table-columns-2
-              tr
-                td Name
-                td Zan Pan
-              tr
-                td Location
-                td Beijing, China
-              tr
-                td Website
-                td: a(href='http://github.com/photino' rel='external' target='_blank') http://github.com/photino
+        .ui-tooltip-wrapper
+          button Tooltip on right
+          span.ui-tooltip-content.ui-tooltip-right A pure CSS tooltip without JavaScript
+    .ui-container-grid.ui-skip-medium
+      .ui-grid-50
+        .ui-tooltip-wrapper
+          button Tooltip on bottom
+          .ui-tooltip-content.ui-tooltip-bottom
+            .ui-content-panel
+              .ui-panel-body
+                ul.ui-list-group
+                  li: a(href='http://arxiv.org/abs/1212.5605') Abstract on arXiv.org
+                  li: a(href='http://arxiv.org/pdf/1212.5605') View preprint PDF
+                  li: a(href='http://arxiv.org/e-print/1212.5605') Download TeX source
+      .ui-grid-50
+        .ui-tooltip-wrapper
+          button Tooltip on left
+          .ui-tooltip-content.ui-tooltip-left
+            .ui-content-panel
+              .ui-panel-body
+                table.ui-table-fluid.ui-table-columns-2
+                  tr
+                    td Name
+                    td Zan Pan
+                  tr
+                    td Location
+                    td Beijing, China
+                  tr
+                    td Website
+                    td: a(href='http://github.com/photino' rel='external' target='_blank') http://github.com/photino
     .ui-toggle-target
-      input#tooltips-src(type='checkbox')
+      input#tooltips-src(type='checkbox' checked)
       div
         pre: code.language-markup.
-          &lt;div class="ui-grid-50"&gt;
-            &lt;div class="ui-tooltip-top"&gt;
-              &lt;div class="ui-tooltip-header"&gt;
-                &lt;h4&gt;Basic Information&lt;/h4&gt;
-              &lt;/div&gt;
-              &lt;div class="ui-tooltip-body"&gt;
-                &lt;table class="ui-table-fluid ui-table-columns-2"&gt;
-                  &lt;tr&gt;
-                    &lt;td&gt;Name&lt;/td&gt;
-                    &lt;td&gt;Zan Pan&lt;/td&gt;
-                  &lt;/tr&gt;
-                  &lt;tr&gt;
-                    &lt;td&gt;Location&lt;/td&gt;
-                    &lt;td&gt;Beijing, China&lt;/td&gt;
-                  &lt;/tr&gt;
-                  &lt;tr&gt;
-                    &lt;td&gt;Website&lt;/td&gt;
-                    &lt;td&gt;&lt;a href="http://github.com/photino" rel="external" target="_blank"&gt;http://github.com/photino&lt;/a&gt;&lt;/td&gt;
-                  &lt;/tr&gt;
-                &lt;/table&gt;
+          &lt;div class="ui-tooltip-wrapper"&gt;
+            &lt;button&gt;Tooltip on top&lt;/button&gt;
+            &lt;span class="ui-tooltip-content ui-tooltip-top"&gt;A pure CSS tooltip without JavaScript&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class="ui-tooltip-wrapper"&gt;
+            &lt;button&gt;Tooltip on bottom&lt;/button&gt;
+            &lt;div class="ui-tooltip-content ui-tooltip-bottom"&gt;
+              &lt;div class="ui-content-panel"&gt;
+                &lt;div class="ui-panel-body"&gt;
+                  &lt;ul class="ui-list-group"&gt;
+                    &lt;li&gt;&lt;a href="http://arxiv.org/abs/1212.5605"&gt;Abstract on arXiv.org&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="http://arxiv.org/pdf/1212.5605"&gt;View preprint PDF&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="http://arxiv.org/e-print/1212.5605"&gt;Download TeX source&lt;/a&gt;&lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/div&gt;
               &lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;

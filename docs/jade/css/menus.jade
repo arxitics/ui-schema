@@ -13,8 +13,8 @@ block article
       span Dropdown
       label.ui-float-right(for='dropdown-src')
         i(data-schema-icon='code')
-    .ui-container-grid
-      .ui-grid-20
+    .ui-container-grid.ui-phone-double
+      .ui-grid-17
         .ui-menu-dropdown
           a(aria-haspopup='true') Arxitics 
             span.ui-caret-down
@@ -33,7 +33,7 @@ block article
                 li: a(href='http://arxitics.com/visual') Data Visualization
             li.ui-seperator-horizontal(role='presentation')
             li: a(href='http://arxitics.com/auth/login') Sign in
-      .ui-grid-20
+      .ui-grid-17
         .ui-menu-dropdown.ui-block-inline
           a(aria-haspopup='true') Arxitics 
             span.ui-caret-down
@@ -52,7 +52,7 @@ block article
                 li: a(href='http://arxitics.com/visual') Data Visualization
             li.ui-seperator-horizontal(role='presentation')
             li: a(href='http://arxitics.com/auth/login') Sign in
-      .ui-grid-20
+      .ui-grid-17
         .ui-menu-dropdown
           a(aria-haspopup='true') Arxitics 
             span.ui-caret-right
@@ -71,7 +71,7 @@ block article
                 li: a(href='http://arxitics.com/visual') Data Visualization
             li.ui-seperator-horizontal(role='presentation')
             li: a(href='http://arxitics.com/auth/login') Sign in
-      .ui-grid-20
+      .ui-grid-17
         .ui-menu-dropdown.ui-space-trim(data-schema-trim)
           a(aria-haspopup='true') Arxitics 
             span.ui-caret-right
@@ -90,7 +90,26 @@ block article
                 li: a(href='http://arxitics.com/visual') Data Visualization
             li.ui-seperator-horizontal(role='presentation')
             li: a(href='http://arxitics.com/auth/login') Sign in
-      .ui-grid-20
+      .ui-grid-17
+        .ui-menu-dropdown.ui-block-inline
+          a(aria-haspopup='true') Arxitics 
+            span.ui-caret-up
+          ul.ui-placement-top.ui-pull-right(role='menu')
+            li.ui-text-muted(role='presentation'): span Navigation
+            li: a(href='http://arxitics.com/') Home
+            li: a(href='http://arxitics.com/browse') Browse
+            li.ui-menu-dropdown.ui-space-trim(data-schema-trim)
+              a.ui-text-left-right
+                span Explore
+                span.ui-caret-right
+              ul.ui-placement-right(role='menu')
+                li: a(href='http://arxitics.com/articles') Collaborative Filtering
+                li: a(href='http://arxitics.com/search') Advanced Search
+                li: a(href='http://arxitics.com/articles/random') Random Article
+                li: a(href='http://arxitics.com/visual') Data Visualization
+            li.ui-seperator-horizontal(role='presentation')
+            li: a(href='http://arxitics.com/auth/login') Sign in
+      .ui-grid-17
         .ui-menu-dropdown.ui-block-inline
           a(aria-haspopup='true') Arxitics 
             span.ui-caret-up
@@ -110,7 +129,7 @@ block article
             li.ui-seperator-horizontal(role='presentation')
             li: a(href='http://arxitics.com/auth/login') Sign in
     .ui-toggle-target
-      input#dropdown-src(type='checkbox')
+      input#dropdown-src(type='checkbox' checked)
       div
         pre: code.language-markup.
           &lt;div class="ui-menu-dropdown"&gt;
@@ -142,7 +161,7 @@ block article
       label.ui-float-right(for='selection-src')
         i(data-schema-icon='code')
     .ui-container-grid
-      .ui-grid-33.ui-phone-expand.ui-menu-selection
+      .ui-grid-50.ui-menu-selection
         ul(role='listbox')
           li.ui-text-left-right(aria-haspopup='true')
             span List of Categories
@@ -153,7 +172,7 @@ block article
           li: a(href='http://arxitics.com/help/categories?group=q-bio') Qualitative Biology
           li: a(href='http://arxitics.com/help/categories?group=q-fin') Qualitative Fiance
           li: a(href='http://arxitics.com/help/categories?group=stat') Statistics
-      .ui-grid-33.ui-phone-expand.ui-menu-selection
+      .ui-grid-50.ui-menu-selection
         ul.ui-rows-seperated(role='listbox')
           li.ui-text-left-right(aria-haspopup='true')
             span List of Categories

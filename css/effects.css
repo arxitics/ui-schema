@@ -69,8 +69,8 @@
 }
 
 .ui-frame-rounded,
-.ui-frame-circular,
-.ui-frame-stadium {
+.ui-frame-stadium,
+.ui-frame-circular {
   border: 1px solid #ccc;
   padding: 0.4em 0.8em;
 }
@@ -79,13 +79,12 @@
   border-radius: 0.4rem;
 }
 
-.ui-frame-circular {
-  border-radius: 50%;
+.ui-frame-stadium {
+  border-radius: 3.2rem;
 }
 
-.ui-frame-stadium {
-  border-radius: 1.11428em;
-  line-height: 1.42857;
+.ui-frame-circular {
+  border-radius: 50%;
 }
 
 .ui-columns-seperated > li + li,
@@ -98,17 +97,6 @@
 .ui-rows-seperated > div + div,
 .ui-rows-seperated > span + span {
   border-top: 1px solid #ccc;
-}
-
-.ui-progress-striped::-moz-progress-bar {
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-size: 3em 3em;
-}
-
-.ui-progress-striped::-webkit-progress-value {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-size: 3em 3em;
 }
 
 .ui-rotate-90 {
@@ -134,4 +122,14 @@
 .ui-flip-vertical {
   -webkit-transform: scale(1, -1);
   transform: scale(1, -1);
+}
+
+.ui-progress-striped::-moz-progress-bar {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 3em 3em;
+}
+
+.ui-progress-striped::-webkit-progress-value {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 3em 3em;
 }

@@ -26,7 +26,7 @@ cd ../js
 rm ../dist/ui-schema*.js
 jsdist="../dist/ui-schema-$version.js"
 jsfile="../dist/ui-schema-$version.min.js"
-cat setup.js core.js forms.js utilities.js icons.js >> $jsdist
+cat setup.js core.js forms.js images.js utilities.js icons.js >> $jsdist
 uglifyjs --compress --mangle --output $jsfile $jsdist
 echo "$copyright" | cat - $jsfile > tmp.js && mv tmp.js $jsfile
 echo cat $jsfile | openssl dgst -sha384 -binary | openssl enc -base64 -A
