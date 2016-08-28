@@ -645,9 +645,14 @@ progress {
   width: 100%;
 }
 
+/**
+ * 1. Remove the border of `meter` element in Edge.
+ */
+
 meter::-webkit-meter-bar,
 progress::-webkit-progress-bar {
   background: #f5f5f5;
+  border: 0; /* 1 */
   border-radius: 0.4rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
@@ -704,6 +709,7 @@ progress::-ms-fill {
 
 progress:not([value])::-moz-progress-bar {
   background: #f5f5f5;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* Grouping content
@@ -941,8 +947,38 @@ input[type="range"] {
   width: 100%;
 }
 
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #428bca;
+  border: none;
+  border-radius: 50%;
+  height: 1.2em;
+  margin-top: -0.4em;
+  width: 1.2em;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #ddd;
+  border: none;
+  border-radius: 0.2rem;
+  height: 0.4em;
+  width: 100%;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+
 input[type="range"]::-moz-focus-outer {
   border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #428bca;
+  border: none;
+  border-radius: 50%;
+  height: 1.2em;
+  width: 1.2em;
 }
 
 input[type="range"]::-moz-range-track {
@@ -953,12 +989,8 @@ input[type="range"]::-moz-range-track {
   width: 100%;
 }
 
-input[type="range"]::-moz-range-thumb {
-  background: #428bca;
-  border: none;
-  border-radius: 50%;
-  height: 1.2em;
-  width: 1.2em;
+input[type="range"]:focus::-moz-range-track {
+  background: #ccc;
 }
 
 input[type="range"]::-ms-fill-lower {
@@ -971,11 +1003,16 @@ input[type="range"]::-ms-fill-upper {
   border-radius: 0.2rem;
 }
 
+/*
+ * 1. Reset the `margin-top` value of `::-webkit-slider-thumb`.
+ */
+
 input[type="range"]::-ms-thumb {
   background: #428bca;
   border: none;
   border-radius: 50%;
   height: 1.2em;
+  margin-top: -0.1em; /* 1 */
   width: 1.2em;
 }
 
@@ -989,37 +1026,11 @@ input[type="range"]::-ms-track {
   width: 100%;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
-  background: #ddd;
-  border: none;
-  border-radius: 0.2rem;
-  height: 0.4em;
-  width: 100%;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background: #428bca;
-  border: none;
-  border-radius: 50%;
-  height: 1.2em;
-  margin-top: -0.4em;
-  width: 1.2em;
-}
-
-input[type="range"]:focus::-moz-range-track {
-  background: #ccc;
-}
-
 input[type="range"]:focus::-ms-fill-lower {
   background: #888;
 }
 
 input[type="range"]:focus::-ms-fill-upper {
-  background: #ccc;
-}
-
-input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #ccc;
 }
 
@@ -2327,6 +2338,7 @@ tr:last-child > td {
 .ui-panel-header {
   background-color: #f5f5f5;
   border-bottom: inherit;
+  border-radius: 0.4rem 0.4rem 0 0;
   padding: 0.6em 0.8em;
 }
 
@@ -2526,6 +2538,7 @@ tr:last-child > td {
 .ui-button-switch {
   display: inline-block;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .ui-button-group > input[type="radio"],
@@ -3740,7 +3753,7 @@ tr:last-child > td {
 
 .ui-overflow-hidden {
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .ui-scroll-mandatory {
