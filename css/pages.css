@@ -22,11 +22,6 @@
   width: 215.9mm;
 }
 
-.ui-full-page {
-  height: 100vh;
-  width: 100vw;
-}
-
 .ui-page-wrapper {
   background-color: #fff;
   -moz-box-sizing: border-box;
@@ -65,7 +60,7 @@
 
 .ui-overflow-hidden {
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .ui-scroll-mandatory {

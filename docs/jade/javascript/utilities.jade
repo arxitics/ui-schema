@@ -11,11 +11,11 @@ block article
   section
     h4.ui-header-secondary Toggle CSS Classes
     div
-      input(placeholder='Toggle on focus' data-schema-toggle='#target' data-schema-trigger='focus blur')
+      input.ui-box-small(placeholder='Toggle on focus' data-schema-toggle='#target' data-schema-trigger='focus blur')
       a.ui-text-button.ui-offset-medium(data-schema-toggle='#target') Click to toggle
       button#target.ui-button-success.ui-offset-medium(data-schema-toggler='ui-button-success ui-zoom-large') Target button
     pre: code.language-markup.
-      &lt;input placeholder="Toggle on focus" data-schema-toggle="#target" data-schema-trigger='focus blur'&gt;
+      &lt;input class="ui-box-small" placeholder="Toggle on focus" data-schema-toggle="#target" data-schema-trigger='focus blur'&gt;
       &lt;a class="ui-text-button ui-offset-medium" data-schema-toggle="#target"&gt;Click to toggle&lt;/a&gt;
       &lt;button id="target" class="ui-button-success ui-offset-medium" data-schema-toggler="ui-button-success ui-zoom-large"&gt;Target button&lt;/button&gt;
 

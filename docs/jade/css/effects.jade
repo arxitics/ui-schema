@@ -14,16 +14,16 @@ block article
       label.ui-float-right(for='meters-src')
         i(data-schema-icon='code')
     div
-      meter(value='30' min='0' low='33' high='66' optimum='100' max='100') 30
-      meter.ui-skip-small(value='60' min='0' low='33' high='66' optimum='100' max='100') 60
-      meter.ui-skip-small(value='90' min='0' low='33' high='66' optimum='100' max='100') 90
+      meter(value='20' min='0' low='33' high='66' optimum='100' max='100' title='20') 20
+      meter.ui-skip-small(value='60' min='0' low='33' high='66' optimum='100' max='100' title='60') 60
+      meter.ui-skip-small(value='100' min='0' low='33' high='66' optimum='100' max='100' title='100') 100
     .ui-toggle-target
       input#meters-src(type='checkbox' checked)
       div
         pre: code.language-markup.
-          &lt;meter value="30" min="0" low="33" high="66" optimum="100" max="100"&gt;30&lt;/meter&gt;
-          &lt;meter value="60" min="0" low="33" high="66" optimum="100" max="100"&gt;60&lt;/meter&gt;
-          &lt;meter value="90" min="0" low="33" high="66" optimum="100" max="100"&gt;90&lt;/meter&gt;
+          &lt;meter value="20" min="0" low="33" high="66" optimum="100" max="100" title="20"&gt;20&lt;/meter&gt;
+          &lt;meter value="60" min="0" low="33" high="66" optimum="100" max="100" title="60"&gt;60&lt;/meter&gt;
+          &lt;meter value="100" min="0" low="33" high="66" optimum="100" max="100" title="100"&gt;100&lt;/meter&gt;
 
   section
     h4.ui-header-secondary
@@ -31,20 +31,22 @@ block article
       label.ui-float-right(for='progress-bars-src')
         i(data-schema-icon='code')
     div
-      progress(value='60' max='100' title='60%') 60% completed
-      progress.ui-progress-success.ui-skip-small(value='60' max='100' title='60%') 60% completed
-      progress.ui-progress-info.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%') 60% completed
-      progress.ui-progress-warning.ui-progress-striped.ui-skip-small(value='60' max='100' title='60%') 60% completed
-      progress.ui-progress-danger.ui-skip-small(max='100' title='no value') no value
+      progress(value='100' max='100' title='100%') all completed
+      progress.ui-progress-success.ui-skip-small(value='80' max='100' title='80%') 80% completed
+      progress.ui-progress-info.ui-skip-small(value='60' max='100' title='60%') 60% completed
+      progress.ui-progress-warning.ui-progress-striped.ui-skip-small(value='40' max='100' title='40%') 40% completed
+      progress.ui-progress-danger.ui-progress-striped.ui-skip-small(value='20' max='100' title='20%') 20% completed
+      progress.ui-skip-small(max='100' title='no value') no value
     .ui-toggle-target
       input#progress-bars-src(type='checkbox')
       div
         pre: code.language-markup.
-          &lt;progress value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-          &lt;progress class="ui-progress-success" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-          &lt;progress class="ui-progress-info ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-          &lt;progress class="ui-progress-warning ui-progress-striped" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
-          &lt;progress class="ui-progress-danger" max="100" title="no value"&gt;no value&lt;/progress&gt;
+          &lt;progress value="100" max="100" title="100%"&gt;all completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-success" value="80" max="100" title="80%"&gt;80% completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-info" value="60" max="100" title="60%"&gt;60% completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-warning ui-progress-striped" value="40" max="100" title="40%"&gt;40% completed&lt;/progress&gt;
+          &lt;progress class="ui-progress-danger ui-progress-striped" value="20%" max="100" title="20%"&gt;20% completed&lt;/progress&gt;
+          &lt;progress max="100" title="no value"&gt;no value&lt;/progress&gt;
 
   section
     h4.ui-header-secondary

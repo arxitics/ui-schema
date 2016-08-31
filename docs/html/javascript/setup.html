@@ -50,49 +50,54 @@ schema.setup = {
 
 // Register schema events
 schema.events = {
+  bind: {
+    type: 'bind',
+    namespace: 'event.data-api.schema',
+    selector: '[data-schema-event]'
+  },
   retrieve: {
     type: 'retrieve',
-    namespace: '.options.data-api.schema',
+    namespace: 'options.data-api.schema',
     selector: '[data-schema-options]'
   },
   validate: {
     type: 'validate',
-    namespace: '.form.data-api.schema',
+    namespace: 'form.data-api.schema',
     selector: 'form[data-schema-validate]'
   },
   lazyload: {
-    type: 'load',
-    namespace: '.image.data-api.schema',
+    type: 'lazyload',
+    namespace: 'image.data-api.schema',
     selector: 'img[data-schema-lazyload]'
   },
   sprite: {
-    type: 'create',
-    namespace: '.icon.svg.data-api.schema',
+    type: 'sprite',
+    namespace: 'icon.svg.data-api.schema',
     selector: 'i[data-schema-icon]'
   },
   trim: {
-    type: 'remove',
-    namespace: '.text-node.dom.data-api.schema',
+    type: 'trim',
+    namespace: 'text-node.dom.data-api.schema',
     selector: 'body [data-schema-trim]'
   },
   extract: {
-    type: 'create',
-    namespace: '.dom.data-api.schema',
+    type: 'extract',
+    namespace: 'dom.data-api.schema',
     selector: 'body [data-schema-extract]'
   },
   dismiss: {
-    type: 'remove',
-    namespace: '.dom.data-api.schema',
+    type: 'dismiss',
+    namespace: 'dom.data-api.schema',
     selector: 'body [data-schema-dismiss]'
   },
   autoplay: {
-    type: 'animate',
-    namespace: '.dom.data-api.schema',
+    type: 'autoplay',
+    namespace: 'dom.data-api.schema',
     selector: '[data-schema-autoplay]'
   },
   toggle: {
     type: 'toggle',
-    namespace: '.class.data-api.schema',
+    namespace: 'class.data-api.schema',
     selector: '[data-schema-toggle]'
   }
 };</code></pre>

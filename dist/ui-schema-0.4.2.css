@@ -511,11 +511,12 @@ body {
 
 /**
  * 1. Justify content text on both sides.
+ * 2. 3.142857 * 1.6 + 7 + 2.4 + 1.4 = 15.8286
  */
 
 main {
   margin: 4rem 0 3rem; /* 1 */
-  min-height: calc(100vh - 15.8286rem);
+  min-height: calc(100vh - 15.8286rem); /* 2 */
 }
 
 article,
@@ -608,11 +609,16 @@ figure {
   margin: 0;
 }
 
+/**
+ * 1. Fix the bug of displaying SVG in UC browser.
+ */
+
 i {
   display: inline-block;
   font-style: normal;
-  max-width: 1.25em;
   height: 1.25em;
+  max-width: 1.25em;
+  min-width: 1em; /* 1 */
   vertical-align: text-bottom;
 }
 
@@ -645,10 +651,13 @@ progress {
   width: 100%;
 }
 
-meter::-webkit-meter-bar,
-progress::-webkit-progress-bar {
+/**
+ * 1. Remove the border of `meter` element in Edge.
+ */
+
+meter::-webkit-meter-bar {
   background: #f5f5f5;
-  border-radius: 0.4rem;
+  border: 0; /* 1 */
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -690,6 +699,11 @@ progress {
   appearance: none;
 }
 
+progress::-webkit-progress-bar {
+  background: #f5f5f5;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
 progress::-webkit-progress-value {
   background: #428bca;
 }
@@ -704,6 +718,7 @@ progress::-ms-fill {
 
 progress:not([value])::-moz-progress-bar {
   background: #f5f5f5;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* Grouping content
@@ -941,8 +956,38 @@ input[type="range"] {
   width: 100%;
 }
 
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #428bca;
+  border: none;
+  border-radius: 50%;
+  height: 1.2em;
+  margin-top: -0.4em;
+  width: 1.2em;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #ddd;
+  border: none;
+  border-radius: 0.2rem;
+  height: 0.4em;
+  width: 100%;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+
 input[type="range"]::-moz-focus-outer {
   border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #428bca;
+  border: none;
+  border-radius: 50%;
+  height: 1.2em;
+  width: 1.2em;
 }
 
 input[type="range"]::-moz-range-track {
@@ -953,12 +998,8 @@ input[type="range"]::-moz-range-track {
   width: 100%;
 }
 
-input[type="range"]::-moz-range-thumb {
-  background: #428bca;
-  border: none;
-  border-radius: 50%;
-  height: 1.2em;
-  width: 1.2em;
+input[type="range"]:focus::-moz-range-track {
+  background: #ccc;
 }
 
 input[type="range"]::-ms-fill-lower {
@@ -971,11 +1012,16 @@ input[type="range"]::-ms-fill-upper {
   border-radius: 0.2rem;
 }
 
+/*
+ * 1. Reset the `margin-top` value of `::-webkit-slider-thumb`.
+ */
+
 input[type="range"]::-ms-thumb {
   background: #428bca;
   border: none;
   border-radius: 50%;
   height: 1.2em;
+  margin-top: -0.1em; /* 1 */
   width: 1.2em;
 }
 
@@ -989,37 +1035,11 @@ input[type="range"]::-ms-track {
   width: 100%;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
-  background: #ddd;
-  border: none;
-  border-radius: 0.2rem;
-  height: 0.4em;
-  width: 100%;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background: #428bca;
-  border: none;
-  border-radius: 50%;
-  height: 1.2em;
-  margin-top: -0.4em;
-  width: 1.2em;
-}
-
-input[type="range"]:focus::-moz-range-track {
-  background: #ccc;
-}
-
 input[type="range"]:focus::-ms-fill-lower {
   background: #888;
 }
 
 input[type="range"]:focus::-ms-fill-upper {
-  background: #ccc;
-}
-
-input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #ccc;
 }
 
@@ -1201,6 +1221,8 @@ tr:last-child > td {
   display: block;
   margin-left: auto; /* 1 */
   margin-right: auto; /* 1 */
+  max-width: 90%;
+  max-width: calc(100% - 4rem);
   padding-left: 2rem; /* 2 */
   padding-right: 2rem; /* 2 */
 }
@@ -1216,9 +1238,7 @@ tr:last-child > td {
 }
 
 .ui-container-flex {
-  display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -1477,6 +1497,19 @@ tr:last-child > td {
   display: table;
 }
 
+.ui-full-width {
+  width: 100vw;
+}
+
+.ui-full-height {
+  height: 100vh;
+}
+
+.ui-full-page {
+  height: 100vh;
+  width: 100vw;
+}
+
 .ui-fixed-width {
   width: 1.42857em !important;
 }
@@ -1542,6 +1575,7 @@ tr:last-child > td {
 .ui-vertical-center {
   display: table-cell !important;
   vertical-align: middle;
+  width: 1% !important;
 }
 
 .ui-columns-2 {
@@ -1583,16 +1617,8 @@ tr:last-child > td {
   color: #777;
 }
 
-.ui-header-navbar > .ui-header-brand {
-  float: left;
-  margin-right: 1.2em;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
-}
-
 .ui-header-navbar > nav,
-.ui-header-navbar > nav > ul,
-.ui-header-navbar > nav > .ui-nav-collapse {
+.ui-header-navbar > nav > ul {
   float: left;
   margin-bottom: 0;
   vertical-align: top;
@@ -1609,17 +1635,30 @@ tr:last-child > td {
 }
 
 .ui-header-navbar > form,
-.ui-header-navbar > .ui-header-account {
+.ui-header-account {
   font-size: 0.875em;
   padding-top: 0.8rem;
   text-align: right;
   vertical-align: bottom;
 }
 
-.ui-nav-collapse {
+.ui-header-brand {
+  float: left;
+  margin-right: 1.2em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.ui-nav-collapse > :first-child {
   cursor: pointer;
   display: none;
-  padding: 1em 0.6em;
+  float: left;
+  padding-bottom: 0.8em;
+  padding-top: 0.8em;
+}
+
+.ui-nav-collapse > ul {
+  background-color: #f8f8f8;
 }
 
 .ui-nav-tabs,
@@ -1813,7 +1852,6 @@ tr:last-child > td {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.4rem;
-  display: inline-block;
   list-style: none;
   padding-left: 0;
   position: absolute;
@@ -1868,6 +1906,7 @@ tr:last-child > td {
 }
 
 .ui-menu-selection > ul {
+  display: inline-block;
   max-height: 20em;
   overflow: auto;
 }
@@ -2327,6 +2366,7 @@ tr:last-child > td {
 .ui-panel-header {
   background-color: #f5f5f5;
   border-bottom: inherit;
+  border-radius: 0.4rem 0.4rem 0 0;
   padding: 0.6em 0.8em;
 }
 
@@ -2426,6 +2466,7 @@ tr:last-child > td {
 .ui-form-fluid textarea {
   display: block;
   margin-bottom: 1.5rem;
+  min-width: 95%;
   width: calc(100% - 1.6em - 2px);
 }
 
@@ -2459,9 +2500,7 @@ tr:last-child > td {
 }
 
 .ui-input-addon {
-  display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   height: 2.34694em;
@@ -2474,9 +2513,7 @@ tr:last-child > td {
 }
 
 .ui-input-addon > input {
-  -moz-box-flex: 1;
   -ms-flex: 1;
-  -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
 }
@@ -2526,6 +2563,7 @@ tr:last-child > td {
 .ui-button-switch {
   display: inline-block;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .ui-button-group > input[type="radio"],
@@ -2728,8 +2766,8 @@ tr:last-child > td {
 .ui-icon-bordered,
 .ui-icon-circular {
   border: 1px solid #ccc;
-  width: 1.25em;
   padding: 0.2em;
+  width: 1.25em;
 }
 
 .ui-icon-bordered {
@@ -3553,24 +3591,23 @@ tr:last-child > td {
  * Mobile
  */
 
+.ui-mobile-visible,
+.ui-phone-visible {
+  display: none !important;
+}
+
 @media (max-width: 991px) {
   .ui-mobile-hidden {
     display: none !important;
   }
-  .ui-mobile-expand {
-    -moz-column-count: 1;
-    -webkit-column-count: 1;
-    column-count: 1;
-    float: left;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    position: relative;
-    width: 100%;
+  .ui-mobile-visible {
+    display: block !important;
   }
-  .ui-mobile-expand + .ui-mobile-expand {
-    margin-top: 1em;
+  .ui-mobile-shrink {
+    margin: 0;
+  }
+  .ui-mobile-auto {
+    width: auto;
   }
   .ui-mobile-double > .ui-grid-17,
   .ui-mobile-double > .ui-fluid-17 {
@@ -3595,32 +3632,7 @@ tr:last-child > td {
   .ui-mobile-half > .ui-box-huge {
     width: 24em;
   }
-  .ui-mobile-auto,
-  .ui-mobile-collapse {
-    width: auto;
-  }
-  .ui-mobile-collapse > :first-child {
-    display: inline-block;
-  }
-  .ui-mobile-collapse > :not(:first-child) {
-    display: none;
-  }
-  .ui-mobile-collapse:hover > :not(:first-child) {
-    display: block;
-  }
-  .ui-mobile-reverse {
-    -moz-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    -webkit-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-  }
-}
-
-@media (max-width: 767px) {
-  .ui-phone-hidden {
-    display: none !important;
-  }
-  .ui-phone-expand {
+  .ui-mobile-expand {
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
@@ -3632,8 +3644,44 @@ tr:last-child > td {
     position: relative;
     width: 100%;
   }
-  .ui-phone-expand + .ui-phone-expand {
+  .ui-mobile-expand + .ui-mobile-expand {
     margin-top: 1em;
+  }
+  .ui-mobile-collapse {
+    float: right !important;
+    position: relative;
+    width: auto;
+  }
+  .ui-mobile-collapse > :first-child {
+    display: block;
+  }
+  .ui-mobile-collapse > :not(:first-child) {
+    display: none;
+  }
+  .ui-mobile-collapse:hover > :not(:first-child) {
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }
+  .ui-mobile-collapse:hover > ul > li {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .ui-phone-hidden {
+    display: none !important;
+  }
+  .ui-phone-visible {
+    display: block !important;
+  }
+  .ui-phone-shrink {
+    margin: 0;
+  }
+  .ui-phone-auto {
+    width: auto;
   }
   .ui-phone-double > .ui-grid-17,
   .ui-phone-double > .ui-fluid-17 {
@@ -3657,6 +3705,42 @@ tr:last-child > td {
   }
   .ui-phone-half > .ui-box-huge {
     width: 24em;
+  }
+  .ui-phone-expand {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    width: 100%;
+  }
+  .ui-phone-expand + .ui-phone-expand {
+    margin-top: 1em;
+  }
+  .ui-phone-collapse {
+    float: right !important;
+    position: relative;
+    width: auto;
+  }
+  .ui-phone-collapse > :first-child {
+    display: block;
+  }
+  .ui-phone-collapse > :not(:first-child) {
+    display: none;
+  }
+  .ui-phone-collapse:hover > :not(:first-child) {
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }
+  .ui-phone-collapse:hover > ul > li {
+    display: block;
+    width: 100%;
   }
 }
 
@@ -3697,11 +3781,6 @@ tr:last-child > td {
   width: 215.9mm;
 }
 
-.ui-full-page {
-  height: 100vh;
-  width: 100vw;
-}
-
 .ui-page-wrapper {
   background-color: #fff;
   -moz-box-sizing: border-box;
@@ -3740,7 +3819,7 @@ tr:last-child > td {
 
 .ui-overflow-hidden {
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .ui-scroll-mandatory {

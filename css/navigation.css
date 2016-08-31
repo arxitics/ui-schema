@@ -19,16 +19,8 @@
   color: #777;
 }
 
-.ui-header-navbar > .ui-header-brand {
-  float: left;
-  margin-right: 1.2em;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
-}
-
 .ui-header-navbar > nav,
-.ui-header-navbar > nav > ul,
-.ui-header-navbar > nav > .ui-nav-collapse {
+.ui-header-navbar > nav > ul {
   float: left;
   margin-bottom: 0;
   vertical-align: top;
@@ -45,17 +37,30 @@
 }
 
 .ui-header-navbar > form,
-.ui-header-navbar > .ui-header-account {
+.ui-header-account {
   font-size: 0.875em;
   padding-top: 0.8rem;
   text-align: right;
   vertical-align: bottom;
 }
 
-.ui-nav-collapse {
+.ui-header-brand {
+  float: left;
+  margin-right: 1.2em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.ui-nav-collapse > :first-child {
   cursor: pointer;
   display: none;
-  padding: 1em 0.6em;
+  float: left;
+  padding-bottom: 0.8em;
+  padding-top: 0.8em;
+}
+
+.ui-nav-collapse > ul {
+  background-color: #f8f8f8;
 }
 
 .ui-nav-tabs,

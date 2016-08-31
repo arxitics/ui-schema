@@ -64,16 +64,18 @@ block article
       label.ui-float-right(for='lists-src')
         i(data-schema-icon='code')
     .ui-container-grid
-      ul.ui-grid-50.ui-phone-expand.ui-list-inline
-        li: a(href='http://arxitics.com/site/about') About
-        li: a(href='http://arxitics.com/site/terms') Terms
-        li: a(href='http://arxitics.com/site/privacy') Privacy
-        li: a(href='http://arxitics.com/site/disclaimer') Disclaimer
-      ul.ui-grid-50.ui-phone-expand.ui-list-inline.ui-seperator-bullet
-        li: a(href='http://arxitics.com/site/about') About
-        li: a(href='http://arxitics.com/site/terms') Terms
-        li: a(href='http://arxitics.com/site/privacy') Privacy
-        li: a(href='http://arxitics.com/site/disclaimer') Disclaimer
+      .ui-grid-50.ui-phone-expand
+        ul.ui-list-inline.ui-phone-shrink
+          li: a(href='http://arxitics.com/site/about') About
+          li: a(href='http://arxitics.com/site/terms') Terms
+          li: a(href='http://arxitics.com/site/privacy') Privacy
+          li: a(href='http://arxitics.com/site/disclaimer') Disclaimer
+      .ui-grid-50.ui-phone-expand
+        ul.ui-list-inline.ui-seperator-bullet
+          li: a(href='http://arxitics.com/site/about') About
+          li: a(href='http://arxitics.com/site/terms') Terms
+          li: a(href='http://arxitics.com/site/privacy') Privacy
+          li: a(href='http://arxitics.com/site/disclaimer') Disclaimer
       dl.ui-list-indent.ui-list-numbered
         dt Why can't I receive my private key for each email confirmation?
         dd In consideration of security, you can only receive you private key in the first three emails. You should keep it confidential and never share with others unless requested by our website.
@@ -116,14 +118,15 @@ block article
       label.ui-float-right(for='labels-src')
         i(data-schema-icon='code')
     .ui-container-grid
-      .ui-grid-60.ui-phone-expand.ui-float-left.ui-text-list
+      .ui-text-list
         span.ui-text-label Default
         span.ui-text-label.ui-label-primary Primary
         span.ui-text-label.ui-label-success Success
         span.ui-text-label.ui-label-info Info
         span.ui-text-label.ui-label-warning Warning
         span.ui-text-label.ui-label-danger Danger
-      .ui-grid-40.ui-phone-expand.ui-float-right.ui-text-list
+    .ui-container-grid.ui-skip-medium
+      .ui-text-list
         span.ui-text-badge 1
         span.ui-text-badge.ui-label-primary 23
         span.ui-text-badge.ui-label-success a

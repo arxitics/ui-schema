@@ -17,6 +17,7 @@
 .ui-form-fluid textarea {
   display: block;
   margin-bottom: 1.5rem;
+  min-width: 95%;
   width: calc(100% - 1.6em - 2px);
 }
 
@@ -50,9 +51,7 @@
 }
 
 .ui-input-addon {
-  display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   height: 2.34694em;
@@ -65,9 +64,7 @@
 }
 
 .ui-input-addon > input {
-  -moz-box-flex: 1;
   -ms-flex: 1;
-  -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
 }
@@ -117,6 +114,7 @@
 .ui-button-switch {
   display: inline-block;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .ui-button-group > input[type="radio"],

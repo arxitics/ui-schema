@@ -14,23 +14,22 @@ block article
       schema.create = (options) =&gt; Object.create(schema);
 
       // Bind and trigger schema events
-      schema.load = (setup, events) =&gt; {
-        for (var event of events) {
-          $(document).on(event);
-          $(document).trigger(event);
+      schema.load = (options) =&gt; {
+        for (var key in events) {
+          schema.delegate(events[key], options);
         }
       };
 
       // Assign an integer as the delegation of an event
-      schema.delegate = (event) =&gt; {
-        switch (delegation) {
-          case 3: bind &amp;&amp; trigger;
-          case 2: bind;
-          default: null;
+      schema.delegate = (event, options) =&gt; {
+        var type = event.type;
+        var name = type + event.namespace;
+        var delegation = event.delegation;
+        if (delegation &gt; 1) {
+          var handler = schema[type] || function () {};
+          $(document).on(name, handler);
+          if (delegation &gt; 2) {
+            $(document).trigger(name, event.options);
+          }
         }
-      };
-
-      // Retrieve schema event options and store as event data
-      schema.retrieve = (event, options) =&gt; {
-        $(event.selector).data(options);
       };

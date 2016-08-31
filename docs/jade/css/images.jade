@@ -18,7 +18,7 @@ block article
     a.ui-image-lightbox.ui-offset-large(href='#island')
       img.ui-image-thumbnail(width='100' height='100' src='http://oss.arxitics.com/images/emoji/island.svg' alt='island')
       span.ui-image-reveal Island
-    .ui-lightbox-content#island
+    .ui-container-fluid.ui-lightbox-content#island
       figure.ui-absolute-center.ui-mobile-expand
         a.ui-nav-left(href='#') &times;
         a.ui-nav-right(href='#desert') &rarr;
@@ -26,8 +26,8 @@ block article
           img(width='600' src='http://oss.arxitics.com/images/emoji/island.svg' alt='island')
         figcaption.ui-skip-medium.
           An island or isle is any piece of sub-continental land that is surrounded by water.
-    .ui-lightbox-content#desert
-      figure.ui-absolute-center
+    .ui-container-fluid.ui-lightbox-content#desert
+      figure.ui-absolute-center.ui-mobile-expand
         a.ui-nav-left(href='#island') &larr;
         a.ui-nav-right(href='#') &times;
         a(href='https://en.wikipedia.org/wiki/Desert' target='_blank')

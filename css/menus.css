@@ -25,7 +25,6 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.4rem;
-  display: inline-block;
   list-style: none;
   padding-left: 0;
   position: absolute;
@@ -80,6 +79,7 @@
 }
 
 .ui-menu-selection > ul {
+  display: inline-block;
   max-height: 20em;
   overflow: auto;
 }

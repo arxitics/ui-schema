@@ -121,6 +121,18 @@ block article
           input(type='search' name='q' placeholder='Search or type a command')
           button(type='submit')
             i(data-schema-icon='search') Go!
+    header.ui-header-navbar.ui-container-fluid.ui-container-grid.ui-skip-medium
+      .ui-header-brand
+        h2: a(href='http://arxitics.github.io/ui-schema/') UI Schema
+      nav.ui-nav-collapse.ui-phone-collapse
+        span: i(data-schema-icon='menu')
+        ul
+          li.ui-phone-visible.ui-text-right
+            a: i(data-schema-icon='menu')
+          li: a(href='http://arxitics.github.io/ui-schema/css.html') CSS
+          li: a(href='http://arxitics.github.io/ui-schema/javascript.html') JavaScript
+          li: a(href='http://arxitics.github.io/ui-schema/examples.html') Examples
+          li: a(href='https://github.com/arxitics/ui-schema' rel='external' target='_blank') GitHub
     .ui-toggle-target
       input#navbar-src(type='checkbox')
       div
@@ -152,6 +164,22 @@ block article
                 &lt;button type="submit"&gt;&lt;i data-schema-icon="search"&gt;Go!&lt;/i&gt;&lt;/button&gt;
               &lt;/div&gt;
             &lt;/form&gt;
+          &lt;/header&gt;
+
+          &lt;header class="ui-header-navbar ui-container-fluid ui-container-grid"&gt;
+            &lt;div class="ui-header-brand"&gt;
+              &lt;h2&gt;&lt;a href="http://arxitics.github.io/ui-schema/"&gt;UI Schema&lt;/a&gt;&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;nav class="ui-nav-collapse ui-phone-collapse"&gt;
+              &lt;span&gt;&lt;i data-schema-icon="menu"&gt;&lt;/i&gt;&lt;/span&gt;
+              &lt;ul&gt;
+                &lt;li class="ui-phone-visible ui-text-right"&gt;&lt;a&gt;&lt;i data-schema-icon="menu"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="http://arxitics.github.io/ui-schema/css.html"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="http://arxitics.github.io/ui-schema/javascript.html"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="http://arxitics.github.io/ui-schema/examples.html"&gt;Examples&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank"&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/nav&gt;
           &lt;/header&gt;
 
   section

@@ -2,24 +2,23 @@
  * Mobile
  */
 
+.ui-mobile-visible,
+.ui-phone-visible {
+  display: none !important;
+}
+
 @media (max-width: 991px) {
   .ui-mobile-hidden {
     display: none !important;
   }
-  .ui-mobile-expand {
-    -moz-column-count: 1;
-    -webkit-column-count: 1;
-    column-count: 1;
-    float: left;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    position: relative;
-    width: 100%;
+  .ui-mobile-visible {
+    display: block !important;
   }
-  .ui-mobile-expand + .ui-mobile-expand {
-    margin-top: 1em;
+  .ui-mobile-shrink {
+    margin: 0;
+  }
+  .ui-mobile-auto {
+    width: auto;
   }
   .ui-mobile-double > .ui-grid-17,
   .ui-mobile-double > .ui-fluid-17 {
@@ -44,32 +43,7 @@
   .ui-mobile-half > .ui-box-huge {
     width: 24em;
   }
-  .ui-mobile-auto,
-  .ui-mobile-collapse {
-    width: auto;
-  }
-  .ui-mobile-collapse > :first-child {
-    display: inline-block;
-  }
-  .ui-mobile-collapse > :not(:first-child) {
-    display: none;
-  }
-  .ui-mobile-collapse:hover > :not(:first-child) {
-    display: block;
-  }
-  .ui-mobile-reverse {
-    -moz-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    -webkit-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-  }
-}
-
-@media (max-width: 767px) {
-  .ui-phone-hidden {
-    display: none !important;
-  }
-  .ui-phone-expand {
+  .ui-mobile-expand {
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
@@ -81,8 +55,44 @@
     position: relative;
     width: 100%;
   }
-  .ui-phone-expand + .ui-phone-expand {
+  .ui-mobile-expand + .ui-mobile-expand {
     margin-top: 1em;
+  }
+  .ui-mobile-collapse {
+    float: right !important;
+    position: relative;
+    width: auto;
+  }
+  .ui-mobile-collapse > :first-child {
+    display: block;
+  }
+  .ui-mobile-collapse > :not(:first-child) {
+    display: none;
+  }
+  .ui-mobile-collapse:hover > :not(:first-child) {
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }
+  .ui-mobile-collapse:hover > ul > li {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .ui-phone-hidden {
+    display: none !important;
+  }
+  .ui-phone-visible {
+    display: block !important;
+  }
+  .ui-phone-shrink {
+    margin: 0;
+  }
+  .ui-phone-auto {
+    width: auto;
   }
   .ui-phone-double > .ui-grid-17,
   .ui-phone-double > .ui-fluid-17 {
@@ -106,5 +116,41 @@
   }
   .ui-phone-half > .ui-box-huge {
     width: 24em;
+  }
+  .ui-phone-expand {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    width: 100%;
+  }
+  .ui-phone-expand + .ui-phone-expand {
+    margin-top: 1em;
+  }
+  .ui-phone-collapse {
+    float: right !important;
+    position: relative;
+    width: auto;
+  }
+  .ui-phone-collapse > :first-child {
+    display: block;
+  }
+  .ui-phone-collapse > :not(:first-child) {
+    display: none;
+  }
+  .ui-phone-collapse:hover > :not(:first-child) {
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }
+  .ui-phone-collapse:hover > ul > li {
+    display: block;
+    width: 100%;
   }
 }
