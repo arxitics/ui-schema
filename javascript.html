@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./dist/ui-schema-0.4.2.min.css" media="all">
+    <link rel="stylesheet" href="./dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
@@ -38,12 +39,60 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Overview</h3>
         <p>We use <code class="ui-color-emphasis">schema</code> as the JavaScript namespace and <code class="ui-color-emphasis">data-schema-*</code> for data attributes.</p>
+        <div class="ui-content-panel">
+          <div class="ui-panel-body">
+            <div class="ui-form-fluid">
+              <input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!">
+            </div>
+            <div class="ui-skip-medium">
+              <div data-schema-echo class="ui-content-alert ui-alert-info">
+                <p>${message}</p>
+              </div>
+            </div>
+            <div>
+              <pre><code class="language-markup">&lt;input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!"&gt;
+&lt;div class="ui-content-alert ui-alert-info" data-schema-echo&gt;
+  &lt;p&gt;${message}&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+              <pre><code class="language-markup">&lt;script&gt;
+  schema.echo = function (event, options) {
+    var echo = schema.events.echo;
+    var $_selector = $(echo.selector);
+    var $_target = $(echo.target);
+    var $_template = $_selector.html();
+    $_selector.html(echo.text);
+    $_target.on('keypress', function () {
+      $_selector.html(schema.format($_template, {
+        message: $_target.val()
+      }));
+    });
+  };
+&lt;/script&gt;
+</code></pre>
+            </div>
+          </div>
+        </div>
       </article>
     </main>
     <footer class="ui-container-fluid">
       <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
     <script src="./dist/jquery-3.0.0.min.js"></script>
+    <script src="./dist/prism-1.4.1.min.js"></script>
     <script src="./dist/ui-schema-0.4.2.min.js"></script>
+    <script>
+      schema.echo = function (event, options) {
+        var echo = schema.events.echo;
+        var $_selector = $(echo.selector);
+        var $_target = $(echo.target);
+        var $_template = $_selector.html();
+        $_selector.html(echo.text);
+        $_target.on('keypress', function () {
+          $_selector.html(schema.format($_template, {
+            message: $_target.val()
+          }));
+        });
+      };
+    </script>
   </body>
 </html>

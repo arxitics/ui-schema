@@ -214,14 +214,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var $_data = schema.parseData($_this.data());
       var $_options = schema.parseOptions($_data.options);
       var $_name = $_data.event;
-      if ($_data.type === undefined) {
-        $_data.type = $_name;
-      }
-      if ($_data.selector === undefined) {
-        $_data.selector = selector.replace(/\-(\w+)\]$/, '-' + $_name + ']');
-      }
       if ($_name) {
-        var $_event = $.extend({}, object, $_data, $_options);
+        var defaults = {
+          type: $_name,
+          selector: selector.replace(/\-(\w+)\]$/, '-' + $_name + ']'),
+          target: $_this
+        };
+        var $_event = $.extend({}, object, defaults, $_data, $_options);
         schema.events[$_name] = $_event;
         schema.delegate($_event);
       }
@@ -434,7 +433,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           return schema.format(template, {
             sep: p1,
             src: $_data.emoji.replace(/\/*$/, '/') + p3.replace(/\_/g, '-') + '.svg',
-            height: Math.round(+$_this.css('font-size').slice(0, -2) * 1.2),
+            height: Math.round(+$_this.css('font-size').slice(0, -2) * 1.4),
             alt: p2,
             title: p3
           });
