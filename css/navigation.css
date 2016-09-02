@@ -9,7 +9,7 @@
 
 .ui-header-navbar h2,
 .ui-header-navbar h3 {
-  font-size: 1.5em;
+  font-size: 150%;
   font-weight: normal;
   margin: 0;
   white-space: nowrap;
@@ -32,23 +32,22 @@
 
 .ui-header-navbar > nav > ul > li > a {
   display: inline-block;
-  font-size: 1.25em;
-  padding: 0.4em 0.6em;
+  font-size: 125%;
+  padding: 0.6em;
 }
 
 .ui-header-navbar > form,
 .ui-header-account {
-  font-size: 0.875em;
-  padding-top: 0.8rem;
+  font-size: 93.75%;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
   text-align: right;
   vertical-align: bottom;
 }
 
 .ui-header-brand {
   float: left;
-  margin-right: 1.2em;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
+  margin: 0.5em 1.2em 0.6em 0;
 }
 
 .ui-nav-collapse > :first-child {
@@ -172,6 +171,7 @@
 
 .ui-nav-breadcrumb > li {
   display: inline-block;
+  white-space: nowrap;
 }
 
 .ui-nav-breadcrumb > li + li:before {
@@ -182,7 +182,6 @@
 
 .ui-nav-pagination > li {
   display: inline-block;
-  line-height: 1.42857;
 }
 
 .ui-nav-pagination > li > :only-child {

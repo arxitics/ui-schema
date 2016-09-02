@@ -107,7 +107,7 @@
 .ui-tooltip-right::before,
 .ui-tooltip-bottom::before,
 .ui-tooltip-left::before {
-  border: 0.7em solid transparent;
+  border: 1rem solid transparent;
   content: " ";
   position: absolute;
 }
@@ -124,7 +124,7 @@
 .ui-tooltip-top::before {
   border-top-color: #ccc;
   left: 1.2em;
-  margin-left: -0.7em;
+  margin-left: -1rem;
   top: 100%;
 }
 
@@ -137,7 +137,7 @@
 
 .ui-tooltip-right::before {
   border-right-color: #ccc;
-  margin-top: -0.7em;
+  margin-top: -1rem;
   right: 100%;
   top: 1.2em;
 }
@@ -153,7 +153,7 @@
   border-bottom-color: #ccc;
   bottom: 100%;
   left: 1.2em;
-  margin-left: -0.7em;
+  margin-left: -1rem;
 }
 
 .ui-tooltip-bottom::after {
@@ -166,7 +166,7 @@
 .ui-tooltip-left::before {
   border-left-color: #ccc;
   left: 100%;
-  margin-top: -0.7em;
+  margin-top: -1rem;
   top: 1.2em;
 }
 

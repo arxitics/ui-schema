@@ -96,7 +96,7 @@
           return schema.format(template, {
             sep: p1,
             src: $_data.emoji.replace(/\/*$/, '/') + p3.replace(/\_/g, '-') + '.svg',
-            height: Math.round(+$_this.css('font-size').slice(0, -2) * 1.2),
+            height: Math.round(+$_this.css('font-size').slice(0, -2) * 1.4),
             alt: p2,
             title: p3
           });

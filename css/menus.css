@@ -75,7 +75,8 @@
 }
 
 .ui-menu-selection {
-  height: 2.5em;
+  height: calc(2.4em + 2px);
+  min-height: 2.4em;
 }
 
 .ui-menu-selection > ul {

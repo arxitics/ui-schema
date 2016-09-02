@@ -3,8 +3,8 @@
  */
 
 .ui-icon-sprite {
-  height: 1.42857em;
-  width: 1.42857em;
+  height: 1.6em;
+  width: 1.6em;
 }
 
 .ui-icon-sprite > svg {
@@ -16,7 +16,7 @@
 .ui-icon-circular {
   border: 1px solid #ccc;
   padding: 0.2em;
-  width: 1.25em;
+  width: 1.4em;
 }
 
 .ui-icon-bordered {

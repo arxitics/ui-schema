@@ -79,6 +79,10 @@
     display: block;
     width: 100%;
   }
+  .ui-mobile-collapse:hover > ul > li:not(:first-child) {
+    border-top: 1px solid #ddd;
+    line-height: 1;
+  }
 }
 
 @media (max-width: 767px) {
@@ -152,5 +156,9 @@
   .ui-phone-collapse:hover > ul > li {
     display: block;
     width: 100%;
+  }
+  .ui-phone-collapse:hover > ul > li:not(:first-child) {
+    border-top: 1px solid #ddd;
+    line-height: 1;
   }
 }
