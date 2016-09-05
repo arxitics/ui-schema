@@ -17,7 +17,7 @@
 .ui-form-fluid textarea {
   display: block;
   margin-bottom: 1em;
-  min-width: 95%;
+  min-width: 90%;
   width: calc(100% - 1.6em - 2px);
 }
 
@@ -45,8 +45,8 @@
 .ui-form-horizontal select,
 .ui-input-addon,
 .ui-button-switch {
-  height: calc(2.4em + 2px);
-  min-height: 2.4em;
+  height: 2.4em;
+  min-height: calc(2.4em + 2px);
 }
 
 .ui-input-addon {
@@ -138,7 +138,8 @@
 }
 
 .ui-button-switch > label > span {
-  background-color: #ebebeb;
+  background-color: #eee;
+  color: #333;
   display: inline-block;
   padding: 0.4em 0.8em;
   visibility: hidden;
@@ -162,7 +163,8 @@
 }
 
 .ui-button-group input:checked + label {
-  background-color: #ebebeb;
+  background-color: #eee;
+  color: #333;
 }
 
 .ui-button-block button {

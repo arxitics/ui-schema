@@ -16,7 +16,7 @@ block append head
       margin: 10px 0;
     }
 block body
-  .ui-a4-paper.ui-page-wrapper.ui-block-center
+  body.ui-a4-paper.ui-page-wrapper.ui-block-center
     .ui-container-grid(role='banner')
       .ui-float-left
         .ui-zoom-2x Arxitics
@@ -78,9 +78,9 @@ block body
           li
             a(href='https://github.com/arxitics/famous-papers-on-arxiv' target='_blank') Famous Paper on arXiv
             | : Collections of famous papers on arXiv 
-
-block append foot
-  script(src='#{appIcons}/account.js')
-  script(src='#{appIcons}/brands.js')
-  script(src='#{appIcons}/devices.js')
-  script(src='#{appIcons}/editor.js')
+    script(src='#{appRoot}/dist/jquery-3.0.0.min.js')
+    script(src='#{appRoot}/dist/ui-schema-#{version}.min.js')
+    script(src='#{appIcons}/account.js')
+    script(src='#{appIcons}/brands.js')
+    script(src='#{appIcons}/devices.js')
+    script(src='#{appIcons}/editor.js')

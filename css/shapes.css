@@ -15,26 +15,26 @@
 
 .ui-caret-down {
   border-bottom: none;
-  border-top-color: #333;
+  border-top-color: #777;
 }
 
 .ui-caret-left {
   border-left: none;
-  border-right-color: #333;
+  border-right-color: #777;
 }
 
 .ui-caret-right {
-  border-left-color: #333;
+  border-left-color: #777;
   border-right: none;
 }
 
 .ui-caret-up {
-  border-bottom-color: #333;
+  border-bottom-color: #777;
   border-top: none;
 }
 
 .ui-seperator-horizontal {
-  background-color: #e5e5e5;
+  background-color: #eee;
   height: 1px;
   margin: 0.4em 0;
   overflow: hidden;
@@ -66,6 +66,7 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.4rem;
+  color: #333;
   display: none;
   min-width: 168px;
   padding: 0.4em 0.8em;

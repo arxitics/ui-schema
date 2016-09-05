@@ -14,7 +14,7 @@ cd css
 rm ../dist/ui-schema*.css
 cssdist="../dist/ui-schema-$version.css"
 cssfile="../dist/ui-schema-$version.min.css"
-cat base.css core.css grid.css navigation.css menus.css typography.css forms.css tables.css images.css icons.css colors.css effects.css shapes.css events.css mobile.css print.css pages.css utilities.css variables.css >> $cssdist
+cat base.css core.css grid.css navigation.css menus.css typography.css forms.css tables.css images.css icons.css colors.css effects.css shapes.css events.css mobile.css print.css pages.css themes.css utilities.css variables.css >> $cssdist
 cleancss --s0 import.css --skip-advanced --output $cssfile
 echo "$copyright" | cat - $cssfile > tmp.css && mv tmp.css $cssfile
 echo cat $cssfile | openssl dgst -sha384 -binary | openssl enc -base64 -A

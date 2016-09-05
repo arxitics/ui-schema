@@ -2,8 +2,9 @@
  * Navigation
  */
 
-.ui-header-navbar {
-  background-color: #f8f8f8;
+.ui-header-navbar,
+.ui-nav-collapse > ul {
+  background-color: #eee;
   color: #777;
 }
 
@@ -16,6 +17,11 @@
 }
 
 .ui-header-navbar a {
+  color: #777;
+}
+
+.ui-header-navbar input {
+  background-color: #fff;
   color: #777;
 }
 
@@ -58,10 +64,6 @@
   padding-top: 0.8em;
 }
 
-.ui-nav-collapse > ul {
-  background-color: #f8f8f8;
-}
-
 .ui-nav-tabs,
 .ui-nav-pills,
 .ui-nav-stacked,
@@ -93,29 +95,23 @@
 .ui-nav-pills > li:hover,
 .ui-nav-stacked > li:hover,
 .ui-header-navbar > nav > ul > li:hover {
-  background-color: #e8e8e8;
-}
-
-.ui-nav-tabs > li.ui-state-active > a,
-.ui-nav-pills > li.ui-state-active > a,
-.ui-nav-stacked > li.ui-state-active > a {
-  color: #333;
+  background-color: #ddd;
 }
 
 .ui-nav-tabs:not(.ui-nav-justified) {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
   width: 100%;
 }
 
 .ui-nav-tabs > li {
   border: 1px solid transparent;
-  border-bottom-color: #ddd;
+  border-bottom-color: #ccc;
   border-radius: 0.4rem 0.4rem 0 0;
   margin-bottom: -1px;
 }
 
 .ui-nav-tabs > li.ui-state-active {
-  background-color: #fff;
+  background-color: transparent;
   border-color: #ccc #ccc #fff;
 }
 
@@ -162,8 +158,9 @@
 }
 
 .ui-nav-breadcrumb {
-  background-color: #f5f5f5;
+  background-color: #eee;
   border-radius: 0.4rem;
+  color: #333;
   list-style: none;
   margin-bottom: 2rem;
   padding: 0.4em 0.8em;
@@ -200,6 +197,7 @@
 .ui-nav-pagination > li > :only-child:hover {
   background-color: #eee;
   border-color: #ddd;
+  color: #333;
 }
 
 .ui-nav-left,

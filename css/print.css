@@ -2,11 +2,18 @@
  * Print
  */
 
+.ui-print-visible {
+  display: none !important;
+}
+
 @media print {
+  .ui-print-hidden {
+    display: none !important;
+  }
+  .ui-print-visible {
+    display: block !important;
+  }
   .ui-content-jumbotron {
     border: 1px solid #ccc;
-  }
-  .ui-print-hidden {
-    display: none;
   }
 }

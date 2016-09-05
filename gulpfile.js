@@ -66,6 +66,7 @@ gulp.task('concat-css', function () {
       'css/mobile.css',
       'css/print.css',
       'css/pages.css',
+      'css/themes.css',
       'css/utilities.css',
       'css/variables.css'
     ])

@@ -41,11 +41,17 @@
   max-height: 80vh;
 }
 
-.ui-lightbox-content > figure,
-.ui-lightbox-content > div {
+.ui-modal-content > div {
+  background-color: #fff;
+  color: #333;
+}
+
+.ui-lightbox-content > div,
+.ui-lightbox-content > figure {
   background-color: #fff;
   border-radius: 0.4rem;
   box-shadow: 0 0 1em #ccc;
+  color: #333;
   display: block;
   padding: 1.2em 1.6em;
   text-align: center;

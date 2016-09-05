@@ -25,14 +25,17 @@ html(id=pageID lang=locale)
       link(rel='stylesheet' href='#{appRoot}/dist/ui-schema-#{version}.min.css' media='all')
       if prism
         link(rel='stylesheet' href='#{appRoot}/dist/prism-1.4.1.min.css' media='all')
-  body(class={'ui-scroll-indicator': indicator} data-schema-toggler=(toggle ? 'ui-overflow-hidden' : false))
-    if minimal
-      block body
-    else
+  if minimal
+    block body
+  else 
+    body
       header.ui-header-navbar.ui-container-fluid.ui-container-grid
         block header
           .ui-header-brand
             h2: a(href='#{appDocs}/index.html' accesskey='h')= appTitle
+          .ui-header-account.ui-float-right.ui-skip-tiny
+            a(accesskey='t' data-schema-toggle='body' data-schema-toggler='ui-theme-dark' data-schema-storage='dark' data-schema-init)
+              i(data-schema-icon='adjust')
           nav
             ul
               li: a(href='#{appDocs}/css.html' accesskey='c') CSS
@@ -56,8 +59,9 @@ html(id=pageID lang=locale)
               | , documentation under 
               a(href='http://creativecommons.org/licenses/by-sa/4.0' rel='external' target='_blank') CC BY-SA 4.0
               | .
-    block foot
-      script(src='#{appRoot}/dist/jquery-3.0.0.min.js')
-      if prism
-        script(src='#{appRoot}/dist/prism-1.4.1.min.js')
-      script(src='#{appRoot}/dist/ui-schema-#{version}.min.js')
+      block foot
+        script(src='#{appRoot}/dist/jquery-3.0.0.min.js')
+        if prism
+          script(src='#{appRoot}/dist/prism-1.4.1.min.js')
+        script(src='#{appRoot}/dist/ui-schema-#{version}.min.js')
+        script(src='#{appIcons}/devices.js')

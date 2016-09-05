@@ -13,34 +13,33 @@ block article
     |  as the JavaScript namespace and 
     code.ui-color-emphasis data-schema-*
     |  for data attributes.
-  .ui-content-panel
-    .ui-panel-body
-      .ui-form-fluid
-        input(type='text' placeholder='Please input something...' data-schema-event='echo' data-schema-text='Hello world!')
-      .ui-skip-medium
-        .ui-content-alert.ui-alert-info(data-schema-echo)
-          p ${message}
-      div
-        pre: code.language-markup.
-          &lt;input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!"&gt;
-          &lt;div class="ui-content-alert ui-alert-info" data-schema-echo&gt;
-            &lt;p&gt;${message}&lt;/p&gt;
-          &lt;/div&gt;
-        pre: code.language-markup.
-          &lt;script&gt;
-            schema.echo = function (event, options) {
-              var echo = schema.events.echo;
-              var $_selector = $(echo.selector);
-              var $_target = $(echo.target);
-              var $_template = $_selector.html();
-              $_selector.html(echo.text);
-              $_target.on('keypress', function () {
-                $_selector.html(schema.format($_template, {
-                  message: $_target.val()
-                }));
-              });
-            };
-          &lt;/script&gt;
+  .ui-frame-rounded
+    .ui-form-fluid.ui-skip-medium
+      input(type='text' placeholder='Please input something...' data-schema-event='echo' data-schema-text='Hello world!')
+    .ui-skip-medium
+      .ui-content-alert.ui-alert-info(data-schema-echo)
+        p ${message}
+    div
+      pre: code.language-markup.
+        &lt;input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!"&gt;
+        &lt;div class="ui-content-alert ui-alert-info" data-schema-echo&gt;
+          &lt;p&gt;${message}&lt;/p&gt;
+        &lt;/div&gt;
+      pre: code.language-markup.
+        &lt;script&gt;
+          schema.echo = function (event, options) {
+            var echo = schema.events.echo;
+            var $_selector = $(echo.selector);
+            var $_target = $(echo.target);
+            var $_template = $_selector.html();
+            $_selector.html(echo.text);
+            $_target.on('keypress', function () {
+              $_selector.html(schema.format($_template, {
+                message: $_target.val()
+              }));
+            });
+          };
+        &lt;/script&gt;
 
 block append foot
   script.

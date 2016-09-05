@@ -358,12 +358,35 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     $_elements.each(function () {
       var $_this = $(this);
       var $_data = schema.parseData($_this.data());
-      var $_target = $($_data.toggle);
-      var toggler = schema.parseData($_target.data()).toggler;
+      var target = $_data.toggle;
+      var $_target = $(target);
+      var $_param = schema.parseData($_target.data());
+      var toggler = $_param.toggler;
       var events = $_data.trigger || 'click';
+      var key = $_data.storage || '';
       $_this.on(events, function () {
-        $_target.toggleClass(toggler);
+        if (toggler) {
+          $_target.toggleClass(toggler);
+        } else if ($_data.toggler) {
+          var togglers = $_data.toggler.trim().split(/\s*,\s*/);
+          var entries = target.trim().replace(/\s*,$/, '').split(/\s*,\s*/);
+          entries.forEach(function (entry, index) {
+            toggler = togglers[index] || toggler;
+            $(entry).toggleClass(toggler);
+          });
+          toggler = '';
+        }
+        if (key && window.localStorage) {
+          var value = localStorage.getItem(key) === 'true' ? 'false' : 'true';
+          localStorage.setItem(key, value);
+        }
       });
+      if (key && window.localStorage && $_data.init) {
+        if (localStorage.getItem(key) === 'true') {
+          $_this.trigger(events);
+          localStorage.setItem(key, 'true');
+        }
+      }
     });
   };
 
@@ -376,19 +399,25 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var $_data = schema.parseData($_this.data());
       var $_inputs = $_this.children('input[type=radio]');
       var $_div = $_this.find('div').last();
-      var state = $_div.find('label').first().attr('class');
+      var $_links = $_div.find('a,label');
+      var state = $_links.first().attr('class');
       var interval = (+$_data.autoplay - 1) || 5000;
-      var length = $_inputs.length;
-      var counter = 1;
+      var length = $_links.length;
+      var count = 1;
       window.setInterval(function () {
-        var $_input = $_inputs.eq(counter % length);
-        var id = $_input.attr('id');
-        if (id) {
-          $_div.find('label[class="' + state + '"]').removeClass(state);
-          $_div.find('label[for="' + id + '"]').addClass(state);
+        var index = count % length;
+        var $_link = $_links.eq(index);
+        if (!$_this.find('a:hover,label:hover').length) {
+          if ($_link.is('a')) {
+            $_link.click();
+            window.location.hash = $_link.attr('href');
+          } else {
+            $_inputs.eq(index).prop('checked', true);
+          }
+          $_links.removeClass(state);
+          $_link.addClass(state);
+          count++;
         }
-        $_input.prop('checked', true);
-        counter++;
       }, interval);
     });
   };

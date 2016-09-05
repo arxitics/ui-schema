@@ -1,0 +1,29 @@
+/*!
+ * Themes
+ */
+
+.ui-theme-dark,
+.ui-theme-dark .ui-header-navbar input,
+.ui-theme-dark .ui-modal-content > div,
+.ui-theme-dark .ui-lightbox-content > div,
+.ui-theme-dark .ui-lightbox-content > figure {
+  background-color: #333;
+  color: #fff;
+}
+
+.ui-theme-dark .ui-header-navbar,
+.ui-theme-dark .ui-nav-collapse > ul,
+.ui-theme-dark .ui-nav-breadcrumb,
+.ui-theme-dark .ui-table-striped > tbody > tr:nth-child(odd),
+.ui-theme-dark .ui-content-link,
+.ui-theme-dark .ui-panel-header,
+.ui-theme-dark .ui-content-jumbotron,
+.ui-theme-dark .ui-state-active {
+  background-color: #000;
+  color: #fff;
+}
+
+.ui-theme-dark .ui-text-active,
+.ui-theme-dark .ui-state-active a {
+  color: #fff;
+}
