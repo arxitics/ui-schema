@@ -15,6 +15,7 @@
       <div class="ui-header-brand">
         <h2><a href="./../index.html" accesskey="h">UI Schema</a></h2>
       </div>
+      <div class="ui-header-account ui-float-right ui-skip-tiny"><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i data-schema-icon="adjust"></i></a></div>
       <nav>
         <ul>
           <li><a href="./../css.html" accesskey="c">CSS</a></li>
@@ -45,6 +46,7 @@
           <li><a href="./../css/mobile.html">Mobile</a></li>
           <li><a href="./../css/print.html">Print</a></li>
           <li><a href="./../css/pages.html">Pages</a></li>
+          <li><a href="./../css/themes.html">Themes</a></li>
           <li><a href="./../css/utilities.html">Utilities</a></li>
           <li><a href="./../css/variables.html">Variables</a></li>
         </ul>
@@ -53,17 +55,16 @@
         <h3 class="ui-header-primary"><span>Images</span>
           <label for="images-src" class="ui-float-right"><i data-schema-icon="code" class="ui-zoom-small"></i></label>
         </h3>
-        <div class="ui-image-gallery"><img height="100" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="tent" class="ui-image-circular"><img height="100" src="http://oss.arxitics.com/images/emoji/park.svg" alt="park" class="ui-image-rounded ui-offset-large"><img height="100" src="http://oss.arxitics.com/images/emoji/beach.svg" alt="beach" class="ui-image-thumbnail ui-offset-large"><a href="#island" class="ui-image-lightbox ui-offset-large"><img width="100" height="100" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island" class="ui-image-thumbnail"><span class="ui-image-reveal">Island</span></a>
-          <div id="island" class="ui-container-fluid ui-lightbox-content">
-            <figure class="ui-absolute-center ui-mobile-expand"><a href="#" class="ui-nav-left">&times;</a><a href="#desert" class="ui-nav-right">&rarr;</a><a href="https://en.wikipedia.org/wiki/Island" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island"></a>
-              <figcaption class="ui-skip-medium">An island or isle is any piece of sub-continental land that is surrounded by water.</figcaption>
-            </figure>
-          </div>
-          <div id="desert" class="ui-container-fluid ui-lightbox-content">
-            <figure class="ui-absolute-center ui-mobile-expand"><a href="#island" class="ui-nav-left">&larr;</a><a href="#" class="ui-nav-right">&times;</a><a href="https://en.wikipedia.org/wiki/Desert" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"></a>
-              <figcaption class="ui-skip-medium">A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.</figcaption>
-            </figure>
-          </div>
+        <div class="ui-image-gallery"><img height="100" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="tent" class="ui-image-circular"><img height="100" src="http://oss.arxitics.com/images/emoji/park.svg" alt="park" class="ui-image-rounded ui-offset-large"><img height="100" src="http://oss.arxitics.com/images/emoji/beach.svg" alt="beach" class="ui-image-thumbnail ui-offset-large"><a href="#island" class="ui-image-lightbox ui-offset-large"><img width="100" height="100" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island" class="ui-image-thumbnail"><span class="ui-image-reveal">Island</span></a></div>
+        <div id="island" class="ui-container-fluid ui-lightbox-content">
+          <figure class="ui-absolute-center ui-mobile-expand"><a href="#" class="ui-nav-left">&times;</a><a href="#desert" class="ui-nav-right">&rarr;</a><a href="https://en.wikipedia.org/wiki/Island" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island"></a>
+            <figcaption class="ui-skip-medium">An island or isle is any piece of sub-continental land that is surrounded by water.</figcaption>
+          </figure>
+        </div>
+        <div id="desert" class="ui-container-fluid ui-lightbox-content">
+          <figure class="ui-absolute-center ui-mobile-expand"><a href="#island" class="ui-nav-left">&larr;</a><a href="#" class="ui-nav-right">&times;</a><a href="https://en.wikipedia.org/wiki/Desert" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"></a>
+            <figcaption class="ui-skip-medium">A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.</figcaption>
+          </figure>
         </div>
         <div class="ui-toggle-target">
           <input id="images-src" type="checkbox" checked>
@@ -109,6 +110,7 @@
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./../dist/icons/devices.js"></script>
     <script src="./../dist/icons/editor.js"></script>
   </body>
 </html>

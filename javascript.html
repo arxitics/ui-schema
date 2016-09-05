@@ -15,6 +15,7 @@
       <div class="ui-header-brand">
         <h2><a href="./index.html" accesskey="h">UI Schema</a></h2>
       </div>
+      <div class="ui-header-account ui-float-right ui-skip-tiny"><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i data-schema-icon="adjust"></i></a></div>
       <nav>
         <ul>
           <li><a href="./css.html" accesskey="c">CSS</a></li>
@@ -39,22 +40,21 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Overview</h3>
         <p>We use <code class="ui-color-emphasis">schema</code> as the JavaScript namespace and <code class="ui-color-emphasis">data-schema-*</code> for data attributes.</p>
-        <div class="ui-content-panel">
-          <div class="ui-panel-body">
-            <div class="ui-form-fluid">
-              <input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!">
+        <div class="ui-frame-rounded">
+          <div class="ui-form-fluid ui-skip-medium">
+            <input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!">
+          </div>
+          <div class="ui-skip-medium">
+            <div data-schema-echo class="ui-content-alert ui-alert-info">
+              <p>${message}</p>
             </div>
-            <div class="ui-skip-medium">
-              <div data-schema-echo class="ui-content-alert ui-alert-info">
-                <p>${message}</p>
-              </div>
-            </div>
-            <div>
-              <pre><code class="language-markup">&lt;input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!"&gt;
+          </div>
+          <div>
+            <pre><code class="language-markup">&lt;input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!"&gt;
 &lt;div class="ui-content-alert ui-alert-info" data-schema-echo&gt;
   &lt;p&gt;${message}&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-              <pre><code class="language-markup">&lt;script&gt;
+            <pre><code class="language-markup">&lt;script&gt;
   schema.echo = function (event, options) {
     var echo = schema.events.echo;
     var $_selector = $(echo.selector);
@@ -69,7 +69,6 @@
   };
 &lt;/script&gt;
 </code></pre>
-            </div>
           </div>
         </div>
       </article>
@@ -80,6 +79,7 @@
     <script src="./dist/jquery-3.0.0.min.js"></script>
     <script src="./dist/prism-1.4.1.min.js"></script>
     <script src="./dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./dist/icons/devices.js"></script>
     <script>
       schema.echo = function (event, options) {
         var echo = schema.events.echo;
