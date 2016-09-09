@@ -48,12 +48,11 @@ block body
             | .
         .ui-block-fluid.ui-text-center
           a(href='#success'): i.ui-zoom-huge(data-schema-icon='loop')
-    .ui-block-center.ui-text-center
-      ol.ui-nav-pagination
-        li: a.ui-state-active(href='#success')
-        li: a(href='#info')
-        li: a(href='#warning')
-        li: a(href='#danger')
+    ol.ui-nav-pagination.ui-nav-vertical.ui-fixed-right
+      li: a.ui-state-active(href='#success')
+      li: a(href='#info')
+      li: a(href='#warning')
+      li: a(href='#danger')
     script(src='#{appRoot}/dist/jquery-3.0.0.min.js')
     script(src='#{appRoot}/dist/ui-schema-#{version}.min.js')
     script(src='#{appIcons}/arrows.js')

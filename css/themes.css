@@ -4,7 +4,10 @@
 
 .ui-theme-dark,
 .ui-theme-dark .ui-header-navbar input,
+.ui-theme-dark .ui-menu-dropdown > ul,
+.ui-theme-dark .ui-menu-selection > ul,
 .ui-theme-dark .ui-modal-content > div,
+.ui-theme-dark .ui-tooltip-content,
 .ui-theme-dark .ui-lightbox-content > div,
 .ui-theme-dark .ui-lightbox-content > figure {
   background-color: #333;
@@ -26,4 +29,20 @@
 .ui-theme-dark .ui-text-active,
 .ui-theme-dark .ui-state-active a {
   color: #fff;
+}
+
+.ui-theme-dark .ui-tooltip-top::after {
+  border-top-color: #333;
+}
+
+.ui-theme-dark .ui-tooltip-right::after {
+  border-right-color: #333;
+}
+
+.ui-theme-dark .ui-tooltip-bottom::after {
+  border-bottom-color: #333;
+}
+
+.ui-theme-dark .ui-tooltip-left::after {
+  border-left-color: #333;
 }

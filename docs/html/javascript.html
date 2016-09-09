@@ -42,30 +42,70 @@
         <p>We use <code class="ui-color-emphasis">schema</code> as the JavaScript namespace and <code class="ui-color-emphasis">data-schema-*</code> for data attributes.</p>
         <div class="ui-frame-rounded">
           <div class="ui-form-fluid ui-skip-medium">
-            <input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!">
+            <input type="text" placeholder="Please input something..." data-schema-model="message" data-schema-value="Hello world!" data-schema-parser="escape">
           </div>
           <div class="ui-skip-medium">
-            <div data-schema-echo class="ui-content-alert ui-alert-info">
-              <p>${message}</p>
+            <div data-schema-controller="encrypt" data-schema-view class="ui-content-alert">
+              <p>Message: <strong>${message}</strong></p>
+              <p>Encrypt: <span data-schema-iteration="icon in icons" data-schema-view><i data-schema-icon="${icon}"></i></span></p>
+              <p>Count: <code>${count}</code></p>
             </div>
           </div>
           <div>
-            <pre><code class="language-markup">&lt;input type="text" placeholder="Please input something..." data-schema-event="echo" data-schema-text="Hello world!"&gt;
-&lt;div class="ui-content-alert ui-alert-info" data-schema-echo&gt;
-  &lt;p&gt;${message}&lt;/p&gt;
+            <pre><code class="language-markup">&lt;input type="text" placeholder="Please input something..." data-schema-model="message" data-schema-value="Hello world!" data-schema-parser="escape"&gt;
+&lt;div class="ui-content-alert" data-schema-controller="encrypt" data-schema-view&gt;
+  &lt;p&gt;Message: &lt;strong&gt;${message}&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;Encrypt: &lt;span data-schema-iteration="icon in icons" data-schema-view&gt;&lt;i data-schema-icon="${icon}"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;p&gt;Count: &lt;code&gt;${count}&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
             <pre><code class="language-markup">&lt;script&gt;
-  schema.echo = function (event, options) {
-    var echo = schema.events.echo;
-    var $_selector = $(echo.selector);
-    var $_target = $(echo.target);
-    var $_template = $_selector.html();
-    $_selector.html(echo.text);
-    $_target.on('keypress', function () {
-      $_selector.html(schema.format($_template, {
-        message: $_target.val()
-      }));
+  schema.escape = function (message) {
+    return message.replace(/\&lt;/g, '&amp;lt;').replace(/\&gt;/g, '&amp;gt;');
+  };
+
+  schema.encrypt = function (models) {
+    var message = models.message || '';
+    var icons = message.split('').map(function (char) {
+      var emoji = {
+        'A': 'angry',
+        'B': 'baffled',
+        'C': 'confused',
+        'D': 'sad',
+        'E': 'evil',
+        'F': 'frustrated',
+        'G': 'grin',
+        'H': 'happy',
+        'I': 'hipster',
+        'J': 'cool',
+        'K': 'wink',
+        'L': 'sleepy',
+        'M': 'smile',
+        'N': 'neutral',
+        'O': 'confused',
+        'P': 'happy',
+        'Q': 'cool',
+        'R': 'crying',
+        'S': 'sad',
+        'T': 'tongue',
+        'U': 'frustrated',
+        'V': 'evil',
+        'W': 'wink',
+        'X': 'shocked',
+        'Y': 'crying',
+        'Z': 'shocked'
+      };
+      if (/[A-Z]/.test(char)) {
+        return emoji[char];
+      }
+      if (/[a-z]/.test(char)) {
+        return emoji[char.toUpperCase()] + '-o';
+      }
+      return char.charCodeAt(0) &lt; 128 ? 'wondering' : 'wondering-o';
     });
+    return {
+      icons: icons,
+      count: message.length
+    };
   };
 &lt;/script&gt;
 </code></pre>
@@ -80,18 +120,55 @@
     <script src="../../dist/prism-1.4.1.min.js"></script>
     <script src="../../dist/ui-schema-0.4.2.min.js"></script>
     <script src="../../dist/icons/devices.js"></script>
+    <script src="../../dist/icons/emoji.js"></script>
     <script>
-      schema.echo = function (event, options) {
-        var echo = schema.events.echo;
-        var $_selector = $(echo.selector);
-        var $_target = $(echo.target);
-        var $_template = $_selector.html();
-        $_selector.html(echo.text);
-        $_target.on('keypress', function () {
-          $_selector.html(schema.format($_template, {
-            message: $_target.val()
-          }));
+      schema.escape = function (message) {
+        return message.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
+      };
+      
+      schema.encrypt = function (models) {
+        var message = models.message || '';
+        var icons = message.split('').map(function (char) {
+          var emoji = {
+            'A': 'angry',
+            'B': 'baffled',
+            'C': 'confused',
+            'D': 'sad',
+            'E': 'evil',
+            'F': 'frustrated',
+            'G': 'grin',
+            'H': 'happy',
+            'I': 'hipster',
+            'J': 'cool',
+            'K': 'wink',
+            'L': 'sleepy',
+            'M': 'smile',
+            'N': 'neutral',
+            'O': 'confused',
+            'P': 'happy',
+            'Q': 'cool',
+            'R': 'crying',
+            'S': 'sad',
+            'T': 'tongue',
+            'U': 'frustrated',
+            'V': 'evil',
+            'W': 'wink',
+            'X': 'shocked',
+            'Y': 'crying',
+            'Z': 'shocked'
+          };
+          if (/[A-Z]/.test(char)) {
+            return emoji[char];
+          }
+          if (/[a-z]/.test(char)) {
+            return emoji[char.toUpperCase()] + '-o';
+          }
+          return char.charCodeAt(0) < 128 ? 'wondering' : 'wondering-o';
         });
+        return {
+          icons: icons,
+          count: message.length
+        };
       };
     </script>
   </body>

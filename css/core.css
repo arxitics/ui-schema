@@ -766,7 +766,6 @@ tr:not(:first-child) > td {
 
 /* ARIA
    ========================================================================== */
-[hidden],
 [aria-hidden="true"] {
   display: none;
 }

@@ -193,6 +193,11 @@
   visibility: hidden;
 }
 
+.ui-text-padding {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+}
+
 .ui-text-disabled {
   color: #999;
   cursor: default;

@@ -73,6 +73,7 @@
 .ui-menu-dropdown > ul > li > a:hover,
 .ui-menu-selection > ul > li:hover {
   background-color: #eee;
+  color: #333;
 }
 
 .ui-menu-selection {

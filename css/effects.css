@@ -15,7 +15,7 @@
   text-space-trim: trim-inner;
 }
 
-.ui-space-trim > a,
+.ui-space-trim > span,
 .ui-space-trim > button,
 .ui-space-trim > label,
 .ui-space-trim > li > :only-child {
@@ -23,7 +23,7 @@
   border-radius: 0;
 }
 
-.ui-space-trim > a:first-child,
+.ui-space-trim > span:first-child,
 .ui-space-trim > button:first-child,
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
@@ -32,7 +32,7 @@
   border-top-left-radius: 0.4rem;
 }
 
-.ui-space-trim > a:last-child,
+.ui-space-trim > span:last-child,
 .ui-space-trim > button:last-child,
 .ui-space-trim > div:last-child > button:last-of-type,
 .ui-space-trim > label:last-of-type,
@@ -41,7 +41,7 @@
   border-top-right-radius: 0.4rem;
 }
 
-.ui-space-trim > a:first-child,
+.ui-space-trim > span:first-child,
 .ui-space-trim > button:first-child,
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,

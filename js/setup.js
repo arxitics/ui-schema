@@ -26,55 +26,76 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     events: {
       bind: {
         type: 'bind',
-        namespace: 'event.data-api.schema',
+        namespace: '.event.data-api.schema',
         selector: '[data-schema-event]'
       },
       retrieve: {
         type: 'retrieve',
-        namespace: 'options.data-api.schema',
+        namespace: '.options.data-api.schema',
         selector: '[data-schema-options]'
+      },
+      observe: {
+        type: 'observe',
+        namespace: '.model.data-api.schema',
+        selector: '[data-schema-model]'
+      },
+      render: {
+        type: 'render',
+        namespace: '.view.data-api.schema',
+        selector: '[data-schema-view]'
+      },
+      insert: {
+        type: 'insert',
+        namespace: '.template.data-api.schema',
+        selector: 'template[data-schema-target]'
       },
       validate: {
         type: 'validate',
-        namespace: 'form.data-api.schema',
+        namespace: '.form.data-api.schema',
         selector: 'form[data-schema-validate]'
+      },
+      rating: {
+        type: 'rating',
+        namespace: '.form.data-api.schema',
+        selector: 'form[data-schema-rating]'
       },
       lazyload: {
         type: 'lazyload',
-        namespace: 'image.data-api.schema',
+        namespace: '.image.data-api.schema',
         selector: 'img[data-schema-lazyload]'
       },
       sprite: {
         type: 'sprite',
-        namespace: 'icon.svg.data-api.schema',
+        namespace: '.icon.svg.data-api.schema',
         selector: 'i[data-schema-icon]'
       },
       trim: {
         type: 'trim',
-        namespace: 'text-node.dom.data-api.schema',
-        selector: 'body [data-schema-trim]'
+        namespace: '.text-node.dom.data-api.schema',
+        selector: '[data-schema-trim]'
       },
       extract: {
         type: 'extract',
-        namespace: 'dom.data-api.schema',
-        selector: 'body [data-schema-extract]'
+        namespace: '.dom.data-api.schema',
+        selector: '[data-schema-extract]'
       },
       dismiss: {
         type: 'dismiss',
-        namespace: 'dom.data-api.schema',
-        selector: 'body [data-schema-dismiss]'
+        namespace: '.dom.data-api.schema',
+        selector: '[data-schema-dismiss]'
       },
       autoplay: {
         type: 'autoplay',
-        namespace: 'dom.data-api.schema',
+        namespace: '.dom.data-api.schema',
         selector: '[data-schema-autoplay]'
       },
       toggle: {
         type: 'toggle',
-        namespace: 'class.data-api.schema',
+        namespace: '.class.data-api.schema',
         selector: '[data-schema-toggle]'
       }
-    }
+    },
+    models: {}
   }, schema);
 
   $(function () {

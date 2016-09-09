@@ -119,23 +119,23 @@
 
   // Bind schema events
   schema.bind = function (event, options) {
-    var object = schema.events.bind;
-    var selector = object.selector;
-    var $_elements = $(selector).add(options && options.selector);
-    $_elements.each(function () {
-      var $_this = $(this);
-      var $_data = schema.parseData($_this.data());
-      var $_options = schema.parseOptions($_data.options);
-      var $_name = $_data.event;
-      if ($_name) {
+    var bind = schema.events.bind;
+    var selector = bind.selector;
+    var $elements = $(selector).add(options && options.selector);
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $options = schema.parseOptions($data.options);
+      var $type = $data.event;
+      if ($type) {
         var defaults = {
-          type: $_name,
-          selector: selector.replace(/\-(\w+)\]$/, '-' + $_name + ']'),
-          target: $_this
+          type: $type,
+          selector: selector.replace(/\-(\w+)\]$/, '-' + $type + ']'),
+          target: $this
         };
-        var $_event = $.extend({}, object, defaults, $_data, $_options);
-        schema.events[$_name] = $_event;
-        schema.delegate($_event);
+        var $event = $.extend({}, bind, defaults, $data, $options);
+        schema.events[$type] = $event;
+        schema.delegate($event);
       }
     });
   };
@@ -143,17 +143,126 @@
   // Retrieve schema event options and store as event data
   schema.retrieve = function (event, options) {
     var selector = schema.events.retrieve.selector;
-    var $_elements = $(selector).add(options && options.selector);
-    $_elements.each(function () {
-      var $_this = $(this);
-      var $_data = schema.parseData($_this.data());
-      var $_options = schema.parseOptions($_data.options, {
+    var $elements = $(selector).add(options && options.selector);
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $options = schema.parseOptions($data.options, {
         prefix: schema.setup.dataPrefix
       });
-      for (var key in $_options) {
-        if ($_options.hasOwnProperty(key)) {
-          $_this.data(key, $_options[key]);
+      for (var key in $options) {
+        if ($options.hasOwnProperty(key)) {
+          $this.data(key, $options[key]);
         }
+      }
+    });
+  };
+
+  // Observe a model and update the view
+  schema.observe = function (event, options) {
+    var models = schema.models;
+    var render = schema.events.render;
+    var renderName = render.type + render.namespace;
+    var selector = schema.events.observe.selector;
+    var $elements = $(selector).add(options && options.selector);
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var model = $data.model;
+      var parser = $data.parser;
+      var controller = $data.controller;
+      var trigger = $data.trigger || 'change click keyup';
+      var value = $data.value || null;
+      var text = value || $data.text;
+      $this.on(trigger, function () {
+        value = $this.val() || $this.text();
+        if (parser) {
+          value = schema[parser](value);
+        }
+        models[model] = value;
+        if (controller) {
+          models = $.extend(models, schema[controller](models));
+        }
+        $(document).trigger(renderName);
+      });
+      if (text) {
+        if (value) {
+          $this.val(value);
+        } else {
+          $this.text(text);
+        }
+        $this.trigger(trigger.replace(/\s.*$/, ''));
+      }
+    });
+  };
+
+  // Render a partial view
+  schema.render = function (event, options) {
+    var models = schema.models;
+    var events = schema.events;
+    var selector = events.render.selector;
+    var template = selector.replace(/^\[data\-|\]$/g, '');
+    var $elements = $(selector).add(options && options.selector);
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $template = $data.view;
+      var controller = $data.controller;
+      var conditional = $data.conditional;
+      var iteration = $data.iteration;
+      var $cache = $this.html();
+      var $html = '';
+      if ($template === true) {
+        $template = $cache;
+        $this.data(template, $template);
+      }
+      if (controller) {
+        models = $.extend({}, models, schema[controller](models));
+      }
+      if (!conditional || models[conditional] === true) {
+        if (iteration) {
+          var pattern = /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/;
+          var matches = String(iteration).match(pattern);
+          if (matches) {
+            var name = matches[1];
+            var list = matches[3];
+            var entries = models[list];
+            if (Array.isArray(entries)) {
+              entries.forEach(function (entry) {
+                models[name] = entry;
+                $html += schema.format($template, models);
+              });
+            }
+          }
+        } else {
+          $html = schema.format($template, models);
+        }
+        if ($html !== $cache) {
+          $this.html($html);
+          for (var key in events) {
+            if (events.hasOwnProperty(key)) {
+              var event = events[key];
+              if ($this.find(event.selector).length) {
+                $(document).trigger(event.type + event.namespace);
+              }
+            }
+          }
+        }
+      }
+    });
+  };
+
+  // Insert the content of a template
+  schema.insert = function (event, options) {
+    var selector = schema.events.insert.selector;
+    var $elements = $(selector).add(options && options.selector);
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $html = $this.html();
+      var target = $data.target;
+      if (target && $html && !/\$\{[\w\-]+\}/.test($html)) {
+        $(target).empty().append($html);
       }
     });
   };

@@ -223,3 +223,15 @@
   cursor: pointer;
   opacity: 1;
 }
+
+.ui-nav-vertical {
+  padding: 0.4em 0.8em;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.ui-nav-vertical > li {
+  display: block;
+}

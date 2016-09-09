@@ -9,21 +9,21 @@
   schema.sprite = function (event, options) {
     var icons = schema.icons;
     var selector = schema.events.sprite.selector;
-    var $_elements = $(selector).add(options && options.selector);
-    $_elements.each(function () {
-      var $_this = $(this);
-      var $_data = schema.parseData($_this.data());
-      var name = $_data.icon || 'unknown';
+    var $elements = $(selector).add(options && options.selector);
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var name = $data.icon || 'unknown';
       var icon = icons[name] || icons.unknown;
       if (typeof icon === 'string') {
         icon = icons[icon];
       }
 
-      var width = $_data.width || icon[0];
-      var height = $_data.height || icon[1];
-      var path = $_data.path || icon[2];
-      var color = $_data.color || icon[3];
-      var colorEnabled = $_data.colorEnabled;
+      var width = $data.width || icon[0];
+      var height = $data.height || icon[1];
+      var path = $data.path || icon[2];
+      var color = $data.color || icon[3];
+      var colorEnabled = $data.colorEnabled;
       if (colorEnabled === undefined && color) {
         colorEnabled = true;
       }
@@ -54,7 +54,7 @@
         svg.appendChild(element);
       }
 
-      $_this.empty().append(svg);
+      $this.empty().append(svg);
     });
   };
 

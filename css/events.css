@@ -96,7 +96,7 @@
   width: 100%;
 }
 
-.ui-carousel-content > div:not(:last-child) {
+.ui-carousel-content > div {
   position: relative;
 }
 
@@ -104,16 +104,9 @@
   opacity: 0.65;
 }
 
-.ui-carousel-content > div > .ui-nav-left {
-  left: 1rem;
-}
-
-.ui-carousel-content > div > .ui-nav-right {
-  right: 1rem;
-}
-
 .ui-carousel-nav {
   opacity: 0;
+  padding: 0.4em 0.8em;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);

@@ -8,13 +8,61 @@ block variables
 
 block article
   h3.ui-header-primary Forms
-  .ui-container-grid
+  section
+    h4.ui-header-secondary Validation
+    .ui-container-grid
+      pre: code.language-markup.
+        &lt;!-- Validate the form and do not submit empty fields --&gt;
+        &lt;form action="/search" method="post" data-schema-validate&gt;
+
+        &lt;!-- Only submit the form when some fields have been changed --&gt;
+        &lt;form action="/articles/1212.5605/edit" method="post" data-schema-validate="changed"&gt;
+
+        &lt;!-- Only allow to submit the form once --&gt;
+        &lt;form action="/auth/login" method="post" data-schema-validate="once"&gt;
+
+  section
+    h4.ui-header-secondary Rating
+    .ui-container-grid
+      form.ui-grid-50(data-schema-rating)
+        input(type='hidden' name='score')
+        a.ui-text-padding(data-schema-icons='star-o,star' role='button')
+          i(data-schema-icon='star-o')
+          i(data-schema-icon='star-o')
+          i(data-schema-icon='star-o')
+          i(data-schema-icon='star-o')
+          i(data-schema-icon='star-o')
+      form.ui-grid-50(data-schema-rating)
+        input(type='hidden' name='score')
+        a.ui-text-padding(data-schema-icons='star-o,star-half-empty,star' data-schema-score='3.6' role='button')
+          i(data-schema-icon='star')
+          i(data-schema-icon='star')
+          i(data-schema-icon='star')
+          i(data-schema-icon='star-half-empty')
+          i(data-schema-icon='star-o')
     pre: code.language-markup.
-      &lt;!-- Validate the form and do not submit empty fields --&gt;
-      &lt;form action="/search" method="post" data-schema-validate&gt;
+       &lt;form data-schema-rating&gt;
+         &lt;input type="hidden" name="score"&gt;
+         &lt;a class="ui-text-padding" data-schema-icons="star-o,star" role="button"&gt;
+           &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+        &lt;/a&gt;
+       &lt;/form&gt;
 
-      &lt;!-- Only submit the form when some fields have been changed --&gt;
-      &lt;form action="/articles/1212.5605/edit" method="post" data-schema-validate="changed"&gt;
+       &lt;form data-schema-rating&gt;
+         &lt;input type="hidden" name="score"&gt;
+         &lt;a class="ui-text-padding" data-schema-icons="star-o,star-half-empty,star" data-schema-score="3.6" role="button"&gt;
+           &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star-half-empty"&gt;&lt;/i&gt;
+           &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+         &lt;/a&gt;
+       &lt;/form&gt;
 
-      &lt;!-- Only allow to submit the form once --&gt;
-      &lt;form action="/auth/login" method="post" data-schema-validate="once"&gt;
+block append foot
+  script(src='#{appIcons}/account.js')
+  
