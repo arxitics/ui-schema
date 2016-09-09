@@ -1190,7 +1190,6 @@ tr:not(:first-child) > td {
 
 /* ARIA
    ========================================================================== */
-[hidden],
 [aria-hidden="true"] {
   display: none;
 }
@@ -1848,6 +1847,18 @@ tr:not(:first-child) > td {
   opacity: 1;
 }
 
+.ui-nav-vertical {
+  padding: 0.4em 0.8em;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.ui-nav-vertical > li {
+  display: block;
+}
+
 /*!
  * Menus
  */
@@ -1923,6 +1934,7 @@ tr:not(:first-child) > td {
 .ui-menu-dropdown > ul > li > a:hover,
 .ui-menu-selection > ul > li:hover {
   background-color: #eee;
+  color: #333;
 }
 
 .ui-menu-selection {
@@ -2133,6 +2145,11 @@ tr:not(:first-child) > td {
 
 .ui-text-invisible {
   visibility: hidden;
+}
+
+.ui-text-padding {
+  display: inline-block;
+  padding: 0.4em 0.8em;
 }
 
 .ui-text-disabled {
@@ -3246,7 +3263,7 @@ tr:not(:first-child) > td {
   text-space-trim: trim-inner;
 }
 
-.ui-space-trim > a,
+.ui-space-trim > span,
 .ui-space-trim > button,
 .ui-space-trim > label,
 .ui-space-trim > li > :only-child {
@@ -3254,7 +3271,7 @@ tr:not(:first-child) > td {
   border-radius: 0;
 }
 
-.ui-space-trim > a:first-child,
+.ui-space-trim > span:first-child,
 .ui-space-trim > button:first-child,
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
@@ -3263,7 +3280,7 @@ tr:not(:first-child) > td {
   border-top-left-radius: 0.4rem;
 }
 
-.ui-space-trim > a:last-child,
+.ui-space-trim > span:last-child,
 .ui-space-trim > button:last-child,
 .ui-space-trim > div:last-child > button:last-of-type,
 .ui-space-trim > label:last-of-type,
@@ -3272,7 +3289,7 @@ tr:not(:first-child) > td {
   border-top-right-radius: 0.4rem;
 }
 
-.ui-space-trim > a:first-child,
+.ui-space-trim > span:first-child,
 .ui-space-trim > button:first-child,
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
@@ -3643,7 +3660,7 @@ tr:not(:first-child) > td {
   width: 100%;
 }
 
-.ui-carousel-content > div:not(:last-child) {
+.ui-carousel-content > div {
   position: relative;
 }
 
@@ -3651,16 +3668,9 @@ tr:not(:first-child) > td {
   opacity: 0.65;
 }
 
-.ui-carousel-content > div > .ui-nav-left {
-  left: 1rem;
-}
-
-.ui-carousel-content > div > .ui-nav-right {
-  right: 1rem;
-}
-
 .ui-carousel-nav {
   opacity: 0;
+  padding: 0.4em 0.8em;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -3952,7 +3962,10 @@ tr:not(:first-child) > td {
 
 .ui-theme-dark,
 .ui-theme-dark .ui-header-navbar input,
+.ui-theme-dark .ui-menu-dropdown > ul,
+.ui-theme-dark .ui-menu-selection > ul,
 .ui-theme-dark .ui-modal-content > div,
+.ui-theme-dark .ui-tooltip-content,
 .ui-theme-dark .ui-lightbox-content > div,
 .ui-theme-dark .ui-lightbox-content > figure {
   background-color: #333;
@@ -3974,6 +3987,22 @@ tr:not(:first-child) > td {
 .ui-theme-dark .ui-text-active,
 .ui-theme-dark .ui-state-active a {
   color: #fff;
+}
+
+.ui-theme-dark .ui-tooltip-top::after {
+  border-top-color: #333;
+}
+
+.ui-theme-dark .ui-tooltip-right::after {
+  border-right-color: #333;
+}
+
+.ui-theme-dark .ui-tooltip-bottom::after {
+  border-bottom-color: #333;
+}
+
+.ui-theme-dark .ui-tooltip-left::after {
+  border-left-color: #333;
 }
 
 /*!
