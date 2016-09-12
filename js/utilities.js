@@ -8,7 +8,7 @@
   // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
     var selector = schema.events.trim.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
@@ -17,12 +17,12 @@
   // Toggle a CSS class
   schema.toggle = function (event, options) {
     var selector = schema.events.toggle.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var target = $data.toggle;
-      var $target = $(target);
+      var $target = (target === 'next') ? $this.next() : $(target);
       var $param = schema.parseData($target.data());
       var toggler = $param.toggler;
       var trigger = $data.trigger || 'click';
@@ -56,7 +56,7 @@
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
     var selector = schema.events.autoplay.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -89,7 +89,7 @@
   // Dismiss any alert inline.
   schema.dismiss = function (event, options) {
     var selector = schema.events.dismiss.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -108,7 +108,7 @@
   // Extract data from text contents
   schema.extract = function (event, options) {
     var selector = schema.events.extract.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());

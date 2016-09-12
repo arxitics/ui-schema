@@ -8,7 +8,7 @@
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
     var selector = schema.events.lazyload.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     var height = $(window).height();
     $(window).on('scroll', function () {
       var scrollTop = $(window).scrollTop();

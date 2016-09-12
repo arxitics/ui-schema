@@ -34,14 +34,14 @@
 }
 
 .ui-seperator-horizontal {
-  background-color: #eee;
+  background-color: #ddd;
   height: 1px;
   margin: 0.4em 0;
   overflow: hidden;
 }
 
 .ui-seperator-vertical {
-  border-right: 1px solid #e5e5e5;
+  border-right: 1px solid #ddd;
   margin: 0 0.4em;
   width: 0;
 }

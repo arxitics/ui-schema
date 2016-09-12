@@ -7,24 +7,27 @@
 
   // Validate user input
   schema.validate = function (event, options) {
+    var data = schema.data;
+    var changed = data.changed;
+    var disabled = data.disabled;
     var selector = schema.events.validate.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var validate = $data.validate;
       $this.find(':input').one('change', function () {
-        $this.data('changed', true);
+        $this.data(changed, true);
       });
       $this.on('submit', function (event) {
         var $form = $(this);
-        var validated = (validate === 'changed') ? $form.data('changed') : true;
+        var validated = (validate === 'changed') ? $form.data(changed) : true;
         if (validated) {
           $form.find('input, textarea').each(function () {
             var $input = $(this);
             var value = $input.val().toString().trim();
             if (value === '') {
-              $input.prop('disabled', true).data('disabled', true);
+              $input.prop('disabled', true).data(disabled, true);
             }
           });
           if (validate === 'once') {
@@ -40,8 +43,8 @@
         var $form = $(this);
         $form.find('input, textarea').each(function () {
           var $input = $(this);
-          if ($input.data('disabled')) {
-            $input.prop('disabled', false).data('disabled', false);
+          if ($input.data(disabled)) {
+            $input.prop('disabled', false).data(disabled, false);
           }
         });
         return true;
@@ -51,11 +54,11 @@
 
   // Rating
   schema.rating = function (event, options) {
-    var sprite = schema.events.sprite;
-    var spriteName = sprite.type + sprite.namespace;
-    var spriteIcon = sprite.selector.replace(/^i\[data\-|\]$/g, '');
-    var selector = schema.events.rating.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var events = schema.events;
+    var icon = schema.data.icon;
+    var sprite = events.sprite.type;
+    var selector = events.rating.selector;
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $form = $(this);
       var $icons = $form.find('a > i');
@@ -68,12 +71,13 @@
       var empty = icons.shift();
       var full = icons.pop();
       var half = icons.pop();
+      var params = { selector: $icons };
       $icons.each(function (index) {
         var $icon = $(this);
         $icon.on('mouseenter', function () {
-          $icon.prevAll().addBack().data(spriteIcon, full);
-          $icon.nextAll().data(spriteIcon, empty);
-          $(document).trigger(spriteName);
+          $icon.prevAll().addBack().data(icon, full);
+          $icon.nextAll().data(icon, empty);
+          $(document).trigger(sprite, params);
         });
         $icon.on('click', function () {
           $parent.prev('input[type="hidden"]').val(index + 1);
@@ -81,14 +85,14 @@
         });
       });
       $parent.on('mouseleave', function () {
-        $icons.slice(integer).data(spriteIcon, empty);
+        $icons.slice(integer).data(icon, empty);
         if (integer > 0) {
-          $icons.slice(0, integer).data(spriteIcon, full);
+          $icons.slice(0, integer).data(icon, full);
           if (half && Math.abs(rounding) > 0.25) {
-            $icons.eq(Math.floor(score)).data(spriteIcon, half);
+            $icons.eq(Math.floor(score)).data(icon, half);
           }
         }
-        $(document).trigger(spriteName);
+        $(document).trigger(sprite, params);
       });
     });
   };

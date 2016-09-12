@@ -121,7 +121,7 @@
   schema.bind = function (event, options) {
     var bind = schema.events.bind;
     var selector = bind.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -142,14 +142,13 @@
 
   // Retrieve schema event options and store as event data
   schema.retrieve = function (event, options) {
+    var params = { prefix: schema.setup.dataPrefix };
     var selector = schema.events.retrieve.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
-      var $options = schema.parseOptions($data.options, {
-        prefix: schema.setup.dataPrefix
-      });
+      var $options = schema.parseOptions($data.options, params);
       for (var key in $options) {
         if ($options.hasOwnProperty(key)) {
           $this.data(key, $options[key]);
@@ -161,10 +160,9 @@
   // Observe a model and update the view
   schema.observe = function (event, options) {
     var models = schema.models;
-    var render = schema.events.render;
-    var renderName = render.type + render.namespace;
+    var render = schema.events.render.type;
     var selector = schema.events.observe.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -183,7 +181,7 @@
         if (controller) {
           models = $.extend(models, schema[controller](models));
         }
-        $(document).trigger(renderName);
+        $(document).trigger(render);
       });
       if (text) {
         if (value) {
@@ -198,28 +196,51 @@
 
   // Render a partial view
   schema.render = function (event, options) {
-    var models = schema.models;
+    var data = schema.data;
     var events = schema.events;
+    var models = schema.models;
+    var internal = data.internal;
+    var template = data.template;
     var selector = events.render.selector;
-    var template = selector.replace(/^\[data\-|\]$/g, '');
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
-      var $template = $data.view;
+      var $template = $data.template;
       var controller = $data.controller;
-      var conditional = $data.conditional;
+      var condition = $data.condition;
       var iteration = $data.iteration;
+      var view = $data.view;
+      var ready = true;
       var $cache = $this.html();
       var $html = '';
-      if ($template === true) {
+      if ($template === undefined) {
         $template = $cache;
         $this.data(template, $template);
       }
       if (controller) {
         models = $.extend({}, models, schema[controller](models));
       }
-      if (!conditional || models[conditional] === true) {
+      if (typeof view === 'string') {
+        var $internal = $data.internal || {};
+        var changed = false;
+        ready = view.split(/\s*\,\s*/).every(function (view) {
+          if (models.hasOwnProperty(view)) {
+            var value = models[view];
+            var $value = $internal[view];
+            if (JSON.stringify(value) !== JSON.stringify($value)) {
+              $internal[view] = value;
+              changed = true;
+            }
+            return true;
+          }
+          return false;
+        }) && changed;
+        if (changed) {
+          $this.data(internal, $internal);
+        }
+      }
+      if (ready && (!condition || models[condition] === true)) {
         if (iteration) {
           var pattern = /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/;
           var matches = String(iteration).match(pattern);
@@ -242,8 +263,9 @@
           for (var key in events) {
             if (events.hasOwnProperty(key)) {
               var event = events[key];
-              if ($this.find(event.selector).length) {
-                $(document).trigger(event.type + event.namespace);
+              var $targets = $this.find(event.selector);
+              if ($targets.length) {
+                $(document).trigger(event.type);
               }
             }
           }
@@ -255,13 +277,17 @@
   // Insert the content of a template
   schema.insert = function (event, options) {
     var selector = schema.events.insert.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var $html = $this.html();
       var target = $data.target;
-      if (target && $html && !/\$\{[\w\-]+\}/.test($html)) {
+      var instantiator = $data.instantiator;
+      if (instantiator) {
+        $html = schema[instantiator]($html);
+      }
+      if (target && $html) {
         $(target).empty().append($html);
       }
     });

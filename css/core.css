@@ -360,7 +360,7 @@ pre > code {
 
 hr {
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ddd;
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -380,12 +380,9 @@ ul {
   padding-left: 2em;
 }
 
-dl dl,
-ol ol,
-ol ul,
-ul ol,
-ul ul {
-  margin-bottom: 0;
+li ol,
+li ul {
+  margin: 0.2em 0;
 }
 
 dt {
@@ -446,7 +443,7 @@ button {
 
 button:focus,
 button:hover {
-  background-color: #eee;
+  background-color: #e8e8e8;
   color: #333;
 }
 
@@ -584,7 +581,7 @@ input[type="range"]:focus::-moz-range-track {
 }
 
 input[type="range"]::-ms-fill-lower {
-  background: #777;
+  background: #999;
   border-radius: 0.2rem;
 }
 
@@ -617,7 +614,7 @@ input[type="range"]::-ms-track {
 }
 
 input[type="range"]:focus::-ms-fill-lower {
-  background: #888;
+  background: #777;
 }
 
 input[type="range"]:focus::-ms-fill-upper {

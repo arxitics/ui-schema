@@ -62,6 +62,7 @@
 
 .ui-menu-dropdown > ul > li > a,
 .ui-menu-dropdown > ul > li > span {
+  border-radius: 0 !important;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
@@ -72,7 +73,7 @@
 .ui-menu-dropdown > ul > li > a:focus,
 .ui-menu-dropdown > ul > li > a:hover,
 .ui-menu-selection > ul > li:hover {
-  background-color: #eee;
+  background-color: #e8e8e8;
   color: #333;
 }
 

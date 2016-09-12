@@ -10,5 +10,8 @@ block article
   ul
     - var archive = 'https://github.com/arxitics/ui-schema/archive'
     - var release = '0.4.1'
+    - var latest = '0.4.2'
     li: a(href='#{archive}/master.zip') Latest development version from GitHub
     li: a(href='#{archive}/#{release}.zip') UI Schema production version #{release}
+    li: a(href='#{appRoot}/dist/ui-schema-#{latest}.css') Source code of unreleased ui-schema.css
+    li: a(href='#{appRoot}/dist/ui-schema-#{latest}.js') Source code of unreleased ui-schema.js

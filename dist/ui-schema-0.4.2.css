@@ -784,7 +784,7 @@ pre > code {
 
 hr {
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ddd;
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -804,12 +804,9 @@ ul {
   padding-left: 2em;
 }
 
-dl dl,
-ol ol,
-ol ul,
-ul ol,
-ul ul {
-  margin-bottom: 0;
+li ol,
+li ul {
+  margin: 0.2em 0;
 }
 
 dt {
@@ -870,7 +867,7 @@ button {
 
 button:focus,
 button:hover {
-  background-color: #eee;
+  background-color: #e8e8e8;
   color: #333;
 }
 
@@ -1008,7 +1005,7 @@ input[type="range"]:focus::-moz-range-track {
 }
 
 input[type="range"]::-ms-fill-lower {
-  background: #777;
+  background: #999;
   border-radius: 0.2rem;
 }
 
@@ -1041,7 +1038,7 @@ input[type="range"]::-ms-track {
 }
 
 input[type="range"]:focus::-ms-fill-lower {
-  background: #888;
+  background: #777;
 }
 
 input[type="range"]:focus::-ms-fill-upper {
@@ -1627,7 +1624,7 @@ tr:not(:first-child) > td {
 
 .ui-header-navbar,
 .ui-nav-collapse > ul {
-  background-color: #eee;
+  background-color: #f5f5f5;
   color: #777;
 }
 
@@ -1718,7 +1715,7 @@ tr:not(:first-child) > td {
 .ui-nav-pills > li:hover,
 .ui-nav-stacked > li:hover,
 .ui-header-navbar > nav > ul > li:hover {
-  background-color: #ddd;
+  background-color: #e8e8e8;
 }
 
 .ui-nav-tabs:not(.ui-nav-justified) {
@@ -1781,7 +1778,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-nav-breadcrumb {
-  background-color: #eee;
+  background-color: #f5f5f5;
   border-radius: 0.4rem;
   color: #333;
   list-style: none;
@@ -1818,8 +1815,7 @@ tr:not(:first-child) > td {
 
 .ui-nav-pagination > li > :only-child:focus,
 .ui-nav-pagination > li > :only-child:hover {
-  background-color: #eee;
-  border-color: #ddd;
+  background-color: #e8e8e8;
   color: #333;
 }
 
@@ -1923,6 +1919,7 @@ tr:not(:first-child) > td {
 
 .ui-menu-dropdown > ul > li > a,
 .ui-menu-dropdown > ul > li > span {
+  border-radius: 0 !important;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
@@ -1933,7 +1930,7 @@ tr:not(:first-child) > td {
 .ui-menu-dropdown > ul > li > a:focus,
 .ui-menu-dropdown > ul > li > a:hover,
 .ui-menu-selection > ul > li:hover {
-  background-color: #eee;
+  background-color: #e8e8e8;
   color: #333;
 }
 
@@ -2176,7 +2173,7 @@ tr:not(:first-child) > td {
 .ui-text-button:focus,
 .ui-content-link:hover,
 .ui-content-link:focus {
-  background-color: #eee;
+  background-color: #e8e8e8;
 }
 
 .ui-text-label,
@@ -2301,6 +2298,7 @@ tr:not(:first-child) > td {
 
 .ui-list-indent > dd {
   margin-left: 2em;
+  margin-top: 0.2em;
 }
 
 .ui-list-horizontal > dt {
@@ -2357,7 +2355,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-content-highlight {
-  background-color: #eee;
+  background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 0.4rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
@@ -2371,7 +2369,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-content-jumbotron {
-  background-color: #eee;
+  background-color: #f5f5f5;
   border-radius: 0.8rem;
   color: #333;
   display: block;
@@ -2420,7 +2418,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-panel-header {
-  background-color: #eee;
+  background-color: #f5f5f5;
   border-bottom: inherit;
   border-radius: 0.4rem 0.4rem 0 0;
   color: #333;
@@ -2437,7 +2435,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-panel-body > div {
-  margin: 1em 0.8em;
+  margin: 0 0.8em;
 }
 
 .ui-panel-body > .ui-list-group {
@@ -2647,7 +2645,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-button-switch > label > span {
-  background-color: #eee;
+  background-color: #f5f5f5;
   color: #333;
   display: inline-block;
   padding: 0.4em 0.8em;
@@ -2672,7 +2670,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-button-group input:checked + label {
-  background-color: #eee;
+  background-color: #f5f5f5;
   color: #333;
 }
 
@@ -2730,14 +2728,14 @@ tr:not(:first-child) > td {
 }
 
 .ui-table-bordered {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-collapse: separate;
   border-radius: 0.4rem;
 }
 
 .ui-table-bordered th + th,
 .ui-table-bordered td + td {
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #ccc;
 }
 
 .ui-table-condensed th,
@@ -2745,16 +2743,16 @@ tr:not(:first-child) > td {
   padding: 0.2em 0.4em;
 }
 
-.ui-table-hover tr:hover,
-.ui-table-hover tr:hover {
-  background-color: #eee;
+.ui-table-striped > tbody > tr:nth-child(odd) {
+  background-color: #f5f5f5;
   color: #333;
-  cursor: pointer;
 }
 
-.ui-table-striped > tbody > tr:nth-child(odd) {
-  background-color: #eee;
+.ui-table-hover tr:hover,
+.ui-table-hover tr:hover {
+  background-color: #e8e8e8;
   color: #333;
+  cursor: pointer;
 }
 
 .ui-table-columns-2 th,
@@ -3060,7 +3058,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-state-active {
-  background-color: #eee;
+  background-color: #f5f5f5;
   color: #333;
 }
 
@@ -3263,7 +3261,7 @@ tr:not(:first-child) > td {
   text-space-trim: trim-inner;
 }
 
-.ui-space-trim > span,
+.ui-space-trim > a,
 .ui-space-trim > button,
 .ui-space-trim > label,
 .ui-space-trim > li > :only-child {
@@ -3271,7 +3269,7 @@ tr:not(:first-child) > td {
   border-radius: 0;
 }
 
-.ui-space-trim > span:first-child,
+.ui-space-trim > a:first-child,
 .ui-space-trim > button:first-child,
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
@@ -3280,7 +3278,7 @@ tr:not(:first-child) > td {
   border-top-left-radius: 0.4rem;
 }
 
-.ui-space-trim > span:last-child,
+.ui-space-trim > a:last-child,
 .ui-space-trim > button:last-child,
 .ui-space-trim > div:last-child > button:last-of-type,
 .ui-space-trim > label:last-of-type,
@@ -3289,7 +3287,7 @@ tr:not(:first-child) > td {
   border-top-right-radius: 0.4rem;
 }
 
-.ui-space-trim > span:first-child,
+.ui-space-trim > a:first-child,
 .ui-space-trim > button:first-child,
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
@@ -3309,6 +3307,7 @@ tr:not(:first-child) > td {
 .ui-seamless-top:not(:empty) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  margin-top: 0;
 }
 
 .ui-seamless-bottom:not(:empty) {
@@ -3418,14 +3417,14 @@ tr:not(:first-child) > td {
 }
 
 .ui-seperator-horizontal {
-  background-color: #eee;
+  background-color: #ddd;
   height: 1px;
   margin: 0.4em 0;
   overflow: hidden;
 }
 
 .ui-seperator-vertical {
-  border-right: 1px solid #e5e5e5;
+  border-right: 1px solid #ddd;
   margin: 0 0.4em;
   width: 0;
 }

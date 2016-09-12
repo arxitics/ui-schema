@@ -22,6 +22,48 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       autoBind: '.schema',
       autoTrigger: '.schema'
     },
+    // Data attributes
+    data: {
+      event: 'schema-event',
+      namespace: 'schema-namespace',
+      selector: 'schema-selector',
+      options: 'schema-options',
+      model: 'schema-model',
+      value: 'schema-value',
+      parser: 'schema-parser',
+      trigger: 'schema-trigger',
+      controller: 'schema-controller',
+      view: 'schema-view',
+      internal: 'schema-internal',
+      template: 'schema-template',
+      condition: 'schema-condition',
+      iteration: 'schema-itration',
+      target: 'schema-target',
+      instantiator: 'schema-instantiator',
+      validate: 'schema-validate',
+      changed: 'schema-changed',
+      disabled: 'schema-disabled',
+      rating: 'schema-rating',
+      score: 'schema-score',
+      icons: 'schema-icons',
+      lazyload: 'schema-lazyload',
+      delay: 'schema-delay',
+      src: 'schema-src',
+      trim: 'schema-trim',
+      toggle: 'schema-toggle',
+      toggler: 'schema-toggler',
+      storage: 'schema-storage',
+      init: 'schema-init',
+      autoplay: 'schema-autoplay',
+      dismiss: 'schema-dismiss',
+      extract: 'schema-extract',
+      emoji: 'schema-emoji',
+      icon: 'schema-icon',
+      width: 'schema-width',
+      height: 'schema-height',
+      path: 'schema-path',
+      color: 'schema-color'
+    },
     // Register schema events
     events: {
       bind: {
@@ -229,7 +271,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.bind = function (event, options) {
     var bind = schema.events.bind;
     var selector = bind.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -250,14 +292,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Retrieve schema event options and store as event data
   schema.retrieve = function (event, options) {
+    var params = { prefix: schema.setup.dataPrefix };
     var selector = schema.events.retrieve.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
-      var $options = schema.parseOptions($data.options, {
-        prefix: schema.setup.dataPrefix
-      });
+      var $options = schema.parseOptions($data.options, params);
       for (var key in $options) {
         if ($options.hasOwnProperty(key)) {
           $this.data(key, $options[key]);
@@ -269,10 +310,9 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Observe a model and update the view
   schema.observe = function (event, options) {
     var models = schema.models;
-    var render = schema.events.render;
-    var renderName = render.type + render.namespace;
+    var render = schema.events.render.type;
     var selector = schema.events.observe.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -291,7 +331,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         if (controller) {
           models = $.extend(models, schema[controller](models));
         }
-        $(document).trigger(renderName);
+        $(document).trigger(render);
       });
       if (text) {
         if (value) {
@@ -306,28 +346,51 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Render a partial view
   schema.render = function (event, options) {
-    var models = schema.models;
+    var data = schema.data;
     var events = schema.events;
+    var models = schema.models;
+    var internal = data.internal;
+    var template = data.template;
     var selector = events.render.selector;
-    var template = selector.replace(/^\[data\-|\]$/g, '');
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
-      var $template = $data.view;
+      var $template = $data.template;
       var controller = $data.controller;
-      var conditional = $data.conditional;
+      var condition = $data.condition;
       var iteration = $data.iteration;
+      var view = $data.view;
+      var ready = true;
       var $cache = $this.html();
       var $html = '';
-      if ($template === true) {
+      if ($template === undefined) {
         $template = $cache;
         $this.data(template, $template);
       }
       if (controller) {
         models = $.extend({}, models, schema[controller](models));
       }
-      if (!conditional || models[conditional] === true) {
+      if (typeof view === 'string') {
+        var $internal = $data.internal || {};
+        var changed = false;
+        ready = view.split(/\s*\,\s*/).every(function (view) {
+          if (models.hasOwnProperty(view)) {
+            var value = models[view];
+            var $value = $internal[view];
+            if (JSON.stringify(value) !== JSON.stringify($value)) {
+              $internal[view] = value;
+              changed = true;
+            }
+            return true;
+          }
+          return false;
+        }) && changed;
+        if (changed) {
+          $this.data(internal, $internal);
+        }
+      }
+      if (ready && (!condition || models[condition] === true)) {
         if (iteration) {
           var pattern = /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/;
           var matches = String(iteration).match(pattern);
@@ -350,8 +413,9 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           for (var key in events) {
             if (events.hasOwnProperty(key)) {
               var event = events[key];
-              if ($this.find(event.selector).length) {
-                $(document).trigger(event.type + event.namespace);
+              var $targets = $this.find(event.selector);
+              if ($targets.length) {
+                $(document).trigger(event.type);
               }
             }
           }
@@ -363,13 +427,17 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Insert the content of a template
   schema.insert = function (event, options) {
     var selector = schema.events.insert.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var $html = $this.html();
       var target = $data.target;
-      if (target && $html && !/\$\{[\w\-]+\}/.test($html)) {
+      var instantiator = $data.instantiator;
+      if (instantiator) {
+        $html = schema[instantiator]($html);
+      }
+      if (target && $html) {
         $(target).empty().append($html);
       }
     });
@@ -386,24 +454,27 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Validate user input
   schema.validate = function (event, options) {
+    var data = schema.data;
+    var changed = data.changed;
+    var disabled = data.disabled;
     var selector = schema.events.validate.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var validate = $data.validate;
       $this.find(':input').one('change', function () {
-        $this.data('changed', true);
+        $this.data(changed, true);
       });
       $this.on('submit', function (event) {
         var $form = $(this);
-        var validated = (validate === 'changed') ? $form.data('changed') : true;
+        var validated = (validate === 'changed') ? $form.data(changed) : true;
         if (validated) {
           $form.find('input, textarea').each(function () {
             var $input = $(this);
             var value = $input.val().toString().trim();
             if (value === '') {
-              $input.prop('disabled', true).data('disabled', true);
+              $input.prop('disabled', true).data(disabled, true);
             }
           });
           if (validate === 'once') {
@@ -419,8 +490,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         var $form = $(this);
         $form.find('input, textarea').each(function () {
           var $input = $(this);
-          if ($input.data('disabled')) {
-            $input.prop('disabled', false).data('disabled', false);
+          if ($input.data(disabled)) {
+            $input.prop('disabled', false).data(disabled, false);
           }
         });
         return true;
@@ -430,11 +501,11 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Rating
   schema.rating = function (event, options) {
-    var sprite = schema.events.sprite;
-    var spriteName = sprite.type + sprite.namespace;
-    var spriteIcon = sprite.selector.replace(/^i\[data\-|\]$/g, '');
-    var selector = schema.events.rating.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var events = schema.events;
+    var icon = schema.data.icon;
+    var sprite = events.sprite.type;
+    var selector = events.rating.selector;
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $form = $(this);
       var $icons = $form.find('a > i');
@@ -447,12 +518,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var empty = icons.shift();
       var full = icons.pop();
       var half = icons.pop();
+      var params = { selector: $icons };
       $icons.each(function (index) {
         var $icon = $(this);
         $icon.on('mouseenter', function () {
-          $icon.prevAll().addBack().data(spriteIcon, full);
-          $icon.nextAll().data(spriteIcon, empty);
-          $(document).trigger(spriteName);
+          $icon.prevAll().addBack().data(icon, full);
+          $icon.nextAll().data(icon, empty);
+          $(document).trigger(sprite, params);
         });
         $icon.on('click', function () {
           $parent.prev('input[type="hidden"]').val(index + 1);
@@ -460,14 +532,14 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         });
       });
       $parent.on('mouseleave', function () {
-        $icons.slice(integer).data(spriteIcon, empty);
+        $icons.slice(integer).data(icon, empty);
         if (integer > 0) {
-          $icons.slice(0, integer).data(spriteIcon, full);
+          $icons.slice(0, integer).data(icon, full);
           if (half && Math.abs(rounding) > 0.25) {
-            $icons.eq(Math.floor(score)).data(spriteIcon, half);
+            $icons.eq(Math.floor(score)).data(icon, half);
           }
         }
-        $(document).trigger(spriteName);
+        $(document).trigger(sprite, params);
       });
     });
   };
@@ -484,7 +556,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
     var selector = schema.events.lazyload.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     var height = $(window).height();
     $(window).on('scroll', function () {
       var scrollTop = $(window).scrollTop();
@@ -519,7 +591,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
     var selector = schema.events.trim.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
@@ -528,12 +600,12 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Toggle a CSS class
   schema.toggle = function (event, options) {
     var selector = schema.events.toggle.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var target = $data.toggle;
-      var $target = $(target);
+      var $target = (target === 'next') ? $this.next() : $(target);
       var $param = schema.parseData($target.data());
       var toggler = $param.toggler;
       var trigger = $data.trigger || 'click';
@@ -567,7 +639,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
     var selector = schema.events.autoplay.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -600,7 +672,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Dismiss any alert inline.
   schema.dismiss = function (event, options) {
     var selector = schema.events.dismiss.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -619,7 +691,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Extract data from text contents
   schema.extract = function (event, options) {
     var selector = schema.events.extract.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -725,7 +797,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.sprite = function (event, options) {
     var icons = schema.icons;
     var selector = schema.events.sprite.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -739,10 +811,6 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var height = $data.height || icon[1];
       var path = $data.path || icon[2];
       var color = $data.color || icon[3];
-      var colorEnabled = $data.colorEnabled;
-      if (colorEnabled === undefined && color) {
-        colorEnabled = true;
-      }
 
       // Create <svg> element
       var namespace = 'http://www.w3.org/2000/svg';
@@ -755,7 +823,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       if (Array.isArray(path)) {
         path.forEach(function (segment, index) {
           var element = document.createElementNS(namespace, 'path');
-          if(colorEnabled && color) {
+          if(color && color !== 'unset') {
             element.setAttribute('fill', Array.isArray(color) ? color[index] : color);
           }
           element.setAttribute('d', segment);
@@ -763,7 +831,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         });
       } else {
         var element = document.createElementNS(namespace, 'path');
-        if (colorEnabled && color) {
+        if (color && color !== 'unset') {
           element.setAttribute('fill', color);
         }
         element.setAttribute('d', path);

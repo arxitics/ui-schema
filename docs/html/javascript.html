@@ -45,17 +45,17 @@
             <input type="text" placeholder="Please input something..." data-schema-model="message" data-schema-value="Hello world!" data-schema-parser="escape">
           </div>
           <div class="ui-skip-medium">
-            <div data-schema-controller="encrypt" data-schema-view class="ui-content-alert">
+            <div data-schema-view="message" data-schema-controller="encrypt" class="ui-content-alert">
               <p>Message: <strong>${message}</strong></p>
-              <p>Encrypt: <span data-schema-iteration="icon in icons" data-schema-view><i data-schema-icon="${icon}"></i></span></p>
+              <p>Encrypt: <span data-schema-view="icons" data-schema-iteration="icon in icons"><i data-schema-icon="${icon}"></i></span></p>
               <p>Count: <code>${count}</code></p>
             </div>
           </div>
           <div>
             <pre><code class="language-markup">&lt;input type="text" placeholder="Please input something..." data-schema-model="message" data-schema-value="Hello world!" data-schema-parser="escape"&gt;
-&lt;div class="ui-content-alert" data-schema-controller="encrypt" data-schema-view&gt;
+&lt;div class="ui-content-alert" data-schema-view="message" data-schema-controller="encrypt"&gt;
   &lt;p&gt;Message: &lt;strong&gt;${message}&lt;/strong&gt;&lt;/p&gt;
-  &lt;p&gt;Encrypt: &lt;span data-schema-iteration="icon in icons" data-schema-view&gt;&lt;i data-schema-icon="${icon}"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;p&gt;Encrypt: &lt;span data-schema-view="icons" data-schema-iteration="icon in icons"&gt;&lt;i data-schema-icon="${icon}"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
   &lt;p&gt;Count: &lt;code&gt;${count}&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
             <pre><code class="language-markup">&lt;script&gt;

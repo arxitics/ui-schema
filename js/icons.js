@@ -9,7 +9,7 @@
   schema.sprite = function (event, options) {
     var icons = schema.icons;
     var selector = schema.events.sprite.selector;
-    var $elements = $(selector).add(options && options.selector);
+    var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -23,10 +23,6 @@
       var height = $data.height || icon[1];
       var path = $data.path || icon[2];
       var color = $data.color || icon[3];
-      var colorEnabled = $data.colorEnabled;
-      if (colorEnabled === undefined && color) {
-        colorEnabled = true;
-      }
 
       // Create <svg> element
       var namespace = 'http://www.w3.org/2000/svg';
@@ -39,7 +35,7 @@
       if (Array.isArray(path)) {
         path.forEach(function (segment, index) {
           var element = document.createElementNS(namespace, 'path');
-          if(colorEnabled && color) {
+          if(color && color !== 'unset') {
             element.setAttribute('fill', Array.isArray(color) ? color[index] : color);
           }
           element.setAttribute('d', segment);
@@ -47,7 +43,7 @@
         });
       } else {
         var element = document.createElementNS(namespace, 'path');
-        if (colorEnabled && color) {
+        if (color && color !== 'unset') {
           element.setAttribute('fill', color);
         }
         element.setAttribute('d', path);

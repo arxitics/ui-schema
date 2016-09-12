@@ -222,7 +222,7 @@
 .ui-text-button:focus,
 .ui-content-link:hover,
 .ui-content-link:focus {
-  background-color: #eee;
+  background-color: #e8e8e8;
 }
 
 .ui-text-label,
@@ -347,6 +347,7 @@
 
 .ui-list-indent > dd {
   margin-left: 2em;
+  margin-top: 0.2em;
 }
 
 .ui-list-horizontal > dt {
@@ -403,7 +404,7 @@
 }
 
 .ui-content-highlight {
-  background-color: #eee;
+  background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 0.4rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
@@ -417,7 +418,7 @@
 }
 
 .ui-content-jumbotron {
-  background-color: #eee;
+  background-color: #f5f5f5;
   border-radius: 0.8rem;
   color: #333;
   display: block;
@@ -466,7 +467,7 @@
 }
 
 .ui-panel-header {
-  background-color: #eee;
+  background-color: #f5f5f5;
   border-bottom: inherit;
   border-radius: 0.4rem 0.4rem 0 0;
   color: #333;
@@ -483,7 +484,7 @@
 }
 
 .ui-panel-body > div {
-  margin: 1em 0.8em;
+  margin: 0 0.8em;
 }
 
 .ui-panel-body > .ui-list-group {
