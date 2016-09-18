@@ -9,7 +9,7 @@
 .ui-table-bordered {
   border: 1px solid #ccc;
   border-collapse: separate;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-table-bordered th + th,

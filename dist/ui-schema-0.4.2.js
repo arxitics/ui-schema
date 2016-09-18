@@ -228,10 +228,10 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var output = {};
     var object = {};
     var prefix = options && options.prefix || '';
-    var type = Object.prototype.toString.call(input).slice(8, -1);
-    if (type === 'Object') {
+    var type = $.type(input);
+    if (type === 'object') {
       object = input;
-    } else if (type === 'String') {
+    } else if (type === 'string') {
       try {
         object = JSON.parse(input);
       } catch (error) {
@@ -392,8 +392,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       }
       if (ready && (!condition || models[condition] === true)) {
         if (iteration) {
-          var pattern = /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/;
-          var matches = String(iteration).match(pattern);
+          var segments = schema.regexp.segments;
+          var matches = String(iteration).match(segments);
           if (matches) {
             var name = matches[1];
             var list = matches[3];
@@ -599,6 +599,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Toggle a CSS class
   schema.toggle = function (event, options) {
+    var storage = schema.storage;
     var selector = schema.events.toggle.selector;
     var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
@@ -622,15 +623,15 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           });
           toggler = '';
         }
-        if (key && window.localStorage) {
-          var value = localStorage.getItem(key) === 'true' ? 'false' : 'true';
-          localStorage.setItem(key, value);
+        if (key) {
+          var value = storage.get(key) === true ? false : true;
+          storage.set(key, value);
         }
       });
-      if (key && window.localStorage && $data.init) {
-        if (localStorage.getItem(key) === 'true') {
+      if (key && $data.init) {
+        if (storage.get(key) === true) {
           $this.trigger(trigger.replace(/\s.*$/, ''));
-          localStorage.setItem(key, 'true');
+          storage.set(key, true);
         }
       }
     });
@@ -644,8 +645,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var $inputs = $this.children('input[type=radio]');
-      var $div = $this.find('ol').last();
-      var $links = $div.find('a,label');
+      var $ol = $this.find('ol').last();
+      var $links = $ol.find('a,label');
       var state = $links.first().attr('class');
       var interval = (+$data.autoplay - 1) || 5000;
       var length = $links.length;
@@ -690,6 +691,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Extract data from text contents
   schema.extract = function (event, options) {
+    var regexp = schema.regexp;
     var selector = schema.events.extract.selector;
     var $elements = $((options && options.selector) || selector);
     $elements.each(function () {
@@ -697,19 +699,21 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var $data = schema.parseData($this.data());
       var tags = $data.extract.split(/\s*\,\s*/);
       if (tags.indexOf('url') !== -1) {
-        var url = /\b(https?|ftp)\:\/\/[^\s\"]+(\/|\b)/g;
+        var url = regexp.url;
         $this.html($this.html().replace(url, function (str) {
           return schema.format('<a href="${href}">${href}</a>', {href: str});
         }));
       }
       if (tags.indexOf('emoji') !== -1 && $data.emoji) {
-        var emoji = /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g;
+        var emoji = regexp.emoji;
+        var $emoji = $data.emoji.replace(/\/*$/, '/');
+        var $height = Math.round(+$this.css('font-size').slice(0, -2) * 1.4);
         $this.html($this.html().replace(emoji, function (str, p1, p2, p3) {
           var template = '${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}" />';
           return schema.format(template, {
             sep: p1,
-            src: $data.emoji.replace(/\/*$/, '/') + p3.replace(/\_/g, '-') + '.svg',
-            height: Math.round(+$this.css('font-size').slice(0, -2) * 1.4),
+            src: $emoji + p3.replace(/\_/g, '-') + '.svg',
+            height: $height,
             alt: p2,
             title: p3
           });
@@ -721,13 +725,14 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Format strings with positional parameters
   schema.format = function (template, data) {
     var string = String(template);
-    var type = Object.prototype.toString.call(data).slice(8, -1);
-    if (type === 'Object') {
-      string.match(/\$\{[^\{\}]+\}/g).forEach(function (placeholder, index) {
-        var key = placeholder.replace(/^\$\{\s*(.+)\s*\}$/, '$1');
+    if ($.isPlainObject(data)) {
+      var placeholder = schema.regexp.placeholder;
+      var matches = string.match(placeholder) || [];
+      matches.forEach(function (str) {
+        var key = str.replace(placeholder, '$1');
         var value = data;
         key.replace(/\[([^\]]+)\]/g, '.$1').split('.').every(function (key) {
-          if (typeof value === 'object') {
+          if ($.isPlainObject(value)) {
             if (value.hasOwnProperty(key)) {
               value = value[key];
               return true;
@@ -735,8 +740,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           }
           return false;
         });
-        if (typeof value !== 'object') {
-          string = string.replace(placeholder, function () {
+        if (!$.isPlainObject(value)) {
+          string = string.replace(str, function () {
             return value;
           });
         }
@@ -782,6 +787,93 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       hash: a.hash,
       fragment: a.hash.replace(/^#/, '')
     };
+  };
+
+  // Wrapper for localStorage
+  schema.storage = {
+    set: function (key, value, options) {
+      if (options && options.expires) {
+        value = {
+          value: value,
+          expires: new Date(options.expires)
+        };
+      }
+      localStorage.setItem(this.item(key, options), this.stringify(value));
+    },
+    get: function (key, options) {
+      var value = this.parse(localStorage.getItem(this.item(key, options)));
+      if ($.isPlainObject(value) && value.hasOwnProperty('value')) {
+        if (value.hasOwnProperty('expires')) {
+          if (Date.now() > value.expires.getTime()) {
+            this.remove(key, options);
+            value = undefined;
+          } else {
+            value = value.value;
+          }
+        }
+      }
+      return value;
+    },
+    remove: function (key, options) {
+      localStorage.removeItem(this.item(key, options));
+    },
+    item: function (key, options) {
+      var prefix = (options && options.prefix) || schema.setup.dataPrefix;
+      if (prefix.length) {
+        prefix += '-';
+      }
+      return prefix + key;
+    },
+    stringify: function (value) {
+      var type =$.type(value);
+      if (type === 'object') {
+        for (var key in value) {
+          if (value.hasOwnProperty(key)) {
+            value[key] = this.stringify(value[key]);
+          }
+        }
+      } else if (type === 'regexp') {
+        return value.toString();
+      }
+      return JSON.stringify(value);
+    },
+    parse: function (value) {
+      try {
+        if (typeof value === 'string') {
+          value = JSON.parse(value);
+          var type = $.type(value);
+          if (type === 'object') {
+            for (var key in value) {
+              if (value.hasOwnProperty(key)) {
+                value[key] = this.parse(this.stringify(value[key]));
+              }
+            }
+          } else if (type === 'string') {
+            var regexp = schema.regexp;
+            if (regexp.date.test(value)) {
+              value = new Date(value);
+            } else if (regexp.syntax.test(value)) {
+              var matches = value.match(regexp.syntax);
+              value = new RegExp(matches[1], matches[2]);
+            }
+          }
+        }
+      } finally {
+        return value;
+      }
+    }
+  };
+
+  // Regular expressions
+  schema.regexp = {
+    syntax: /^\/(.*)\/([gimuy]*)$/,
+    delimiter: /(^\/)|(\/[gimuy]*$)/g,
+    ascii: /^[\x00-\x7F]+$/,
+    date: /^((\d{4})\-(\d{2})\-(\d{2}))T((\d{2})\:(\d{2})\:(\d{2}))(\.(\d{3}))?Z$/,
+    emoji: /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g,
+    placeholder: /\$\{\s*([^\{\}\s]+)\s*\}/g,
+    segments: /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/,
+    url: /\b(ftp|https?|mailto|tel)\:\/\/[^\s\"]+(\/|\b)/g
   };
 
 })(jQuery);

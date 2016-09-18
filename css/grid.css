@@ -12,9 +12,9 @@
   margin-left: auto; /* 1 */
   margin-right: auto; /* 1 */
   max-width: 90%;
-  max-width: calc(100% - 4rem);
-  padding-left: 2rem; /* 2 */
-  padding-right: 2rem; /* 2 */
+  max-width: calc(100% - 2rem);
+  padding-left: 1rem; /* 2 */
+  padding-right: 1rem; /* 2 */
 }
 
 .ui-container-grid {
@@ -60,8 +60,8 @@
   float: left;
   height: auto;
   min-height: 1px;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ui-grid-column {
@@ -213,43 +213,43 @@
 }
 
 .ui-offset-huge {
-  margin-left: 3rem;
+  margin-left: 1.5rem;
 }
 
 .ui-offset-large {
-  margin-left: 2rem;
-}
-
-.ui-offset-medium {
   margin-left: 1rem;
 }
 
-.ui-offset-small {
-  margin-left: 0.8rem;
-}
-
-.ui-offset-tiny {
+.ui-offset-medium {
   margin-left: 0.5rem;
 }
 
+.ui-offset-small {
+  margin-left: 0.4rem;
+}
+
+.ui-offset-tiny {
+  margin-left: 0.25rem;
+}
+
 .ui-skip-huge {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .ui-skip-large {
-  margin-top: 2rem;
-}
-
-.ui-skip-medium {
   margin-top: 1rem;
 }
 
+.ui-skip-medium {
+  margin-top: 0.5rem;
+}
+
 .ui-skip-small {
-  margin-top: 0.8rem;
+  margin-top: 0.4rem;
 }
 
 .ui-skip-tiny {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .ui-block-center {
@@ -286,21 +286,6 @@
   clear: both;
   content: "";
   display: table;
-}
-
-.ui-full-width {
-  width: 100vw;
-}
-
-.ui-full-height {
-  height: 100vh;
-}
-
-.ui-full-page {
-  height: 100vh;
-  max-width: 100%;
-  position: relative;
-  width: 100vw;
 }
 
 .ui-fixed-width {

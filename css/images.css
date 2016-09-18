@@ -19,13 +19,13 @@
 .ui-image-rounded,
 .ui-image-thumbnail,
 .ui-image-thumbnail + .ui-image-reveal {
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-image-thumbnail {
   border: 1px solid #ddd;
-  max-width: calc(100% - 0.8rem - 2px);
-  padding: 0.4rem;
+  max-width: calc(100% - 0.4rem - 2px);
+  padding: 0.2rem;
 }
 
 .ui-image-lightbox {
@@ -33,7 +33,7 @@
   position: relative;
 }
 
-.ui-image-lightbox > .ui-image-reveal {
+.ui-image-reveal {
   background-color: rgba(0, 0, 0, 0.65);
   bottom: 0;
   color: #fff;
@@ -51,4 +51,14 @@
 
 .ui-image-lightbox:hover > .ui-image-reveal {
   opacity: 1;
+}
+
+.ui-background-image {
+  color: #fff;
+}
+
+.ui-background-image > img {
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }

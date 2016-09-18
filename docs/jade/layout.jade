@@ -31,17 +31,28 @@ html(id=pageID lang=locale)
     body
       header.ui-header-navbar.ui-container-fluid.ui-container-grid
         block header
-          .ui-header-brand
+          .ui-navbar-brand
             h2: a(href='#{appDocs}/index.html' accesskey='h')= appTitle
-          .ui-header-account.ui-float-right.ui-skip-tiny
-            a(accesskey='t' data-schema-toggle='body' data-schema-toggler='ui-theme-dark' data-schema-storage='dark' data-schema-init)
-              i(data-schema-icon='adjust')
-          nav
+          a.ui-navbar-text.ui-float-right(accesskey='t' data-schema-toggle='body' data-schema-toggler='ui-theme-dark' data-schema-storage='dark' data-schema-init)
+            i.ui-zoom-large(data-schema-icon='adjust')
+          nav.ui-navbar-nav
             ul
-              li: a(href='#{appDocs}/css.html' accesskey='c') CSS
-              li: a(href='#{appDocs}/javascript.html' accesskey='j') JavaScript
-              li: a(href='#{appDocs}/examples.html' accesskey='e') Examples
-              li: a(href='https://github.com/arxitics/ui-schema' rel='external' target='_blank' accesskey='g') GitHub
+              li
+                a(href='#{appDocs}/css.html' accesskey='c')
+                  i.ui-phone-visible(data-schema-icon='css3' data-schema-color='unset' title='CSS')
+                  span.ui-phone-hidden CSS
+              li
+                a(href='#{appDocs}/javascript.html' accesskey='j')
+                  i.ui-phone-visible(data-schema-icon='js' title='JavaScript')
+                  span.ui-phone-hidden JavaScript
+              li
+                a(href='#{appDocs}/examples.html' accesskey='e')
+                  i.ui-phone-visible(data-schema-icon='flask' title='Examples')
+                  span.ui-phone-hidden Examples
+              li
+                a(href='https://github.com/arxitics/ui-schema' rel='external' target='_blank' accesskey='g')
+                  i.ui-phone-visible(data-schema-icon='github' title='GitHub')
+                  span.ui-phone-hidden GitHub
       main.ui-container-fluid.ui-container-grid
         if standalone
           block main
@@ -64,4 +75,7 @@ html(id=pageID lang=locale)
         if prism
           script(src='#{appRoot}/dist/prism-1.4.1.min.js')
         script(src='#{appRoot}/dist/ui-schema-#{version}.min.js')
+        script(src='#{appIcons}/brands.js')
         script(src='#{appIcons}/devices.js')
+        script(src='#{appIcons}/software.js')
+        script(src='#{appIcons}/editor.js')

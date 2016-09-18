@@ -1,4 +1,4 @@
-## UI Schema
+# UI Schema
 
 UI Schema is a cutting edge, lightweight, and powerful front-end framework for faster and easier web development.
 
@@ -6,6 +6,7 @@ UI Schema is a cutting edge, lightweight, and powerful front-end framework for f
 * Chrome 32+
 * Opera 20+
 * Safari 7+
+* Edge 12+
 * IE 10+
 
 It is distributed under the [MIT][mit] license, and the documentation under a [CC BY-SA 4.0][cc-by-sa] license.
@@ -13,7 +14,7 @@ It is distributed under the [MIT][mit] license, and the documentation under a [C
 [mit]: https://github.com/arxitics/ui-schema/blob/master/LICENSE
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0
 
-### Features
+## Features
 
 * **Lightweight**: the core files are less than `20 KB` after minifying and gzip compression.
 * **Scalable UI**: all the layout and typography are well-designed using `rem` and `em` units.

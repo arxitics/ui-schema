@@ -427,135 +427,135 @@ textarea {
  */
 
 /**
- * Set default font size to 8px.
+ * Set default font size to 16px.
  */
 
 html {
-  font-size: 50%;
+  font-size: 100%;
 }
 
 /* SVGA 800x600 */
 @media (min-width: 768px) {
   html {
-    font-size: 56.25%;
+    font-size: 112.5%;
   }
 }
 
 /* XGA 1024x768 */
 @media (min-width: 992px) {
   html {
-    font-size: 62.5%;
+    font-size: 125%;
   }
 }
 
 /* WXGA 1280x800 */
 @media (min-width: 1248px) {
   html {
-    font-size: 68.75%;
+    font-size: 137.5%;
   }
 }
 
 /* HD 1366x768 */
 @media (min-width: 1334px) {
   html {
-    font-size: 75%;
+    font-size: 150%;
   }
 }
 
 /* WXGA+ 1440x900 */
 @media (min-width: 1408px) {
   html {
-    font-size: 81.25%;
+    font-size: 162.5%;
   }
 }
 
 /* HD+ 1600x900 */
 @media (min-width: 1568px) {
   html {
-    font-size: 87.5%;
+    font-size: 175%;
   }
 }
 
 /* FHD 1920x1080 */
 @media (min-width: 1888px) {
   html {
-    font-size: 93.75%;
+    font-size: 187.5%;
   }
 }
 
 /* QWXGA 2048x1152 */
 @media (min-width: 2016px) {
   html {
-    font-size: 100%;
+    font-size: 200%;
   }
 }
 
 @media print {
   html {
-    font-size: 8pt;
+    font-size: 16pt;
   }
 }
 
 /**
- * 1. The font-size should be set `150%` for the layout design.
+ * 1. The font-size should be set `75%` for the layout design.
  * 2. Emphasize geometric precision over rendering speed and legibility.
  */
 
 body {
   color: #333;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
-  font-size: 140%; /* 1 */
+  font-size: 70%; /* 1 */
   line-height: 1.6;
   text-rendering: geometricPrecision; /* 2 */
 }
 
 /**
  * 1. Justify content text on both sides.
- * 2. 3.5 * 1.6 + 8 + 1.5 * 1.6 + 2 = 18
+ * 2. 1.75 * 1.6 + 4 + 0.75 * 1.6 + 1 = 9
  */
 
 main {
-  margin: 4rem 0; /* 1 */
-  min-height: calc(100vh - 18rem); /* 2 */
+  margin: 2rem 0; /* 1 */
+  min-height: calc(100vh - 9rem); /* 2 */
 }
 
 article,
 aside {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 header {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
 }
 
 address {
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   font-style: normal;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: 3.6rem;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2.4rem;
-}
-
-h4 {
   font-size: 1.8rem;
 }
 
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 0.9rem;
+}
+
 h5 {
-  font-size: 1.4rem;
+  font-size: 0.7rem;
 }
 
 h6 {
-  font-size: 1.2rem;
+  font-size: 0.6rem;
 }
 
 p {
@@ -650,7 +650,7 @@ meter,
 progress {
   background: #f5f5f5;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
   color: #428bca;
   display: block;
@@ -764,7 +764,7 @@ kbd {
 
 pre {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   display: block;
   margin: 1em 0;
   overflow: auto; /* 1 */
@@ -785,8 +785,8 @@ pre > code {
 hr {
   border: 0;
   border-top: 1px solid #ddd;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 /* Lists
@@ -826,7 +826,7 @@ form {
 
 fieldset {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   margin: 1.6em 0;
   padding: 0.8em 1.2em;
 }
@@ -846,7 +846,7 @@ input,
 select,
 textarea {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   color: inherit; /* 1 */
   display: inline-block;
   outline: none;
@@ -940,14 +940,14 @@ input[type="file"]::-ms-browse,
 input[type="file"]::-ms-value {
   background: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   padding: 0.4em 0.8em;
 }
 
 input[type="file"]::-webkit-file-upload-button {
   background-color: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   cursor: pointer;
   outline: none;
   padding: 0.4em 0.8em;
@@ -1054,16 +1054,14 @@ label[for] {
  * 1. Reset the default appearance of select in Firefox 35+.
  * 2. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
  * 3. Use a caret as the background:
- *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32">
- *      <path d="M6 14h12l-6 8z"/>
- *    </svg>
+ *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="#777"/></svg>
  */
 
 select {
   -moz-appearance: none; /* 1 */
   -webkit-appearance: none; /* 2 */
   appearance: none;
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA4eiIvPjwvc3ZnPg==") no-repeat scroll 100% / 1.6em; /* 3 */
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA4eiIgZmlsbD0iIzc3NyIvPjwvc3ZnPg==") no-repeat scroll 100% / 1.6em; /* 3 */
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   cursor: pointer;
@@ -1075,6 +1073,8 @@ select::-ms-expand {
 }
 
 select > option {
+  background-color: #f5f5f5;
+  color: #333;
   padding: 0.2em 0.8em;
 }
 
@@ -1226,9 +1226,9 @@ tr:not(:first-child) > td {
   margin-left: auto; /* 1 */
   margin-right: auto; /* 1 */
   max-width: 90%;
-  max-width: calc(100% - 4rem);
-  padding-left: 2rem; /* 2 */
-  padding-right: 2rem; /* 2 */
+  max-width: calc(100% - 2rem);
+  padding-left: 1rem; /* 2 */
+  padding-right: 1rem; /* 2 */
 }
 
 .ui-container-grid {
@@ -1274,8 +1274,8 @@ tr:not(:first-child) > td {
   float: left;
   height: auto;
   min-height: 1px;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ui-grid-column {
@@ -1427,43 +1427,43 @@ tr:not(:first-child) > td {
 }
 
 .ui-offset-huge {
-  margin-left: 3rem;
+  margin-left: 1.5rem;
 }
 
 .ui-offset-large {
-  margin-left: 2rem;
-}
-
-.ui-offset-medium {
   margin-left: 1rem;
 }
 
-.ui-offset-small {
-  margin-left: 0.8rem;
-}
-
-.ui-offset-tiny {
+.ui-offset-medium {
   margin-left: 0.5rem;
 }
 
+.ui-offset-small {
+  margin-left: 0.4rem;
+}
+
+.ui-offset-tiny {
+  margin-left: 0.25rem;
+}
+
 .ui-skip-huge {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .ui-skip-large {
-  margin-top: 2rem;
-}
-
-.ui-skip-medium {
   margin-top: 1rem;
 }
 
+.ui-skip-medium {
+  margin-top: 0.5rem;
+}
+
 .ui-skip-small {
-  margin-top: 0.8rem;
+  margin-top: 0.4rem;
 }
 
 .ui-skip-tiny {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .ui-block-center {
@@ -1500,21 +1500,6 @@ tr:not(:first-child) > td {
   clear: both;
   content: "";
   display: table;
-}
-
-.ui-full-width {
-  width: 100vw;
-}
-
-.ui-full-height {
-  height: 100vh;
-}
-
-.ui-full-page {
-  height: 100vh;
-  max-width: 100%;
-  position: relative;
-  width: 100vw;
 }
 
 .ui-fixed-width {
@@ -1638,32 +1623,40 @@ tr:not(:first-child) > td {
 
 .ui-header-navbar a {
   color: #777;
+  display: inline-block;
 }
 
-.ui-header-navbar input {
-  background-color: #fff;
-  color: #777;
+.ui-header-navbar i {
+  height: 1.6em;
 }
 
-.ui-header-navbar > nav,
-.ui-header-navbar > nav > ul {
+.ui-navbar-brand {
+  float: left;
+  margin: 0.5em 1.2em 0.6em 0;
+}
+
+.ui-navbar-nav,
+.ui-navbar-nav > ul {
   float: left;
   margin-bottom: 0;
   vertical-align: top;
 }
 
-.ui-header-navbar > nav > ul > li {
+.ui-navbar-nav {
+  max-height: 3.5em;
+}
+
+.ui-navbar-nav > ul > li {
   display: table-cell;
 }
 
-.ui-header-navbar > nav > ul > li > a {
-  display: inline-block;
+.ui-navbar-nav > ul > li > a {
   font-size: 125%;
   padding: 0.6em;
 }
 
-.ui-header-navbar > form,
-.ui-header-account {
+.ui-navbar-form,
+.ui-navbar-account {
   font-size: 93.75%;
   padding-bottom: 0.6em;
   padding-top: 0.6em;
@@ -1671,9 +1664,15 @@ tr:not(:first-child) > td {
   vertical-align: bottom;
 }
 
-.ui-header-brand {
-  float: left;
-  margin: 0.5em 1.2em 0.6em 0;
+.ui-navbar-form input {
+  background-color: #fff;
+  color: #777;
+}
+
+.ui-navbar-text {
+  display: inline-block;
+  height: 2em;
+  margin: 0.7em 0 0.8em;
 }
 
 .ui-nav-collapse > :first-child {
@@ -1682,6 +1681,10 @@ tr:not(:first-child) > td {
   float: left;
   padding-bottom: 0.8em;
   padding-top: 0.8em;
+}
+
+.ui-nav-collapse i {
+  height: 1.4em;
 }
 
 .ui-nav-tabs,
@@ -1701,7 +1704,7 @@ tr:not(:first-child) > td {
 
 .ui-nav-tabs > li:not(:last-child),
 .ui-nav-pills > li:not(:last-child) {
-  margin-right: 0.4rem;
+  margin-right: 0.2rem;
 }
 
 .ui-nav-tabs > li > a,
@@ -1726,7 +1729,7 @@ tr:not(:first-child) > td {
 .ui-nav-tabs > li {
   border: 1px solid transparent;
   border-bottom-color: #ccc;
-  border-radius: 0.4rem 0.4rem 0 0;
+  border-radius: 0.2rem 0.2rem 0 0;
   margin-bottom: -1px;
 }
 
@@ -1764,7 +1767,7 @@ tr:not(:first-child) > td {
 
 .ui-nav-pills > li {
   border: 1px solid transparent;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-nav-pills > li.ui-state-active {
@@ -1773,16 +1776,16 @@ tr:not(:first-child) > td {
 
 .ui-nav-stacked {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   overflow: hidden;
 }
 
 .ui-nav-breadcrumb {
   background-color: #f5f5f5;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   color: #333;
   list-style: none;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 0.4em 0.8em;
 }
 
@@ -1803,7 +1806,7 @@ tr:not(:first-child) > td {
 
 .ui-nav-pagination > li > :only-child {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   display: inline-block;
   padding: 0.4em 0.8em;
 }
@@ -1881,7 +1884,7 @@ tr:not(:first-child) > td {
 .ui-menu-selection > ul {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   color: #333;
   list-style: none;
   padding-left: 0;
@@ -1980,23 +1983,23 @@ tr:not(:first-child) > td {
 }
 
 .ui-font-tiny {
-  font-size: 0.8rem;
+  font-size: 0.4rem;
 }
 
 .ui-font-small {
-  font-size: 1.2rem;
+  font-size: 0.6rem;
 }
 
 .ui-font-medium {
-  font-size: 1.4rem;
+  font-size: 0.7rem;
 }
 
 .ui-font-large {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
 }
 
 .ui-font-huge {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .ui-zoom-tiny {
@@ -2158,7 +2161,7 @@ tr:not(:first-child) > td {
 .ui-text-button,
 .ui-content-link {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   cursor: pointer;
   padding: 0.4em 0.8em;
 }
@@ -2195,7 +2198,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-text-badge {
-  border-radius: 1.6rem;
+  border-radius: 0.8rem;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
@@ -2225,6 +2228,7 @@ tr:not(:first-child) > td {
 
 .ui-header-secondary {
   border-bottom: 1px solid #ccc;
+  font-weight: normal;
   padding-bottom: 0.1em;
 }
 
@@ -2241,7 +2245,7 @@ tr:not(:first-child) > td {
 
 .ui-list-group {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   display: inline-block;
 }
 
@@ -2262,14 +2266,14 @@ tr:not(:first-child) > td {
 
 .ui-list-group > a:first-child,
 .ui-list-group > li:first-child {
-  border-top-left-radius: 0.4rem;
-  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
 }
 
 .ui-list-group > a:last-child,
 .ui-list-group > li:last-child {
-  border-bottom-left-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
+  border-bottom-left-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
 }
 
 .ui-list-group h4 {
@@ -2357,7 +2361,7 @@ tr:not(:first-child) > td {
 .ui-content-highlight {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   color: #333;
   display: block;
@@ -2370,7 +2374,7 @@ tr:not(:first-child) > td {
 
 .ui-content-jumbotron {
   background-color: #f5f5f5;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   color: #333;
   display: block;
   padding: 1.6em 3.2em;
@@ -2383,8 +2387,8 @@ tr:not(:first-child) > td {
 
 .ui-content-alert {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
-  margin-bottom: 2rem;
+  border-radius: 0.2rem;
+  margin-bottom: 1rem;
   padding: 1.2em;
 }
 
@@ -2406,8 +2410,8 @@ tr:not(:first-child) > td {
 
 .ui-content-panel {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
-  margin-bottom: 2rem;
+  border-radius: 0.2rem;
+  margin-bottom: 1rem;
   overflow: hidden;
 }
 
@@ -2420,7 +2424,7 @@ tr:not(:first-child) > td {
 .ui-panel-header {
   background-color: #f5f5f5;
   border-bottom: inherit;
-  border-radius: 0.4rem 0.4rem 0 0;
+  border-radius: 0.2rem 0.2rem 0 0;
   color: #333;
   padding: 0.4em 0.8em;
 }
@@ -2435,7 +2439,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-panel-body > div {
-  margin: 0 0.8em;
+  margin: 1em 0.8em;
 }
 
 .ui-panel-body > .ui-list-group {
@@ -2445,18 +2449,18 @@ tr:not(:first-child) > td {
 }
 
 .ui-content-media {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .ui-media-object {
   float: left;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .ui-media-object:not(.ui-float-right) {
   margin-left: 0;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .ui-media-body {
@@ -2478,8 +2482,8 @@ tr:not(:first-child) > td {
 .ui-article-body h3,
 .ui-article-body h4,
 .ui-article-heading {
-  font-size: 1.6rem;
-  margin-top: 2rem;
+  font-size: 0.8rem;
+  margin-top: 1rem;
 }
 
 .ui-article-body figure,
@@ -2516,7 +2520,7 @@ tr:not(:first-child) > td {
 
 .ui-form-fluid label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .ui-form-fluid input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
@@ -2574,7 +2578,7 @@ tr:not(:first-child) > td {
 
 .ui-input-addon > :not(button):not(input) {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   padding: 0.4em 0.8em;
 }
 
@@ -2635,7 +2639,7 @@ tr:not(:first-child) > td {
 .ui-button-group > label,
 .ui-button-switch > label {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   display: inline-block;
   font-weight: normal;
 }
@@ -2730,7 +2734,7 @@ tr:not(:first-child) > td {
 .ui-table-bordered {
   border: 1px solid #ccc;
   border-collapse: separate;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-table-bordered th + th,
@@ -2786,13 +2790,13 @@ tr:not(:first-child) > td {
 .ui-image-rounded,
 .ui-image-thumbnail,
 .ui-image-thumbnail + .ui-image-reveal {
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-image-thumbnail {
   border: 1px solid #ddd;
-  max-width: calc(100% - 0.8rem - 2px);
-  padding: 0.4rem;
+  max-width: calc(100% - 0.4rem - 2px);
+  padding: 0.2rem;
 }
 
 .ui-image-lightbox {
@@ -2800,7 +2804,7 @@ tr:not(:first-child) > td {
   position: relative;
 }
 
-.ui-image-lightbox > .ui-image-reveal {
+.ui-image-reveal {
   background-color: rgba(0, 0, 0, 0.65);
   bottom: 0;
   color: #fff;
@@ -2818,6 +2822,16 @@ tr:not(:first-child) > td {
 
 .ui-image-lightbox:hover > .ui-image-reveal {
   opacity: 1;
+}
+
+.ui-background-image {
+  color: #fff;
+}
+
+.ui-background-image > img {
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 /*!
@@ -2842,7 +2856,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-icon-bordered {
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-icon-circular {
@@ -3274,8 +3288,8 @@ tr:not(:first-child) > td {
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
 .ui-space-trim > li:first-child > :only-child {
-  border-bottom-left-radius: 0.4rem;
-  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.2rem;
+  border-top-left-radius: 0.2rem;
 }
 
 .ui-space-trim > a:last-child,
@@ -3283,8 +3297,8 @@ tr:not(:first-child) > td {
 .ui-space-trim > div:last-child > button:last-of-type,
 .ui-space-trim > label:last-of-type,
 .ui-space-trim > li:last-child > :only-child {
-  border-bottom-right-radius: 0.4rem;
-  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
 }
 
 .ui-space-trim > a:first-child,
@@ -3323,11 +3337,11 @@ tr:not(:first-child) > td {
 }
 
 .ui-frame-rounded {
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-frame-stadium {
-  border-radius: 3.2rem;
+  border-radius: 1.6rem;
 }
 
 .ui-frame-circular {
@@ -3389,7 +3403,7 @@ tr:not(:first-child) > td {
 .ui-caret-left,
 .ui-caret-right,
 .ui-caret-up {
-  border: 0.5rem solid transparent;
+  border: 0.25rem solid transparent;
   display: inline-block;
   height: 0;
   vertical-align: middle;
@@ -3448,7 +3462,7 @@ tr:not(:first-child) > td {
 .ui-tooltip-content {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   color: #333;
   display: none;
   min-width: 168px;
@@ -3491,7 +3505,7 @@ tr:not(:first-child) > td {
 .ui-tooltip-right::before,
 .ui-tooltip-bottom::before,
 .ui-tooltip-left::before {
-  border: 1rem solid transparent;
+  border: 0.5rem solid transparent;
   content: " ";
   position: absolute;
 }
@@ -3508,7 +3522,7 @@ tr:not(:first-child) > td {
 .ui-tooltip-top::before {
   border-top-color: #ccc;
   left: 1.2em;
-  margin-left: -1rem;
+  margin-left: -0.5rem;
   top: 100%;
 }
 
@@ -3521,7 +3535,7 @@ tr:not(:first-child) > td {
 
 .ui-tooltip-right::before {
   border-right-color: #ccc;
-  margin-top: -1rem;
+  margin-top: -0.5rem;
   right: 100%;
   top: 1.2em;
 }
@@ -3537,7 +3551,7 @@ tr:not(:first-child) > td {
   border-bottom-color: #ccc;
   bottom: 100%;
   left: 1.2em;
-  margin-left: -1rem;
+  margin-left: -0.5rem;
 }
 
 .ui-tooltip-bottom::after {
@@ -3550,7 +3564,7 @@ tr:not(:first-child) > td {
 .ui-tooltip-left::before {
   border-left-color: #ccc;
   left: 100%;
-  margin-top: -1rem;
+  margin-top: -0.5rem;
   top: 1.2em;
 }
 
@@ -3600,8 +3614,8 @@ tr:not(:first-child) > td {
 }
 
 .ui-modal-content > div:not(.ui-absolute-center) {
-  margin: 10vh auto;
-  max-height: 80vh;
+  margin: 10% auto;
+  max-height: 80%;
 }
 
 .ui-modal-content > div {
@@ -3612,7 +3626,7 @@ tr:not(:first-child) > td {
 .ui-lightbox-content > div,
 .ui-lightbox-content > figure {
   background-color: #fff;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   box-shadow: 0 0 1em #ccc;
   color: #333;
   display: block;
@@ -3641,7 +3655,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-accordion-content > div {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -3728,6 +3742,7 @@ tr:not(:first-child) > td {
     float: left;
     margin-left: 0;
     margin-right: 0;
+    max-width: 100%;
     padding-left: 0;
     padding-right: 0;
     position: relative;
@@ -3806,6 +3821,7 @@ tr:not(:first-child) > td {
     float: left;
     margin-left: 0;
     margin-right: 0;
+    max-width: 100%;
     padding-left: 0;
     padding-right: 0;
     position: relative;
@@ -3885,6 +3901,13 @@ tr:not(:first-child) > td {
   width: 215.9mm;
 }
 
+.ui-full-page {
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+  width: 100vw;
+}
+
 .ui-page-wrapper {
   background-color: #fff;
   -moz-box-sizing: border-box;
@@ -3899,19 +3922,19 @@ tr:not(:first-child) > td {
   min-width: 768px;
 }
 
-.ui-slides-wrapper > .ui-page-slide {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 100vh;
-  padding: 5vh 10vw;
-}
-
 .ui-slides-wrapper:hover > .ui-page-slide > div {
   display: none;
 }
 
 .ui-slides-wrapper > .ui-page-slide:hover > div {
   display: block;
+}
+
+.ui-page-slide {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 5vh 10vw;
 }
 
 .ui-page-slide > div > h2 {
@@ -3924,7 +3947,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-overflow-hidden {
-  height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 }
 

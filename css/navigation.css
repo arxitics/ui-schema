@@ -18,32 +18,40 @@
 
 .ui-header-navbar a {
   color: #777;
+  display: inline-block;
 }
 
-.ui-header-navbar input {
-  background-color: #fff;
-  color: #777;
+.ui-header-navbar i {
+  height: 1.6em;
 }
 
-.ui-header-navbar > nav,
-.ui-header-navbar > nav > ul {
+.ui-navbar-brand {
+  float: left;
+  margin: 0.5em 1.2em 0.6em 0;
+}
+
+.ui-navbar-nav,
+.ui-navbar-nav > ul {
   float: left;
   margin-bottom: 0;
   vertical-align: top;
 }
 
-.ui-header-navbar > nav > ul > li {
+.ui-navbar-nav {
+  max-height: 3.5em;
+}
+
+.ui-navbar-nav > ul > li {
   display: table-cell;
 }
 
-.ui-header-navbar > nav > ul > li > a {
-  display: inline-block;
+.ui-navbar-nav > ul > li > a {
   font-size: 125%;
   padding: 0.6em;
 }
 
-.ui-header-navbar > form,
-.ui-header-account {
+.ui-navbar-form,
+.ui-navbar-account {
   font-size: 93.75%;
   padding-bottom: 0.6em;
   padding-top: 0.6em;
@@ -51,9 +59,15 @@
   vertical-align: bottom;
 }
 
-.ui-header-brand {
-  float: left;
-  margin: 0.5em 1.2em 0.6em 0;
+.ui-navbar-form input {
+  background-color: #fff;
+  color: #777;
+}
+
+.ui-navbar-text {
+  display: inline-block;
+  height: 2em;
+  margin: 0.7em 0 0.8em;
 }
 
 .ui-nav-collapse > :first-child {
@@ -62,6 +76,10 @@
   float: left;
   padding-bottom: 0.8em;
   padding-top: 0.8em;
+}
+
+.ui-nav-collapse i {
+  height: 1.4em;
 }
 
 .ui-nav-tabs,
@@ -81,7 +99,7 @@
 
 .ui-nav-tabs > li:not(:last-child),
 .ui-nav-pills > li:not(:last-child) {
-  margin-right: 0.4rem;
+  margin-right: 0.2rem;
 }
 
 .ui-nav-tabs > li > a,
@@ -106,7 +124,7 @@
 .ui-nav-tabs > li {
   border: 1px solid transparent;
   border-bottom-color: #ccc;
-  border-radius: 0.4rem 0.4rem 0 0;
+  border-radius: 0.2rem 0.2rem 0 0;
   margin-bottom: -1px;
 }
 
@@ -144,7 +162,7 @@
 
 .ui-nav-pills > li {
   border: 1px solid transparent;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-nav-pills > li.ui-state-active {
@@ -153,16 +171,16 @@
 
 .ui-nav-stacked {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   overflow: hidden;
 }
 
 .ui-nav-breadcrumb {
   background-color: #f5f5f5;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   color: #333;
   list-style: none;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 0.4em 0.8em;
 }
 
@@ -183,7 +201,7 @@
 
 .ui-nav-pagination > li > :only-child {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   display: inline-block;
   padding: 0.4em 0.8em;
 }

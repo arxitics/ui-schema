@@ -6,7 +6,7 @@
 .ui-caret-left,
 .ui-caret-right,
 .ui-caret-up {
-  border: 0.5rem solid transparent;
+  border: 0.25rem solid transparent;
   display: inline-block;
   height: 0;
   vertical-align: middle;
@@ -65,7 +65,7 @@
 .ui-tooltip-content {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   color: #333;
   display: none;
   min-width: 168px;
@@ -108,7 +108,7 @@
 .ui-tooltip-right::before,
 .ui-tooltip-bottom::before,
 .ui-tooltip-left::before {
-  border: 1rem solid transparent;
+  border: 0.5rem solid transparent;
   content: " ";
   position: absolute;
 }
@@ -125,7 +125,7 @@
 .ui-tooltip-top::before {
   border-top-color: #ccc;
   left: 1.2em;
-  margin-left: -1rem;
+  margin-left: -0.5rem;
   top: 100%;
 }
 
@@ -138,7 +138,7 @@
 
 .ui-tooltip-right::before {
   border-right-color: #ccc;
-  margin-top: -1rem;
+  margin-top: -0.5rem;
   right: 100%;
   top: 1.2em;
 }
@@ -154,7 +154,7 @@
   border-bottom-color: #ccc;
   bottom: 100%;
   left: 1.2em;
-  margin-left: -1rem;
+  margin-left: -0.5rem;
 }
 
 .ui-tooltip-bottom::after {
@@ -167,7 +167,7 @@
 .ui-tooltip-left::before {
   border-left-color: #ccc;
   left: 100%;
-  margin-top: -1rem;
+  margin-top: -0.5rem;
   top: 1.2em;
 }
 

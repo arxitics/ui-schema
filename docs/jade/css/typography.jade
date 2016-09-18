@@ -118,21 +118,29 @@ block article
       label.ui-float-right(for='labels-src')
         i(data-schema-icon='code')
     .ui-container-grid
-      .ui-text-list
-        span.ui-text-label Default
-        span.ui-text-label.ui-label-primary Primary
-        span.ui-text-label.ui-label-success Success
-        span.ui-text-label.ui-label-info Info
-        span.ui-text-label.ui-label-warning Warning
-        span.ui-text-label.ui-label-danger Danger
+      span.ui-text-label Default
+      |  
+      span.ui-text-label.ui-label-primary Primary
+      |  
+      span.ui-text-label.ui-label-success Success
+      |  
+      span.ui-text-label.ui-label-info Info
+      |  
+      span.ui-text-label.ui-label-warning Warning
+      |  
+      span.ui-text-label.ui-label-danger Danger
     .ui-container-grid.ui-skip-medium
-      .ui-text-list
-        span.ui-text-badge 1
-        span.ui-text-badge.ui-label-primary 23
-        span.ui-text-badge.ui-label-success a
-        span.ui-text-badge.ui-label-info bc
-        span.ui-text-badge.ui-label-warning A
-        span.ui-text-badge.ui-label-danger BC
+      span.ui-text-badge 1
+      |  
+      span.ui-text-badge.ui-label-primary 23
+      |  
+      span.ui-text-badge.ui-label-success a
+      |  
+      span.ui-text-badge.ui-label-info bc
+      |  
+      span.ui-text-badge.ui-label-warning A
+      |  
+      span.ui-text-badge.ui-label-danger BC
     .ui-toggle-target
       input#labels-src(type='checkbox')
       div
@@ -392,5 +400,4 @@ block article
           &lt;/div&gt;
 
 block append foot
-  script(src='#{appIcons}/editor.js')
   script(src='#{appIcons}/forms.js')

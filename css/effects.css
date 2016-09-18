@@ -28,8 +28,8 @@
 .ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
 .ui-space-trim > li:first-child > :only-child {
-  border-bottom-left-radius: 0.4rem;
-  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.2rem;
+  border-top-left-radius: 0.2rem;
 }
 
 .ui-space-trim > a:last-child,
@@ -37,8 +37,8 @@
 .ui-space-trim > div:last-child > button:last-of-type,
 .ui-space-trim > label:last-of-type,
 .ui-space-trim > li:last-child > :only-child {
-  border-bottom-right-radius: 0.4rem;
-  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
 }
 
 .ui-space-trim > a:first-child,
@@ -77,11 +77,11 @@
 }
 
 .ui-frame-rounded {
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 .ui-frame-stadium {
-  border-radius: 3.2rem;
+  border-radius: 1.6rem;
 }
 
 .ui-frame-circular {

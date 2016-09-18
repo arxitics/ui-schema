@@ -3,135 +3,135 @@
  */
 
 /**
- * Set default font size to 8px.
+ * Set default font size to 16px.
  */
 
 html {
-  font-size: 50%;
+  font-size: 100%;
 }
 
 /* SVGA 800x600 */
 @media (min-width: 768px) {
   html {
-    font-size: 56.25%;
+    font-size: 112.5%;
   }
 }
 
 /* XGA 1024x768 */
 @media (min-width: 992px) {
   html {
-    font-size: 62.5%;
+    font-size: 125%;
   }
 }
 
 /* WXGA 1280x800 */
 @media (min-width: 1248px) {
   html {
-    font-size: 68.75%;
+    font-size: 137.5%;
   }
 }
 
 /* HD 1366x768 */
 @media (min-width: 1334px) {
   html {
-    font-size: 75%;
+    font-size: 150%;
   }
 }
 
 /* WXGA+ 1440x900 */
 @media (min-width: 1408px) {
   html {
-    font-size: 81.25%;
+    font-size: 162.5%;
   }
 }
 
 /* HD+ 1600x900 */
 @media (min-width: 1568px) {
   html {
-    font-size: 87.5%;
+    font-size: 175%;
   }
 }
 
 /* FHD 1920x1080 */
 @media (min-width: 1888px) {
   html {
-    font-size: 93.75%;
+    font-size: 187.5%;
   }
 }
 
 /* QWXGA 2048x1152 */
 @media (min-width: 2016px) {
   html {
-    font-size: 100%;
+    font-size: 200%;
   }
 }
 
 @media print {
   html {
-    font-size: 8pt;
+    font-size: 16pt;
   }
 }
 
 /**
- * 1. The font-size should be set `150%` for the layout design.
+ * 1. The font-size should be set `75%` for the layout design.
  * 2. Emphasize geometric precision over rendering speed and legibility.
  */
 
 body {
   color: #333;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Droid Sans Fallback", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
-  font-size: 140%; /* 1 */
+  font-size: 70%; /* 1 */
   line-height: 1.6;
   text-rendering: geometricPrecision; /* 2 */
 }
 
 /**
  * 1. Justify content text on both sides.
- * 2. 3.5 * 1.6 + 8 + 1.5 * 1.6 + 2 = 18
+ * 2. 1.75 * 1.6 + 4 + 0.75 * 1.6 + 1 = 9
  */
 
 main {
-  margin: 4rem 0; /* 1 */
-  min-height: calc(100vh - 18rem); /* 2 */
+  margin: 2rem 0; /* 1 */
+  min-height: calc(100vh - 9rem); /* 2 */
 }
 
 article,
 aside {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 header {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
 }
 
 address {
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   font-style: normal;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: 3.6rem;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2.4rem;
-}
-
-h4 {
   font-size: 1.8rem;
 }
 
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 0.9rem;
+}
+
 h5 {
-  font-size: 1.4rem;
+  font-size: 0.7rem;
 }
 
 h6 {
-  font-size: 1.2rem;
+  font-size: 0.6rem;
 }
 
 p {
@@ -226,7 +226,7 @@ meter,
 progress {
   background: #f5f5f5;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
   color: #428bca;
   display: block;
@@ -340,7 +340,7 @@ kbd {
 
 pre {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   display: block;
   margin: 1em 0;
   overflow: auto; /* 1 */
@@ -361,8 +361,8 @@ pre > code {
 hr {
   border: 0;
   border-top: 1px solid #ddd;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 /* Lists
@@ -402,7 +402,7 @@ form {
 
 fieldset {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   margin: 1.6em 0;
   padding: 0.8em 1.2em;
 }
@@ -422,7 +422,7 @@ input,
 select,
 textarea {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   color: inherit; /* 1 */
   display: inline-block;
   outline: none;
@@ -516,14 +516,14 @@ input[type="file"]::-ms-browse,
 input[type="file"]::-ms-value {
   background: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   padding: 0.4em 0.8em;
 }
 
 input[type="file"]::-webkit-file-upload-button {
   background-color: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   cursor: pointer;
   outline: none;
   padding: 0.4em 0.8em;
@@ -630,16 +630,14 @@ label[for] {
  * 1. Reset the default appearance of select in Firefox 35+.
  * 2. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
  * 3. Use a caret as the background:
- *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32">
- *      <path d="M6 14h12l-6 8z"/>
- *    </svg>
+ *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="#777"/></svg>
  */
 
 select {
   -moz-appearance: none; /* 1 */
   -webkit-appearance: none; /* 2 */
   appearance: none;
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA4eiIvPjwvc3ZnPg==") no-repeat scroll 100% / 1.6em; /* 3 */
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDMyIj48cGF0aCBkPSJNNiAxNGgxMmwtNiA4eiIgZmlsbD0iIzc3NyIvPjwvc3ZnPg==") no-repeat scroll 100% / 1.6em; /* 3 */
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   cursor: pointer;
@@ -651,6 +649,8 @@ select::-ms-expand {
 }
 
 select > option {
+  background-color: #f5f5f5;
+  color: #333;
   padding: 0.2em 0.8em;
 }
 

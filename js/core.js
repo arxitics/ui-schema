@@ -78,10 +78,10 @@
     var output = {};
     var object = {};
     var prefix = options && options.prefix || '';
-    var type = Object.prototype.toString.call(input).slice(8, -1);
-    if (type === 'Object') {
+    var type = $.type(input);
+    if (type === 'object') {
       object = input;
-    } else if (type === 'String') {
+    } else if (type === 'string') {
       try {
         object = JSON.parse(input);
       } catch (error) {
@@ -242,8 +242,8 @@
       }
       if (ready && (!condition || models[condition] === true)) {
         if (iteration) {
-          var pattern = /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/;
-          var matches = String(iteration).match(pattern);
+          var segments = schema.regexp.segments;
+          var matches = String(iteration).match(segments);
           if (matches) {
             var name = matches[1];
             var list = matches[3];

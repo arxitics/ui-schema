@@ -9,7 +9,7 @@
 
 .ui-form-fluid label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .ui-form-fluid input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
@@ -67,7 +67,7 @@
 
 .ui-input-addon > :not(button):not(input) {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   padding: 0.4em 0.8em;
 }
 
@@ -128,7 +128,7 @@
 .ui-button-group > label,
 .ui-button-switch > label {
   border: 1px solid #ccc;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   display: inline-block;
   font-weight: normal;
 }

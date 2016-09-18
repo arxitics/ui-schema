@@ -27,7 +27,7 @@ gulp.task('default', [
   'watch'
 ]);
 
-gulp.task('csslint', function() {
+gulp.task('csslint', function () {
   gulp.src('css/!(import).css')
     .pipe(csslint({
       'box-model': false,
@@ -74,7 +74,7 @@ gulp.task('concat-css', function () {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('minify-css', function() {
+gulp.task('minify-css', function () {
   gulp.src('css/import.css')
     .pipe(minifyCSS({
       keepSpecialComments: 0,

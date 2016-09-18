@@ -12,16 +12,15 @@
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
-      <div class="ui-header-brand">
+      <div class="ui-navbar-brand">
         <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
-      </div>
-      <div class="ui-header-account ui-float-right ui-skip-tiny"><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i data-schema-icon="adjust"></i></a></div>
-      <nav>
+      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="../../../docs/html/css.html" accesskey="c">CSS</a></li>
-          <li><a href="../../../docs/html/javascript.html" accesskey="j">JavaScript</a></li>
-          <li><a href="../../../docs/html/examples.html" accesskey="e">Examples</a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g">GitHub</a></li>
+          <li><a href="../../../docs/html/css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="../../../docs/html/javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="../../../docs/html/examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
@@ -115,33 +114,31 @@
             <label for="button-groups-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <div class="ui-button-toolbar">
-              <div data-schema-trim class="ui-button-group ui-space-trim">
-                <button title="View chat history">View</button>
-                <button title="Clear current chat room">Clear</button>
-                <button title="Export chat data as JSON">Export</button>
-                <button title="Delete all chat data">Delete</button>
-              </div>
-              <div data-schema-trim class="ui-button-group ui-offset-medium ui-space-trim">
-                <button title="Refresh this page">Refresh</button>
-                <button title="Close the connection">Close</button>
-              </div>
+            <div data-schema-trim class="ui-button-group ui-space-trim">
+              <button title="View chat history">View</button>
+              <button title="Clear current chat room">Clear</button>
+              <button title="Export chat data as JSON">Export</button>
+              <button title="Delete all chat data">Delete</button>
             </div>
-            <div class="ui-button-toolbar ui-skip-medium">
-              <div data-schema-trim class="ui-button-group ui-space-trim">
-                <input id="published-date" type="radio" name="sort" value="published" checked>
-                <label for="published-date">Published Date</label>
-                <input id="updated-date" type="radio" name="sort" value="updated" class="ui-phone-hidden">
-                <label for="updated-date" class="ui-phone-hidden">Updated Date</label>
-                <input id="reader-counts" type="radio" name="sort" value="readers" class="ui-phone-hidden">
-                <label for="reader-counts" class="ui-phone-hidden">Reader Counts</label>
-                <input id="rating-score" type="radio" name="sort" value="rating">
-                <label for="rating-score">Rating Score</label>
-              </div>
-              <div class="ui-button-switch ui-offset-medium">
-                <input id="sort-order" type="checkbox" name="order" value="ascending">
-                <label for="sort-order"><span><i data-schema-icon="sort-amount-asc" title="Ascending">Asc</i></span><span><i data-schema-icon="sort-amount-desc" title="Descending">Desc</i></span></label>
-              </div>
+            <div data-schema-trim class="ui-button-group ui-offset-medium ui-space-trim">
+              <button title="Refresh this page">Refresh</button>
+              <button title="Close the connection">Close</button>
+            </div>
+          </div>
+          <div class="ui-container-grid ui-skip-medium">
+            <div data-schema-trim class="ui-button-group ui-space-trim">
+              <input id="published-date" type="radio" name="sort" value="published" checked>
+              <label for="published-date">Published Date</label>
+              <input id="updated-date" type="radio" name="sort" value="updated" class="ui-phone-hidden">
+              <label for="updated-date" class="ui-phone-hidden">Updated Date</label>
+              <input id="reader-counts" type="radio" name="sort" value="readers" class="ui-phone-hidden">
+              <label for="reader-counts" class="ui-phone-hidden">Reader Counts</label>
+              <input id="rating-score" type="radio" name="sort" value="rating">
+              <label for="rating-score">Rating Score</label>
+            </div>
+            <div class="ui-button-switch ui-offset-medium">
+              <input id="sort-order" type="checkbox" name="order" value="ascending">
+              <label for="sort-order"><span><i data-schema-icon="sort-amount-asc" title="Ascending">Asc</i></span><span><i data-schema-icon="sort-amount-desc" title="Descending">Desc</i></span></label>
             </div>
             <div data-schema-trim class="ui-button-group ui-space-trim ui-skip-medium">
               <input id="physics" type="checkbox" name="groups" value="physics" checked>
@@ -161,40 +158,36 @@
           <div class="ui-toggle-target">
             <input id="button-groups-src" type="checkbox">
             <div>
-              <pre><code class="language-markup">&lt;div class="ui-button-toolbar"&gt;
-  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-    &lt;button title="View chat history"&gt;View&lt;/button&gt;
-    &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
-    &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
-    &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-    &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
-    &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
-  &lt;/div&gt;
+              <pre><code class="language-markup">&lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+  &lt;button title="View chat history"&gt;View&lt;/button&gt;
+  &lt;button title="Clear current chat room"&gt;Clear&lt;/button&gt;
+  &lt;button title="Export chat data as JSON"&gt;Export&lt;/button&gt;
+  &lt;button title="Delete all chat data"&gt;Delete&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+  &lt;button title="Refresh this page"&gt;Refresh&lt;/button&gt;
+  &lt;button title="Close the connection"&gt;Close&lt;/button&gt;
 &lt;/div&gt;
 
-&lt;div class="ui-button-toolbar ui-skip-medium"&gt;
-  &lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
-    &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
-    &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
-    &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
-    &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
-    &lt;input class="ui-phone-hidden" id="reader-counts" type="radio" name="sort" value="readers"&gt;
-    &lt;label class="ui-phone-hidden" for="reader-counts"&gt;Reader Counts&lt;/label&gt;
-    &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
-    &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="ui-button-switch ui-offset-medium"&gt;
-    &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
-    &lt;label for="sort-order"&gt;
-      &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
-      &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
-    &lt;/label&gt;
-  &lt;/div&gt;
+&lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
+  &lt;input id="published-date" type="radio" name="sort" value="published" checked&gt;
+  &lt;label for="published-date"&gt;Published Date&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated"&gt;
+  &lt;label class="ui-phone-hidden" for="updated-date"&gt;Updated Date&lt;/label&gt;
+  &lt;input class="ui-phone-hidden" id="reader-counts" type="radio" name="sort" value="readers"&gt;
+  &lt;label class="ui-phone-hidden" for="reader-counts"&gt;Reader Counts&lt;/label&gt;
+  &lt;input id="rating-score" type="radio" name="sort" value="rating"&gt;
+  &lt;label for="rating-score"&gt;Rating Score&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="ui-button-switch ui-offset-medium"&gt;
+  &lt;input id="sort-order" type="checkbox" name="order" value="ascending"&gt;
+  &lt;label for="sort-order"&gt;
+    &lt;span&gt;&lt;i data-schema-icon="sort-amount-asc" title="Ascending"&gt;Asc&lt;/i&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;i data-schema-icon="sort-amount-desc" title="Descending"&gt;Desc&lt;/i&gt;&lt;/span&gt;
+  &lt;/label&gt;
 &lt;/div&gt;
 
-&lt;div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim&gt;
+&lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
   &lt;input id="physics" type="checkbox" name="groups" value="physics" checked&gt;
   &lt;label for="physics"&gt;Physics&lt;/label&gt;
   &lt;input id="math" type="checkbox" name="groups" value="math"&gt;
@@ -400,10 +393,11 @@
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
     <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
+    <script src="../../../dist/icons/software.js"></script>
     <script src="../../../dist/icons/editor.js"></script>
     <script src="../../../dist/icons/account.js"></script>
-    <script src="../../../dist/icons/editor.js"></script>
     <script src="../../../dist/icons/forms.js"></script>
   </body>
 </html>

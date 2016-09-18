@@ -22,6 +22,13 @@
   width: 215.9mm;
 }
 
+.ui-full-page {
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+  width: 100vw;
+}
+
 .ui-page-wrapper {
   background-color: #fff;
   -moz-box-sizing: border-box;
@@ -36,19 +43,19 @@
   min-width: 768px;
 }
 
-.ui-slides-wrapper > .ui-page-slide {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 100vh;
-  padding: 5vh 10vw;
-}
-
 .ui-slides-wrapper:hover > .ui-page-slide > div {
   display: none;
 }
 
 .ui-slides-wrapper > .ui-page-slide:hover > div {
   display: block;
+}
+
+.ui-page-slide {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 5vh 10vw;
 }
 
 .ui-page-slide > div > h2 {
@@ -61,7 +68,7 @@
 }
 
 .ui-overflow-hidden {
-  height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 }
 
