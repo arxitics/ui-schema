@@ -12,16 +12,15 @@
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
-      <div class="ui-header-brand">
+      <div class="ui-navbar-brand">
         <h2><a href="./../index.html" accesskey="h">UI Schema</a></h2>
-      </div>
-      <div class="ui-header-account ui-float-right ui-skip-tiny"><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i data-schema-icon="adjust"></i></a></div>
-      <nav>
+      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="./../css.html" accesskey="c">CSS</a></li>
-          <li><a href="./../javascript.html" accesskey="j">JavaScript</a></li>
-          <li><a href="./../examples.html" accesskey="e">Examples</a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g">GitHub</a></li>
+          <li><a href="./../css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="./../javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="./../examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
@@ -162,10 +161,10 @@
             <label for="navbar-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
           </h4>
           <header class="ui-header-navbar ui-container-fluid ui-container-grid">
-            <div class="ui-header-brand">
+            <div class="ui-navbar-brand">
               <h2><a href="http://arxitics.com/">Arxitics</a></h2>
             </div>
-            <nav class="ui-fluid-33 ui-mobile-auto">
+            <nav class="ui-navbar-nav ui-fluid-33 ui-mobile-auto">
               <ul>
                 <li><a href="http://arxitics.com/browse">Browse</a></li>
                 <li class="ui-menu-dropdown"><a aria-haspopup="true">Explore <span class="ui-caret-down"></span></a>
@@ -178,8 +177,8 @@
                 </li>
               </ul>
             </nav>
-            <div class="ui-header-account ui-float-right"><a href="http://arxitics.com/auth/login" class="ui-text-button ui-button-primary">Sign in</a></div>
-            <form action="http://arxitics.com/search" method="get" role="search" class="ui-fluid-33 ui-mobile-expand ui-phone-hidden">
+            <div class="ui-navbar-account ui-float-right"><a href="http://arxitics.com/auth/login" class="ui-text-button ui-button-primary">Sign in</a></div>
+            <form action="http://arxitics.com/search" method="get" role="search" class="ui-navbar-form ui-fluid-33 ui-mobile-expand ui-phone-hidden">
               <div class="ui-input-addon">
                 <input type="search" name="q" placeholder="Search or type a command">
                 <button type="submit"><i data-schema-icon="search">Go!</i></button>
@@ -187,10 +186,10 @@
             </form>
           </header>
           <header class="ui-header-navbar ui-container-fluid ui-container-grid ui-skip-medium">
-            <div class="ui-header-brand">
+            <div class="ui-navbar-brand">
               <h2><a href="http://arxitics.github.io/ui-schema/">UI Schema</a></h2>
             </div>
-            <nav class="ui-nav-collapse ui-phone-collapse"><span><i data-schema-icon="menu"></i></span>
+            <nav class="ui-navbar-nav ui-nav-collapse ui-phone-collapse"><a><i data-schema-icon="menu" class="ui-zoom-large"></i></a>
               <ul>
                 <li class="ui-phone-visible ui-text-right"><a><i data-schema-icon="menu"></i></a></li>
                 <li><a href="http://arxitics.github.io/ui-schema/css.html">CSS</a></li>
@@ -204,10 +203,10 @@
             <input id="navbar-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;header class="ui-header-navbar ui-container-fluid ui-container-grid"&gt;
-  &lt;div class="ui-header-brand"&gt;
+  &lt;div class="ui-navbar-brand"&gt;
     &lt;h2&gt;&lt;a href="http://arxitics.com/"&gt;Arxitics&lt;/a&gt;&lt;/h2&gt;
   &lt;/div&gt;
-  &lt;nav class="ui-fluid-33 ui-mobile-auto"&gt;
+  &lt;nav class="ui-navbar-nav ui-fluid-33 ui-mobile-auto"&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;a href="http://arxitics.com/browse"&gt;Browse&lt;/a&gt;&lt;/li&gt;
       &lt;li class="ui-menu-dropdown"&gt;
@@ -221,10 +220,10 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/nav&gt;
-  &lt;div class="ui-header-account ui-float-right"&gt;
+  &lt;div class="ui-navbar-account ui-float-right"&gt;
     &lt;a class="ui-text-button ui-button-primary" href="http://arxitics.com/auth/login"&gt;Sign in&lt;/a&gt;
   &lt;/div&gt;
-  &lt;form class="ui-fluid-33 ui-mobile-expand ui-phone-hidden" action="http://arxitics.com/search" method="get" role="search"&gt;
+  &lt;form class="ui-navbar-form ui-fluid-33 ui-mobile-expand ui-phone-hidden" action="http://arxitics.com/search" method="get" role="search"&gt;
     &lt;div class="ui-input-addon"&gt;
       &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
       &lt;button type="submit"&gt;&lt;i data-schema-icon="search"&gt;Go!&lt;/i&gt;&lt;/button&gt;
@@ -233,11 +232,11 @@
 &lt;/header&gt;
 
 &lt;header class="ui-header-navbar ui-container-fluid ui-container-grid"&gt;
-  &lt;div class="ui-header-brand"&gt;
+  &lt;div class="ui-navbar-brand"&gt;
     &lt;h2&gt;&lt;a href="http://arxitics.github.io/ui-schema/"&gt;UI Schema&lt;/a&gt;&lt;/h2&gt;
   &lt;/div&gt;
-  &lt;nav class="ui-nav-collapse ui-phone-collapse"&gt;
-    &lt;span&gt;&lt;i data-schema-icon="menu"&gt;&lt;/i&gt;&lt;/span&gt;
+  &lt;nav class="ui-navbar-nav ui-nav-collapse ui-phone-collapse"&gt;
+    &lt;a&gt;&lt;i class="ui-zoom-large" data-schema-icon="menu"&gt;&lt;/i&gt;&lt;/a&gt;
     &lt;ul&gt;
       &lt;li class="ui-phone-visible ui-text-right"&gt;&lt;a&gt;&lt;i data-schema-icon="menu"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="http://arxitics.github.io/ui-schema/css.html"&gt;CSS&lt;/a&gt;&lt;/li&gt;
@@ -329,7 +328,9 @@
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./../dist/icons/brands.js"></script>
     <script src="./../dist/icons/devices.js"></script>
+    <script src="./../dist/icons/software.js"></script>
     <script src="./../dist/icons/editor.js"></script>
     <script src="./../dist/icons/forms.js"></script>
   </body>

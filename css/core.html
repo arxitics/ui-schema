@@ -11,16 +11,15 @@
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
-      <div class="ui-header-brand">
+      <div class="ui-navbar-brand">
         <h2><a href="./../index.html" accesskey="h">UI Schema</a></h2>
-      </div>
-      <div class="ui-header-account ui-float-right ui-skip-tiny"><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i data-schema-icon="adjust"></i></a></div>
-      <nav>
+      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="./../css.html" accesskey="c">CSS</a></li>
-          <li><a href="./../javascript.html" accesskey="j">JavaScript</a></li>
-          <li><a href="./../examples.html" accesskey="e">Examples</a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g">GitHub</a></li>
+          <li><a href="./../css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="./../javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="./../examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
@@ -74,15 +73,15 @@
               <tbody class="ui-text-center">
                 <tr>
                   <td>rem unit</td>
-                  <td>8px</td>
-                  <td>9px</td>
-                  <td>10px</td>
-                  <td>11px</td>
-                  <td>12px</td>
-                  <td>13px</td>
-                  <td>14px</td>
-                  <td>15px</td>
                   <td>16px</td>
+                  <td>18px</td>
+                  <td>20px</td>
+                  <td>22px</td>
+                  <td>24px</td>
+                  <td>26px</td>
+                  <td>28px</td>
+                  <td>30px</td>
+                  <td>32px</td>
                 </tr>
               </tbody>
             </table>
@@ -105,12 +104,12 @@
             <tbody class="ui-text-center">
               <tr>
                 <td>font-size</td>
-                <td>3.6rem</td>
-                <td>3rem</td>
-                <td>2.4rem</td>
                 <td>1.8rem</td>
-                <td>1.4rem</td>
+                <td>1.5rem</td>
                 <td>1.2rem</td>
+                <td>0.9rem</td>
+                <td>0.7rem</td>
+                <td>0.6rem</td>
               </tr>
             </tbody>
           </table>
@@ -122,6 +121,9 @@
     </footer>
     <script src="./../dist/jquery-3.0.0.min.js"></script>
     <script src="./../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./../dist/icons/brands.js"></script>
     <script src="./../dist/icons/devices.js"></script>
+    <script src="./../dist/icons/software.js"></script>
+    <script src="./../dist/icons/editor.js"></script>
   </body>
 </html>

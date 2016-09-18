@@ -11,16 +11,15 @@
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
-      <div class="ui-header-brand">
+      <div class="ui-navbar-brand">
         <h2><a href="./index.html" accesskey="h">UI Schema</a></h2>
-      </div>
-      <div class="ui-header-account ui-float-right ui-skip-tiny"><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i data-schema-icon="adjust"></i></a></div>
-      <nav>
+      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="./css.html" accesskey="c">CSS</a></li>
-          <li><a href="./javascript.html" accesskey="j">JavaScript</a></li>
-          <li><a href="./examples.html" accesskey="e">Examples</a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g">GitHub</a></li>
+          <li><a href="./css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="./javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="./examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
@@ -42,9 +41,12 @@
           <li>Chrome 32+</li>
           <li>Opera 20+</li>
           <li>Safari 7+</li>
+          <li>Edge 12+</li>
           <li>IE 10+</li>
         </ul>
-        <p>It is distributed under the <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a> license, and the documentation under a <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a> license.</p>
+        <p>It is distributed under the <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a> license, and the documentation under a <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a> license.
+          
+        </p>
         <section>
           <h4 class="ui-header-secondary">Features</h4>
           <ul>
@@ -62,6 +64,9 @@
     </footer>
     <script src="./dist/jquery-3.0.0.min.js"></script>
     <script src="./dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./dist/icons/brands.js"></script>
     <script src="./dist/icons/devices.js"></script>
+    <script src="./dist/icons/software.js"></script>
+    <script src="./dist/icons/editor.js"></script>
   </body>
 </html>
