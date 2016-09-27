@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.4.2 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.4.3 (https://github.com/arxitics/ui-schema)
  * Copyright 2016 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
@@ -612,9 +612,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var trigger = $data.trigger || 'click';
       var key = $data.storage || '';
       $this.on(trigger, function () {
-        if (toggler) {
-          $target.toggleClass(toggler);
-        } else if ($data.toggler) {
+        if ($data.toggler) {
           var togglers = $data.toggler.trim().split(/\s*,\s*/);
           var entries = target.trim().replace(/\s*,$/, '').split(/\s*,\s*/);
           entries.forEach(function (entry, index) {
@@ -622,6 +620,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
             $(entry).toggleClass(toggler);
           });
           toggler = '';
+        } else if (toggler) {
+          $target.toggleClass(toggler);
         }
         if (key) {
           var value = storage.get(key) === true ? false : true;
@@ -670,7 +670,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     });
   };
 
-  // Dismiss any alert inline.
+  // Dismiss any alert inline
   schema.dismiss = function (event, options) {
     var selector = schema.events.dismiss.selector;
     var $elements = $((options && options.selector) || selector);

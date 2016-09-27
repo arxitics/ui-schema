@@ -7,7 +7,7 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./dist/ui-schema-0.4.2.min.css" media="all">
+    <link rel="stylesheet" href="./dist/ui-schema-0.4.3.min.css" media="all">
     <link rel="stylesheet" href="./dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
@@ -64,35 +64,35 @@
 
   schema.encrypt = function (models) {
     var message = models.message || '';
+    var emoji = {
+      'A': 'angry',
+      'B': 'baffled',
+      'C': 'confused',
+      'D': 'sad',
+      'E': 'evil',
+      'F': 'frustrated',
+      'G': 'grin',
+      'H': 'happy',
+      'I': 'hipster',
+      'J': 'cool',
+      'K': 'wink',
+      'L': 'sleepy',
+      'M': 'smile',
+      'N': 'neutral',
+      'O': 'confused',
+      'P': 'happy',
+      'Q': 'cool',
+      'R': 'crying',
+      'S': 'sad',
+      'T': 'tongue',
+      'U': 'frustrated',
+      'V': 'evil',
+      'W': 'wink',
+      'X': 'shocked',
+      'Y': 'crying',
+      'Z': 'shocked'
+    };
     var icons = message.split('').map(function (char) {
-      var emoji = {
-        'A': 'angry',
-        'B': 'baffled',
-        'C': 'confused',
-        'D': 'sad',
-        'E': 'evil',
-        'F': 'frustrated',
-        'G': 'grin',
-        'H': 'happy',
-        'I': 'hipster',
-        'J': 'cool',
-        'K': 'wink',
-        'L': 'sleepy',
-        'M': 'smile',
-        'N': 'neutral',
-        'O': 'confused',
-        'P': 'happy',
-        'Q': 'cool',
-        'R': 'crying',
-        'S': 'sad',
-        'T': 'tongue',
-        'U': 'frustrated',
-        'V': 'evil',
-        'W': 'wink',
-        'X': 'shocked',
-        'Y': 'crying',
-        'Z': 'shocked'
-      };
       if (/[A-Z]/.test(char)) {
         return emoji[char];
       }
@@ -117,7 +117,7 @@
     </footer>
     <script src="./dist/jquery-3.0.0.min.js"></script>
     <script src="./dist/prism-1.4.1.min.js"></script>
-    <script src="./dist/ui-schema-0.4.2.min.js"></script>
+    <script src="./dist/ui-schema-0.4.3.min.js"></script>
     <script src="./dist/icons/brands.js"></script>
     <script src="./dist/icons/devices.js"></script>
     <script src="./dist/icons/software.js"></script>
@@ -130,35 +130,35 @@
       
       schema.encrypt = function (models) {
         var message = models.message || '';
+        var emoji = {
+          'A': 'angry',
+          'B': 'baffled',
+          'C': 'confused',
+          'D': 'sad',
+          'E': 'evil',
+          'F': 'frustrated',
+          'G': 'grin',
+          'H': 'happy',
+          'I': 'hipster',
+          'J': 'cool',
+          'K': 'wink',
+          'L': 'sleepy',
+          'M': 'smile',
+          'N': 'neutral',
+          'O': 'confused',
+          'P': 'happy',
+          'Q': 'cool',
+          'R': 'crying',
+          'S': 'sad',
+          'T': 'tongue',
+          'U': 'frustrated',
+          'V': 'evil',
+          'W': 'wink',
+          'X': 'shocked',
+          'Y': 'crying',
+          'Z': 'shocked'
+        };
         var icons = message.split('').map(function (char) {
-          var emoji = {
-            'A': 'angry',
-            'B': 'baffled',
-            'C': 'confused',
-            'D': 'sad',
-            'E': 'evil',
-            'F': 'frustrated',
-            'G': 'grin',
-            'H': 'happy',
-            'I': 'hipster',
-            'J': 'cool',
-            'K': 'wink',
-            'L': 'sleepy',
-            'M': 'smile',
-            'N': 'neutral',
-            'O': 'confused',
-            'P': 'happy',
-            'Q': 'cool',
-            'R': 'crying',
-            'S': 'sad',
-            'T': 'tongue',
-            'U': 'frustrated',
-            'V': 'evil',
-            'W': 'wink',
-            'X': 'shocked',
-            'Y': 'crying',
-            'Z': 'shocked'
-          };
           if (/[A-Z]/.test(char)) {
             return emoji[char];
           }
