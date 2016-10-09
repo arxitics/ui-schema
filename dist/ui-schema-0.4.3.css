@@ -119,7 +119,7 @@ a:hover {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  text-decoration-style: dotted; /* 2 */
 }
 
 /**
@@ -776,9 +776,13 @@ pre > code {
   white-space: pre;
 }
 
+/**
+ * 1. The `!important` directive is required to override the style
+ *    when using external stylesheets.
+ */
 @media print {
   pre > code {
-    white-space: pre-wrap !important;
+    white-space: pre-wrap !important; /* 1 */
   }
 }
 
@@ -853,8 +857,13 @@ textarea {
   padding: 0.4em 0.8em;
 }
 
+/**
+ * 1. The `box-sizing` has been set to `border-box` by user agent stylesheets.
+ */
 button {
   background-color: transparent;
+  -moz-box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   cursor: pointer;
   margin: 0;
   text-align: center;
@@ -926,7 +935,6 @@ input[type="checkbox"]:focus,
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="range"]:focus {
-  border-color: none;
   box-shadow: none;
 }
 
@@ -1045,6 +1053,38 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #ccc;
 }
 
+/**
+ * Placeholder style for Firefox 19+.
+ */
+
+input::-moz-placeholder {
+  color: #999;
+}
+
+/**
+ * Placeholder style for IE 10+.
+ */
+
+input:-ms-input-placeholder {
+  color: #999;
+}
+
+/**
+ * Placeholder style for Chrome, Opera 15+, Safari.
+ */
+
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+/**
+ * Placeholder style in CSS4.
+ */
+
+input:placeholder-shown {
+  color: #999;
+}
+
 label[for] {
   cursor: pointer;
   font-weight: bold;
@@ -1072,25 +1112,23 @@ select::-ms-expand {
   display: none;
 }
 
-select > option {
-  background-color: #f5f5f5;
-  color: #333;
-  padding: 0.2em 0.8em;
-}
-
 select[multiple],
 select[size] {
   background: transparent;
   height: auto;
 }
 
-select[multiple] > option,
-select[size] > option {
-  padding: 0.2em 0.4em;
+select:not([multiple]):not([size]) > option {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+option {
+  padding: 0.4em 0.8em;
 }
 
 /**
- * Disable the glow box-shadow in Firefox
+ * Disable the glow box-shadow in Firefox.
  */
 
 :-moz-submit-invalid {
@@ -1099,46 +1137,6 @@ select[size] > option {
 
 :-moz-ui-invalid {
   box-shadow: none;
-}
-
-/**
- * Placeholder style for Firefox 4-18.
- */
-
-:-moz-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style for Firefox 19+.
- */
-
-::-moz-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style for IE 10+.
- */
-
-:-ms-input-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style for Chrome, Opera 15+, Safari.
- */
-
-::-webkit-input-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style in CSS4.
- */
-
-:placeholder-shown {
-  color: #999;
 }
 
 :disabled,
@@ -1467,18 +1465,18 @@ tr:not(:first-child) > td {
 }
 
 .ui-block-center {
-  display: block !important;
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 .ui-block-inline {
-  display: inline-block !important;
+  display: inline-block;
 }
 
 .ui-block-fluid {
   display: block;
-  width: 100% !important;
+  width: 100%;
 }
 
 .ui-float-left {
@@ -1502,12 +1500,27 @@ tr:not(:first-child) > td {
   display: table;
 }
 
+.ui-full-width {
+  width: 100vw;
+}
+
+.ui-full-height {
+  height: 100vh;
+}
+
+.ui-full-page {
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+  width: 100vw;
+}
+
 .ui-fixed-width {
-  width: 1.6em !important;
+  width: 1.6em;
 }
 
 .ui-fixed-height {
-  height: 1.6em !important;
+  height: 1.6em;
 }
 
 .ui-fixed-top,
@@ -1515,7 +1528,7 @@ tr:not(:first-child) > td {
 .ui-fixed-bottom,
 .ui-fixed-left,
 .ui-fixed-center {
-  overflow: visible !important;
+  overflow: visible;
   position: fixed;
   z-index: 999;
 }
@@ -1525,7 +1538,7 @@ tr:not(:first-child) > td {
 .ui-absolute-bottom,
 .ui-absolute-left,
 .ui-absolute-center {
-  overflow: visible !important;
+  overflow: visible;
   position: absolute;
   z-index: 99;
 }
@@ -1569,8 +1582,8 @@ tr:not(:first-child) > td {
 .ui-vertical-top,
 .ui-vertical-bottom,
 .ui-vertical-center {
-  display: table-cell !important;
-  width: 1% !important;
+  display: table-cell;
+  width: 1%;
 }
 
 .ui-vertical-top {
@@ -1717,7 +1730,7 @@ tr:not(:first-child) > td {
 .ui-nav-tabs > li:hover,
 .ui-nav-pills > li:hover,
 .ui-nav-stacked > li:hover,
-.ui-header-navbar > nav > ul > li:hover {
+.ui-navbar-nav > ul > li:hover {
   background-color: #e8e8e8;
 }
 
@@ -1733,7 +1746,7 @@ tr:not(:first-child) > td {
   margin-bottom: -1px;
 }
 
-.ui-nav-tabs > li.ui-state-active {
+.ui-nav-tabs > .ui-state-active {
   background-color: transparent;
   border-color: #ccc #ccc #fff;
 }
@@ -1747,8 +1760,8 @@ tr:not(:first-child) > td {
  */
 
 .ui-nav-justified > li {
-  display: table-cell !important;
-  float: none !important; /* 1 */
+  display: table-cell;
+  float: none; /* 1 */
   width: 1%;
 }
 
@@ -1770,7 +1783,7 @@ tr:not(:first-child) > td {
   border-radius: 0.2rem;
 }
 
-.ui-nav-pills > li.ui-state-active {
+.ui-nav-pills > .ui-state-active {
   border-color: #ccc;
 }
 
@@ -1920,9 +1933,13 @@ tr:not(:first-child) > td {
   display: block;
 }
 
+/**
+ * 1. The `!important` directive is required to override the style
+ *    when using `.ui-space-trim`.
+ */
 .ui-menu-dropdown > ul > li > a,
 .ui-menu-dropdown > ul > li > span {
-  border-radius: 0 !important;
+  border-radius: 0 !important; /* 1 */
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
@@ -2075,11 +2092,11 @@ tr:not(:first-child) > td {
  */
 
 .ui-text-left-right {
-  text-align: right !important;
+  text-align: right;
 }
 
 .ui-text-left-right > :first-child {
-  float: left !important;
+  float: left;
 }
 
 .ui-text-top {
@@ -2338,6 +2355,41 @@ tr:not(:first-child) > td {
   margin-left: -1.6em;
 }
 
+.ui-list-timeline {
+  list-style: none;
+  padding-left: 0.8em;
+}
+
+.ui-list-timeline > li {
+  border-left: 0.2em solid transparent;
+  padding-left: 1em;
+  position: relative;
+}
+
+.ui-list-timeline > li:not(:last-child) {
+  border-left-color: #ddd;
+  padding-bottom: 1em;
+}
+
+.ui-list-timeline > li > div:first-child > :only-child {
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  white-space: nowrap;
+}
+
+.ui-list-timeline > li > div:first-child::before {
+  background-color: #fff;
+  border: 0.2em solid currentColor;
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 0.6em;
+  left: -0.6em;
+  position: absolute;
+  width: 0.6em;
+}
+
 .ui-content-link {
   background-color: #fff;
   color: #333;
@@ -2345,8 +2397,8 @@ tr:not(:first-child) > td {
 
 .ui-content-link > a,
 .ui-content-link > a > div {
-  display: table-cell !important;
-  float: none !important;
+  display: table-cell;
+  float: none;
   vertical-align: middle;
 }
 
@@ -2354,7 +2406,7 @@ tr:not(:first-child) > td {
   width: 1%;
 }
 
-.ui-content-link > a > div + div {
+.ui-content-link > a > div:not(:first-child) {
   padding-left: 0.8em;
 }
 
@@ -2444,6 +2496,7 @@ tr:not(:first-child) > td {
 
 .ui-panel-body > .ui-list-group {
   border: 0;
+  display: block;
   margin-bottom: 0;
   width: 100%;
 }
@@ -2615,12 +2668,12 @@ tr:not(:first-child) > td {
 
 .ui-input-underline {
   border: none;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid currentColor;
   border-radius: 0;
 }
 
 .ui-input-underline:focus {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 .ui-button-group,
@@ -2661,10 +2714,6 @@ tr:not(:first-child) > td {
   visibility: visible;
 }
 
-.ui-button-switch > input:checked ~ :not(label) {
-  display: block;
-}
-
 .ui-button-group > label {
   padding: .4em .8em;
 }
@@ -2681,7 +2730,6 @@ tr:not(:first-child) > td {
 .ui-button-block button {
   display: block;
   margin-top: 0.8em;
-  padding: auto 0;
   width: 100%;
 }
 
@@ -2701,14 +2749,6 @@ tr:not(:first-child) > td {
 .ui-button-link:focus {
   background-color: transparent;
   color: #3071a9;
-}
-
-.ui-button-link path {
-  fill: #428bca;
-}
-
-.ui-button-link path:hover {
-  fill: #3071a9;
 }
 
 .ui-checkbox-counter {
@@ -2795,6 +2835,7 @@ tr:not(:first-child) > td {
 
 .ui-image-thumbnail {
   border: 1px solid #ddd;
+  max-width: 95%;
   max-width: calc(100% - 0.4rem - 2px);
   padding: 0.2rem;
 }
@@ -2824,11 +2865,52 @@ tr:not(:first-child) > td {
   opacity: 1;
 }
 
+.ui-image-magnifier {
+  display: inline-block;
+  position: relative;
+}
+
+.ui-image-magnifier > img {
+  cursor: crosshair;
+  object-fit: contain;
+}
+
+.ui-image-magnifier > div {
+  display: none;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+}
+
+.ui-image-magnifier > div:not(:last-child) {
+  background-color: #000;
+  left: 0;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.ui-image-magnifier > div:last-child {
+  left: 100%;
+  overflow: hidden;
+}
+
+.ui-image-magnifier > div:last-child > img {
+  max-width: none;
+  object-fit: fill;
+  will-change: transform;
+}
+
+.ui-image-magnifier > img:hover ~ div {
+  display: inline-block;
+}
+
 .ui-background-image {
   color: #fff;
+  position: relative;
 }
 
 .ui-background-image > img {
+  left: 0;
   position: absolute;
   top: 0;
   z-index: -1;
@@ -2884,13 +2966,11 @@ tr:not(:first-child) > td {
 }
 
 .ui-icon-spin > svg {
-  -moz-animation: spin 2s infinite linear;
   -webkit-animation: spin 2s infinite linear;
   animation: spin 2s infinite linear;
 }
 
 .ui-icon-pulse > svg {
-  -moz-animation: spin 1s infinite steps(8);
   -webkit-animation: spin 1s infinite steps(8);
   animation: spin 1s infinite steps(8);
 }
@@ -2958,12 +3038,15 @@ tr:not(:first-child) > td {
   color: #843534;
 }
 
+/**
+ * 1. The `!important` directive is required to override the hover style.
+ */
 .ui-button-primary,
 .ui-button-success,
 .ui-button-info,
 .ui-button-warning,
 .ui-button-danger {
-  color: #fff !important;
+  color: #fff !important; /* 1 */
 }
 
 .ui-button-primary,
@@ -3080,8 +3163,12 @@ tr:not(:first-child) > td {
   color: #333;
 }
 
+/**
+ * 1. The `!important` directive is required to override the hover style
+ *    when using the dark theme.
+ */
 .ui-state-active:hover a {
-  color: #777 !important;
+  color: #777 !important; /* 1 */
 }
 
 .ui-state-disabled {
@@ -3285,33 +3372,28 @@ tr:not(:first-child) > td {
 
 .ui-space-trim > a:first-child,
 .ui-space-trim > button:first-child,
-.ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
 .ui-space-trim > li:first-child > :only-child {
   border-bottom-left-radius: 0.2rem;
+  border-left-width: 1px;
   border-top-left-radius: 0.2rem;
 }
 
 .ui-space-trim > a:last-child,
 .ui-space-trim > button:last-child,
-.ui-space-trim > div:last-child > button:last-of-type,
 .ui-space-trim > label:last-of-type,
 .ui-space-trim > li:last-child > :only-child {
   border-bottom-right-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
 }
 
-.ui-space-trim > a:first-child,
-.ui-space-trim > button:first-child,
-.ui-space-trim > div:first-child > button:first-of-type,
-.ui-space-trim > label:first-of-type,
-.ui-space-trim > li:first-child > :only-child {
-  border-left-width: 1px;
+.ui-border-none {
+  border: none;
+  border-radius: 0;
 }
 
-.ui-border-none {
-  border: none !important;
-  border-radius: 0 !important;
+.ui-border-none:focus {
+  box-shadow: none;
 }
 
 .ui-border-bottom {
@@ -3636,7 +3718,7 @@ tr:not(:first-child) > td {
 
 .ui-toggle-content,
 .ui-toggle-target > input,
-.ui-toggle-target > input + div,
+.ui-toggle-target > input ~ div,
 .ui-carousel-content > input,
 .ui-carousel-content > div:not(:last-child),
 .ui-accordion-content > input,
@@ -3646,7 +3728,7 @@ tr:not(:first-child) > td {
 
 .ui-lightbox-content:target,
 .ui-toggle-content:target,
-.ui-toggle-target > input:checked + div,
+.ui-toggle-target > input:checked ~ div,
 .ui-carousel-content > div:target,
 .ui-carousel-content > input:checked + div,
 .ui-accordion-content > div:focus > div,
@@ -3899,13 +3981,6 @@ tr:not(:first-child) > td {
 .ui-letter-paper {
   height: 279.4mm;
   width: 215.9mm;
-}
-
-.ui-full-page {
-  height: 100vh;
-  max-width: 100%;
-  position: relative;
-  width: 100vw;
 }
 
 .ui-page-wrapper {
