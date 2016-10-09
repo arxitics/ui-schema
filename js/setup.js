@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.4.2 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.4.3 (https://github.com/arxitics/ui-schema)
  * Copyright 2016 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
@@ -30,16 +30,19 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       options: 'schema-options',
       model: 'schema-model',
       value: 'schema-value',
-      parser: 'schema-parser',
-      trigger: 'schema-trigger',
+      text: 'schema-text',
+      adapter: 'schema-adapter',
       controller: 'schema-controller',
+      trigger: 'schema-trigger',
+      init: 'schema-init',
+      empty: 'schema-empty',
       view: 'schema-view',
       internal: 'schema-internal',
       template: 'schema-template',
       condition: 'schema-condition',
       iteration: 'schema-itration',
       target: 'schema-target',
-      instantiator: 'schema-instantiator',
+      loader: 'schema-loader',
       validate: 'schema-validate',
       changed: 'schema-changed',
       disabled: 'schema-disabled',
@@ -49,11 +52,12 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       lazyload: 'schema-lazyload',
       delay: 'schema-delay',
       src: 'schema-src',
+      magnify: 'schema-magnify',
+      shape: 'schema-shape',
       trim: 'schema-trim',
       toggle: 'schema-toggle',
       toggler: 'schema-toggler',
       storage: 'schema-storage',
-      init: 'schema-init',
       autoplay: 'schema-autoplay',
       dismiss: 'schema-dismiss',
       extract: 'schema-extract',
@@ -105,6 +109,11 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         type: 'lazyload',
         namespace: '.image.data-api.schema',
         selector: 'img[data-schema-lazyload]'
+      },
+      magnify: {
+        type: 'magnify',
+        namespace: '.image.data-api.schema',
+        selector: 'img[data-schema-magnify]'
       },
       sprite: {
         type: 'sprite',

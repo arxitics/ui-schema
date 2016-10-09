@@ -26,7 +26,7 @@
     var type = event.type;
     var name = type + event.namespace;
     var delegation = event.delegation;
-    if (typeof delegation !== 'number') {
+    if ($.type(delegation) !== 'number') {
       var setup = (options && options.setup) || schema.setup;
       var bindings = setup.autoBind.split(' ');
       var triggers = setup.autoTrigger.split(' ');
@@ -47,12 +47,27 @@
       event.delegation = delegation;
     }
     if (delegation > 1) {
-      var handler = schema[type] || function () {};
-      $(document).on(name, handler);
+      $(document).on(name, schema[type]);
       if (delegation > 2) {
-        $(document).trigger(name, event.options);
+        schema.trigger(name, event.options);
       }
     }
+  };
+
+  // Trigger an event attached to the document
+  schema.trigger = function (event, options) {
+    var name = event;
+    var type = $.type(options);
+    var data = {};
+    if ($.type(event) === 'object') {
+      name = event.type + event.namespace;
+    }
+    if (type === 'string' || type === 'object' && options.jquery) {
+      data.selector = options;
+    } else {
+      data = options;
+    }
+    $(document).trigger(name, data);
   };
 
   // Parse and normalize schema data
@@ -121,22 +136,21 @@
   schema.bind = function (event, options) {
     var bind = schema.events.bind;
     var selector = bind.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var $options = schema.parseOptions($data.options);
-      var $type = $data.event;
-      if ($type) {
+      String($data.event).split(/\s+/).forEach(function (type) {
         var defaults = {
-          type: $type,
-          selector: selector.replace(/\-(\w+)\]$/, '-' + $type + ']'),
+          type: type,
+          selector: selector.replace(/\-(\w+)\]$/, '-' + type + ']'),
           target: $this
         };
         var $event = $.extend({}, bind, defaults, $data, $options);
-        schema.events[$type] = $event;
-        schema.delegate($event);
-      }
+        schema.events[type] = $event;
+        schema.delegate($event, $options);
+      });
     });
   };
 
@@ -144,7 +158,7 @@
   schema.retrieve = function (event, options) {
     var params = { prefix: schema.setup.dataPrefix };
     var selector = schema.events.retrieve.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -159,37 +173,48 @@
 
   // Observe a model and update the view
   schema.observe = function (event, options) {
+    var events = schema.events;
     var models = schema.models;
-    var render = schema.events.render.type;
-    var selector = schema.events.observe.selector;
-    var $elements = $((options && options.selector) || selector);
+    var selector = events.observe.selector;
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
-      var model = $data.model;
-      var parser = $data.parser;
-      var controller = $data.controller;
-      var trigger = $data.trigger || 'change click keyup';
-      var value = $data.value || null;
-      var text = value || $data.text;
-      $this.on(trigger, function () {
-        value = $this.val() || $this.text();
-        if (parser) {
-          value = schema[parser](value);
+      var trigger = $data.trigger;
+      if (trigger) {
+        var model = $data.model;
+        var adapter = $data.adapter;
+        var controller = $data.controller;
+        var value = $data.value || null;
+        var text = value || $data.text;
+        var init = $data.init || null;
+        var empty = $data.empty || false;
+        $this.on(trigger, function () {
+          value = $this.val() || $this.text();
+          if (empty) {
+            if (text) {
+              $this.text('');
+            } else if (value) {
+              $this.val('');
+            }
+          }
+          if (adapter) {
+            value = schema[adapter](value);
+          }
+          schema.set(models, model, value);
+          if (controller) {
+            $.extend(models, schema[controller](models, $this));
+          }
+          schema.trigger(events.render);
+        });
+        if (init || (text && init !== false)) {
+          if (value) {
+            $this.val(value);
+          } else {
+            $this.text(text);
+          }
+          $this.trigger(trigger.replace(/\s.*$/, ''));
         }
-        models[model] = value;
-        if (controller) {
-          models = $.extend(models, schema[controller](models));
-        }
-        $(document).trigger(render);
-      });
-      if (text) {
-        if (value) {
-          $this.val(value);
-        } else {
-          $this.text(text);
-        }
-        $this.trigger(trigger.replace(/\s.*$/, ''));
       }
     });
   };
@@ -202,7 +227,7 @@
     var internal = data.internal;
     var template = data.template;
     var selector = events.render.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -210,85 +235,108 @@
       var controller = $data.controller;
       var condition = $data.condition;
       var iteration = $data.iteration;
+      var adapter = $data.adapter;
       var view = $data.view;
-      var ready = true;
       var $cache = $this.html();
       var $html = '';
+      var ready = true;
+      var changed = false;
       if ($template === undefined) {
         $template = $cache;
         $this.data(template, $template);
       }
       if (controller) {
-        models = $.extend({}, models, schema[controller](models));
+        models = $.extend({}, models, schema[controller](models, $this));
       }
-      if (typeof view === 'string') {
+      if ($.type(view) === 'string') {
         var $internal = $data.internal || {};
-        var changed = false;
         ready = view.split(/\s*\,\s*/).every(function (view) {
           if (models.hasOwnProperty(view)) {
-            var value = models[view];
-            var $value = $internal[view];
-            if (JSON.stringify(value) !== JSON.stringify($value)) {
-              $internal[view] = value;
+            var value = schema.get(models, view);
+            var $value = schema.get($internal, view);
+            if (!schema.equals(value, $value)) {
+              schema.set($internal, view, value);
               changed = true;
             }
             return true;
           }
           return false;
-        }) && changed;
+        });
         if (changed) {
-          $this.data(internal, $internal);
+          $this.data(internal, $.extend(true, {}, $internal));
         }
       }
-      if (ready && (!condition || models[condition] === true)) {
-        if (iteration) {
-          var segments = schema.regexp.segments;
-          var matches = String(iteration).match(segments);
-          if (matches) {
-            var name = matches[1];
-            var list = matches[3];
-            var entries = models[list];
-            if (Array.isArray(entries)) {
-              entries.forEach(function (entry) {
-                models[name] = entry;
-                $html += schema.format($template, models);
-              });
+      if (ready && (!condition || schema.get(models, condition) === true)) {
+        if (changed || adapter) {
+          if (iteration) {
+            var segments = schema.regexp.segments;
+            var matches = String(iteration).match(segments);
+            if (matches) {
+              var name = matches[1];
+              var list = matches[3];
+              var entries = schema.get(models, list);
+              if (Array.isArray(entries)) {
+                if (adapter) {
+                  entries = schema[adapter](entries, $this);
+                }
+                entries.forEach(function (entry) {
+                  schema.set(models, name, entry);
+                  $html += schema.format($template, models);
+                });
+              }
             }
+          } else {
+            $html = schema.format($template, models);
           }
-        } else {
-          $html = schema.format($template, models);
-        }
-        if ($html !== $cache) {
-          $this.html($html);
-          for (var key in events) {
-            if (events.hasOwnProperty(key)) {
-              var event = events[key];
-              var $targets = $this.find(event.selector);
-              if ($targets.length) {
-                $(document).trigger(event.type);
+          if ($html !== $cache) {
+            $this.html($html);
+            for (var key in events) {
+              if (events.hasOwnProperty(key)) {
+                var event = events[key];
+                var $bindings = $this.find(event.selector);
+                if ($bindings.length) {
+                  schema.trigger(event);
+                }
               }
             }
           }
         }
+        $this.show();
+      } else {
+        $this.hide();
       }
     });
   };
 
   // Insert the content of a template
   schema.insert = function (event, options) {
-    var selector = schema.events.insert.selector;
-    var $elements = $((options && options.selector) || selector);
+    var events = schema.events;
+    var selector = events.insert.selector;
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var $html = $this.html();
-      var target = $data.target;
-      var instantiator = $data.instantiator;
-      if (instantiator) {
-        $html = schema[instantiator]($html);
-      }
-      if (target && $html) {
-        $(target).empty().append($html);
+      var $target = $($data.target);
+      var loader = $data.loader;
+      if (loader) {
+        $.when(schema[loader]($this)).done(function (data) {
+          $html = $.isPlainObject(data) ? schema.format($html, data) : data;
+          $target.append($html);
+          for (var key in events) {
+            if (events.hasOwnProperty(key)) {
+              var event = events[key];
+              var $bindings = $target.find(event.selector);
+              if ($bindings.length) {
+                schema.trigger(event, $bindings);
+              }
+            }
+          }
+        }).fail(function () {
+          throw new Error('Schema fails to instantiate the template');
+        });
+      } else if ($html) {
+        $target.html($html);
       }
     });
   };

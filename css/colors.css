@@ -61,12 +61,15 @@
   color: #843534;
 }
 
+/**
+ * 1. The `!important` directive is required to override the hover style.
+ */
 .ui-button-primary,
 .ui-button-success,
 .ui-button-info,
 .ui-button-warning,
 .ui-button-danger {
-  color: #fff !important;
+  color: #fff !important; /* 1 */
 }
 
 .ui-button-primary,
@@ -183,8 +186,12 @@
   color: #333;
 }
 
+/**
+ * 1. The `!important` directive is required to override the hover style
+ *    when using the dark theme.
+ */
 .ui-state-active:hover a {
-  color: #777 !important;
+  color: #777 !important; /* 1 */
 }
 
 .ui-state-disabled {

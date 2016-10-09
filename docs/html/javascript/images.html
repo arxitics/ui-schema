@@ -7,7 +7,7 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.2.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.3.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
@@ -39,6 +39,23 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Images</h3>
         <section>
+          <h4 class="ui-header-secondary">Magnifier</h4>
+          <div>
+            <figure class="ui-image-magnifier"><img width="300" height="300" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping" data-schema-magnify>
+              <div data-schema-shape="square(100)"></div>
+              <div class="ui-offset-medium"><img width="900" height="900" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping"></div>
+            </figure>
+          </div>
+          <pre><code class="language-markup">&lt;figure class="ui-image-magnifier"&gt;
+  &lt;img width="300" height="300" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping" data-schema-magnify&gt;
+  &lt;div data-schema-shape="square(100)"&gt;&lt;/div&gt;
+  &lt;div class="ui-offset-medium"&gt;
+    &lt;img width="900" height="900" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping"&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+</code></pre>
+        </section>
+        <section>
           <h4 class="ui-header-secondary">Lazy Loading</h4>
           <div>
             <figure><img width="600" height="600" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping" class="ui-image-thumbnail"></figure>
@@ -56,7 +73,7 @@
     </footer>
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
-    <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
     <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
     <script src="../../../dist/icons/software.js"></script>

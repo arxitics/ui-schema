@@ -112,7 +112,7 @@
 .ui-nav-tabs > li:hover,
 .ui-nav-pills > li:hover,
 .ui-nav-stacked > li:hover,
-.ui-header-navbar > nav > ul > li:hover {
+.ui-navbar-nav > ul > li:hover {
   background-color: #e8e8e8;
 }
 
@@ -128,7 +128,7 @@
   margin-bottom: -1px;
 }
 
-.ui-nav-tabs > li.ui-state-active {
+.ui-nav-tabs > .ui-state-active {
   background-color: transparent;
   border-color: #ccc #ccc #fff;
 }
@@ -142,8 +142,8 @@
  */
 
 .ui-nav-justified > li {
-  display: table-cell !important;
-  float: none !important; /* 1 */
+  display: table-cell;
+  float: none; /* 1 */
   width: 1%;
 }
 
@@ -165,7 +165,7 @@
   border-radius: 0.2rem;
 }
 
-.ui-nav-pills > li.ui-state-active {
+.ui-nav-pills > .ui-state-active {
   border-color: #ccc;
 }
 

@@ -60,9 +60,13 @@
   display: block;
 }
 
+/**
+ * 1. The `!important` directive is required to override the style
+ *    when using `.ui-space-trim`.
+ */
 .ui-menu-dropdown > ul > li > a,
 .ui-menu-dropdown > ul > li > span {
-  border-radius: 0 !important;
+  border-radius: 0 !important; /* 1 */
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;

@@ -253,18 +253,18 @@
 }
 
 .ui-block-center {
-  display: block !important;
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 .ui-block-inline {
-  display: inline-block !important;
+  display: inline-block;
 }
 
 .ui-block-fluid {
   display: block;
-  width: 100% !important;
+  width: 100%;
 }
 
 .ui-float-left {
@@ -288,12 +288,27 @@
   display: table;
 }
 
+.ui-full-width {
+  width: 100vw;
+}
+
+.ui-full-height {
+  height: 100vh;
+}
+
+.ui-full-page {
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+  width: 100vw;
+}
+
 .ui-fixed-width {
-  width: 1.6em !important;
+  width: 1.6em;
 }
 
 .ui-fixed-height {
-  height: 1.6em !important;
+  height: 1.6em;
 }
 
 .ui-fixed-top,
@@ -301,7 +316,7 @@
 .ui-fixed-bottom,
 .ui-fixed-left,
 .ui-fixed-center {
-  overflow: visible !important;
+  overflow: visible;
   position: fixed;
   z-index: 999;
 }
@@ -311,7 +326,7 @@
 .ui-absolute-bottom,
 .ui-absolute-left,
 .ui-absolute-center {
-  overflow: visible !important;
+  overflow: visible;
   position: absolute;
   z-index: 99;
 }
@@ -355,8 +370,8 @@
 .ui-vertical-top,
 .ui-vertical-bottom,
 .ui-vertical-center {
-  display: table-cell !important;
-  width: 1% !important;
+  display: table-cell;
+  width: 1%;
 }
 
 .ui-vertical-top {

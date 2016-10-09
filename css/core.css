@@ -352,9 +352,13 @@ pre > code {
   white-space: pre;
 }
 
+/**
+ * 1. The `!important` directive is required to override the style
+ *    when using external stylesheets.
+ */
 @media print {
   pre > code {
-    white-space: pre-wrap !important;
+    white-space: pre-wrap !important; /* 1 */
   }
 }
 
@@ -429,8 +433,13 @@ textarea {
   padding: 0.4em 0.8em;
 }
 
+/**
+ * 1. The `box-sizing` has been set to `border-box` by user agent stylesheets.
+ */
 button {
   background-color: transparent;
+  -moz-box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   cursor: pointer;
   margin: 0;
   text-align: center;
@@ -502,7 +511,6 @@ input[type="checkbox"]:focus,
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="range"]:focus {
-  border-color: none;
   box-shadow: none;
 }
 
@@ -590,7 +598,7 @@ input[type="range"]::-ms-fill-upper {
   border-radius: 0.2rem;
 }
 
-/*
+/**
  * 1. Reset the `margin-top` value of `::-webkit-slider-thumb`.
  */
 
@@ -621,6 +629,38 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #ccc;
 }
 
+/**
+ * Placeholder style for Firefox 19+.
+ */
+
+input::-moz-placeholder {
+  color: #999;
+}
+
+/**
+ * Placeholder style for IE 10+.
+ */
+
+input:-ms-input-placeholder {
+  color: #999;
+}
+
+/**
+ * Placeholder style for Chrome, Opera 15+, Safari.
+ */
+
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+/**
+ * Placeholder style in CSS4.
+ */
+
+input:placeholder-shown {
+  color: #999;
+}
+
 label[for] {
   cursor: pointer;
   font-weight: bold;
@@ -648,25 +688,23 @@ select::-ms-expand {
   display: none;
 }
 
-select > option {
-  background-color: #f5f5f5;
-  color: #333;
-  padding: 0.2em 0.8em;
-}
-
 select[multiple],
 select[size] {
   background: transparent;
   height: auto;
 }
 
-select[multiple] > option,
-select[size] > option {
-  padding: 0.2em 0.4em;
+select:not([multiple]):not([size]) > option {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+option {
+  padding: 0.4em 0.8em;
 }
 
 /**
- * Disable the glow box-shadow in Firefox
+ * Disable the glow box-shadow in Firefox.
  */
 
 :-moz-submit-invalid {
@@ -675,46 +713,6 @@ select[size] > option {
 
 :-moz-ui-invalid {
   box-shadow: none;
-}
-
-/**
- * Placeholder style for Firefox 4-18.
- */
-
-:-moz-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style for Firefox 19+.
- */
-
-::-moz-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style for IE 10+.
- */
-
-:-ms-input-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style for Chrome, Opera 15+, Safari.
- */
-
-::-webkit-input-placeholder {
-  color: #999;
-}
-
-/**
- * Placeholder style in CSS4.
- */
-
-:placeholder-shown {
-  color: #999;
 }
 
 :disabled,

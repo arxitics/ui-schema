@@ -1,0 +1,294 @@
+
+extends ../layout
+
+block variables
+  - var pageID = 'examples/todos'
+  - var pageTitle = 'TodoMVC'
+  - var minimal = true
+
+block append head
+  style.
+    #todos-list th:first-child,
+    #todos-list td:first-child,
+    #todos-list td:last-child {
+      width: 1em;
+    }
+
+    #todos-list th:last-child {
+      font-weight: normal;
+    }
+
+    #todos-list td:last-child > span {
+      cursor: pointer;
+      visibility: hidden;
+    }
+
+    #todos-list tr:hover > td:last-child > span {
+      visibility: visible;
+    }
+
+    #todos-list input {
+      border: none;
+      box-shadow: none;
+      padding-left: 0;
+      padding-right: 0;
+      vertical-align: middle;
+    }
+    
+    #todos-stats > div {
+      color: #666;
+      float: left;
+    }
+
+    #todos-stats > div:first-child,
+    #todos-stats > div:last-child {
+      margin-top: 0.4em;
+    }
+
+    #todos-stats > div:nth-child(2) > a {
+      border: 1px solid transparent;
+      border-radius: 0.2rem;
+      color: #666;
+      display: inline-block;
+      margin: 0 0.2em;
+      padding: 0.4em 0.8em;
+    }
+
+    #todos-stats > div:nth-child(2) > .ui-state-active,
+    #todos-stats > div:nth-child(2) > a:hover {
+      border-color: #ccc;
+    }
+
+    #todos-stats > div:last-child > span:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+block prepend body
+  body.ui-container-fluid
+    section.ui-fluid-50.ui-offset-25.ui-mobile-expand
+      h1.ui-color-emphasis.ui-text-center todos
+      .ui-content-panel
+        .ui-panel-body
+          table#todos-list.ui-table-fluid
+            thead(data-schema-event='init selectall')
+              tr
+                th: input(type='checkbox' data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-selectall)
+                th(colspan='2'): input.ui-block-fluid(type='text' placeholder='What needs to be done?' data-schema-model='todo' data-schema-trigger='change' data-schema-controller='add' data-schema-empty)
+            tbody(data-schema-view='items' data-schema-iteration='item of items' data-schema-adapter='filter' data-schema-event='select edit close')
+              tr(id='todo-${item.id}')
+                td: input(type='checkbox' data-schema-select)
+                td: div(spellcheck='false' contenteditable data-schema-edit) ${item.todo}
+                td: span.ui-color-emphasis.ui-zoom-large(data-schema-close) &times;
+        #todos-stats.ui-panel-footer.ui-container-grid(data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-event='route clear')
+          .ui-fluid-25.ui-text-left.ui-zoom-small
+            span ${stats.active} ${stats.items} left
+          .ui-fluid-50.ui-text-center.ui-zoom-small(data-schema-route)
+            a.ui-state-active(href='#/') All
+            a(href='#/active') Active
+            a(href='#/completed') Completed
+          .ui-fluid-25.ui-text-right.ui-zoom-small(data-schema-view='stats' data-schema-condition='stats.selected' data-schema-clear)
+            span Clear completed
+    script(src='#{appRoot}/dist/jquery-3.0.0.min.js')
+    script(src='#{appRoot}/dist/ui-schema-#{version}.min.js')
+    script.
+      schema.add = function (models) {
+        var items = models.items;
+        var todo = models.todo.trim();
+        if (todo) {
+          items.push({
+            id: Date.now(),
+            todo: todo,
+            active: true
+          });
+          schema.storage.set('items', items);
+        }
+        $.extend(models, {
+          items: items,
+          stats: schema.stats(items)
+        });
+        schema.trigger(schema.events.selectall);
+      };
+
+      schema.filter = function (items) {
+        var filter = schema.models.filter;
+        if (filter) {
+          var active = filter === 'active';
+          return items.filter(function (item) {
+            return item.active === active;
+          });
+        }
+        return items;
+      };
+
+      schema.stats = function (items) {
+        var all = items.length;
+        var active = items.filter(function (item) {
+          return item.active;
+        }).length;
+        var completed = all - active;
+        return {
+          all: all,
+          active: active,
+          completed: completed,
+          nonempty: all > 0,
+          selected: completed > 0,
+          items: active === 1 ? 'item': 'items'
+        };
+      };
+
+      schema.init = function (event, options) {
+        var items = schema.storage.get('items') || [];
+        $.extend(schema.models, {
+          items: items,
+          stats: schema.stats(items)
+        });
+      };
+
+      schema.selectall = function (event, options) {
+        var events = schema.events;
+        var models = schema.models;
+        var items = models.items;
+        var stats = models.stats;
+        var selector = events.selectall.selector;
+        var $elements = $(options && options.selector || selector);
+        $elements.prop('checked', stats.selected && stats.active === 0);
+        $elements.on('click', function () {
+          var $this = $(this);
+          var active = !$this.prop('checked');
+          items.forEach(function (item) {
+            item.active = active;
+          });
+          models.stats = schema.stats(items);
+          schema.storage.set('items', items);
+          schema.trigger(events.select);
+          schema.trigger(events.render);
+        });
+      };
+
+      schema.select = function (event, options) {
+        var events = schema.events;
+        var models = schema.models;
+        var items = models.items;
+        var selector = events.select.selector;
+        var $elements = $(options && options.selector || selector);
+        $elements.each(function () {
+          var $this = $(this);
+          var $tr = $this.closest('tr');
+          var id = +$tr.attr('id').slice(5);
+          items.some(function (item) {
+            if (item.id === id) {
+              $this.prop('checked', !item.active);
+              return true;
+            }
+            return false;
+          });
+        });
+        $elements.on('click', function () {
+          var $this = $(this);
+          var $tr = $this.closest('tr');
+          var id = +$tr.attr('id').slice(5);
+          items.some(function (item) {
+            if (item.id === id) {
+              item.active = !$this.prop('checked');
+              return true;
+            }
+            return false;
+          });
+          models.stats = schema.stats(items);
+          schema.storage.set('items', items);
+          schema.trigger(events.selectall);
+          schema.trigger(events.render);
+        });
+      };
+
+      schema.edit = function (event, options) {
+        var events = schema.events;
+        var models = schema.models;
+        var items = models.items;
+        var selector = events.edit.selector;
+        var $elements = $(options && options.selector || selector);
+        $elements.on('focusout', function () {
+          var $this = $(this);
+          var $html = $this.html();
+          var $tr = $this.closest('tr');
+          var id = +$tr.attr('id').slice(5);
+          items.some(function (item) {
+            if (item.id === id) {
+              item.todo = $html;
+              return true;
+            }
+            return false;
+          });
+          schema.storage.set('items', items);
+          schema.trigger(events.render);
+        });
+      };
+
+      schema.close = function (event, options) {
+        var events = schema.events;
+        var models = schema.models;
+        var items = models.items;
+        var selector = events.close.selector;
+        var $elements = $(options && options.selector || selector);
+        $elements.on('click', function () {
+          var $this = $(this);
+          var $tr = $this.closest('tr');
+          var id = +$tr.attr('id').slice(5);
+          items.some(function (item, index) {
+            if (item.id === id) {
+              items.splice(index, 1);
+              return true;
+            }
+            return false;
+          });
+          models.stats = schema.stats(items);
+          schema.storage.set('items', items);
+          schema.trigger(events.selectall);
+          schema.trigger(events.render);
+        });
+      };
+
+      schema.route = function (event, options) {
+        var events = schema.events;
+        var models = schema.models;
+        var selector = events.route.selector;
+        var $elements = $(options && options.selector || selector);
+        $elements.each(function () {
+          var $this = $(this);
+          var $links = $this.find('a');
+          var state = $links.first().attr('class');
+          $links.each(function () {
+            var $link = $(this);
+            var filter = $link.attr('href').slice(2);
+            if (filter === models.filter) {
+              $links.removeClass(state);
+              $link.addClass(state);
+            }
+          });
+          $links.on('click', function () {
+            var $link = $(this);
+            var filter = $link.attr('href').slice(2);
+            $links.removeClass(state);
+            $link.addClass(state);
+            models.filter = filter;
+            schema.trigger(events.render);
+          });
+        });
+      };
+
+      schema.clear = function (event, options) {
+        var events = schema.events;
+        var models = schema.models;
+        var items = models.items;
+        var selector = events.clear.selector;
+        var $elements = $(options && options.selector || selector);
+        $elements.on('click', function () {
+          items = items.filter(function (item) {
+            return item.active;
+          });
+          models.items = items;
+          models.stats = schema.stats(items);
+          schema.storage.set('items', items);
+          schema.trigger(events.render);
+        });
+      };

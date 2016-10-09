@@ -59,7 +59,7 @@
 
 .ui-toggle-content,
 .ui-toggle-target > input,
-.ui-toggle-target > input + div,
+.ui-toggle-target > input ~ div,
 .ui-carousel-content > input,
 .ui-carousel-content > div:not(:last-child),
 .ui-accordion-content > input,
@@ -69,7 +69,7 @@
 
 .ui-lightbox-content:target,
 .ui-toggle-content:target,
-.ui-toggle-target > input:checked + div,
+.ui-toggle-target > input:checked ~ div,
 .ui-carousel-content > div:target,
 .ui-carousel-content > input:checked + div,
 .ui-accordion-content > div:focus > div,

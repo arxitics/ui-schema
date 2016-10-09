@@ -25,33 +25,28 @@
 
 .ui-space-trim > a:first-child,
 .ui-space-trim > button:first-child,
-.ui-space-trim > div:first-child > button:first-of-type,
 .ui-space-trim > label:first-of-type,
 .ui-space-trim > li:first-child > :only-child {
   border-bottom-left-radius: 0.2rem;
+  border-left-width: 1px;
   border-top-left-radius: 0.2rem;
 }
 
 .ui-space-trim > a:last-child,
 .ui-space-trim > button:last-child,
-.ui-space-trim > div:last-child > button:last-of-type,
 .ui-space-trim > label:last-of-type,
 .ui-space-trim > li:last-child > :only-child {
   border-bottom-right-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
 }
 
-.ui-space-trim > a:first-child,
-.ui-space-trim > button:first-child,
-.ui-space-trim > div:first-child > button:first-of-type,
-.ui-space-trim > label:first-of-type,
-.ui-space-trim > li:first-child > :only-child {
-  border-left-width: 1px;
+.ui-border-none {
+  border: none;
+  border-radius: 0;
 }
 
-.ui-border-none {
-  border: none !important;
-  border-radius: 0 !important;
+.ui-border-none:focus {
+  box-shadow: none;
 }
 
 .ui-border-bottom {

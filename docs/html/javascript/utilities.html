@@ -7,7 +7,7 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.2.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.3.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
@@ -41,11 +41,11 @@
         <section>
           <h4 class="ui-header-secondary">Toggle CSS Classes</h4>
           <div>
-            <input placeholder="Toggle on focus" data-schema-toggle="#target" data-schema-trigger="focus blur" class="ui-box-small"><a data-schema-toggle="#target" class="ui-text-button ui-offset-small">Click to toggle</a>
+            <input placeholder="Toggle on focus" data-schema-toggle="#target" data-schema-trigger="focus blur" class="ui-box-small"><a data-schema-toggle="#target" data-schema-toggler="ui-button-success" class="ui-text-button ui-offset-small">Click to toggle</a>
             <button id="target" data-schema-toggler="ui-button-success ui-zoom-small" class="ui-button-success ui-offset-small">Target button</button>
           </div>
           <pre><code class="language-markup">&lt;input class="ui-box-small" placeholder="Toggle on focus" data-schema-toggle="#target" data-schema-trigger='focus blur'&gt;
-&lt;a class="ui-text-button ui-offset-small" data-schema-toggle="#target"&gt;Click to toggle&lt;/a&gt;
+&lt;a class="ui-text-button ui-offset-small" data-schema-toggle="#target" data-schema-toggler="ui-button-success"&gt;Click to toggle&lt;/a&gt;
 &lt;button id="target" class="ui-button-success ui-offset-small" data-schema-toggler="ui-button-success ui-zoom-small"&gt;Target button&lt;/button&gt;
 </code></pre>
         </section>
@@ -102,7 +102,7 @@ schema.parseURL(url) =&gt; {
     </footer>
     <script src="../../../dist/jquery-3.0.0.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
-    <script src="../../../dist/ui-schema-0.4.2.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
     <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
     <script src="../../../dist/icons/software.js"></script>

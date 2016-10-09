@@ -24,6 +24,7 @@
 
 .ui-image-thumbnail {
   border: 1px solid #ddd;
+  max-width: 95%;
   max-width: calc(100% - 0.4rem - 2px);
   padding: 0.2rem;
 }
@@ -53,11 +54,52 @@
   opacity: 1;
 }
 
+.ui-image-magnifier {
+  display: inline-block;
+  position: relative;
+}
+
+.ui-image-magnifier > img {
+  cursor: crosshair;
+  object-fit: contain;
+}
+
+.ui-image-magnifier > div {
+  display: none;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+}
+
+.ui-image-magnifier > div:not(:last-child) {
+  background-color: #000;
+  left: 0;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.ui-image-magnifier > div:last-child {
+  left: 100%;
+  overflow: hidden;
+}
+
+.ui-image-magnifier > div:last-child > img {
+  max-width: none;
+  object-fit: fill;
+  will-change: transform;
+}
+
+.ui-image-magnifier > img:hover ~ div {
+  display: inline-block;
+}
+
 .ui-background-image {
   color: #fff;
+  position: relative;
 }
 
 .ui-background-image > img {
+  left: 0;
   position: absolute;
   top: 0;
   z-index: -1;

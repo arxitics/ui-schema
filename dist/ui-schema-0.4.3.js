@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.4.2 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.4.3 (https://github.com/arxitics/ui-schema)
  * Copyright 2016 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
@@ -30,16 +30,19 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       options: 'schema-options',
       model: 'schema-model',
       value: 'schema-value',
-      parser: 'schema-parser',
-      trigger: 'schema-trigger',
+      text: 'schema-text',
+      adapter: 'schema-adapter',
       controller: 'schema-controller',
+      trigger: 'schema-trigger',
+      init: 'schema-init',
+      empty: 'schema-empty',
       view: 'schema-view',
       internal: 'schema-internal',
       template: 'schema-template',
       condition: 'schema-condition',
       iteration: 'schema-itration',
       target: 'schema-target',
-      instantiator: 'schema-instantiator',
+      loader: 'schema-loader',
       validate: 'schema-validate',
       changed: 'schema-changed',
       disabled: 'schema-disabled',
@@ -49,11 +52,12 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       lazyload: 'schema-lazyload',
       delay: 'schema-delay',
       src: 'schema-src',
+      magnify: 'schema-magnify',
+      shape: 'schema-shape',
       trim: 'schema-trim',
       toggle: 'schema-toggle',
       toggler: 'schema-toggler',
       storage: 'schema-storage',
-      init: 'schema-init',
       autoplay: 'schema-autoplay',
       dismiss: 'schema-dismiss',
       extract: 'schema-extract',
@@ -105,6 +109,11 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         type: 'lazyload',
         namespace: '.image.data-api.schema',
         selector: 'img[data-schema-lazyload]'
+      },
+      magnify: {
+        type: 'magnify',
+        namespace: '.image.data-api.schema',
+        selector: 'img[data-schema-magnify]'
       },
       sprite: {
         type: 'sprite',
@@ -176,7 +185,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var type = event.type;
     var name = type + event.namespace;
     var delegation = event.delegation;
-    if (typeof delegation !== 'number') {
+    if ($.type(delegation) !== 'number') {
       var setup = (options && options.setup) || schema.setup;
       var bindings = setup.autoBind.split(' ');
       var triggers = setup.autoTrigger.split(' ');
@@ -197,12 +206,27 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       event.delegation = delegation;
     }
     if (delegation > 1) {
-      var handler = schema[type] || function () {};
-      $(document).on(name, handler);
+      $(document).on(name, schema[type]);
       if (delegation > 2) {
-        $(document).trigger(name, event.options);
+        schema.trigger(name, event.options);
       }
     }
+  };
+
+  // Trigger an event attached to the document
+  schema.trigger = function (event, options) {
+    var name = event;
+    var type = $.type(options);
+    var data = {};
+    if ($.type(event) === 'object') {
+      name = event.type + event.namespace;
+    }
+    if (type === 'string' || type === 'object' && options.jquery) {
+      data.selector = options;
+    } else {
+      data = options;
+    }
+    $(document).trigger(name, data);
   };
 
   // Parse and normalize schema data
@@ -271,22 +295,21 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.bind = function (event, options) {
     var bind = schema.events.bind;
     var selector = bind.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var $options = schema.parseOptions($data.options);
-      var $type = $data.event;
-      if ($type) {
+      String($data.event).split(/\s+/).forEach(function (type) {
         var defaults = {
-          type: $type,
-          selector: selector.replace(/\-(\w+)\]$/, '-' + $type + ']'),
+          type: type,
+          selector: selector.replace(/\-(\w+)\]$/, '-' + type + ']'),
           target: $this
         };
         var $event = $.extend({}, bind, defaults, $data, $options);
-        schema.events[$type] = $event;
-        schema.delegate($event);
-      }
+        schema.events[type] = $event;
+        schema.delegate($event, $options);
+      });
     });
   };
 
@@ -294,7 +317,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.retrieve = function (event, options) {
     var params = { prefix: schema.setup.dataPrefix };
     var selector = schema.events.retrieve.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -309,37 +332,48 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Observe a model and update the view
   schema.observe = function (event, options) {
+    var events = schema.events;
     var models = schema.models;
-    var render = schema.events.render.type;
-    var selector = schema.events.observe.selector;
-    var $elements = $((options && options.selector) || selector);
+    var selector = events.observe.selector;
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
-      var model = $data.model;
-      var parser = $data.parser;
-      var controller = $data.controller;
-      var trigger = $data.trigger || 'change click keyup';
-      var value = $data.value || null;
-      var text = value || $data.text;
-      $this.on(trigger, function () {
-        value = $this.val() || $this.text();
-        if (parser) {
-          value = schema[parser](value);
+      var trigger = $data.trigger;
+      if (trigger) {
+        var model = $data.model;
+        var adapter = $data.adapter;
+        var controller = $data.controller;
+        var value = $data.value || null;
+        var text = value || $data.text;
+        var init = $data.init || null;
+        var empty = $data.empty || false;
+        $this.on(trigger, function () {
+          value = $this.val() || $this.text();
+          if (empty) {
+            if (text) {
+              $this.text('');
+            } else if (value) {
+              $this.val('');
+            }
+          }
+          if (adapter) {
+            value = schema[adapter](value);
+          }
+          schema.set(models, model, value);
+          if (controller) {
+            $.extend(models, schema[controller](models, $this));
+          }
+          schema.trigger(events.render);
+        });
+        if (init || (text && init !== false)) {
+          if (value) {
+            $this.val(value);
+          } else {
+            $this.text(text);
+          }
+          $this.trigger(trigger.replace(/\s.*$/, ''));
         }
-        models[model] = value;
-        if (controller) {
-          models = $.extend(models, schema[controller](models));
-        }
-        $(document).trigger(render);
-      });
-      if (text) {
-        if (value) {
-          $this.val(value);
-        } else {
-          $this.text(text);
-        }
-        $this.trigger(trigger.replace(/\s.*$/, ''));
       }
     });
   };
@@ -352,7 +386,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var internal = data.internal;
     var template = data.template;
     var selector = events.render.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -360,85 +394,108 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var controller = $data.controller;
       var condition = $data.condition;
       var iteration = $data.iteration;
+      var adapter = $data.adapter;
       var view = $data.view;
-      var ready = true;
       var $cache = $this.html();
       var $html = '';
+      var ready = true;
+      var changed = false;
       if ($template === undefined) {
         $template = $cache;
         $this.data(template, $template);
       }
       if (controller) {
-        models = $.extend({}, models, schema[controller](models));
+        models = $.extend({}, models, schema[controller](models, $this));
       }
-      if (typeof view === 'string') {
+      if ($.type(view) === 'string') {
         var $internal = $data.internal || {};
-        var changed = false;
         ready = view.split(/\s*\,\s*/).every(function (view) {
           if (models.hasOwnProperty(view)) {
-            var value = models[view];
-            var $value = $internal[view];
-            if (JSON.stringify(value) !== JSON.stringify($value)) {
-              $internal[view] = value;
+            var value = schema.get(models, view);
+            var $value = schema.get($internal, view);
+            if (!schema.equals(value, $value)) {
+              schema.set($internal, view, value);
               changed = true;
             }
             return true;
           }
           return false;
-        }) && changed;
+        });
         if (changed) {
-          $this.data(internal, $internal);
+          $this.data(internal, $.extend(true, {}, $internal));
         }
       }
-      if (ready && (!condition || models[condition] === true)) {
-        if (iteration) {
-          var segments = schema.regexp.segments;
-          var matches = String(iteration).match(segments);
-          if (matches) {
-            var name = matches[1];
-            var list = matches[3];
-            var entries = models[list];
-            if (Array.isArray(entries)) {
-              entries.forEach(function (entry) {
-                models[name] = entry;
-                $html += schema.format($template, models);
-              });
+      if (ready && (!condition || schema.get(models, condition) === true)) {
+        if (changed || adapter) {
+          if (iteration) {
+            var segments = schema.regexp.segments;
+            var matches = String(iteration).match(segments);
+            if (matches) {
+              var name = matches[1];
+              var list = matches[3];
+              var entries = schema.get(models, list);
+              if (Array.isArray(entries)) {
+                if (adapter) {
+                  entries = schema[adapter](entries, $this);
+                }
+                entries.forEach(function (entry) {
+                  schema.set(models, name, entry);
+                  $html += schema.format($template, models);
+                });
+              }
             }
+          } else {
+            $html = schema.format($template, models);
           }
-        } else {
-          $html = schema.format($template, models);
-        }
-        if ($html !== $cache) {
-          $this.html($html);
-          for (var key in events) {
-            if (events.hasOwnProperty(key)) {
-              var event = events[key];
-              var $targets = $this.find(event.selector);
-              if ($targets.length) {
-                $(document).trigger(event.type);
+          if ($html !== $cache) {
+            $this.html($html);
+            for (var key in events) {
+              if (events.hasOwnProperty(key)) {
+                var event = events[key];
+                var $bindings = $this.find(event.selector);
+                if ($bindings.length) {
+                  schema.trigger(event);
+                }
               }
             }
           }
         }
+        $this.show();
+      } else {
+        $this.hide();
       }
     });
   };
 
   // Insert the content of a template
   schema.insert = function (event, options) {
-    var selector = schema.events.insert.selector;
-    var $elements = $((options && options.selector) || selector);
+    var events = schema.events;
+    var selector = events.insert.selector;
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var $html = $this.html();
-      var target = $data.target;
-      var instantiator = $data.instantiator;
-      if (instantiator) {
-        $html = schema[instantiator]($html);
-      }
-      if (target && $html) {
-        $(target).empty().append($html);
+      var $target = $($data.target);
+      var loader = $data.loader;
+      if (loader) {
+        $.when(schema[loader]($this)).done(function (data) {
+          $html = $.isPlainObject(data) ? schema.format($html, data) : data;
+          $target.append($html);
+          for (var key in events) {
+            if (events.hasOwnProperty(key)) {
+              var event = events[key];
+              var $bindings = $target.find(event.selector);
+              if ($bindings.length) {
+                schema.trigger(event, $bindings);
+              }
+            }
+          }
+        }).fail(function () {
+          throw new Error('Schema fails to instantiate the template');
+        });
+      } else if ($html) {
+        $target.html($html);
       }
     });
   };
@@ -458,7 +515,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var changed = data.changed;
     var disabled = data.disabled;
     var selector = schema.events.validate.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -503,9 +560,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.rating = function (event, options) {
     var events = schema.events;
     var icon = schema.data.icon;
-    var sprite = events.sprite.type;
     var selector = events.rating.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $form = $(this);
       var $icons = $form.find('a > i');
@@ -518,13 +574,12 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var empty = icons.shift();
       var full = icons.pop();
       var half = icons.pop();
-      var params = { selector: $icons };
       $icons.each(function (index) {
         var $icon = $(this);
         $icon.on('mouseenter', function () {
           $icon.prevAll().addBack().data(icon, full);
           $icon.nextAll().data(icon, empty);
-          $(document).trigger(sprite, params);
+          schema.trigger(events.sprite, $icons);
         });
         $icon.on('click', function () {
           $parent.prev('input[type="hidden"]').val(index + 1);
@@ -539,7 +594,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
             $icons.eq(Math.floor(score)).data(icon, half);
           }
         }
-        $(document).trigger(sprite, params);
+        schema.trigger(events.sprite, $icons);
       });
     });
   };
@@ -556,14 +611,15 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
     var selector = schema.events.lazyload.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     var height = $(window).height();
     $(window).on('scroll', function () {
       var scrollTop = $(window).scrollTop();
       $elements.each(function () {
         var $this = $(this);
         var $data = schema.parseData($this.data());
-        var src = $data.src || $this.attr('srcset');
+        var srcset = $this.attr('srcset') || '';
+        var src = $data.src || srcset.split(' ')[0];
         if (src !== $this.attr('src')) {
           var lazyload = (+$data.lazyload - 1) || 200;
           var distance = $this.offset().top - height - scrollTop;
@@ -579,6 +635,49 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     $(window).scroll();
   };
 
+  // Zoom an image using the magnifier
+  schema.magnify = function (event, options) {
+    var selector = schema.events.magnify.selector;
+    var $elements = $(options && options.selector || selector);
+    $elements.each(function () {
+      var $this = $(this);
+      var width = $this.width();
+      var height = $this.height();
+      var offset = $this.offset();
+      var $area = $this.next();
+      var $data = schema.parseData($area.data());
+      var shape = $data.shape || 'rect';
+      var $box = $area.next();
+      var $img = $box.find('img');
+      var ax = width * width / $img.width();
+      var ay = height * height / $img.height();
+      var params = shape.split(/[^\w\.]+/);
+      var name = params[0];
+      var dx = +params[1] || ax;
+      var dy = +params[2] || ay;
+      var xmax = width - dx;
+      var ymax = height - dy;
+      var sx = width / dx;
+      var sy = height / dy;
+      if (name === 'rect' || name === 'square') {
+        $area.width(dx).height(dy);
+      }
+      $box.width(width).height(height);
+      $this.on('mousemove', function (event) {
+        var x = Math.min(Math.max(event.pageX - offset.left - dx / 2, 0), xmax);
+        var y = Math.min(Math.max(event.pageY - offset.top - dy / 2, 0), ymax);
+        $area.css({
+          left: x,
+          top: y
+        });
+        $img.css('transform', schema.format('translate(${x}px, ${y}px)', {
+          x: -sx * x,
+          y: -sy * y
+        }));
+      });
+    });
+  };
+
 })(jQuery);
 
 /*!
@@ -591,7 +690,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
     var selector = schema.events.trim.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
@@ -601,7 +700,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.toggle = function (event, options) {
     var storage = schema.storage;
     var selector = schema.events.toggle.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -610,11 +709,9 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var $param = schema.parseData($target.data());
       var toggler = $param.toggler;
       var trigger = $data.trigger || 'click';
-      var key = $data.storage || '';
+      var item = $data.storage || '';
       $this.on(trigger, function () {
-        if (toggler) {
-          $target.toggleClass(toggler);
-        } else if ($data.toggler) {
+        if ($data.toggler) {
           var togglers = $data.toggler.trim().split(/\s*,\s*/);
           var entries = target.trim().replace(/\s*,$/, '').split(/\s*,\s*/);
           entries.forEach(function (entry, index) {
@@ -622,16 +719,18 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
             $(entry).toggleClass(toggler);
           });
           toggler = '';
+        } else if (toggler) {
+          $target.toggleClass(toggler);
         }
-        if (key) {
-          var value = storage.get(key) === true ? false : true;
-          storage.set(key, value);
+        if (item) {
+          var value = storage.get(item) === true ? false : true;
+          storage.set(item, value);
         }
       });
-      if (key && $data.init) {
-        if (storage.get(key) === true) {
+      if (item && $data.init) {
+        if (storage.get(item) === true) {
           $this.trigger(trigger.replace(/\s.*$/, ''));
-          storage.set(key, true);
+          storage.set(item, true);
         }
       }
     });
@@ -640,7 +739,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
     var selector = schema.events.autoplay.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -670,10 +769,10 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     });
   };
 
-  // Dismiss any alert inline.
+  // Dismiss any alert inline
   schema.dismiss = function (event, options) {
     var selector = schema.events.dismiss.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -693,7 +792,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.extract = function (event, options) {
     var regexp = schema.regexp;
     var selector = schema.events.extract.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -730,16 +829,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       var matches = string.match(placeholder) || [];
       matches.forEach(function (str) {
         var key = str.replace(placeholder, '$1');
-        var value = data;
-        key.replace(/\[([^\]]+)\]/g, '.$1').split('.').every(function (key) {
-          if ($.isPlainObject(value)) {
-            if (value.hasOwnProperty(key)) {
-              value = value[key];
-              return true;
-            }
-          }
-          return false;
-        });
+        var value = schema.get(data, key);
         if (!$.isPlainObject(value)) {
           string = string.replace(str, function () {
             return value;
@@ -750,7 +840,74 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     return string;
   };
 
-  // Parse a URL into an object
+  // Set a key-value pair for the object
+  schema.set = function (object, key, value) {
+    if ($.isPlainObject(object)) {
+      var keys = String(key).replace(/\[([^\]]+)\]/g, '.$1').split('.');
+      var last = keys.pop();
+      var pair = object;
+      keys.forEach(function (key) {
+        pair[key] = ($.isPlainObject(pair) ? pair[key] : null ) || {};
+        pair = pair[key];
+      });
+      pair[last] = value;
+    }
+    return object;
+  };
+
+  // Get a key-value pair from the object
+  schema.get = function (object, key) {
+    var value = object;
+    if ($.isPlainObject(object)) {
+      var keys = String(key).replace(/\[([^\]]+)\]/g, '.$1').split('.');
+      keys.every(function (key) {
+        if ($.isPlainObject(value)) {
+          if (value.hasOwnProperty(key)) {
+            value = value[key];
+            return true;
+          }
+        }
+        return false;
+      });
+    }
+    return value;
+  };
+
+  // Determine if two objects or two values are equivalent
+  schema.equals = function (object1, object2) {
+    if (object1 === object2) {
+      return true;
+    }
+    if (object1 === null || object2 === null) {
+      return false;
+    }
+    if ($.type(object1) === $.type(object2)) {
+      if ($.isPlainObject(object1)) {
+        if (Object.keys(object1).length !== Object.keys(object2).length) {
+          return false;
+        }
+        for (var key in object1) {
+          if (object1.hasOwnProperty(key)) {
+            if (!schema.equals(object1[key], object2[key])) {
+              return false;
+            }
+          }
+        }
+        return true;
+      } else if (Array.isArray(object1)) {
+        if (object1.length !== object2.length) {
+          return false;
+        }
+        return object1.every(function (value, index) {
+          return schema.equals(value, object2[index]);
+        });
+      }
+      return object1.toString() === object2.toString();
+    }
+    return false;
+  };
+
+  // Parses a URL into an object
   schema.parseURL = function (url) {
     var a =  document.createElement('a');
     a.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
@@ -822,10 +979,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       if (prefix.length) {
         prefix += '-';
       }
-      return prefix + key;
+      return prefix + key.replace(/[A-Z]/g, function (char) {
+        return '-' + char.toLowerCase();
+      });
     },
     stringify: function (value) {
-      var type =$.type(value);
+      var primitives = ['boolean', 'number', 'string', 'null'];
+      var type = $.type(value);
       if (type === 'object') {
         for (var key in value) {
           if (value.hasOwnProperty(key)) {
@@ -834,14 +994,16 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         }
       } else if (type === 'regexp') {
         return value.toString();
+      } else if (primitives.indexOf(type) !== -1) {
+        return value;
       }
       return JSON.stringify(value);
     },
     parse: function (value) {
       try {
-        if (typeof value === 'string') {
+        var type = $.type(value);
+        if (type === 'string') {
           value = JSON.parse(value);
-          var type = $.type(value);
           if (type === 'object') {
             for (var key in value) {
               if (value.hasOwnProperty(key)) {
@@ -867,12 +1029,12 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Regular expressions
   schema.regexp = {
     syntax: /^\/(.*)\/([gimuy]*)$/,
-    delimiter: /(^\/)|(\/[gimuy]*$)/g,
+    delimiter: /(^\/)|(\/[gimuy]*$)/,
     ascii: /^[\x00-\x7F]+$/,
+    segments: /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/,
     date: /^((\d{4})\-(\d{2})\-(\d{2}))T((\d{2})\:(\d{2})\:(\d{2}))(\.(\d{3}))?Z$/,
     emoji: /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g,
     placeholder: /\$\{\s*([^\{\}\s]+)\s*\}/g,
-    segments: /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/,
     url: /\b(ftp|https?|mailto|tel)\:\/\/[^\s\"]+(\/|\b)/g
   };
 
@@ -889,13 +1051,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.sprite = function (event, options) {
     var icons = schema.icons;
     var selector = schema.events.sprite.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var name = $data.icon || 'unknown';
       var icon = icons[name] || icons.unknown;
-      if (typeof icon === 'string') {
+      if ($.type(icon) === 'string') {
         icon = icons[icon];
       }
 
@@ -930,7 +1092,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         svg.appendChild(element);
       }
 
-      $this.empty().append(svg);
+      $this.html(svg);
     });
   };
 

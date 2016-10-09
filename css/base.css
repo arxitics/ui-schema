@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.4.2 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.4.3 (https://github.com/arxitics/ui-schema)
  * Copyright 2016 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
@@ -119,7 +119,7 @@ a:hover {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  text-decoration-style: dotted; /* 2 */
 }
 
 /**

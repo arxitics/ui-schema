@@ -9,13 +9,13 @@
   schema.sprite = function (event, options) {
     var icons = schema.icons;
     var selector = schema.events.sprite.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
       var name = $data.icon || 'unknown';
       var icon = icons[name] || icons.unknown;
-      if (typeof icon === 'string') {
+      if ($.type(icon) === 'string') {
         icon = icons[icon];
       }
 
@@ -50,7 +50,7 @@
         svg.appendChild(element);
       }
 
-      $this.empty().append(svg);
+      $this.html(svg);
     });
   };
 

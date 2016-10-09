@@ -9,6 +9,23 @@ block variables
 block article
   h3.ui-header-primary Images
   section
+    h4.ui-header-secondary Magnifier
+    div
+      figure.ui-image-magnifier
+        img(width='300' height='300' src='http://oss.arxitics.com/images/emoji/camping.svg' alt='camping' data-schema-magnify)
+        div(data-schema-shape='square(100)')
+        .ui-offset-medium
+          img(width='900' height='900' src='http://oss.arxitics.com/images/emoji/camping.svg' alt='camping')
+    pre: code.language-markup.
+      &lt;figure class="ui-image-magnifier"&gt;
+        &lt;img width="300" height="300" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping" data-schema-magnify&gt;
+        &lt;div data-schema-shape="square(100)"&gt;&lt;/div&gt;
+        &lt;div class="ui-offset-medium"&gt;
+          &lt;img width="900" height="900" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping"&gt;
+        &lt;/div&gt;
+      &lt;/figure&gt;
+
+  section
     h4.ui-header-secondary Lazy Loading
     div
       figure

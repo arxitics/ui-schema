@@ -8,7 +8,7 @@
   // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
     var selector = schema.events.trim.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
@@ -18,7 +18,7 @@
   schema.toggle = function (event, options) {
     var storage = schema.storage;
     var selector = schema.events.toggle.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -27,11 +27,9 @@
       var $param = schema.parseData($target.data());
       var toggler = $param.toggler;
       var trigger = $data.trigger || 'click';
-      var key = $data.storage || '';
+      var item = $data.storage || '';
       $this.on(trigger, function () {
-        if (toggler) {
-          $target.toggleClass(toggler);
-        } else if ($data.toggler) {
+        if ($data.toggler) {
           var togglers = $data.toggler.trim().split(/\s*,\s*/);
           var entries = target.trim().replace(/\s*,$/, '').split(/\s*,\s*/);
           entries.forEach(function (entry, index) {
@@ -39,16 +37,18 @@
             $(entry).toggleClass(toggler);
           });
           toggler = '';
+        } else if (toggler) {
+          $target.toggleClass(toggler);
         }
-        if (key) {
-          var value = storage.get(key) === true ? false : true;
-          storage.set(key, value);
+        if (item) {
+          var value = storage.get(item) === true ? false : true;
+          storage.set(item, value);
         }
       });
-      if (key && $data.init) {
-        if (storage.get(key) === true) {
+      if (item && $data.init) {
+        if (storage.get(item) === true) {
           $this.trigger(trigger.replace(/\s.*$/, ''));
-          storage.set(key, true);
+          storage.set(item, true);
         }
       }
     });
@@ -57,7 +57,7 @@
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
     var selector = schema.events.autoplay.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -87,10 +87,10 @@
     });
   };
 
-  // Dismiss any alert inline.
+  // Dismiss any alert inline
   schema.dismiss = function (event, options) {
     var selector = schema.events.dismiss.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -110,7 +110,7 @@
   schema.extract = function (event, options) {
     var regexp = schema.regexp;
     var selector = schema.events.extract.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -147,16 +147,7 @@
       var matches = string.match(placeholder) || [];
       matches.forEach(function (str) {
         var key = str.replace(placeholder, '$1');
-        var value = data;
-        key.replace(/\[([^\]]+)\]/g, '.$1').split('.').every(function (key) {
-          if ($.isPlainObject(value)) {
-            if (value.hasOwnProperty(key)) {
-              value = value[key];
-              return true;
-            }
-          }
-          return false;
-        });
+        var value = schema.get(data, key);
         if (!$.isPlainObject(value)) {
           string = string.replace(str, function () {
             return value;
@@ -167,7 +158,74 @@
     return string;
   };
 
-  // Parse a URL into an object
+  // Set a key-value pair for the object
+  schema.set = function (object, key, value) {
+    if ($.isPlainObject(object)) {
+      var keys = String(key).replace(/\[([^\]]+)\]/g, '.$1').split('.');
+      var last = keys.pop();
+      var pair = object;
+      keys.forEach(function (key) {
+        pair[key] = ($.isPlainObject(pair) ? pair[key] : null ) || {};
+        pair = pair[key];
+      });
+      pair[last] = value;
+    }
+    return object;
+  };
+
+  // Get a key-value pair from the object
+  schema.get = function (object, key) {
+    var value = object;
+    if ($.isPlainObject(object)) {
+      var keys = String(key).replace(/\[([^\]]+)\]/g, '.$1').split('.');
+      keys.every(function (key) {
+        if ($.isPlainObject(value)) {
+          if (value.hasOwnProperty(key)) {
+            value = value[key];
+            return true;
+          }
+        }
+        return false;
+      });
+    }
+    return value;
+  };
+
+  // Determine if two objects or two values are equivalent
+  schema.equals = function (object1, object2) {
+    if (object1 === object2) {
+      return true;
+    }
+    if (object1 === null || object2 === null) {
+      return false;
+    }
+    if ($.type(object1) === $.type(object2)) {
+      if ($.isPlainObject(object1)) {
+        if (Object.keys(object1).length !== Object.keys(object2).length) {
+          return false;
+        }
+        for (var key in object1) {
+          if (object1.hasOwnProperty(key)) {
+            if (!schema.equals(object1[key], object2[key])) {
+              return false;
+            }
+          }
+        }
+        return true;
+      } else if (Array.isArray(object1)) {
+        if (object1.length !== object2.length) {
+          return false;
+        }
+        return object1.every(function (value, index) {
+          return schema.equals(value, object2[index]);
+        });
+      }
+      return object1.toString() === object2.toString();
+    }
+    return false;
+  };
+
+  // Parses a URL into an object
   schema.parseURL = function (url) {
     var a =  document.createElement('a');
     a.href = url.replace(/([^:])\/{2,}/g, '$1/').replace(/\+/g, ' ');
@@ -239,10 +297,13 @@
       if (prefix.length) {
         prefix += '-';
       }
-      return prefix + key;
+      return prefix + key.replace(/[A-Z]/g, function (char) {
+        return '-' + char.toLowerCase();
+      });
     },
     stringify: function (value) {
-      var type =$.type(value);
+      var primitives = ['boolean', 'number', 'string', 'null'];
+      var type = $.type(value);
       if (type === 'object') {
         for (var key in value) {
           if (value.hasOwnProperty(key)) {
@@ -251,14 +312,16 @@
         }
       } else if (type === 'regexp') {
         return value.toString();
+      } else if (primitives.indexOf(type) !== -1) {
+        return value;
       }
       return JSON.stringify(value);
     },
     parse: function (value) {
       try {
-        if (typeof value === 'string') {
+        var type = $.type(value);
+        if (type === 'string') {
           value = JSON.parse(value);
-          var type = $.type(value);
           if (type === 'object') {
             for (var key in value) {
               if (value.hasOwnProperty(key)) {
@@ -284,12 +347,12 @@
   // Regular expressions
   schema.regexp = {
     syntax: /^\/(.*)\/([gimuy]*)$/,
-    delimiter: /(^\/)|(\/[gimuy]*$)/g,
+    delimiter: /(^\/)|(\/[gimuy]*$)/,
     ascii: /^[\x00-\x7F]+$/,
+    segments: /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/,
     date: /^((\d{4})\-(\d{2})\-(\d{2}))T((\d{2})\:(\d{2})\:(\d{2}))(\.(\d{3}))?Z$/,
     emoji: /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g,
     placeholder: /\$\{\s*([^\{\}\s]+)\s*\}/g,
-    segments: /^\s*([\w\-]+)(\s+.*\s+|[^\w\-]+)([\w\-]+)\s*$/,
     url: /\b(ftp|https?|mailto|tel)\:\/\/[^\s\"]+(\/|\b)/g
   };
 

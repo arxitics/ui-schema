@@ -11,7 +11,7 @@
     var changed = data.changed;
     var disabled = data.disabled;
     var selector = schema.events.validate.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -56,9 +56,8 @@
   schema.rating = function (event, options) {
     var events = schema.events;
     var icon = schema.data.icon;
-    var sprite = events.sprite.type;
     var selector = events.rating.selector;
-    var $elements = $((options && options.selector) || selector);
+    var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $form = $(this);
       var $icons = $form.find('a > i');
@@ -71,13 +70,12 @@
       var empty = icons.shift();
       var full = icons.pop();
       var half = icons.pop();
-      var params = { selector: $icons };
       $icons.each(function (index) {
         var $icon = $(this);
         $icon.on('mouseenter', function () {
           $icon.prevAll().addBack().data(icon, full);
           $icon.nextAll().data(icon, empty);
-          $(document).trigger(sprite, params);
+          schema.trigger(events.sprite, $icons);
         });
         $icon.on('click', function () {
           $parent.prev('input[type="hidden"]').val(index + 1);
@@ -92,7 +90,7 @@
             $icons.eq(Math.floor(score)).data(icon, half);
           }
         }
-        $(document).trigger(sprite, params);
+        schema.trigger(events.sprite, $icons);
       });
     });
   };

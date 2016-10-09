@@ -26,8 +26,7 @@ block article
         var name = type + event.namespace;
         var delegation = event.delegation;
         if (delegation &gt; 1) {
-          var handler = schema[type] || function () {};
-          $(document).on(name, handler);
+          $(document).on(name, schema[type]);
           if (delegation &gt; 2) {
             $(document).trigger(name, event.options);
           }
