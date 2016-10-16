@@ -95,9 +95,9 @@
             </tbody>
           </table>
         </div>
-        <div id="todos-stats" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-event="route clear" class="ui-panel-footer ui-container-grid">
+        <div id="todos-stats" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-event="classify clear" class="ui-panel-footer ui-container-grid">
           <div class="ui-fluid-25 ui-text-left ui-zoom-small"><span>${stats.active} ${stats.items} left</span></div>
-          <div data-schema-route class="ui-fluid-50 ui-text-center ui-zoom-small"><a href="#/" class="ui-state-active">All</a><a href="#/active">Active</a><a href="#/completed">Completed</a></div>
+          <div data-schema-classify class="ui-fluid-50 ui-text-center ui-zoom-small"><a href="#/" data-schema-route class="ui-state-active">All</a><a href="#/active" data-schema-route>Active</a><a href="#/completed" data-schema-route>Completed</a></div>
           <div data-schema-view="stats" data-schema-condition="stats.selected" data-schema-clear class="ui-fluid-25 ui-text-right ui-zoom-small"><span>Clear completed</span></div>
         </div>
       </div>
@@ -262,10 +262,10 @@
         });
       };
       
-      schema.route = function (event, options) {
+      schema.classify = function (event, options) {
         var events = schema.events;
         var models = schema.models;
-        var selector = events.route.selector;
+        var selector = events.classify.selector;
         var $elements = $(options && options.selector || selector);
         $elements.each(function () {
           var $this = $(this);
