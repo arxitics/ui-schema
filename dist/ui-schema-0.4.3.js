@@ -43,6 +43,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       iteration: 'schema-itration',
       target: 'schema-target',
       loader: 'schema-loader',
+      route: 'schema-route',
       validate: 'schema-validate',
       changed: 'schema-changed',
       disabled: 'schema-disabled',
@@ -94,6 +95,11 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         type: 'insert',
         namespace: '.template.data-api.schema',
         selector: 'template[data-schema-target]'
+      },
+      route: {
+        type: 'route',
+        namespace: '.navigation.data-api.schema',
+        selector: 'a[data-schema-route]'
       },
       validate: {
         type: 'validate',
@@ -500,6 +506,51 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     });
   };
 
+  // Hash-based routing
+  schema.route = function (event, options) {
+    var data = schema.data;
+    var route = data.route;
+    var changed = data.changed;
+    var selector = schema.events.route.selector;
+    var $elements = $(options && options.selector || selector);
+    var hash = window.location.hash || '#';
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $route = $data.route;
+      if ($.type($route) === 'boolean') {
+        $route = $this.attr('href') || '';
+      }
+      if ($.type($route) === 'string') {
+        $route = $route.replace(/\:\w+/g, '(\\w+)').replace(/\/?$/, '/?$');
+        $this.data(route, $route);
+        $route = new RegExp($route);
+      }
+      if ($.type($route) === 'regexp' && $route.test(hash)) {
+        $this.click();
+      }
+      $this.on('click', function () {
+        $this.data(changed, false);
+      });
+    });
+    $(window).on('hashchange', function () {
+      var hash = window.location.hash || '#';
+      $elements.each(function () {
+        var $this = $(this);
+        var $data = schema.parseData($this.data());
+        var $route = $data.route;
+        if ($.type($route) === 'string') {
+          $route = new RegExp($route);
+        }
+        if ($.type($route) === 'regexp' && $route.test(hash) && $data.changed) {
+          $this.click();
+        } else {
+          $this.data(changed, true);
+        }
+      });
+    });
+  };
+
 })(jQuery);
 
 /*!
@@ -543,7 +594,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         }
         event.preventDefault();
       });
-      $this.on('reset', function (event) {
+      $this.on('reset', function () {
         var $form = $(this);
         $form.find('input, textarea').each(function () {
           var $input = $(this);

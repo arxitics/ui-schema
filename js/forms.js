@@ -39,7 +39,7 @@
         }
         event.preventDefault();
       });
-      $this.on('reset', function (event) {
+      $this.on('reset', function () {
         var $form = $(this);
         $form.find('input, textarea').each(function () {
           var $input = $(this);

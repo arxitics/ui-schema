@@ -341,4 +341,49 @@
     });
   };
 
+  // Hash-based routing
+  schema.route = function (event, options) {
+    var data = schema.data;
+    var route = data.route;
+    var changed = data.changed;
+    var selector = schema.events.route.selector;
+    var $elements = $(options && options.selector || selector);
+    var hash = window.location.hash || '#';
+    $elements.each(function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $route = $data.route;
+      if ($.type($route) === 'boolean') {
+        $route = $this.attr('href') || '';
+      }
+      if ($.type($route) === 'string') {
+        $route = $route.replace(/\:\w+/g, '(\\w+)').replace(/\/?$/, '/?$');
+        $this.data(route, $route);
+        $route = new RegExp($route);
+      }
+      if ($.type($route) === 'regexp' && $route.test(hash)) {
+        $this.click();
+      }
+      $this.on('click', function () {
+        $this.data(changed, false);
+      });
+    });
+    $(window).on('hashchange', function () {
+      var hash = window.location.hash || '#';
+      $elements.each(function () {
+        var $this = $(this);
+        var $data = schema.parseData($this.data());
+        var $route = $data.route;
+        if ($.type($route) === 'string') {
+          $route = new RegExp($route);
+        }
+        if ($.type($route) === 'regexp' && $route.test(hash) && $data.changed) {
+          $this.click();
+        } else {
+          $this.data(changed, true);
+        }
+      });
+    });
+  };
+
 })(jQuery);

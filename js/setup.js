@@ -43,6 +43,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       iteration: 'schema-itration',
       target: 'schema-target',
       loader: 'schema-loader',
+      route: 'schema-route',
       validate: 'schema-validate',
       changed: 'schema-changed',
       disabled: 'schema-disabled',
@@ -94,6 +95,11 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         type: 'insert',
         namespace: '.template.data-api.schema',
         selector: 'template[data-schema-target]'
+      },
+      route: {
+        type: 'route',
+        namespace: '.navigation.data-api.schema',
+        selector: 'a[data-schema-route]'
       },
       validate: {
         type: 'validate',

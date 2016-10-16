@@ -79,13 +79,13 @@ block prepend body
                 td: input(type='checkbox' data-schema-select)
                 td: div(spellcheck='false' contenteditable data-schema-edit) ${item.todo}
                 td: span.ui-color-emphasis.ui-zoom-large(data-schema-close) &times;
-        #todos-stats.ui-panel-footer.ui-container-grid(data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-event='route clear')
+        #todos-stats.ui-panel-footer.ui-container-grid(data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-event='classify clear')
           .ui-fluid-25.ui-text-left.ui-zoom-small
             span ${stats.active} ${stats.items} left
-          .ui-fluid-50.ui-text-center.ui-zoom-small(data-schema-route)
-            a.ui-state-active(href='#/') All
-            a(href='#/active') Active
-            a(href='#/completed') Completed
+          .ui-fluid-50.ui-text-center.ui-zoom-small(data-schema-classify)
+            a.ui-state-active(href='#/' data-schema-route) All
+            a(href='#/active' data-schema-route) Active
+            a(href='#/completed' data-schema-route) Completed
           .ui-fluid-25.ui-text-right.ui-zoom-small(data-schema-view='stats' data-schema-condition='stats.selected' data-schema-clear)
             span Clear completed
     script(src='#{appRoot}/dist/jquery-3.0.0.min.js')
@@ -248,10 +248,10 @@ block prepend body
         });
       };
 
-      schema.route = function (event, options) {
+      schema.classify = function (event, options) {
         var events = schema.events;
         var models = schema.models;
-        var selector = events.route.selector;
+        var selector = events.classify.selector;
         var $elements = $(options && options.selector || selector);
         $elements.each(function () {
           var $this = $(this);
