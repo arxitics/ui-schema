@@ -273,10 +273,10 @@
           expires: new Date(options.expires)
         };
       }
-      localStorage.setItem(this.item(key, options), this.stringify(value));
+      window.localStorage.setItem(this.item(key, options), this.stringify(value));
     },
     get: function (key, options) {
-      var value = this.parse(localStorage.getItem(this.item(key, options)));
+      var value = this.parse(window.localStorage.getItem(this.item(key, options)));
       if ($.isPlainObject(value) && value.hasOwnProperty('value')) {
         if (value.hasOwnProperty('expires')) {
           if (Date.now() > value.expires.getTime()) {
@@ -290,7 +290,7 @@
       return value;
     },
     remove: function (key, options) {
-      localStorage.removeItem(this.item(key, options));
+      window.localStorage.removeItem(this.item(key, options));
     },
     item: function (key, options) {
       var prefix = (options && options.prefix) || schema.setup.dataPrefix;

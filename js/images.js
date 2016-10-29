@@ -8,10 +8,9 @@
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
     var selector = schema.events.lazyload.selector;
-    var $elements = $(options && options.selector || selector);
-    var height = $(window).height();
-    $(window).on('scroll', function () {
-      var scrollTop = $(window).scrollTop();
+    var $elements = $(options && options.selector || selector);    $(window).on('scroll', function () {
+      var $window = $(this);
+      var top = $window.height() + $window.scrollTop();
       $elements.each(function () {
         var $this = $(this);
         var $data = schema.parseData($this.data());
@@ -19,7 +18,7 @@
         var src = $data.src || srcset.split(' ')[0];
         if (src !== $this.attr('src')) {
           var lazyload = (+$data.lazyload - 1) || 200;
-          var distance = $this.offset().top - height - scrollTop;
+          var distance = $this.offset().top - top;
           if (distance < lazyload) {
             var delay = (+$data.delay - 1) || 0;
             window.setTimeout(function () {

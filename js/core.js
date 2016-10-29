@@ -224,8 +224,8 @@
     var data = schema.data;
     var events = schema.events;
     var models = schema.models;
-    var internal = data.internal;
     var template = data.template;
+    var snapshot = data.snapshot;
     var selector = events.render.selector;
     var $elements = $(options && options.selector || selector);
     $elements.each(function () {
@@ -249,13 +249,13 @@
         models = $.extend({}, models, schema[controller](models, $this));
       }
       if ($.type(view) === 'string') {
-        var $internal = $data.internal || {};
+        var $snapshot = $data.snapshot || {};
         ready = view.split(/\s*\,\s*/).every(function (view) {
           if (models.hasOwnProperty(view)) {
             var value = schema.get(models, view);
-            var $value = schema.get($internal, view);
+            var $value = schema.get($snapshot, view);
             if (!schema.equals(value, $value)) {
-              schema.set($internal, view, value);
+              schema.set($snapshot, view, value);
               changed = true;
             }
             return true;
@@ -263,7 +263,8 @@
           return false;
         });
         if (changed) {
-          $this.data(internal, $.extend(true, {}, $internal));
+          $snapshot.updated = Date.now();
+          $this.data(snapshot, $.extend(true, {}, $snapshot));
         }
       }
       if (ready && (!condition || schema.get(models, condition) === true)) {

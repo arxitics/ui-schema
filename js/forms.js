@@ -35,7 +35,7 @@
           }
           $form.submit();
         } else if (validated === undefined) {
-          history.back();
+          window.history.back();
         }
         event.preventDefault();
       });
