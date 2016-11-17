@@ -37,8 +37,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       init: 'schema-init',
       empty: 'schema-empty',
       view: 'schema-view',
-      internal: 'schema-internal',
       template: 'schema-template',
+      snapshot: 'schema-snapshot',
       condition: 'schema-condition',
       iteration: 'schema-itration',
       target: 'schema-target',
@@ -364,7 +364,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
             }
           }
           if (adapter) {
-            value = schema[adapter](value);
+            value = schema[adapter](value, $this);
           }
           schema.set(models, model, value);
           if (controller) {
@@ -389,8 +389,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var data = schema.data;
     var events = schema.events;
     var models = schema.models;
-    var internal = data.internal;
     var template = data.template;
+    var snapshot = data.snapshot;
     var selector = events.render.selector;
     var $elements = $(options && options.selector || selector);
     $elements.each(function () {
@@ -414,13 +414,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         models = $.extend({}, models, schema[controller](models, $this));
       }
       if ($.type(view) === 'string') {
-        var $internal = $data.internal || {};
+        var $snapshot = $data.snapshot || {};
         ready = view.split(/\s*\,\s*/).every(function (view) {
           if (models.hasOwnProperty(view)) {
             var value = schema.get(models, view);
-            var $value = schema.get($internal, view);
+            var $value = schema.get($snapshot, view);
             if (!schema.equals(value, $value)) {
-              schema.set($internal, view, value);
+              schema.set($snapshot, view, value);
               changed = true;
             }
             return true;
@@ -428,7 +428,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           return false;
         });
         if (changed) {
-          $this.data(internal, $.extend(true, {}, $internal));
+          $snapshot.updated = Date.now();
+          $this.data(snapshot, $.extend(true, {}, $snapshot));
         }
       }
       if (ready && (!condition || schema.get(models, condition) === true)) {
@@ -590,7 +591,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           }
           $form.submit();
         } else if (validated === undefined) {
-          history.back();
+          window.history.back();
         }
         event.preventDefault();
       });
@@ -662,10 +663,9 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
     var selector = schema.events.lazyload.selector;
-    var $elements = $(options && options.selector || selector);
-    var height = $(window).height();
-    $(window).on('scroll', function () {
-      var scrollTop = $(window).scrollTop();
+    var $elements = $(options && options.selector || selector);    $(window).on('scroll', function () {
+      var $window = $(this);
+      var top = $window.height() + $window.scrollTop();
       $elements.each(function () {
         var $this = $(this);
         var $data = schema.parseData($this.data());
@@ -673,7 +673,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         var src = $data.src || srcset.split(' ')[0];
         if (src !== $this.attr('src')) {
           var lazyload = (+$data.lazyload - 1) || 200;
-          var distance = $this.offset().top - height - scrollTop;
+          var distance = $this.offset().top - top;
           if (distance < lazyload) {
             var delay = (+$data.delay - 1) || 0;
             window.setTimeout(function () {
@@ -1006,10 +1006,10 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
           expires: new Date(options.expires)
         };
       }
-      localStorage.setItem(this.item(key, options), this.stringify(value));
+      window.localStorage.setItem(this.item(key, options), this.stringify(value));
     },
     get: function (key, options) {
-      var value = this.parse(localStorage.getItem(this.item(key, options)));
+      var value = this.parse(window.localStorage.getItem(this.item(key, options)));
       if ($.isPlainObject(value) && value.hasOwnProperty('value')) {
         if (value.hasOwnProperty('expires')) {
           if (Date.now() > value.expires.getTime()) {
@@ -1023,7 +1023,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       return value;
     },
     remove: function (key, options) {
-      localStorage.removeItem(this.item(key, options));
+      window.localStorage.removeItem(this.item(key, options));
     },
     item: function (key, options) {
       var prefix = (options && options.prefix) || schema.setup.dataPrefix;
