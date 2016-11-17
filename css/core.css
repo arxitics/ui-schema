@@ -742,11 +742,13 @@ option {
 ::-moz-selection {
   background-color: #3071a9;
   color: #fff;
+  fill: #fff;
 }
 
 ::selection {
   background-color: #3071a9;
   color: #fff;
+  fill: #fff;
 }
 
 /* Tables

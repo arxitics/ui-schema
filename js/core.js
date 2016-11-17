@@ -199,7 +199,7 @@
             }
           }
           if (adapter) {
-            value = schema[adapter](value);
+            value = schema[adapter](value, $this);
           }
           schema.set(models, model, value);
           if (controller) {

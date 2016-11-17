@@ -1166,11 +1166,13 @@ option {
 ::-moz-selection {
   background-color: #3071a9;
   color: #fff;
+  fill: #fff;
 }
 
 ::selection {
   background-color: #3071a9;
   color: #fff;
+  fill: #fff;
 }
 
 /* Tables
@@ -2390,7 +2392,7 @@ tr:not(:first-child) > td {
 }
 
 .ui-list-timeline > li > div:first-child > :only-child {
-  display: inline-block;
+  display: block;
   position: relative;
   top: -0.3em;
   white-space: nowrap;
@@ -2403,7 +2405,7 @@ tr:not(:first-child) > td {
   content: "";
   display: inline-block;
   height: 0.6em;
-  left: -0.6em;
+  left: -0.4rem;
   position: absolute;
   width: 0.6em;
 }
