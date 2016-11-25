@@ -30,11 +30,11 @@ block article
         .ui-button-block
           button Block button
       .ui-fluid-60.ui-phone-expand.ui-float-right
-        button.ui-zoom-huge(type='button') Huge
-        button.ui-zoom-large(type='button') Large
-        button.ui-zoom-medium(type='button') Medium
-        button.ui-zoom-small(type='button') Small
-        button.ui-zoom-tiny(type='button') Tiny
+        button.ui-button-outline.ui-button-primary.ui-zoom-huge(type='button') Huge
+        button.ui-button-outline.ui-button-success.ui-zoom-large(type='button') Large
+        button.ui-button-outline.ui-button-info.ui-zoom-medium(type='button') Medium
+        button.ui-button-outline.ui-button-warning.ui-zoom-small(type='button') Small
+        button.ui-button-outline.ui-button-danger.ui-zoom-tiny(type='button') Tiny
     .ui-toggle-target
       input#buttons-src(type='checkbox' checked)
       div
@@ -53,11 +53,11 @@ block article
             &lt;button type="button"&gt;Block button&lt;/button&gt;
           &lt;/div&gt;
 
-          &lt;button class="ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
-          &lt;button class="ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
-          &lt;button class="ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
-          &lt;button class="ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
-          &lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
+          &lt;button class="ui-button-outline ui-button-primary ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
+          &lt;button class="ui-button-outline ui-button-success ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
+          &lt;button class="ui-button-outline ui-button-info ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
+          &lt;button class="ui-button-outline ui-button-warning ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
+          &lt;button class="ui-button-outline ui-button-danger ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
 
   section
     h4.ui-header-secondary
@@ -312,4 +312,3 @@ block article
 
 block append foot
   script(src='#{appIcons}/account.js')
-  script(src='#{appIcons}/forms.js')

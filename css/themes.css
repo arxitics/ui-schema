@@ -46,3 +46,8 @@
 .ui-theme-dark .ui-tooltip-left::after {
   border-left-color: #333;
 }
+
+.ui-theme-dark .ui-background-inverse::first-line,
+.ui-theme-dark .ui-background-inverse > :not(:empty) {
+  color: #333;
+}

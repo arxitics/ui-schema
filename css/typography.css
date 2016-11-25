@@ -238,11 +238,6 @@
   border-radius: 0.2rem;
 }
 
-.ui-text-label[href]:hover,
-.ui-text-label[href]:focus {
-  background-color: #777;
-}
-
 .ui-text-badge {
   border-radius: 0.8rem;
   font-weight: bold;

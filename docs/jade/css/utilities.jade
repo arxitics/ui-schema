@@ -4,7 +4,53 @@ extends modules
 block variables
   - var pageID = 'css/utilities'
   - var pageTitle = 'Utilities'
+  - var prism = true
 
 block article
   h3.ui-header-primary Utilities
-  p 
+  section
+    h4.ui-header-secondary
+      span Background Images
+      label.ui-float-right(for='background-image-src')
+        i(data-schema-icon='code')
+    .ui-container-grid
+      .ui-background-image.ui-vertical-center(style='height:100px;')
+        img.ui-image-fluid(height='100' src='http://oss.arxitics.com/images/emoji/milky-way.svg' alt='Milky Way')
+        p.ui-text-center The Milky Way is the galaxy that contains our Solar System.
+    .ui-toggle-target.ui-skip-large
+      input#background-image-src(type='checkbox' checked)
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-background-image ui-vertical-center" style="height:100px;"&gt;
+            &lt;img class="ui-image-fluid" height="100" src="http://oss.arxitics.com/images/emoji/milky-way.svg" alt="Milky Way"&gt;
+            &lt;p class="ui-text-center"&gt;The Milky Way is the galaxy that contains our Solar System.&lt;/p&gt;
+          &lt;/div&gt;
+  section
+    h4.ui-header-secondary
+      span Inverse Background
+      label.ui-float-right(for='inverse-background-src')
+        i(data-schema-icon='code')
+    .ui-container-grid
+      .ui-grid-33
+        .ui-frame-rounded.ui-background-inverse Default
+      .ui-grid-33
+        .ui-frame-rounded.ui-text-primary.ui-background-inverse Primary
+      .ui-grid-33
+        .ui-frame-rounded.ui-text-success.ui-background-inverse Success
+    .ui-container-grid.ui-skip-medium
+      .ui-grid-33
+        .ui-frame-rounded.ui-text-info.ui-background-inverse Info
+      .ui-grid-33
+        .ui-frame-rounded.ui-text-warning.ui-background-inverse: span Warning
+      .ui-grid-33
+        .ui-frame-rounded.ui-text-danger.ui-background-inverse: span Danger
+    .ui-toggle-target
+      input#inverse-background-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-background-inverse"&gt;Default&lt;/div&gt;
+          &lt;div class="ui-text-primary ui-background-inverse"&gt;Primary&lt;/div&gt;
+          &lt;div class="ui-text-success ui-background-inverse"&gt;Success&lt;/div&gt;
+          &lt;div class="ui-text-info ui-background-inverse"&gt;Info&lt;/div&gt;
+          &lt;div class="ui-text-warning ui-background-inverse"&gt;&lt;span&gt;Warning&lt;/span&gt;&lt;/div&gt;
+          &lt;div class="ui-text-danger ui-background-inverse"&gt;&lt;span&gt;Danger&lt;/span&gt;&lt;/div&gt;

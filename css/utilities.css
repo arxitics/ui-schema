@@ -1,3 +1,25 @@
 /*!
  * Utilities
  */
+
+.ui-background-image {
+  color: #fff;
+  position: relative;
+}
+
+.ui-background-image > img {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.ui-background-inverse {
+  background-color: currentColor;
+  border-color: currentColor;
+}
+
+.ui-background-inverse::first-line,
+.ui-background-inverse > :not(:empty) {
+  color: #fff;
+}

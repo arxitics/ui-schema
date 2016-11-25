@@ -26,29 +26,36 @@
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
-        <h3 class="ui-header-primary">Modules</h3>
-        <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
-          <li><a href="../../../docs/html/css/base.html">Base</a></li>
-          <li><a href="../../../docs/html/css/core.html">Core</a></li>
-          <li><a href="../../../docs/html/css/grid.html">Grid</a></li>
-          <li><a href="../../../docs/html/css/navigation.html">Navigation</a></li>
-          <li><a href="../../../docs/html/css/menus.html">Menus</a></li>
-          <li><a href="../../../docs/html/css/typography.html">Typography</a></li>
-          <li class="ui-state-active"><a href="../../../docs/html/css/forms.html">Forms</a></li>
-          <li><a href="../../../docs/html/css/tables.html">Tables</a></li>
-          <li><a href="../../../docs/html/css/images.html">Images</a></li>
-          <li><a href="../../../docs/html/css/icons.html">Icons</a></li>
-          <li><a href="../../../docs/html/css/colors.html">Colors</a></li>
-          <li><a href="../../../docs/html/css/effects.html">Effects</a></li>
-          <li><a href="../../../docs/html/css/shapes.html">Shapes</a></li>
-          <li><a href="../../../docs/html/css/events.html">Events</a></li>
-          <li><a href="../../../docs/html/css/mobile.html">Mobile</a></li>
-          <li><a href="../../../docs/html/css/print.html">Print</a></li>
-          <li><a href="../../../docs/html/css/pages.html">Pages</a></li>
-          <li><a href="../../../docs/html/css/themes.html">Themes</a></li>
-          <li><a href="../../../docs/html/css/utilities.html">Utilities</a></li>
-          <li><a href="../../../docs/html/css/variables.html">Variables</a></li>
-        </ul>
+        <h3 class="ui-header-primary"><span>Modules</span>
+          <label for="modules-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+        </h3>
+        <div class="ui-toggle-target">
+          <input id="modules-list" type="checkbox" checked>
+          <div>
+            <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
+              <li><a href="../../../docs/html/css/base.html">Base</a></li>
+              <li><a href="../../../docs/html/css/core.html">Core</a></li>
+              <li><a href="../../../docs/html/css/grid.html">Grid</a></li>
+              <li><a href="../../../docs/html/css/navigation.html">Navigation</a></li>
+              <li><a href="../../../docs/html/css/menus.html">Menus</a></li>
+              <li><a href="../../../docs/html/css/typography.html">Typography</a></li>
+              <li class="ui-state-active"><a href="../../../docs/html/css/forms.html">Forms</a></li>
+              <li><a href="../../../docs/html/css/tables.html">Tables</a></li>
+              <li><a href="../../../docs/html/css/images.html">Images</a></li>
+              <li><a href="../../../docs/html/css/icons.html">Icons</a></li>
+              <li><a href="../../../docs/html/css/colors.html">Colors</a></li>
+              <li><a href="../../../docs/html/css/effects.html">Effects</a></li>
+              <li><a href="../../../docs/html/css/shapes.html">Shapes</a></li>
+              <li><a href="../../../docs/html/css/events.html">Events</a></li>
+              <li><a href="../../../docs/html/css/mobile.html">Mobile</a></li>
+              <li><a href="../../../docs/html/css/print.html">Print</a></li>
+              <li><a href="../../../docs/html/css/pages.html">Pages</a></li>
+              <li><a href="../../../docs/html/css/utilities.html">Utilities</a></li>
+              <li><a href="../../../docs/html/css/themes.html">Themes</a></li>
+              <li><a href="../../../docs/html/css/variables.html">Variables</a></li>
+            </ul>
+          </div>
+        </div>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Forms</h3>
@@ -76,11 +83,11 @@
               </div>
             </div>
             <div class="ui-fluid-60 ui-phone-expand ui-float-right">
-              <button type="button" class="ui-zoom-huge">Huge</button>
-              <button type="button" class="ui-zoom-large">Large</button>
-              <button type="button" class="ui-zoom-medium">Medium</button>
-              <button type="button" class="ui-zoom-small">Small</button>
-              <button type="button" class="ui-zoom-tiny">Tiny</button>
+              <button type="button" class="ui-button-outline ui-button-primary ui-zoom-huge">Huge</button>
+              <button type="button" class="ui-button-outline ui-button-success ui-zoom-large">Large</button>
+              <button type="button" class="ui-button-outline ui-button-info ui-zoom-medium">Medium</button>
+              <button type="button" class="ui-button-outline ui-button-warning ui-zoom-small">Small</button>
+              <button type="button" class="ui-button-outline ui-button-danger ui-zoom-tiny">Tiny</button>
             </div>
           </div>
           <div class="ui-toggle-target">
@@ -100,11 +107,11 @@
   &lt;button type="button"&gt;Block button&lt;/button&gt;
 &lt;/div&gt;
 
-&lt;button class="ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
-&lt;button class="ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
-&lt;button class="ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
-&lt;button class="ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
-&lt;button class="ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
+&lt;button class="ui-button-outline ui-button-primary ui-zoom-huge" type="button"&gt;Huge&lt;/button&gt;
+&lt;button class="ui-button-outline ui-button-success ui-zoom-large" type="button"&gt;Large&lt;/button&gt;
+&lt;button class="ui-button-outline ui-button-info ui-zoom-medium" type="button"&gt;Medium&lt;/button&gt;
+&lt;button class="ui-button-outline ui-button-warning ui-zoom-small" type="button"&gt;Small&lt;/button&gt;
+&lt;button class="ui-button-outline ui-button-danger ui-zoom-tiny" type="button"&gt;Tiny&lt;/button&gt;
 </code></pre>
             </div>
           </div>
@@ -395,9 +402,9 @@
     <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
     <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
-    <script src="../../../dist/icons/software.js"></script>
     <script src="../../../dist/icons/editor.js"></script>
-    <script src="../../../dist/icons/account.js"></script>
     <script src="../../../dist/icons/forms.js"></script>
+    <script src="../../../dist/icons/software.js"></script>
+    <script src="../../../dist/icons/account.js"></script>
   </body>
 </html>

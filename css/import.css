@@ -105,16 +105,16 @@
 @import "pages.css";
 
 /**
- * Themes.
- */
-
-@import "themes.css";
-
-/**
  * Utilities.
  */
 
 @import "utilities.css";
+
+/**
+ * Themes.
+ */
+
+@import "themes.css";
 
 /**
  * Variables.

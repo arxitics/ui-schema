@@ -6,11 +6,17 @@ mixin link(page, text)
     a(href='#{appDocs}/javascript/#{page}.html')= text
 
 block aside
-  h3.ui-header-primary Components
-  ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
-    +link('setup', 'Setup')
-    +link('core', 'Core')
-    +link('forms', 'Forms')
-    +link('images', 'Images')
-    +link('icons', 'Icons')
-    +link('utilities', 'Utilities')
+  h3.ui-header-primary
+    span Components
+    label.ui-float-right(for='components-list')
+      i.ui-zoom-small(data-schema-icon='menu')
+  .ui-toggle-target
+    input#components-list(type='checkbox' checked)
+    div 
+      ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
+        +link('setup', 'Setup')
+        +link('core', 'Core')
+        +link('forms', 'Forms')
+        +link('images', 'Images')
+        +link('icons', 'Icons')
+        +link('utilities', 'Utilities')

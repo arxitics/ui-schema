@@ -79,12 +79,10 @@
 
 .ui-accordion-content > div {
   margin-bottom: 0.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .ui-accordion-content > div:focus {
   outline: none;
-  box-shadow: none;
 }
 
 .ui-accordion-content > div > div:first-child {

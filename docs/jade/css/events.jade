@@ -74,6 +74,47 @@ block article
 
   section
     h4.ui-header-secondary
+      span Collapse
+      label.ui-float-right(for='collapse-src')
+        i(data-schema-icon='code')
+    div
+      details.ui-content-panel
+        summary.ui-panel-header Universal search
+        .ui-panel-body
+          p.
+            In the top of every page, you can see a "Search or type a command" box, that is our universal search interface. It supports the most complex and powerful expressions, for example
+          div
+            pre: code.
+              "dark matter phenomenology" category: astro-ph.CO, hep-ph authors[$size]: 2 title: (W|Z|Higgs).*boson
+          p.
+            We will explain this syntax later. If you input the arXiv identifier of an article, you will be directed to the abstract page.
+      details.ui-content-panel
+        summary.ui-panel-header Advanced search
+        .ui-panel-body
+          p.
+            If you enter no words into the search box for universal searching, you will be redirected to the advanced search interface. You can also visit the page by entering the URL in your browser's address bar directly. It gives some examples and provides an overview for the syntax. When hovering on the input fields, you can get more hints.
+      details.ui-content-panel
+        summary.ui-panel-header Simple search
+        .ui-panel-body
+          p.
+            As mentioned before, you can browse your subscription of eprints based on filters like categories, subjects, topics, keywords, etc. In fact, this is also a simple search interface.
+    .ui-toggle-target
+      input#collapse-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;details class="ui-content-panel"&gt;
+            &lt;summary class="ui-panel-header"&gt;Universal search&lt;/summary&gt;
+            &lt;div class="ui-panel-body"&gt;
+              &lt;p&gt;In the top of every page, you can see a "Search or type a command" box, that is our universal search interface. It supports the most complex and powerful expressions, for example&lt;/p&gt;
+              &lt;div&gt;
+                &lt;pre&gt;&lt;code&gt;"dark matter phenomenology" category: astro-ph.CO, hep-ph authors[$size]: 2 title: (W|Z|Higgs).*boson&lt;/code&gt;&lt;/pre&gt;
+              &lt;/div&gt;
+              &lt;p&gt;We will explain this syntax later. If you input the arXiv identifier of an article, you will be directed to the abstract page.&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/details&gt;
+  
+  section
+    h4.ui-header-secondary
       span Carousel
       label.ui-float-right(for='carousel-src')
         i(data-schema-icon='code')

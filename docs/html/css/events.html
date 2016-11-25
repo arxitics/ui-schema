@@ -26,29 +26,36 @@
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
-        <h3 class="ui-header-primary">Modules</h3>
-        <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
-          <li><a href="../../../docs/html/css/base.html">Base</a></li>
-          <li><a href="../../../docs/html/css/core.html">Core</a></li>
-          <li><a href="../../../docs/html/css/grid.html">Grid</a></li>
-          <li><a href="../../../docs/html/css/navigation.html">Navigation</a></li>
-          <li><a href="../../../docs/html/css/menus.html">Menus</a></li>
-          <li><a href="../../../docs/html/css/typography.html">Typography</a></li>
-          <li><a href="../../../docs/html/css/forms.html">Forms</a></li>
-          <li><a href="../../../docs/html/css/tables.html">Tables</a></li>
-          <li><a href="../../../docs/html/css/images.html">Images</a></li>
-          <li><a href="../../../docs/html/css/icons.html">Icons</a></li>
-          <li><a href="../../../docs/html/css/colors.html">Colors</a></li>
-          <li><a href="../../../docs/html/css/effects.html">Effects</a></li>
-          <li><a href="../../../docs/html/css/shapes.html">Shapes</a></li>
-          <li class="ui-state-active"><a href="../../../docs/html/css/events.html">Events</a></li>
-          <li><a href="../../../docs/html/css/mobile.html">Mobile</a></li>
-          <li><a href="../../../docs/html/css/print.html">Print</a></li>
-          <li><a href="../../../docs/html/css/pages.html">Pages</a></li>
-          <li><a href="../../../docs/html/css/themes.html">Themes</a></li>
-          <li><a href="../../../docs/html/css/utilities.html">Utilities</a></li>
-          <li><a href="../../../docs/html/css/variables.html">Variables</a></li>
-        </ul>
+        <h3 class="ui-header-primary"><span>Modules</span>
+          <label for="modules-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+        </h3>
+        <div class="ui-toggle-target">
+          <input id="modules-list" type="checkbox" checked>
+          <div>
+            <ul class="ui-list-group ui-block-fluid ui-zoom-large ui-text-capitalize">
+              <li><a href="../../../docs/html/css/base.html">Base</a></li>
+              <li><a href="../../../docs/html/css/core.html">Core</a></li>
+              <li><a href="../../../docs/html/css/grid.html">Grid</a></li>
+              <li><a href="../../../docs/html/css/navigation.html">Navigation</a></li>
+              <li><a href="../../../docs/html/css/menus.html">Menus</a></li>
+              <li><a href="../../../docs/html/css/typography.html">Typography</a></li>
+              <li><a href="../../../docs/html/css/forms.html">Forms</a></li>
+              <li><a href="../../../docs/html/css/tables.html">Tables</a></li>
+              <li><a href="../../../docs/html/css/images.html">Images</a></li>
+              <li><a href="../../../docs/html/css/icons.html">Icons</a></li>
+              <li><a href="../../../docs/html/css/colors.html">Colors</a></li>
+              <li><a href="../../../docs/html/css/effects.html">Effects</a></li>
+              <li><a href="../../../docs/html/css/shapes.html">Shapes</a></li>
+              <li class="ui-state-active"><a href="../../../docs/html/css/events.html">Events</a></li>
+              <li><a href="../../../docs/html/css/mobile.html">Mobile</a></li>
+              <li><a href="../../../docs/html/css/print.html">Print</a></li>
+              <li><a href="../../../docs/html/css/pages.html">Pages</a></li>
+              <li><a href="../../../docs/html/css/utilities.html">Utilities</a></li>
+              <li><a href="../../../docs/html/css/themes.html">Themes</a></li>
+              <li><a href="../../../docs/html/css/variables.html">Variables</a></li>
+            </ul>
+          </div>
+        </div>
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Events</h3>
@@ -119,6 +126,51 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4 class="ui-header-secondary"><span>Collapse</span>
+            <label for="collapse-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+          </h4>
+          <div>
+            <details class="ui-content-panel">
+              <summary class="ui-panel-header">Universal search</summary>
+              <div class="ui-panel-body">
+                <p>In the top of every page, you can see a "Search or type a command" box, that is our universal search interface. It supports the most complex and powerful expressions, for example</p>
+                <div>
+                  <pre><code>"dark matter phenomenology" category: astro-ph.CO, hep-ph authors[$size]: 2 title: (W|Z|Higgs).*boson</code></pre>
+                </div>
+                <p>We will explain this syntax later. If you input the arXiv identifier of an article, you will be directed to the abstract page.</p>
+              </div>
+            </details>
+            <details class="ui-content-panel">
+              <summary class="ui-panel-header">Advanced search</summary>
+              <div class="ui-panel-body">
+                <p>If you enter no words into the search box for universal searching, you will be redirected to the advanced search interface. You can also visit the page by entering the URL in your browser's address bar directly. It gives some examples and provides an overview for the syntax. When hovering on the input fields, you can get more hints.</p>
+              </div>
+            </details>
+            <details class="ui-content-panel">
+              <summary class="ui-panel-header">Simple search</summary>
+              <div class="ui-panel-body">
+                <p>As mentioned before, you can browse your subscription of eprints based on filters like categories, subjects, topics, keywords, etc. In fact, this is also a simple search interface.</p>
+              </div>
+            </details>
+          </div>
+          <div class="ui-toggle-target">
+            <input id="collapse-src" type="checkbox">
+            <div>
+              <pre><code class="language-markup">&lt;details class="ui-content-panel"&gt;
+  &lt;summary class="ui-panel-header"&gt;Universal search&lt;/summary&gt;
+  &lt;div class="ui-panel-body"&gt;
+    &lt;p&gt;In the top of every page, you can see a "Search or type a command" box, that is our universal search interface. It supports the most complex and powerful expressions, for example&lt;/p&gt;
+    &lt;div&gt;
+      &lt;pre&gt;&lt;code&gt;"dark matter phenomenology" category: astro-ph.CO, hep-ph authors[$size]: 2 title: (W|Z|Higgs).*boson&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;We will explain this syntax later. If you input the arXiv identifier of an article, you will be directed to the abstract page.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 </code></pre>
             </div>
           </div>
@@ -328,8 +380,9 @@
     <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
     <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
-    <script src="../../../dist/icons/software.js"></script>
     <script src="../../../dist/icons/editor.js"></script>
+    <script src="../../../dist/icons/forms.js"></script>
+    <script src="../../../dist/icons/software.js"></script>
     <script src="../../../dist/icons/arrows.js"></script>
   </body>
 </html>
