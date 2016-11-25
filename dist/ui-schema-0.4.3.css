@@ -2229,11 +2229,6 @@ tr:not(:first-child) > td {
   border-radius: 0.2rem;
 }
 
-.ui-text-label[href]:hover,
-.ui-text-label[href]:focus {
-  background-color: #777;
-}
-
 .ui-text-badge {
   border-radius: 0.8rem;
   font-weight: bold;
@@ -2924,18 +2919,6 @@ tr:not(:first-child) > td {
   display: inline-block;
 }
 
-.ui-background-image {
-  color: #fff;
-  position: relative;
-}
-
-.ui-background-image > img {
-  left: 0;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-}
-
 /*!
  * Icons
  */
@@ -3058,17 +3041,6 @@ tr:not(:first-child) > td {
   color: #843534;
 }
 
-/**
- * 1. The `!important` directive is required to override the hover style.
- */
-.ui-button-primary,
-.ui-button-success,
-.ui-button-info,
-.ui-button-warning,
-.ui-button-danger {
-  color: #fff !important; /* 1 */
-}
-
 .ui-button-primary,
 .ui-label-primary {
   background-color: #428bca;
@@ -3076,6 +3048,7 @@ tr:not(:first-child) > td {
 
 .ui-button-primary {
   border-color: #357ebd;
+  color: #357ebd;
 }
 
 .ui-button-primary:active,
@@ -3085,11 +3058,6 @@ tr:not(:first-child) > td {
   border-color: #285e8e;
 }
 
-.ui-label-primary[href]:focus,
-.ui-label-primary[href]:hover {
-  background-color: #3071a9;
-}
-
 .ui-button-success,
 .ui-label-success {
   background-color: #5cb85c;
@@ -3097,6 +3065,7 @@ tr:not(:first-child) > td {
 
 .ui-button-success {
   border-color: #4cae4c;
+  color: #4cae4c;
 }
 
 .ui-button-success:active,
@@ -3106,11 +3075,6 @@ tr:not(:first-child) > td {
   border-color: #398439;
 }
 
-.ui-label-success[href]:focus,
-.ui-label-success[href]:hover {
-  background-color: #449d44;
-}
-
 .ui-button-info,
 .ui-label-info {
   background-color: #5bc0de;
@@ -3118,6 +3082,7 @@ tr:not(:first-child) > td {
 
 .ui-button-info {
   border-color: #46b8da;
+  color: #46b8da;
 }
 
 .ui-button-info:active,
@@ -3127,11 +3092,6 @@ tr:not(:first-child) > td {
   border-color: #269abc;
 }
 
-.ui-label-info[href]:focus,
-.ui-label-info[href]:hover {
-  background-color: #31b0d5;
-}
-
 .ui-button-warning,
 .ui-label-warning {
   background-color: #f0ad4e;
@@ -3139,6 +3099,7 @@ tr:not(:first-child) > td {
 
 .ui-button-warning {
   border-color: #eea236;
+  color: #eea236;
 }
 
 .ui-button-warning:active,
@@ -3148,11 +3109,6 @@ tr:not(:first-child) > td {
   border-color: #d58512;
 }
 
-.ui-label-warning[href]:focus,
-.ui-label-warning[href]:hover {
-  background-color: #ec971f;
-}
-
 .ui-button-danger,
 .ui-label-danger {
   background-color: #d9534f;
@@ -3160,6 +3116,7 @@ tr:not(:first-child) > td {
 
 .ui-button-danger {
   border-color: #d43f3a;
+  color: #d43f3a;
 }
 
 .ui-button-danger:active,
@@ -3169,9 +3126,20 @@ tr:not(:first-child) > td {
   border-color: #ac2925;
 }
 
-.ui-label-danger[href]:focus,
-.ui-label-danger[href]:hover {
-  background-color: #c9302c;
+.ui-button-primary:not(.ui-button-outline),
+.ui-button-success:not(.ui-button-outline),
+.ui-button-info:not(.ui-button-outline),
+.ui-button-warning:not(.ui-button-outline),
+.ui-button-danger:not(.ui-button-outline) {
+  color: #fff;
+}
+
+.ui-button-outline {
+  background-color: transparent;
+}
+
+.ui-button-outline:hover {
+  color: #fff;
 }
 
 .ui-state-active {
@@ -3758,12 +3726,10 @@ tr:not(:first-child) > td {
 
 .ui-accordion-content > div {
   margin-bottom: 0.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .ui-accordion-content > div:focus {
   outline: none;
-  box-shadow: none;
 }
 
 .ui-accordion-content > div > div:first-child {
@@ -4074,6 +4040,32 @@ tr:not(:first-child) > td {
 }
 
 /*!
+ * Utilities
+ */
+
+.ui-background-image {
+  color: #fff;
+  position: relative;
+}
+
+.ui-background-image > img {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.ui-background-inverse {
+  background-color: currentColor;
+  border-color: currentColor;
+}
+
+.ui-background-inverse::first-line,
+.ui-background-inverse > :not(:empty) {
+  color: #fff;
+}
+
+/*!
  * Themes
  */
 
@@ -4122,9 +4114,10 @@ tr:not(:first-child) > td {
   border-left-color: #333;
 }
 
-/*!
- * Utilities
- */
+.ui-theme-dark .ui-background-inverse::first-line,
+.ui-theme-dark .ui-background-inverse > :not(:empty) {
+  color: #333;
+}
 
 /*!
  * Variables
