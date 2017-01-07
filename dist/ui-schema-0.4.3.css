@@ -1243,7 +1243,6 @@ tr:not(:first-child) > td {
   display: block;
   margin-left: auto; /* 1 */
   margin-right: auto; /* 1 */
-  max-width: 90%;
   max-width: calc(100% - 2rem);
   padding-left: 1rem; /* 2 */
   padding-right: 1rem; /* 2 */
@@ -2320,8 +2319,8 @@ tr:not(:first-child) > td {
   display: inline-block;
 }
 
-.ui-list-inline > li + li {
-  margin-left: 0.8em;
+.ui-list-inline > li:not(:last-child) {
+  margin-right: 0.8em;
 }
 
 .ui-list-inline > li + li::before {
@@ -2850,7 +2849,6 @@ tr:not(:first-child) > td {
 
 .ui-image-thumbnail {
   border: 1px solid #ddd;
-  max-width: 95%;
   max-width: calc(100% - 0.4rem - 2px);
   padding: 0.2rem;
 }
