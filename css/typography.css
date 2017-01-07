@@ -329,8 +329,8 @@
   display: inline-block;
 }
 
-.ui-list-inline > li + li {
-  margin-left: 0.8em;
+.ui-list-inline > li:not(:last-child) {
+  margin-right: 0.8em;
 }
 
 .ui-list-inline > li + li::before {

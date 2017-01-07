@@ -24,7 +24,6 @@
 
 .ui-image-thumbnail {
   border: 1px solid #ddd;
-  max-width: 95%;
   max-width: calc(100% - 0.4rem - 2px);
   padding: 0.2rem;
 }
