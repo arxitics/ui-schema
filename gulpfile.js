@@ -10,11 +10,11 @@ var csslint = require('gulp-csslint');
 var minifyCSS = require('gulp-minify-css');
 var jshint = require('gulp-jshint');
 var uglifyJS = require('gulp-uglify');
-var jade = require('gulp-jade');
+var pug = require('gulp-pug');
 
 var pkg = require('./package.json');
 var version = pkg.version;
-var banner = '/*! UI Schema v<%= version %> | (c) 2016 Arxitics | MIT license */\n';
+var banner = '/*! UI Schema v<%= version %> | (c) 2017 Arxitics | MIT license */\n';
 
 gulp.task('default', [
   'csslint',
@@ -23,7 +23,7 @@ gulp.task('default', [
   'jshint',
   'concat-js',
   'minify-js',
-  'compile-jade',
+  'compile-docs',
   'watch'
 ]);
 
@@ -121,27 +121,27 @@ gulp.task('minify-js', ['concat-js'], function () {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('compile-jade', function () {
-  gulp.src('docs/jade/!(layout|links).jade')
-    .pipe(jade({
+gulp.task('compile-docs', function () {
+  gulp.src('docs/pug/!(layout|links).pug')
+    .pipe(pug({
       pretty: true
     }))
     .pipe(gulp.dest('docs/html/'));
 
-  gulp.src('docs/jade/css/!(modules).jade')
-    .pipe(jade({
+  gulp.src('docs/pug/css/!(modules).pug')
+    .pipe(pug({
       pretty: true
     }))
     .pipe(gulp.dest('docs/html/css/'));
 
-  gulp.src('docs/jade/javascript/!(components).jade')
-    .pipe(jade({
+  gulp.src('docs/pug/javascript/!(components).pug')
+    .pipe(pug({
       pretty: true
     }))
     .pipe(gulp.dest('docs/html/javascript/'));
 
-  gulp.src('docs/jade/examples/!(contents).jade')
-    .pipe(jade({
+  gulp.src('docs/pug/examples/!(contents).pug')
+    .pipe(pug({
       pretty: true
     }))
     .pipe(gulp.dest('docs/html/examples/'));
@@ -160,7 +160,7 @@ gulp.task('watch', function () {
     'minify-js'
   ]);
 
-  gulp.watch('docs/jade/{*,*/}*.jade', [
-    'compile-jade'
+  gulp.watch('docs/pug/{*,*/}*.pug', [
+    'compile-docs'
   ]);
 });

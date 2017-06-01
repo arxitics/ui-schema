@@ -1,0 +1,20 @@
+
+extends layout
+
+mixin link(page, text)
+  li(class={'ui-state-active': pageID === page})
+    a(href=appDocs + '/' + page + '.html')= text
+
+block aside
+  h3.ui-header-primary
+    span Links
+    label.ui-float-right(for='links-list')
+      i.ui-zoom-small(data-schema-icon='menu')
+  .ui-toggle-target
+    input#links-list(type='checkbox' checked)
+    div
+      ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
+        +link('download', 'Download')
+        +link('structure', 'Directory Structure')
+        +link('template', 'Basic Template')
+        +link('notes', 'Release Notes')

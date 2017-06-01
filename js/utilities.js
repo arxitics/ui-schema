@@ -14,6 +14,24 @@
     }).remove();
   };
 
+  // Copy a string to clipboard
+  schema.copy = function (event, options) {
+    var selector = schema.events.copy.selector;
+    var $elements = $(options && options.selector || selector);
+    var dataString = '';
+    $elements.on('click', function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $target = $($data.target || $this.next());
+      dataString = $target.text();
+      document.execCommand('copy');
+    });
+    document.addEventListener('copy', function (event) {
+      event.clipboardData.setData('text/plain', dataString);
+      event.preventDefault();
+    });
+  };
+
   // Toggle a CSS class
   schema.toggle = function (event, options) {
     var storage = schema.storage;

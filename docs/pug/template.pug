@@ -1,0 +1,39 @@
+
+extends links
+
+block variables
+  - var pageID = 'template'
+  - var pageTitle = 'Basic Template'
+  - var prism = true
+
+block article
+  h3.ui-header-primary Basic Template
+  p Copy the HTML below to begin working with a minimal document.
+  .ui-container-responsive
+    button.ui-absolute-right.ui-zoom-small.ui-phone-hidden(data-schema-copy) Copy
+    pre: code.language-markup.
+      &lt;!DOCTYPE html&gt;
+      &lt;html id="template" lang="en"&gt;
+        &lt;head&gt;
+          &lt;meta charset="utf-8"&gt;
+          &lt;title&gt;UI Schema Template&lt;/title&gt;
+          &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+          &lt;meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript"&gt;
+          &lt;meta name="description" content="A cutting edge, lightweight, and powerful front-end framework"&gt;
+          &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+          &lt;link rel="stylesheet" href="dist/ui-schema-0.4.4.min.css" media="all"&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+          &lt;header&gt;
+            &lt;!-- a group of navigational aids --&gt;
+          &lt;/header&gt;
+          &lt;main&gt;
+            &lt;!-- the main content of the body --&gt;
+          &lt;/main&gt;
+          &lt;footer&gt;
+            &lt;!-- a site-wide footer --&gt;
+          &lt;/footer&gt;
+          &lt;script src="dist/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+          &lt;script src="dist/ui-schema-0.4.4.min.js"&gt;&lt;/script&gt;
+        &lt;/body&gt;
+      &lt;/html&gt;

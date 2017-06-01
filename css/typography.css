@@ -21,6 +21,13 @@
 }
 
 /**
+ *  Responsive font size based on the viewport height and width.
+ */
+.ui-font-responsive {
+  font-size: calc(1vw + 1vh);
+}
+
+/**
  * Known issue: Chrome's default setting of minimum font-size is 12px.
  */
 

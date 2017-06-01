@@ -1,0 +1,83 @@
+
+block variables
+
+- var env = 'dev'
+- var locale = 'en'
+- var version = '0.4.4'
+- var appTitle = 'UI Schema'
+- var appKeywords = 'UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development'
+- var appDescription = 'A cutting edge, lightweight, and powerful front-end framework for faster and easier web development'
+- var appRoot = (env === 'dev' ? '../..' : '.') + (pageID || '').replace(/[^\/]/g, '').replace(/\//g, '/..')
+- var appDocs = appRoot + (env === 'dev' ? '/docs/html' : '')
+- var appDist = appRoot + '/dist'
+- var appIcons = appRoot + '/dist/icons'
+
+doctype html
+
+html(id=pageID lang=locale)
+  head
+    block head
+      meta(charset='utf-8')
+      title= (pageTitle ? pageTitle + ' | ' : '') + appTitle
+      meta(http-equiv='X-UA-Compatible' content='IE=edge')
+      meta(name='keywords' content= pageKeywords || appKeywords)
+      meta(name='description' content=pageDescription || appDescription)
+      meta(name='viewport' content='width=device-width, initial-scale=1')
+      link(rel='stylesheet' href=appDist + '/ui-schema-' + version + '.min.css' media='all')
+      if prism
+        link(rel='stylesheet' href=appDist + '/prism-1.4.1.min.css' media='all')
+  if minimal
+    block body
+  else 
+    body
+      header.ui-header-navbar.ui-container-fluid.ui-container-grid
+        block header
+          .ui-navbar-brand
+            h2: a(href=appDocs + '/index.html' accesskey='h')= appTitle
+          a.ui-navbar-text.ui-float-right(accesskey='t' data-schema-toggle='body' data-schema-toggler='ui-theme-dark' data-schema-storage='dark' data-schema-init)
+            i.ui-zoom-large(data-schema-icon='adjust')
+          nav.ui-navbar-nav
+            ul
+              li
+                a(href=appDocs + '/css.html' accesskey='c')
+                  i.ui-phone-visible(data-schema-icon='css3' data-schema-color='unset' title='CSS')
+                  span.ui-phone-hidden CSS
+              li
+                a(href=appDocs + '/javascript.html' accesskey='j')
+                  i.ui-phone-visible(data-schema-icon='js' title='JavaScript')
+                  span.ui-phone-hidden JavaScript
+              li
+                a(href=appDocs + '/examples.html' accesskey='e')
+                  i.ui-phone-visible(data-schema-icon='flask' title='Examples')
+                  span.ui-phone-hidden Examples
+              li
+                a(href='https://github.com/arxitics/ui-schema' rel='external' target='_blank' accesskey='g')
+                  i.ui-phone-visible(data-schema-icon='github' title='GitHub')
+                  span.ui-phone-hidden GitHub
+      main.ui-container-fluid.ui-container-grid
+        if standalone
+          block main
+        else
+          aside.ui-grid-25.ui-mobile-expand.ui-sticky-top
+            block aside
+          article.ui-grid-75.ui-mobile-expand
+            block article
+      footer.ui-container-fluid
+        block footer
+          address.ui-text-muted.ui-mobile-expand
+            span &copy; 2014&ndash;2017 Arxitics &nbsp;
+            span Code licensed under 
+              a(href='https://github.com/arxitics/ui-schema/blob/master/LICENSE' rel='external' target='_blank') MIT
+              | , documentation under 
+              a(href='http://creativecommons.org/licenses/by-sa/4.0' rel='external' target='_blank') CC BY-SA 4.0
+              | .
+      block foot
+        script(src=appDist + '/jquery-3.2.1.min.js')
+        if prism
+          script(src=appDist + '/prism-1.4.1.min.js')
+        script(src=appDist + '/ui-schema-' + version + '.min.js')
+        script(src=appIcons + '/brands.js')
+        script(src=appIcons + '/devices.js')
+        script(src=appIcons + '/editor.js')
+        script(src=appIcons + '/forms.js')
+        script(src=appIcons + '/software.js')

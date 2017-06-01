@@ -1,0 +1,79 @@
+
+extends ../layout
+
+block variables
+  - var pageID = 'examples/slides'
+  - var pageTitle = 'Slides'
+  - var minimal = true
+
+block body
+  body.ui-scroll-indicator
+    .ui-slides-wrapper
+      section.ui-page-slide#cover
+        div
+          h2 User Guide for arXiv Analytics
+          ul
+            li
+              strong Website
+              | : 
+              a(href='http://arxitics.com') http://arxitics.com
+            li
+              strong Service
+              | : 
+              a(href='mailto:help@arxitics.com') help@arxitics.com
+            li
+              strong Project
+              | : 
+              a(href='https://github.com/arxitics/arxiv-analytics') https://github.com/arxitics/arxiv-analytics
+      section.ui-page-slide#search-engine
+        div
+          h3 Search Engine
+          ul
+            li.
+              Powered by #[a(href='http://www.mongodb.org/') MongoDB]
+            li.
+              More than 1 million documents
+            li.
+              As many as 50+ metadata fields
+            li.
+              17 single field indexes and 1 text index
+            li.
+              Supports full-text search, but sometimes #[span.ui-color-emphasis slow]
+            li.
+              Accepts #[a(href='http://json.org/') JSON] to construct complicated query expressions
+      section.ui-page-slide#metadata-fields
+        div
+          h3 Metadata Fields
+          table.ui-table-fluid
+            thead
+              tr
+                th Field
+                th Type
+                th Examples or Note
+            tbody
+              tr
+                td id
+                td String
+                td hep-th/0312171, 1212.5605
+              tr
+                td version
+                td String
+                td v2
+              tr
+                td published
+                td ISODate
+                td 2003-12-15T20:11:07Z
+              tr
+                td title
+                td String
+                td Use regular expressions for match
+              tr
+                td authors
+                td Array::String
+                td Edward Witten, E. Witten
+    ol.ui-nav-pagination.ui-fixed-bottom.ui-offset-medium
+      li: a(href='#cover' accesskey='0') 
+      li: a(href='#search-engine' accesskey='1') 
+      li: a(href='#metadata-fields' accesskey='2') 
+    script(src=appDist + '/jquery-3.2.1.min.js')
+    script(src=appDist + '/ui-schema-' + version + '.min.js')

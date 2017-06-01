@@ -7,7 +7,7 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.4.min.css" media="all">
     <style>
       #todos-list th:first-child,
       #todos-list td:first-child,
@@ -71,14 +71,14 @@
       <h1 class="ui-color-emphasis ui-text-center">todos</h1>
       <div class="ui-content-panel">
         <div class="ui-panel-body">
-          <table id="todos-list" class="ui-table-fluid">
+          <table class="ui-table-fluid" id="todos-list">
             <thead data-schema-event="init selectall">
               <tr>
                 <th>
                   <input type="checkbox" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-selectall>
                 </th>
                 <th colspan="2">
-                  <input type="text" placeholder="What needs to be done?" data-schema-model="todo" data-schema-trigger="change" data-schema-controller="add" data-schema-empty class="ui-block-fluid">
+                  <input class="ui-block-fluid" type="text" placeholder="What needs to be done?" data-schema-model="todo" data-schema-trigger="change" data-schema-controller="add" data-schema-empty>
                 </th>
               </tr>
             </thead>
@@ -90,20 +90,20 @@
                 <td>
                   <div spellcheck="false" contenteditable data-schema-edit>${item.todo}</div>
                 </td>
-                <td><span data-schema-close class="ui-color-emphasis ui-zoom-large">&times;</span></td>
+                <td><span class="ui-color-emphasis ui-zoom-large" data-schema-close>&times;</span></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div id="todos-stats" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-event="classify clear" class="ui-panel-footer ui-container-grid">
+        <div class="ui-panel-footer ui-container-grid" id="todos-stats" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-event="classify clear">
           <div class="ui-fluid-25 ui-text-left ui-zoom-small"><span>${stats.active} ${stats.items} left</span></div>
-          <div data-schema-classify class="ui-fluid-50 ui-text-center ui-zoom-small"><a href="#/" data-schema-route class="ui-state-active">All</a><a href="#/active" data-schema-route>Active</a><a href="#/completed" data-schema-route>Completed</a></div>
-          <div data-schema-view="stats" data-schema-condition="stats.selected" data-schema-clear class="ui-fluid-25 ui-text-right ui-zoom-small"><span>Clear completed</span></div>
+          <div class="ui-fluid-50 ui-text-center ui-zoom-small" data-schema-classify><a class="ui-state-active" href="#/" data-schema-route>All</a><a href="#/active" data-schema-route>Active</a><a href="#/completed" data-schema-route>Completed</a></div>
+          <div class="ui-fluid-25 ui-text-right ui-zoom-small" data-schema-view="stats" data-schema-condition="stats.selected" data-schema-clear><span>Clear completed</span></div>
         </div>
       </div>
     </section>
-    <script src="../../../dist/jquery-3.0.0.min.js"></script>
-    <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
+    <script src="../../../dist/jquery-3.2.1.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.4.min.js"></script>
     <script>
       schema.add = function (models) {
         var items = models.items;

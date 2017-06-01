@@ -1,0 +1,71 @@
+
+extends modules
+
+block variables
+  - var pageID = 'css/images'
+  - var pageTitle = 'Images'
+  - var prism = true
+
+block article
+  h3.ui-header-primary
+    span Images
+    label.ui-float-right(for='images-src')
+      i.ui-zoom-small(data-schema-icon='code')
+  .ui-image-gallery
+    img.ui-image-circular(height='100' src='http://oss.arxitics.com/images/emoji/camping.svg' alt='tent')
+    img.ui-image-rounded.ui-offset-large(height='100' src='http://oss.arxitics.com/images/emoji/park.svg' alt='park')
+    img.ui-image-thumbnail.ui-offset-large(height='100' src='http://oss.arxitics.com/images/emoji/beach.svg' alt='beach')
+    a.ui-image-lightbox.ui-offset-large(href='#island')
+      img.ui-image-thumbnail(width='100' height='100' src='http://oss.arxitics.com/images/emoji/island.svg' alt='island')
+      span.ui-image-reveal Island
+  .ui-container-fluid.ui-lightbox-content#island
+    figure.ui-absolute-center.ui-mobile-expand
+      a.ui-nav-left(href='#') &times;
+      a.ui-nav-right(href='#desert') &rarr;
+      a(href='https://en.wikipedia.org/wiki/Island' target='_blank')
+        img(width='600' src='http://oss.arxitics.com/images/emoji/island.svg' alt='island')
+      figcaption.ui-skip-medium.
+        An island or isle is any piece of sub-continental land that is surrounded by water.
+  .ui-container-fluid.ui-lightbox-content#desert
+    figure.ui-absolute-center.ui-mobile-expand
+      a.ui-nav-left(href='#island') &larr;
+      a.ui-nav-right(href='#') &times;
+      a(href='https://en.wikipedia.org/wiki/Desert' target='_blank')
+        img(width='600' src='http://oss.arxitics.com/images/emoji/desert.svg' alt='desert')
+      figcaption.ui-skip-medium.
+        A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.
+  .ui-toggle-target.ui-skip-large
+    input#images-src(type='checkbox' checked)
+    div
+      pre: code.language-markup.
+        &lt;img class="ui-image-circular" height="100" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping"&gt;
+        &lt;img class="ui-image-rounded" height="100" src="http://oss.arxitics.com/images/emoji/park.svg" alt="park"&gt;
+        &lt;img class="ui-image-thumbnail" height="100" src="http://oss.arxitics.com/images/emoji/beach.svg" alt="beach"&gt;
+        &lt;a class="ui-image-lightbox" href="#island"&gt;
+          &lt;img class="ui-image-thumbnail" width="100" height="100" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island"&gt;
+          &lt;span class="ui-image-reveal"&gt;Island&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id="island" class="ui-lightbox-content"&gt;
+          &lt;figure class="ui-absolute-center"&gt;
+            &lt;a class="ui-nav-left" href="#"&gt;&amp;times;&lt;/a&gt;
+            &lt;a class="ui-nav-right" href="#desert"&gt;&amp;rarr;&lt;/a&gt;
+            &lt;a href="https://en.wikipedia.org/wiki/Island" target="_blank"&gt;
+              &lt;img width="600" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island"&gt;
+            &lt;/a&gt;
+            &lt;figcaption class="ui-skip-medium"&gt;
+              An island or isle is any piece of sub-continental land that is surrounded by water.
+            &lt;/figcaption&gt;
+          &lt;/figure&gt;
+        &lt;/div&gt;
+        &lt;div id="desert" class="ui-lightbox-content"&gt;
+          &lt;figure class="ui-absolute-center"&gt;
+            &lt;a class="ui-nav-left" href="#island"&gt;&amp;larr;&lt;/a&gt;
+            &lt;a class="ui-nav-right" href="#"&gt;&amp;times;&lt;/a&gt;
+            &lt;a href="https://en.wikipedia.org/wiki/Desert" target="_blank"&gt;
+              &lt;img width="600" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"&gt;
+            &lt;/a&gt;
+            &lt;figcaption class="ui-skip-medium"&gt;
+              A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.
+            &lt;/figcaption&gt;
+          &lt;/figure&gt;
+        &lt;/div&gt;

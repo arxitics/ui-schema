@@ -7,27 +7,27 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.4.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-navbar-brand">
         <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
-      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      </div><a class="ui-navbar-text ui-float-right" accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i class="ui-zoom-large" data-schema-icon="adjust"></i></a>
       <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="../../../docs/html/css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
-          <li><a href="../../../docs/html/javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
-          <li><a href="../../../docs/html/examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
+          <li><a href="../../../docs/html/css.html" accesskey="c"><i class="ui-phone-visible" data-schema-icon="css3" data-schema-color="unset" title="CSS"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="../../../docs/html/javascript.html" accesskey="j"><i class="ui-phone-visible" data-schema-icon="js" title="JavaScript"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="../../../docs/html/examples.html" accesskey="e"><i class="ui-phone-visible" data-schema-icon="flask" title="Examples"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i class="ui-phone-visible" data-schema-icon="github" title="GitHub"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary"><span>Modules</span>
-          <label for="modules-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="modules-list"><i class="ui-zoom-small" data-schema-icon="menu"></i></label>
         </h3>
         <div class="ui-toggle-target">
           <input id="modules-list" type="checkbox" checked>
@@ -61,7 +61,7 @@
         <h3 class="ui-header-primary">Navigation</h3>
         <section>
           <h4 class="ui-header-secondary"><span>Navs</span>
-            <label for="navs-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="navs-src"><i data-schema-icon="code"></i></label>
           </h4>
           <p>Navs available in UI Schema have shared markup as well as shared states. Swap modifier classes to switch between each style.</p>
           <div class="ui-container-grid">
@@ -122,7 +122,7 @@
               </ul>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-medium">
             <input id="navs-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;!-- Tabs --&gt;
@@ -165,7 +165,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Navbar</span>
-            <label for="navbar-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="navbar-src"><i data-schema-icon="code"></i></label>
           </h4>
           <header class="ui-header-navbar ui-container-fluid ui-container-grid">
             <div class="ui-navbar-brand">
@@ -175,7 +175,7 @@
               <ul>
                 <li><a href="http://arxitics.com/browse">Browse</a></li>
                 <li class="ui-menu-dropdown"><a aria-haspopup="true">Explore <span class="ui-caret-down"></span></a>
-                  <ul role="menu" class="ui-seamless-top">
+                  <ul class="ui-seamless-top" role="menu">
                     <li><a href="http://arxitics.com/articles">Collaborative Filtering</a></li>
                     <li><a href="http://arxitics.com/search">Advanced Search</a></li>
                     <li><a href="http://arxitics.com/articles/random">Random Article</a></li>
@@ -184,8 +184,8 @@
                 </li>
               </ul>
             </nav>
-            <div class="ui-navbar-account ui-float-right"><a href="http://arxitics.com/auth/login" class="ui-text-button ui-button-primary">Sign in</a></div>
-            <form action="http://arxitics.com/search" method="get" role="search" class="ui-navbar-form ui-fluid-33 ui-mobile-expand ui-phone-hidden">
+            <div class="ui-navbar-account ui-float-right"><a class="ui-text-button ui-button-primary" href="http://arxitics.com/auth/login">Sign in</a></div>
+            <form class="ui-navbar-form ui-fluid-33 ui-mobile-expand ui-phone-hidden" action="http://arxitics.com/search" method="get" role="search">
               <div class="ui-input-addon">
                 <input type="search" name="q" placeholder="Search or type a command">
                 <button type="submit"><i data-schema-icon="search">Go!</i></button>
@@ -196,7 +196,7 @@
             <div class="ui-navbar-brand">
               <h2><a href="http://arxitics.github.io/ui-schema/">UI Schema</a></h2>
             </div>
-            <nav class="ui-navbar-nav ui-nav-collapse ui-phone-collapse"><a><i data-schema-icon="menu" class="ui-zoom-large"></i></a>
+            <nav class="ui-navbar-nav ui-nav-collapse ui-phone-collapse"><a><i class="ui-zoom-large" data-schema-icon="menu"></i></a>
               <ul>
                 <li class="ui-phone-visible ui-text-right"><a><i data-schema-icon="menu"></i></a></li>
                 <li><a href="http://arxitics.github.io/ui-schema/css.html">CSS</a></li>
@@ -206,7 +206,7 @@
               </ul>
             </nav>
           </header>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="navbar-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;header class="ui-header-navbar ui-container-fluid ui-container-grid"&gt;
@@ -259,7 +259,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Breadcrumbs</span>
-            <label for="breadcrumbs-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="breadcrumbs-src"><i data-schema-icon="code"></i></label>
           </h4>
           <ol class="ui-nav-breadcrumb">
             <li><a href="http://arxitics.com/">Arxitics</a></li>
@@ -271,9 +271,10 @@
             <li><a href="http://arxitics.com/explore">Explore</a></li>
             <li class="ui-text-muted">Data Visualization</li>
           </ol>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="breadcrumbs-src" type="checkbox">
-            <div>
+            <div class="ui-container-responsive">
+              <button class="ui-absolute-right ui-zoom-small ui-phone-hidden" data-schema-copy>Copy</button>
               <pre><code class="language-markup">&lt;ol class="ui-nav-breadcrumb"&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/"&gt;Arxitics&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/explore"&gt;Explore&lt;/a&gt;&lt;/li&gt;
@@ -285,7 +286,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Pagination</span>
-            <label for="pagination-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="pagination-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
             <div class="ui-fluid-50 ui-phone-expand ui-float-left">
@@ -300,7 +301,7 @@
               </ol>
             </div>
             <div class="ui-fluid-50 ui-phone-expand ui-float-right">
-              <ol data-schema-trim class="ui-nav-pagination ui-space-trim">
+              <ol class="ui-nav-pagination ui-space-trim" data-schema-trim>
                 <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2" title="Previous page">&laquo;</a></li>
                 <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=1">1</a></li>
                 <li><a href="http://arxitics.com/search?category=atom-ph&amp;perpage=25&amp;page=2">2</a></li>
@@ -311,9 +312,10 @@
               </ol>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-medium">
             <input id="pagination-src" type="checkbox">
-            <div>
+            <div class="ui-container-responsive">
+              <button class="ui-absolute-right ui-zoom-small ui-phone-hidden" data-schema-copy>Copy</button>
               <pre><code class="language-markup">&lt;ol class="ui-nav-pagination"&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=2" title="Previous page"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://arxitics.com/search?category=atom-ph&amp;amp;perpage=25&amp;amp;page=1"&gt;1&lt;/a&gt;&lt;/li&gt;
@@ -329,11 +331,11 @@
       </article>
     </main>
     <footer class="ui-container-fluid">
-      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
+      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2017 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="../../../dist/jquery-3.0.0.min.js"></script>
+    <script src="../../../dist/jquery-3.2.1.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
-    <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.4.min.js"></script>
     <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
     <script src="../../../dist/icons/editor.js"></script>

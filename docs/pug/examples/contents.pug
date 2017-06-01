@@ -1,0 +1,20 @@
+
+extends ../layout
+
+mixin link(page, text)
+  li: a(href=appDocs + '/examples/' + page + '.html' target='_blank')= text
+
+block aside
+  h3.ui-header-primary
+    span Contents
+    label.ui-float-right(for='contents-list')
+      i.ui-zoom-small(data-schema-icon='menu')
+  .ui-toggle-target
+    input#contents-list(type='checkbox' checked)
+    div
+      ul.ui-list-group.ui-block-fluid.ui-zoom-large.ui-text-capitalize
+        +link('login', 'Login')
+        +link('resume', 'Resume')
+        +link('slides', 'Slides')
+        +link('full-pages', 'Full Pages')
+        +link('todos', 'TodoMVC')

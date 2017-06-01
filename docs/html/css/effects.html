@@ -7,27 +7,27 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.4.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-navbar-brand">
         <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
-      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      </div><a class="ui-navbar-text ui-float-right" accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i class="ui-zoom-large" data-schema-icon="adjust"></i></a>
       <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="../../../docs/html/css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
-          <li><a href="../../../docs/html/javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
-          <li><a href="../../../docs/html/examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
+          <li><a href="../../../docs/html/css.html" accesskey="c"><i class="ui-phone-visible" data-schema-icon="css3" data-schema-color="unset" title="CSS"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="../../../docs/html/javascript.html" accesskey="j"><i class="ui-phone-visible" data-schema-icon="js" title="JavaScript"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="../../../docs/html/examples.html" accesskey="e"><i class="ui-phone-visible" data-schema-icon="flask" title="Examples"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i class="ui-phone-visible" data-schema-icon="github" title="GitHub"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary"><span>Modules</span>
-          <label for="modules-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="modules-list"><i class="ui-zoom-small" data-schema-icon="menu"></i></label>
         </h3>
         <div class="ui-toggle-target">
           <input id="modules-list" type="checkbox" checked>
@@ -61,14 +61,14 @@
         <h3 class="ui-header-primary">Visual Effects</h3>
         <section>
           <h4 class="ui-header-secondary"><span>Meters</span>
-            <label for="meters-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="meters-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
             <meter value="20" min="0" low="33" high="66" optimum="100" max="100" title="20">20</meter>
-            <meter value="60" min="0" low="33" high="66" optimum="100" max="100" title="60" class="ui-skip-small">60</meter>
-            <meter value="100" min="0" low="33" high="66" optimum="100" max="100" title="100" class="ui-skip-small">100</meter>
+            <meter class="ui-skip-small" value="60" min="0" low="33" high="66" optimum="100" max="100" title="60">60</meter>
+            <meter class="ui-skip-small" value="100" min="0" low="33" high="66" optimum="100" max="100" title="100">100</meter>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="meters-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;meter value="20" min="0" low="33" high="66" optimum="100" max="100" title="20"&gt;20&lt;/meter&gt;
@@ -80,17 +80,17 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Progress Bars</span>
-            <label for="progress-bars-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="progress-bars-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
             <progress value="100" max="100" title="100%">all completed</progress>
-            <progress value="80" max="100" title="80%" class="ui-progress-success ui-skip-small">80% completed</progress>
-            <progress value="60" max="100" title="60%" class="ui-progress-info ui-skip-small">60% completed</progress>
-            <progress value="40" max="100" title="40%" class="ui-progress-warning ui-progress-striped ui-skip-small">40% completed</progress>
-            <progress value="20" max="100" title="20%" class="ui-progress-danger ui-progress-striped ui-skip-small">20% completed</progress>
-            <progress max="100" title="no value" class="ui-skip-small">no value</progress>
+            <progress class="ui-progress-success ui-skip-small" value="80" max="100" title="80%">80% completed</progress>
+            <progress class="ui-progress-info ui-skip-small" value="60" max="100" title="60%">60% completed</progress>
+            <progress class="ui-progress-warning ui-progress-striped ui-skip-small" value="40" max="100" title="40%">40% completed</progress>
+            <progress class="ui-progress-danger ui-progress-striped ui-skip-small" value="20" max="100" title="20%">20% completed</progress>
+            <progress class="ui-skip-small" max="100" title="no value">no value</progress>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="progress-bars-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;progress value="100" max="100" title="100%"&gt;all completed&lt;/progress&gt;
@@ -105,12 +105,12 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Range Sliders</span>
-            <label for="range-sliders-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="range-sliders-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
             <input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-medium">
             <input id="range-sliders-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;input type="range" min="0" max="100" step="1" value="60" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"&gt;
@@ -120,14 +120,14 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Audio</span>
-            <label for="audio-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="audio-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
             <audio controls>
               <source src="https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg" type="audio/ogg"><span class="ui-color-danger">Your browser does not support the <code>audio</code> element.</span>
             </audio>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="audio-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;audio controls&gt;
@@ -140,14 +140,14 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Video</span>
-            <label for="video-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="video-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
             <video controls>
               <source src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm" type="video/webm"><span class="ui-color-danger">Your browser does not support the <code>video</code> element.</span>
             </video>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="video-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;video controls&gt;
@@ -160,11 +160,11 @@
       </article>
     </main>
     <footer class="ui-container-fluid">
-      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
+      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2017 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="../../../dist/jquery-3.0.0.min.js"></script>
+    <script src="../../../dist/jquery-3.2.1.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
-    <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.4.min.js"></script>
     <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
     <script src="../../../dist/icons/editor.js"></script>

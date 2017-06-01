@@ -7,27 +7,27 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="../../../dist/ui-schema-0.4.4.min.css" media="all">
     <link rel="stylesheet" href="../../../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-navbar-brand">
         <h2><a href="../../../docs/html/index.html" accesskey="h">UI Schema</a></h2>
-      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      </div><a class="ui-navbar-text ui-float-right" accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i class="ui-zoom-large" data-schema-icon="adjust"></i></a>
       <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="../../../docs/html/css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
-          <li><a href="../../../docs/html/javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
-          <li><a href="../../../docs/html/examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
+          <li><a href="../../../docs/html/css.html" accesskey="c"><i class="ui-phone-visible" data-schema-icon="css3" data-schema-color="unset" title="CSS"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="../../../docs/html/javascript.html" accesskey="j"><i class="ui-phone-visible" data-schema-icon="js" title="JavaScript"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="../../../docs/html/examples.html" accesskey="e"><i class="ui-phone-visible" data-schema-icon="flask" title="Examples"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i class="ui-phone-visible" data-schema-icon="github" title="GitHub"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary"><span>Modules</span>
-          <label for="modules-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="modules-list"><i class="ui-zoom-small" data-schema-icon="menu"></i></label>
         </h3>
         <div class="ui-toggle-target">
           <input id="modules-list" type="checkbox" checked>
@@ -61,7 +61,7 @@
         <h3 class="ui-header-primary">Typography</h3>
         <section>
           <h4 class="ui-header-secondary"><span>Code</span>
-            <label for="code-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="code-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
             <p>You can manually adjust the size by <code class="ui-color-emphasis"><kbd>Ctrl</kbd> + <kbd>+</kbd></code> or <code class="ui-color-emphasis"><kbd>Ctrl</kbd> + <kbd>-</kbd></code>.</p>
@@ -69,7 +69,7 @@
 &lt;p class="ui-text-uppercase"&gt;Uppercased text.&lt;/p&gt;
 &lt;p class="ui-text-capitalize"&gt;Capitalized text.&lt;/p&gt;</code></pre>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="code-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;!-- Inline code --&gt;
@@ -85,7 +85,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Blockquotes</span>
-            <label for="blockquotes-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="blockquotes-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
             <blockquote>
@@ -95,9 +95,10 @@
               </footer>
             </blockquote>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="blockquotes-src" type="checkbox">
-            <div>
+            <div class="ui-container-responsive">
+              <button class="ui-absolute-right ui-zoom-small ui-phone-hidden" data-schema-copy>Copy</button>
               <pre><code class="language-markup">&lt;blockquote&gt;
   &lt;p&gt;Education is a self organising system, where learning is an emergent phenomenon.&lt;/p&gt;
   &lt;footer&gt;
@@ -110,7 +111,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Lists</span>
-            <label for="lists-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="lists-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand">
@@ -140,7 +141,7 @@
               <li>T. Amdeberhan <em>et. al.</em>, <em>Ramanujan&apos;s Master Theorem</em>, <a href="http://dx.doi.org/10.1007/s11139-011-9333-y" target="_blank">Ramanujan J. <strong>29</strong> (2012) 29:103-120</a>.</li>
             </ol>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-medium">
             <input id="lists-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;!-- Inline list --&gt;
@@ -170,11 +171,11 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Labels</span>
-            <label for="labels-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="labels-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid"><span class="ui-text-label">Default</span> <span class="ui-text-label ui-label-primary">Primary</span> <span class="ui-text-label ui-label-success">Success</span> <span class="ui-text-label ui-label-info">Info</span> <span class="ui-text-label ui-label-warning">Warning</span> <span class="ui-text-label ui-label-danger">Danger</span></div>
           <div class="ui-container-grid ui-skip-medium"><span class="ui-text-badge">1</span> <span class="ui-text-badge ui-label-primary">23</span> <span class="ui-text-badge ui-label-success">a</span> <span class="ui-text-badge ui-label-info">bc</span> <span class="ui-text-badge ui-label-warning">A</span> <span class="ui-text-badge ui-label-danger">BC</span></div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="labels-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;span class="ui-text-label"&gt;Default&lt;/span&gt;
@@ -196,11 +197,11 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>List Group</span>
-            <label for="list-group-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="list-group-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand">
-              <div class="ui-list-group ui-block-fluid"><a href="./navigation.html">Navigation</a><a href="./menus.html">Menus</a><a href="./typography.html" class="ui-state-active">Typography</a><a href="./forms.html">Forms</a></div>
+              <div class="ui-list-group ui-block-fluid"><a href="./navigation.html">Navigation</a><a href="./menus.html">Menus</a><a class="ui-state-active" href="./typography.html">Typography</a><a href="./forms.html">Forms</a></div>
             </div>
             <div class="ui-grid-50 ui-phone-expand">
               <ul class="ui-list-group ui-block-fluid">
@@ -211,7 +212,7 @@
               </ul>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-medium">
             <input id="list-group-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;!-- Linkify list group items by using anchor tags --&gt;
@@ -235,7 +236,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Panels</span>
-            <label for="panels-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="panels-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand">
@@ -276,7 +277,7 @@
               </div>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-medium">
             <input id="panels-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;!-- Panel with list groups --&gt;
@@ -321,10 +322,10 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Alerts</span>
-            <label for="alerts-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="alerts-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div>
-            <div class="ui-content-alert ui-alert-success"><span data-schema-dismiss class="ui-nav-right">&times;</span>
+            <div class="ui-content-alert ui-alert-success"><span class="ui-nav-right" data-schema-dismiss>&times;</span>
               <p>ArXiv Analytics is a web portal that offers more features and a better user interface for reading and discussing <a href="http://arxiv.org/" rel="external" target="_blank">arXiv eprints</a>.</p>
             </div>
             <div class="ui-content-alert ui-alert-info">
@@ -337,7 +338,7 @@
               <p>We encourage frank, open, and constructive conversation, but frankness doesn't mean lack of civility or lack of respect for others.</p>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="alerts-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;div class="ui-content-alert ui-alert-success"&gt;
@@ -359,17 +360,17 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Content Links</span>
-            <label for="content-links-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="content-links-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <div class="ui-content-link"><a href="http://arxitics.com/search" class="ui-zoom-huge ui-phone-half">
+            <div class="ui-content-link"><a class="ui-zoom-huge ui-phone-half" href="http://arxitics.com/search">
                 <div class="ui-box-small ui-text-center"><i data-schema-icon="search"></i>
                   <h4 class="ui-header-compact">Search</h4>
                 </div>
                 <div class="ui-text-active">
                   <p>Advanced search interface to find articles</p>
                 </div></a></div>
-            <div class="ui-content-link ui-skip-large"><a href="http://arxitics.com/explore" class="ui-zoom-huge ui-phone-half">
+            <div class="ui-content-link ui-skip-large"><a class="ui-zoom-huge ui-phone-half" href="http://arxitics.com/explore">
                 <div class="ui-box-small ui-text-center"><i data-schema-icon="bar-chart"></i>
                   <h4 class="ui-header-compact">Explore</h4>
                 </div>
@@ -377,9 +378,10 @@
                   <p>Analysis, visualization, and recommendations</p>
                 </div></a></div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="content-links-src" type="checkbox">
-            <div>
+            <div class="ui-container-responsive">
+              <button class="ui-absolute-right ui-zoom-small ui-phone-hidden" data-schema-copy>Copy</button>
               <pre><code class="language-markup">&lt;div class="ui-content-link"&gt;
   &lt;a class="ui-zoom-huge ui-phone-half" href="http://arxitics.com/search"&gt;
     &lt;div class="ui-box-small ui-text-center"&gt;
@@ -397,15 +399,16 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Jumbotron</span>
-            <label for="jumbotron-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="jumbotron-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-content-jumbotron">
             <h3>403 Forbidden: <span class="ui-text-muted">You need login to join the chat room.</span></h3>
             <p>Please contact <strong>help<span aria-hidden="true">.855322</span>@arxitics.com</strong> if you think this should not happen again.</p>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="jumbotron-src" type="checkbox">
-            <div>
+            <div class="ui-container-responsive">
+              <button class="ui-absolute-right ui-zoom-small ui-phone-hidden" data-schema-copy>Copy</button>
               <pre><code class="language-markup">&lt;div class="ui-content-jumbotron"&gt;
   &lt;h3&gt;403 Forbidden: &lt;span class="ui-text-muted"&gt;You need login to join the chat room.&lt;/span&gt;&lt;/h3&gt;
   &lt;p&gt;Please contact &lt;strong&gt;help&lt;span aria-hidden="true"&gt;.855322&lt;/span&gt;@arxitics.com&lt;/strong&gt; if you think this should not happen again.&lt;/p&gt;
@@ -416,27 +419,28 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Media Object</span>
-            <label for="media-object-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="media-object-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand ui-content-media">
-              <div class="ui-media-object"><img width="100" height="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert" class="ui-image-thumbnail"></div>
+              <div class="ui-media-object"><img class="ui-image-thumbnail" width="100" height="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"></div>
               <div class="ui-media-body">
                 <h4>Definition of desert</h4>
                 <p>A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.</p>
               </div>
             </div>
             <div class="ui-grid-50 ui-phone-expand ui-content-media">
-              <div class="ui-media-object ui-float-right"><img width="100" height="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert" class="ui-image-thumbnail"></div>
+              <div class="ui-media-object ui-float-right"><img class="ui-image-thumbnail" width="100" height="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"></div>
               <div class="ui-media-body">
                 <h4>Definition of desert</h4>
                 <p>A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.</p>
               </div>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-medium">
             <input id="media-object-src" type="checkbox">
-            <div>
+            <div class="ui-container-responsive">
+              <button class="ui-absolute-right ui-zoom-small ui-phone-hidden" data-schema-copy>Copy</button>
               <pre><code class="language-markup">&lt;div class="ui-content-media"&gt;
   &lt;div class="ui-media-object"&gt;
     &lt;img class="ui-image-thumbnail" width="100" height="100" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"&gt;
@@ -452,11 +456,11 @@
       </article>
     </main>
     <footer class="ui-container-fluid">
-      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
+      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2017 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="../../../dist/jquery-3.0.0.min.js"></script>
+    <script src="../../../dist/jquery-3.2.1.min.js"></script>
     <script src="../../../dist/prism-1.4.1.min.js"></script>
-    <script src="../../../dist/ui-schema-0.4.3.min.js"></script>
+    <script src="../../../dist/ui-schema-0.4.4.min.js"></script>
     <script src="../../../dist/icons/brands.js"></script>
     <script src="../../../dist/icons/devices.js"></script>
     <script src="../../../dist/icons/editor.js"></script>
