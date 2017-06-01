@@ -7,27 +7,27 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./../dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="./../dist/ui-schema-0.4.4.min.css" media="all">
     <link rel="stylesheet" href="./../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-navbar-brand">
         <h2><a href="./../index.html" accesskey="h">UI Schema</a></h2>
-      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      </div><a class="ui-navbar-text ui-float-right" accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i class="ui-zoom-large" data-schema-icon="adjust"></i></a>
       <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="./../css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
-          <li><a href="./../javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
-          <li><a href="./../examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
+          <li><a href="./../css.html" accesskey="c"><i class="ui-phone-visible" data-schema-icon="css3" data-schema-color="unset" title="CSS"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="./../javascript.html" accesskey="j"><i class="ui-phone-visible" data-schema-icon="js" title="JavaScript"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="./../examples.html" accesskey="e"><i class="ui-phone-visible" data-schema-icon="flask" title="Examples"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i class="ui-phone-visible" data-schema-icon="github" title="GitHub"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary"><span>Components</span>
-          <label for="components-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="components-list"><i class="ui-zoom-small" data-schema-icon="menu"></i></label>
         </h3>
         <div class="ui-toggle-target">
           <input id="components-list" type="checkbox" checked>
@@ -53,7 +53,8 @@
               <div class="ui-offset-medium"><img width="900" height="900" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping"></div>
             </figure>
           </div>
-          <pre><code class="language-markup">&lt;figure class="ui-image-magnifier"&gt;
+          <div class="ui-skip-large">
+            <pre><code class="language-markup">&lt;figure class="ui-image-magnifier"&gt;
   &lt;img width="300" height="300" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping" data-schema-magnify&gt;
   &lt;div data-schema-shape="square(100)"&gt;&lt;/div&gt;
   &lt;div class="ui-offset-medium"&gt;
@@ -61,26 +62,29 @@
   &lt;/div&gt;
 &lt;/figure&gt;
 </code></pre>
+          </div>
         </section>
         <section>
           <h4 class="ui-header-secondary">Lazy Loading</h4>
           <div>
-            <figure><img width="600" height="600" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping" class="ui-image-thumbnail"></figure>
-            <figure class="ui-skip-medium"><img width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="park" data-schema-lazyload data-schema-src="http://oss.arxitics.com/images/emoji/park.svg" class="ui-image-thumbnail"></figure>
-            <figure class="ui-skip-medium"><img width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="beach" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/beach.svg" class="ui-image-thumbnail"></figure>
-            <figure class="ui-skip-medium"><img width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="island" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/island.svg" class="ui-image-thumbnail"></figure>
-            <figure class="ui-skip-medium"><img width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="desert" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/desert.svg" class="ui-image-thumbnail"></figure>
+            <figure><img class="ui-image-thumbnail" width="600" height="600" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping"></figure>
+            <figure class="ui-skip-medium"><img class="ui-image-thumbnail" width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="park" data-schema-lazyload data-schema-src="http://oss.arxitics.com/images/emoji/park.svg"></figure>
+            <figure class="ui-skip-medium"><img class="ui-image-thumbnail" width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="beach" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/beach.svg"></figure>
+            <figure class="ui-skip-medium"><img class="ui-image-thumbnail" width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="island" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/island.svg"></figure>
+            <figure class="ui-skip-medium"><img class="ui-image-thumbnail" width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="desert" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/desert.svg"></figure>
           </div>
-          <pre><code class="language-markup">&lt;img width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="desert" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/desert.svg"&gt;</code></pre>
+          <div class="ui-skip-large">
+            <pre><code class="language-markup">&lt;img width="600" height="600" src="http://oss.arxitics.com/images/emoji/white-circle.svg" alt="desert" data-schema-lazyload="200" data-schema-delay="2000" data-schema-src="http://oss.arxitics.com/images/emoji/desert.svg"&gt;</code></pre>
+          </div>
         </section>
       </article>
     </main>
     <footer class="ui-container-fluid">
-      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
+      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2017 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="./../dist/jquery-3.0.0.min.js"></script>
+    <script src="./../dist/jquery-3.2.1.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
-    <script src="./../dist/ui-schema-0.4.3.min.js"></script>
+    <script src="./../dist/ui-schema-0.4.4.min.js"></script>
     <script src="./../dist/icons/brands.js"></script>
     <script src="./../dist/icons/devices.js"></script>
     <script src="./../dist/icons/editor.js"></script>

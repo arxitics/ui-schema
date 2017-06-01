@@ -7,27 +7,27 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./../dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="./../dist/ui-schema-0.4.4.min.css" media="all">
     <link rel="stylesheet" href="./../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-navbar-brand">
         <h2><a href="./../index.html" accesskey="h">UI Schema</a></h2>
-      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      </div><a class="ui-navbar-text ui-float-right" accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i class="ui-zoom-large" data-schema-icon="adjust"></i></a>
       <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="./../css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
-          <li><a href="./../javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
-          <li><a href="./../examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
+          <li><a href="./../css.html" accesskey="c"><i class="ui-phone-visible" data-schema-icon="css3" data-schema-color="unset" title="CSS"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="./../javascript.html" accesskey="j"><i class="ui-phone-visible" data-schema-icon="js" title="JavaScript"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="./../examples.html" accesskey="e"><i class="ui-phone-visible" data-schema-icon="flask" title="Examples"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i class="ui-phone-visible" data-schema-icon="github" title="GitHub"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary"><span>Modules</span>
-          <label for="modules-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="modules-list"><i class="ui-zoom-small" data-schema-icon="menu"></i></label>
         </h3>
         <div class="ui-toggle-target">
           <input id="modules-list" type="checkbox" checked>
@@ -59,20 +59,20 @@
       </aside>
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary"><span>Images</span>
-          <label for="images-src" class="ui-float-right"><i data-schema-icon="code" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="images-src"><i class="ui-zoom-small" data-schema-icon="code"></i></label>
         </h3>
-        <div class="ui-image-gallery"><img height="100" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="tent" class="ui-image-circular"><img height="100" src="http://oss.arxitics.com/images/emoji/park.svg" alt="park" class="ui-image-rounded ui-offset-large"><img height="100" src="http://oss.arxitics.com/images/emoji/beach.svg" alt="beach" class="ui-image-thumbnail ui-offset-large"><a href="#island" class="ui-image-lightbox ui-offset-large"><img width="100" height="100" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island" class="ui-image-thumbnail"><span class="ui-image-reveal">Island</span></a></div>
-        <div id="island" class="ui-container-fluid ui-lightbox-content">
-          <figure class="ui-absolute-center ui-mobile-expand"><a href="#" class="ui-nav-left">&times;</a><a href="#desert" class="ui-nav-right">&rarr;</a><a href="https://en.wikipedia.org/wiki/Island" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island"></a>
+        <div class="ui-image-gallery"><img class="ui-image-circular" height="100" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="tent"><img class="ui-image-rounded ui-offset-large" height="100" src="http://oss.arxitics.com/images/emoji/park.svg" alt="park"><img class="ui-image-thumbnail ui-offset-large" height="100" src="http://oss.arxitics.com/images/emoji/beach.svg" alt="beach"><a class="ui-image-lightbox ui-offset-large" href="#island"><img class="ui-image-thumbnail" width="100" height="100" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island"><span class="ui-image-reveal">Island</span></a></div>
+        <div class="ui-container-fluid ui-lightbox-content" id="island">
+          <figure class="ui-absolute-center ui-mobile-expand"><a class="ui-nav-left" href="#">&times;</a><a class="ui-nav-right" href="#desert">&rarr;</a><a href="https://en.wikipedia.org/wiki/Island" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/island.svg" alt="island"></a>
             <figcaption class="ui-skip-medium">An island or isle is any piece of sub-continental land that is surrounded by water.</figcaption>
           </figure>
         </div>
-        <div id="desert" class="ui-container-fluid ui-lightbox-content">
-          <figure class="ui-absolute-center ui-mobile-expand"><a href="#island" class="ui-nav-left">&larr;</a><a href="#" class="ui-nav-right">&times;</a><a href="https://en.wikipedia.org/wiki/Desert" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"></a>
+        <div class="ui-container-fluid ui-lightbox-content" id="desert">
+          <figure class="ui-absolute-center ui-mobile-expand"><a class="ui-nav-left" href="#island">&larr;</a><a class="ui-nav-right" href="#">&times;</a><a href="https://en.wikipedia.org/wiki/Desert" target="_blank"><img width="600" src="http://oss.arxitics.com/images/emoji/desert.svg" alt="desert"></a>
             <figcaption class="ui-skip-medium">A desert is a barren area of land where little precipitation occurs and consequently living conditions are hostile for plant and animal life.</figcaption>
           </figure>
         </div>
-        <div class="ui-toggle-target">
+        <div class="ui-toggle-target ui-skip-large">
           <input id="images-src" type="checkbox" checked>
           <div>
             <pre><code class="language-markup">&lt;img class="ui-image-circular" height="100" src="http://oss.arxitics.com/images/emoji/camping.svg" alt="camping"&gt;
@@ -111,11 +111,11 @@
       </article>
     </main>
     <footer class="ui-container-fluid">
-      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
+      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2017 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="./../dist/jquery-3.0.0.min.js"></script>
+    <script src="./../dist/jquery-3.2.1.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
-    <script src="./../dist/ui-schema-0.4.3.min.js"></script>
+    <script src="./../dist/ui-schema-0.4.4.min.js"></script>
     <script src="./../dist/icons/brands.js"></script>
     <script src="./../dist/icons/devices.js"></script>
     <script src="./../dist/icons/editor.js"></script>

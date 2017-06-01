@@ -7,27 +7,27 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="./dist/ui-schema-0.4.4.min.css" media="all">
     <link rel="stylesheet" href="./dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-navbar-brand">
         <h2><a href="./index.html" accesskey="h">UI Schema</a></h2>
-      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      </div><a class="ui-navbar-text ui-float-right" accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i class="ui-zoom-large" data-schema-icon="adjust"></i></a>
       <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="./css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
-          <li><a href="./javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
-          <li><a href="./examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
+          <li><a href="./css.html" accesskey="c"><i class="ui-phone-visible" data-schema-icon="css3" data-schema-color="unset" title="CSS"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="./javascript.html" accesskey="j"><i class="ui-phone-visible" data-schema-icon="js" title="JavaScript"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="./examples.html" accesskey="e"><i class="ui-phone-visible" data-schema-icon="flask" title="Examples"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i class="ui-phone-visible" data-schema-icon="github" title="GitHub"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary"><span>Links</span>
-          <label for="links-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="links-list"><i class="ui-zoom-small" data-schema-icon="menu"></i></label>
         </h3>
         <div class="ui-toggle-target">
           <input id="links-list" type="checkbox" checked>
@@ -44,7 +44,9 @@
       <article class="ui-grid-75 ui-mobile-expand">
         <h3 class="ui-header-primary">Basic Template</h3>
         <p>Copy the HTML below to begin working with a minimal document.</p>
-        <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+        <div class="ui-container-responsive">
+          <button class="ui-absolute-right ui-zoom-small ui-phone-hidden" data-schema-copy>Copy</button>
+          <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html id="template" lang="en"&gt;
   &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
@@ -53,7 +55,7 @@
     &lt;meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript"&gt;
     &lt;meta name="description" content="A cutting edge, lightweight, and powerful front-end framework"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    &lt;link rel="stylesheet" href="dist/ui-schema-0.4.3.min.css" media="all"&gt;
+    &lt;link rel="stylesheet" href="dist/ui-schema-0.4.4.min.css" media="all"&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;header&gt;
@@ -65,18 +67,19 @@
     &lt;footer&gt;
       &lt;!-- a site-wide footer --&gt;
     &lt;/footer&gt;
-    &lt;script src="dist/jquery-3.0.0.min.js"&gt;&lt;/script&gt;
-    &lt;script src="dist/ui-schema-0.4.3.min.js"&gt;&lt;/script&gt;
+    &lt;script src="dist/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+    &lt;script src="dist/ui-schema-0.4.4.min.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+        </div>
       </article>
     </main>
     <footer class="ui-container-fluid">
-      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
+      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2017 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="./dist/jquery-3.0.0.min.js"></script>
+    <script src="./dist/jquery-3.2.1.min.js"></script>
     <script src="./dist/prism-1.4.1.min.js"></script>
-    <script src="./dist/ui-schema-0.4.3.min.js"></script>
+    <script src="./dist/ui-schema-0.4.4.min.js"></script>
     <script src="./dist/icons/brands.js"></script>
     <script src="./dist/icons/devices.js"></script>
     <script src="./dist/icons/editor.js"></script>

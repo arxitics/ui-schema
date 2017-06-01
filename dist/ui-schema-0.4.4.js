@@ -1,6 +1,6 @@
 /*!
- * UI Schema v0.4.3 (https://github.com/arxitics/ui-schema)
- * Copyright 2016 Arxitics <help@arxitics.com>
+ * UI Schema v0.4.4 (https://github.com/arxitics/ui-schema)
+ * Copyright 2017 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
 
@@ -128,8 +128,13 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       },
       trim: {
         type: 'trim',
-        namespace: '.text-node.dom.data-api.schema',
+        namespace: '.text.dom.data-api.schema',
         selector: '[data-schema-trim]'
+      },
+      copy: {
+        type: 'copy',
+        namespace: '.text.dom.data-api.schema',
+        selector: '[data-schema-copy]'
       },
       extract: {
         type: 'extract',
@@ -745,6 +750,24 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     $elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
+  };
+
+  // Copy a string to clipboard
+  schema.copy = function (event, options) {
+    var selector = schema.events.copy.selector;
+    var $elements = $(options && options.selector || selector);
+    var dataString = '';
+    $elements.on('click', function () {
+      var $this = $(this);
+      var $data = schema.parseData($this.data());
+      var $target = $($data.target || $this.next());
+      dataString = $target.text();
+      document.execCommand('copy');
+    });
+    document.addEventListener('copy', function (event) {
+      event.clipboardData.setData('text/plain', dataString);
+      event.preventDefault();
+    });
   };
 
   // Toggle a CSS class

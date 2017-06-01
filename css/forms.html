@@ -7,27 +7,27 @@
     <meta name="keywords" content="UI, Schema, HTML, CSS, JS, JavaScript, front-end, framework, web development">
     <meta name="description" content="A cutting edge, lightweight, and powerful front-end framework for faster and easier web development">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./../dist/ui-schema-0.4.3.min.css" media="all">
+    <link rel="stylesheet" href="./../dist/ui-schema-0.4.4.min.css" media="all">
     <link rel="stylesheet" href="./../dist/prism-1.4.1.min.css" media="all">
   </head>
   <body>
     <header class="ui-header-navbar ui-container-fluid ui-container-grid">
       <div class="ui-navbar-brand">
         <h2><a href="./../index.html" accesskey="h">UI Schema</a></h2>
-      </div><a accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init class="ui-navbar-text ui-float-right"><i data-schema-icon="adjust" class="ui-zoom-large"></i></a>
+      </div><a class="ui-navbar-text ui-float-right" accesskey="t" data-schema-toggle="body" data-schema-toggler="ui-theme-dark" data-schema-storage="dark" data-schema-init><i class="ui-zoom-large" data-schema-icon="adjust"></i></a>
       <nav class="ui-navbar-nav">
         <ul>
-          <li><a href="./../css.html" accesskey="c"><i data-schema-icon="css3" data-schema-color="unset" title="CSS" class="ui-phone-visible"></i><span class="ui-phone-hidden">CSS</span></a></li>
-          <li><a href="./../javascript.html" accesskey="j"><i data-schema-icon="js" title="JavaScript" class="ui-phone-visible"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
-          <li><a href="./../examples.html" accesskey="e"><i data-schema-icon="flask" title="Examples" class="ui-phone-visible"></i><span class="ui-phone-hidden">Examples</span></a></li>
-          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i data-schema-icon="github" title="GitHub" class="ui-phone-visible"></i><span class="ui-phone-hidden">GitHub</span></a></li>
+          <li><a href="./../css.html" accesskey="c"><i class="ui-phone-visible" data-schema-icon="css3" data-schema-color="unset" title="CSS"></i><span class="ui-phone-hidden">CSS</span></a></li>
+          <li><a href="./../javascript.html" accesskey="j"><i class="ui-phone-visible" data-schema-icon="js" title="JavaScript"></i><span class="ui-phone-hidden">JavaScript</span></a></li>
+          <li><a href="./../examples.html" accesskey="e"><i class="ui-phone-visible" data-schema-icon="flask" title="Examples"></i><span class="ui-phone-hidden">Examples</span></a></li>
+          <li><a href="https://github.com/arxitics/ui-schema" rel="external" target="_blank" accesskey="g"><i class="ui-phone-visible" data-schema-icon="github" title="GitHub"></i><span class="ui-phone-hidden">GitHub</span></a></li>
         </ul>
       </nav>
     </header>
     <main class="ui-container-fluid ui-container-grid">
       <aside class="ui-grid-25 ui-mobile-expand ui-sticky-top">
         <h3 class="ui-header-primary"><span>Modules</span>
-          <label for="modules-list" class="ui-float-right"><i data-schema-icon="menu" class="ui-zoom-small"></i></label>
+          <label class="ui-float-right" for="modules-list"><i class="ui-zoom-small" data-schema-icon="menu"></i></label>
         </h3>
         <div class="ui-toggle-target">
           <input id="modules-list" type="checkbox" checked>
@@ -61,19 +61,19 @@
         <h3 class="ui-header-primary">Forms</h3>
         <section>
           <h4 class="ui-header-secondary"><span>Buttons</span>
-            <label for="buttons-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="buttons-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
             <div class="ui-fluid-40 ui-phone-expand ui-float-left">
               <button type="button">Default</button>
-              <button type="button" disabled>Disabled</button> <a href="http://arxitics.com/" class="ui-text-button">Hyperlink</a>
+              <button type="button" disabled>Disabled</button> <a class="ui-text-button" href="http://arxitics.com/">Hyperlink</a>
             </div>
             <div class="ui-fluid-60 ui-phone-expand ui-float-right">
-              <button type="button" class="ui-button-primary">Primary</button>
-              <button type="button" class="ui-button-success">Success</button>
-              <button type="button" class="ui-button-info">Info</button>
-              <button type="button" class="ui-button-warning">Warning</button>
-              <button type="button" class="ui-button-danger">Danger</button>
+              <button class="ui-button-primary" type="button">Primary</button>
+              <button class="ui-button-success" type="button">Success</button>
+              <button class="ui-button-info" type="button">Info</button>
+              <button class="ui-button-warning" type="button">Warning</button>
+              <button class="ui-button-danger" type="button">Danger</button>
             </div>
           </div>
           <div class="ui-container-grid ui-skip-medium">
@@ -83,14 +83,14 @@
               </div>
             </div>
             <div class="ui-fluid-60 ui-phone-expand ui-float-right">
-              <button type="button" class="ui-button-outline ui-button-primary ui-zoom-huge">Huge</button>
-              <button type="button" class="ui-button-outline ui-button-success ui-zoom-large">Large</button>
-              <button type="button" class="ui-button-outline ui-button-info ui-zoom-medium">Medium</button>
-              <button type="button" class="ui-button-outline ui-button-warning ui-zoom-small">Small</button>
-              <button type="button" class="ui-button-outline ui-button-danger ui-zoom-tiny">Tiny</button>
+              <button class="ui-button-outline ui-button-primary ui-zoom-huge" type="button">Huge</button>
+              <button class="ui-button-outline ui-button-success ui-zoom-large" type="button">Large</button>
+              <button class="ui-button-outline ui-button-info ui-zoom-medium" type="button">Medium</button>
+              <button class="ui-button-outline ui-button-warning ui-zoom-small" type="button">Small</button>
+              <button class="ui-button-outline ui-button-danger ui-zoom-tiny" type="button">Tiny</button>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="buttons-src" type="checkbox" checked>
             <div>
               <pre><code class="language-markup">&lt;button type="button"&gt;Default&lt;/button&gt;
@@ -118,28 +118,28 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Button Groups</span>
-            <label for="button-groups-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="button-groups-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <div data-schema-trim class="ui-button-group ui-space-trim">
+            <div class="ui-button-group ui-space-trim" data-schema-trim>
               <button title="View chat history">View</button>
               <button title="Clear current chat room">Clear</button>
               <button title="Export chat data as JSON">Export</button>
               <button title="Delete all chat data">Delete</button>
             </div>
-            <div data-schema-trim class="ui-button-group ui-offset-medium ui-space-trim">
+            <div class="ui-button-group ui-offset-medium ui-space-trim" data-schema-trim>
               <button title="Refresh this page">Refresh</button>
               <button title="Close the connection">Close</button>
             </div>
           </div>
           <div class="ui-container-grid ui-skip-medium">
-            <div data-schema-trim class="ui-button-group ui-space-trim">
+            <div class="ui-button-group ui-space-trim" data-schema-trim>
               <input id="published-date" type="radio" name="sort" value="published" checked>
               <label for="published-date">Published Date</label>
-              <input id="updated-date" type="radio" name="sort" value="updated" class="ui-phone-hidden">
-              <label for="updated-date" class="ui-phone-hidden">Updated Date</label>
-              <input id="reader-counts" type="radio" name="sort" value="readers" class="ui-phone-hidden">
-              <label for="reader-counts" class="ui-phone-hidden">Reader Counts</label>
+              <input class="ui-phone-hidden" id="updated-date" type="radio" name="sort" value="updated">
+              <label class="ui-phone-hidden" for="updated-date">Updated Date</label>
+              <input class="ui-phone-hidden" id="reader-counts" type="radio" name="sort" value="readers">
+              <label class="ui-phone-hidden" for="reader-counts">Reader Counts</label>
               <input id="rating-score" type="radio" name="sort" value="rating">
               <label for="rating-score">Rating Score</label>
             </div>
@@ -147,22 +147,22 @@
               <input id="sort-order" type="checkbox" name="order" value="ascending">
               <label for="sort-order"><span><i data-schema-icon="sort-amount-asc" title="Ascending">Asc</i></span><span><i data-schema-icon="sort-amount-desc" title="Descending">Desc</i></span></label>
             </div>
-            <div data-schema-trim class="ui-button-group ui-space-trim ui-skip-medium">
+            <div class="ui-button-group ui-space-trim ui-skip-medium" data-schema-trim>
               <input id="physics" type="checkbox" name="groups" value="physics" checked>
               <label for="physics">Physics</label>
               <input id="math" type="checkbox" name="groups" value="math">
               <label for="math">Mathematics</label>
-              <input id="cs" type="checkbox" name="groups" value="cs" class="ui-phone-hidden">
-              <label for="cs" class="ui-phone-hidden">Computer Science</label>
-              <input id="q-bio" type="checkbox" name="groups" value="q-bio" class="ui-phone-hidden">
-              <label for="q-bio" class="ui-phone-hidden">Quantitative Biology</label>
-              <input id="q-fin" type="checkbox" name="groups" value="q-fin" class="ui-phone-hidden">
-              <label for="q-fin" class="ui-phone-hidden">Quantitative Finance</label>
+              <input class="ui-phone-hidden" id="cs" type="checkbox" name="groups" value="cs">
+              <label class="ui-phone-hidden" for="cs">Computer Science</label>
+              <input class="ui-phone-hidden" id="q-bio" type="checkbox" name="groups" value="q-bio">
+              <label class="ui-phone-hidden" for="q-bio">Quantitative Biology</label>
+              <input class="ui-phone-hidden" id="q-fin" type="checkbox" name="groups" value="q-fin">
+              <label class="ui-phone-hidden" for="q-fin">Quantitative Finance</label>
               <input id="stats" type="checkbox" name="groups" value="stats">
               <label for="stats">Statistics</label>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="button-groups-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;div class="ui-button-group ui-space-trim" data-schema-trim&gt;
@@ -214,21 +214,21 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Inline Form</span>
-            <label for="inline-form-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="inline-form-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/search" method="get" class="ui-grid-50 ui-phone-expand">
+            <form class="ui-grid-50 ui-phone-expand" action="http://arxitics.com/search" method="get">
               <input type="search" name="q" placeholder="Search or type a command" title="Type &quot;help&quot; to redirect to the help center">
               <button type="submit">Go!</button>
             </form>
-            <form action="http://arxitics.com/search" method="get" class="ui-grid-50 ui-phone-expand">
+            <form class="ui-grid-50 ui-phone-expand" action="http://arxitics.com/search" method="get">
               <div class="ui-input-addon">
                 <input type="search" name="q" placeholder="Search or type a command" title="Type &quot;help&quot; to redirect to the help center">
                 <button type="submit"><i data-schema-icon="search">Go!</i></button>
               </div>
             </form>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="inline-form-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;form action="http://arxitics.com/search" method="get"&gt;
@@ -241,10 +241,10 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Fluid Form</span>
-            <label for="fluid-form-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="fluid-form-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/browse" method="get" class="ui-grid-50 ui-phone-expand ui-form-fluid">
+            <form class="ui-grid-50 ui-phone-expand ui-form-fluid" action="http://arxitics.com/browse" method="get">
               <label for="categories">Categories</label>
               <input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" title="Multiple categories are separated by commas" required>
               <label for="keywords">Keywords</label>
@@ -253,11 +253,11 @@
                 <input type="checkbox" name="extend" value="true"> Use the extend mode to see more
               </label>
               <div class="ui-skip-large">
-                <button type="submit" class="ui-button-primary">Submit</button>
-                <button type="reset" class="ui-offset-medium">Reset</button>
+                <button class="ui-button-primary" type="submit">Submit</button>
+                <button class="ui-offset-medium" type="reset">Reset</button>
               </div>
             </form>
-            <form action="http://arxitics.com/search" method="get" class="ui-grid-50 ui-phone-expand ui-form-fluid">
+            <form class="ui-grid-50 ui-phone-expand ui-form-fluid" action="http://arxitics.com/search" method="get">
               <label for="subjects">Subjects</label>
               <input id="subjects" type="text" name="subjects" placeholder="11.15.Ha, 81T25, J.2, C87" title="Subjects refer to codes for the PACS, the MSC-class, the ACM-class, or the JEL-class">
               <label for="journal">Journal</label>
@@ -271,16 +271,16 @@
               </select>
               <div>
                 <input type="radio" name="date-range" value="past-week" checked> Past week
-                <input type="radio" name="date-range" value="past-month" class="ui-offset-medium"> Past month
-                <input type="radio" name="date-range" value="past-year" class="ui-offset-medium"> Past year
+                <input class="ui-offset-medium" type="radio" name="date-range" value="past-month"> Past month
+                <input class="ui-offset-medium" type="radio" name="date-range" value="past-year"> Past year
               </div>
               <div class="ui-skip-large">
-                <button type="submit" class="ui-button-primary">Submit</button>
-                <button type="reset" class="ui-offset-medium">Reset</button>
+                <button class="ui-button-primary" type="submit">Submit</button>
+                <button class="ui-offset-medium" type="reset">Reset</button>
               </div>
             </form>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="fluid-form-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;form class="ui-form-fluid" action="http://arxitics.com/browse" method="get"&gt;
@@ -302,34 +302,34 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Horizontal Form</span>
-            <label for="horizontal-form-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="horizontal-form-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
-            <form action="http://arxitics.com/search" method="get" class="ui-form-horizontal">
+            <form class="ui-form-horizontal" action="http://arxitics.com/search" method="get">
               <div class="ui-container-grid">
-                <label for="title" class="ui-grid-20">Title</label>
+                <label class="ui-grid-20" for="title">Title</label>
                 <div class="ui-grid-80">
                   <input id="title" type="text" name="title" placeholder="Bayesian probabilistic matrix factorization" title="Pattern matching for the &amp;quot;title&amp;quot; field is case-insensitive">
                 </div>
-                <label for="comments" class="ui-grid-20">Comments</label>
+                <label class="ui-grid-20" for="comments">Comments</label>
                 <div class="ui-grid-80">
                   <input id="comments" type="text" name="comments" placeholder="Les Houches summer school" title="Pattern matching for the &amp;quot;comments&amp;quot; field is case-insensitive">
                 </div>
-                <label for="sort" class="ui-grid-20">Sort by</label>
+                <label class="ui-grid-20" for="sort">Sort by</label>
                 <div class="ui-grid-80 ui-skip-tiny">
                   <input id="sort" type="radio" name="sort" value="published" checked> Published date
-                  <input type="radio" name="sort" value="updated" class="ui-offset-medium"> Updated date
-                  <input type="radio" name="sort" value="views" class="ui-offset-medium"> Article views
-                  <input type="radio" name="sort" value="rating" class="ui-offset-medium"> Rating score
+                  <input class="ui-offset-medium" type="radio" name="sort" value="updated"> Updated date
+                  <input class="ui-offset-medium" type="radio" name="sort" value="views"> Article views
+                  <input class="ui-offset-medium" type="radio" name="sort" value="rating"> Rating score
                 </div>
               </div>
               <div class="ui-text-center ui-skip-large">
-                <button type="submit" class="ui-button-primary">Submit</button>
-                <button type="reset" class="ui-offset-medium">Reset</button>
+                <button class="ui-button-primary" type="submit">Submit</button>
+                <button class="ui-offset-medium" type="reset">Reset</button>
               </div>
             </form>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="horizontal-form-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;form class="ui-form-horizontal" action="http://arxitics.com/search" method="get"&gt;
@@ -361,7 +361,7 @@
         </section>
         <section>
           <h4 class="ui-header-secondary"><span>Input Addons</span>
-            <label for="input-addons-src" class="ui-float-right"><i data-schema-icon="code"></i></label>
+            <label class="ui-float-right" for="input-addons-src"><i data-schema-icon="code"></i></label>
           </h4>
           <div class="ui-container-grid">
             <div class="ui-grid-50 ui-phone-expand">
@@ -377,7 +377,7 @@
               </div>
             </div>
           </div>
-          <div class="ui-toggle-target">
+          <div class="ui-toggle-target ui-skip-large">
             <input id="input-addons-src" type="checkbox">
             <div>
               <pre><code class="language-markup">&lt;div class="ui-input-addon"&gt;
@@ -395,11 +395,11 @@
       </article>
     </main>
     <footer class="ui-container-fluid">
-      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2016 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
+      <address class="ui-text-muted ui-mobile-expand"><span>&copy; 2014&ndash;2017 Arxitics &nbsp;</span><span>Code licensed under <a href="https://github.com/arxitics/ui-schema/blob/master/LICENSE" rel="external" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by-sa/4.0" rel="external" target="_blank">CC BY-SA 4.0</a>.</span></address>
     </footer>
-    <script src="./../dist/jquery-3.0.0.min.js"></script>
+    <script src="./../dist/jquery-3.2.1.min.js"></script>
     <script src="./../dist/prism-1.4.1.min.js"></script>
-    <script src="./../dist/ui-schema-0.4.3.min.js"></script>
+    <script src="./../dist/ui-schema-0.4.4.min.js"></script>
     <script src="./../dist/icons/brands.js"></script>
     <script src="./../dist/icons/devices.js"></script>
     <script src="./../dist/icons/editor.js"></script>

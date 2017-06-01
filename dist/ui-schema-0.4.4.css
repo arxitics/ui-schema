@@ -1,6 +1,6 @@
 /*!
- * UI Schema v0.4.3 (https://github.com/arxitics/ui-schema)
- * Copyright 2016 Arxitics <help@arxitics.com>
+ * UI Schema v0.4.4 (https://github.com/arxitics/ui-schema)
+ * Copyright 2017 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
 
@@ -784,7 +784,7 @@ pre {
   border: 1px solid #ccc;
   border-radius: 0.2rem;
   display: block;
-  margin: 1em 0;
+  margin: 0 0 1em;
   overflow: auto; /* 1 */
   padding: 0.6em;
   word-break: break-all;
@@ -2008,6 +2008,13 @@ tr:not(:first-child) > td {
 
 .ui-font-cursive {
   font-family: "Lucida Calligraphy", "URW Chancery L", "AR PL UKai", KaiTi, SimKai, cursive;
+}
+
+/**
+ *  Responsive font size based on the viewport height and width.
+ */
+.ui-font-responsive {
+  font-size: calc(1vw + 1vh);
 }
 
 /**
