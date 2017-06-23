@@ -21,7 +21,7 @@
 }
 
 .ui-menu-dropdown > ul,
-.ui-menu-selection > ul {
+.ui-menu-select > ul {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.2rem;
@@ -34,7 +34,7 @@
 }
 
 .ui-menu-dropdown > ul,
-.ui-menu-selection > ul > li:not(:first-child) {
+.ui-menu-select > ul > li:not(:first-child) {
   display: none;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .ui-menu-dropdown > :first-child,
-.ui-menu-selection > ul > li:first-child {
+.ui-menu-select > ul > li:first-child {
   cursor: pointer;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .ui-menu-dropdown:hover > ul,
-.ui-menu-selection:hover > ul > li {
+.ui-menu-select:hover > ul > li {
   display: block;
 }
 
@@ -76,22 +76,22 @@
 
 .ui-menu-dropdown > ul > li > a:focus,
 .ui-menu-dropdown > ul > li > a:hover,
-.ui-menu-selection > ul > li:hover {
+.ui-menu-select > ul > li:hover {
   background-color: #e8e8e8;
   color: #333;
 }
 
-.ui-menu-selection {
+.ui-menu-select {
   height: 2.4em;
   min-height: calc(2.4em + 2px);
 }
 
-.ui-menu-selection > ul {
+.ui-menu-select > ul {
   display: inline-block;
   max-height: 20em;
   overflow: auto;
 }
 
-.ui-menu-selection > ul > li {
+.ui-menu-select > ul > li {
   padding: 0.4em 0.8em;
 }
