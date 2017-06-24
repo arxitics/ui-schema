@@ -902,7 +902,7 @@ textarea {
   border-radius: 0.2rem;
   color: inherit; /* 1 */
   display: inline-block;
-  line-height: 1.6;
+  line-height: inherit;
   outline: none;
   padding: 0.4em 0.8em;
 }
@@ -1178,7 +1178,7 @@ option {
 }
 
 optgroup {
-  line-height: 1.6;
+  line-height: inherit;
 }
 
 /**
