@@ -447,8 +447,8 @@ textarea {
   border-radius: 0.2rem;
   color: inherit; /* 1 */
   display: inline-block;
-  outline: none;
   line-height: 1.6;
+  outline: none;
   padding: 0.4em 0.8em;
 }
 
