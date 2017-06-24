@@ -28,7 +28,7 @@ html(id=pageID lang=locale)
         link(rel='stylesheet' href=appDist + '/prism-1.4.1.min.css' media='all')
   if minimal
     block body
-  else 
+  else
     body
       header.ui-header-navbar.ui-container-fluid.ui-container-grid
         block header
@@ -66,11 +66,7 @@ html(id=pageID lang=locale)
         block footer
           address.ui-text-muted.ui-mobile-expand
             span &copy; 2014&ndash;2017 Arxitics &nbsp;
-            span Code licensed under 
-              a(href='https://github.com/arxitics/ui-schema/blob/master/LICENSE' rel='external' target='_blank') MIT
-              | , documentation under 
-              a(href='http://creativecommons.org/licenses/by-sa/4.0' rel='external' target='_blank') CC BY-SA 4.0
-              | .
+            span Code licensed under #[a(href='https://github.com/arxitics/ui-schema/blob/master/LICENSE' rel='external' target='_blank') MIT], documentation under #[a(href='http://creativecommons.org/licenses/by-sa/4.0' rel='external' target='_blank') CC BY-SA 4.0].
       block foot
         script(src=appDist + '/jquery-3.2.1.min.js')
         if prism
