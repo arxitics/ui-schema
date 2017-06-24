@@ -448,6 +448,7 @@ textarea {
   color: inherit; /* 1 */
   display: inline-block;
   outline: none;
+  line-height: 1.6;
   padding: 0.4em 0.8em;
 }
 
@@ -719,6 +720,10 @@ select:not([multiple]):not([size]) > option {
 
 option {
   padding: 0.4em 0.8em;
+}
+
+optgroup {
+  line-height: 1.6;
 }
 
 /**
