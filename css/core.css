@@ -480,6 +480,10 @@ input:focus {
   outline: none;
 }
 
+button:focus {
+  box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.075);
+}
+
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.

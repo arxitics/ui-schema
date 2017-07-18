@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.4.4 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.4.5 (https://github.com/arxitics/ui-schema)
  * Copyright 2017 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */

@@ -1,6 +1,6 @@
 {
   "name": "ui-schema",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "A cutting edge, lightweight, and powerful front-end framework for faster and easier web development",
   "keywords": [
     "CSS",
@@ -9,13 +9,10 @@
     "framework",
     "web development"
   ],
-  "homepage": "http://arxitics.github.io/ui-schema/",
+  "homepage": "https://arxitics.github.io/ui-schema/",
   "author": {
     "name": "Zan Pan",
     "email": "panzan89@gmail.com"
-  },
-  "scripts": {
-    "build": "sh build.sh"
   },
   "repository": {
     "type": "git",
