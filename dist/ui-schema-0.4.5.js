@@ -1,5 +1,5 @@
 /*!
- * UI Schema v0.4.4 (https://github.com/arxitics/ui-schema)
+ * UI Schema v0.4.5 (https://github.com/arxitics/ui-schema)
  * Copyright 2017 Arxitics <help@arxitics.com>
  * Licensed under MIT (https://github.com/arxitics/ui-schema/blob/master/LICENSE)
  */
@@ -668,7 +668,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
     var selector = schema.events.lazyload.selector;
-    var $elements = $(options && options.selector || selector);    $(window).on('scroll', function () {
+    var $elements = $(options && options.selector || selector);
+    $(window).on('scroll', function () {
       var $window = $(this);
       var top = $window.height() + $window.scrollTop();
       $elements.each(function () {
@@ -1109,7 +1110,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     date: /^((\d{4})\-(\d{2})\-(\d{2}))T((\d{2})\:(\d{2})\:(\d{2}))(\.(\d{3}))?Z$/,
     emoji: /(^|[^\w\"\'\`])(\:([\w\-]+)\:)/g,
     placeholder: /\$\{\s*([^\{\}\s]+)\s*\}/g,
-    url: /\b(ftp|https?|mailto|tel)\:\/\/[^\s\"]+(\/|\b)/g
+    url: /\b((ftp|https?)\:\/\/|(mailto|tel)\:)[^\s\"]+(\/|\b)/g
   };
 
 })(jQuery);
