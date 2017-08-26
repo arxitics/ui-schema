@@ -124,7 +124,8 @@
 .ui-nav-tabs > li {
   border: 1px solid transparent;
   border-bottom-color: #ccc;
-  border-radius: 0.2rem 0.2rem 0 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   margin-bottom: -1px;
 }
 
@@ -162,7 +163,6 @@
 
 .ui-nav-pills > li {
   border: 1px solid transparent;
-  border-radius: 0.2rem;
 }
 
 .ui-nav-pills > .ui-state-active {
@@ -171,13 +171,11 @@
 
 .ui-nav-stacked {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   overflow: hidden;
 }
 
 .ui-nav-breadcrumb {
   background-color: #f5f5f5;
-  border-radius: 0.2rem;
   color: #333;
   list-style: none;
   margin-bottom: 1rem;
@@ -201,7 +199,6 @@
 
 .ui-nav-pagination > li > :only-child {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   display: inline-block;
   padding: 0.4em 0.8em;
 }

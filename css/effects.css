@@ -27,17 +27,7 @@
 .ui-space-trim > button:first-child,
 .ui-space-trim > label:first-of-type,
 .ui-space-trim > li:first-child > :only-child {
-  border-bottom-left-radius: 0.2rem;
   border-left-width: 1px;
-  border-top-left-radius: 0.2rem;
-}
-
-.ui-space-trim > a:last-child,
-.ui-space-trim > button:last-child,
-.ui-space-trim > label:last-of-type,
-.ui-space-trim > li:last-child > :only-child {
-  border-bottom-right-radius: 0.2rem;
-  border-top-right-radius: 0.2rem;
 }
 
 .ui-border-none {
@@ -53,6 +43,11 @@
   border-bottom: 1px solid #ccc;
 }
 
+.ui-border-rounded,
+.ui-frame-rounded {
+  border-radius: 0.2rem;
+}
+
 .ui-seamless-top:not(:empty) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -64,15 +59,12 @@
   border-bottom-right-radius: 0;
 }
 
+.ui-frame-box,
 .ui-frame-rounded,
 .ui-frame-stadium,
 .ui-frame-circular {
   border: 1px solid #ccc;
   padding: 0.4em 0.8em;
-}
-
-.ui-frame-rounded {
-  border-radius: 0.2rem;
 }
 
 .ui-frame-stadium {

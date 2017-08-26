@@ -699,7 +699,6 @@ meter,
 progress {
   background: #f5f5f5;
   border: none;
-  border-radius: 0.2rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
   color: #428bca;
   display: block;
@@ -803,7 +802,6 @@ samp {
 
 kbd {
   border: 1px solid currentColor;
-  border-radius: 0.2rem;
   padding: 0.2em 0.4em;
 }
 
@@ -813,7 +811,6 @@ kbd {
 
 pre {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   display: block;
   margin: 0 0 1em;
   overflow: auto; /* 1 */
@@ -879,7 +876,6 @@ form {
 
 fieldset {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   margin: 1.6em 0;
   padding: 0.8em 1.2em;
 }
@@ -899,7 +895,6 @@ input,
 select,
 textarea {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   color: inherit; /* 1 */
   display: inline-block;
   line-height: inherit;
@@ -1002,14 +997,12 @@ input[type="file"]::-ms-browse,
 input[type="file"]::-ms-value {
   background: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   padding: 0.4em 0.8em;
 }
 
 input[type="file"]::-webkit-file-upload-button {
   background-color: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   cursor: pointer;
   outline: none;
   padding: 0.4em 0.8em;
@@ -1033,7 +1026,6 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-runnable-track {
   background: #ddd;
   border: none;
-  border-radius: 0.2rem;
   height: 0.4em;
   width: 100%;
 }
@@ -1057,7 +1049,6 @@ input[type="range"]::-moz-range-thumb {
 input[type="range"]::-moz-range-track {
   background: #ddd;
   border: none;
-  border-radius: 0.2rem;
   height: 0.4em;
   width: 100%;
 }
@@ -1068,12 +1059,10 @@ input[type="range"]:focus::-moz-range-track {
 
 input[type="range"]::-ms-fill-lower {
   background: #999;
-  border-radius: 0.2rem;
 }
 
 input[type="range"]::-ms-fill-upper {
   background: #ddd;
-  border-radius: 0.2rem;
 }
 
 /**
@@ -1801,7 +1790,8 @@ tr:not(:first-child) > td {
 .ui-nav-tabs > li {
   border: 1px solid transparent;
   border-bottom-color: #ccc;
-  border-radius: 0.2rem 0.2rem 0 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   margin-bottom: -1px;
 }
 
@@ -1839,7 +1829,6 @@ tr:not(:first-child) > td {
 
 .ui-nav-pills > li {
   border: 1px solid transparent;
-  border-radius: 0.2rem;
 }
 
 .ui-nav-pills > .ui-state-active {
@@ -1848,13 +1837,11 @@ tr:not(:first-child) > td {
 
 .ui-nav-stacked {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   overflow: hidden;
 }
 
 .ui-nav-breadcrumb {
   background-color: #f5f5f5;
-  border-radius: 0.2rem;
   color: #333;
   list-style: none;
   margin-bottom: 1rem;
@@ -1878,7 +1865,6 @@ tr:not(:first-child) > td {
 
 .ui-nav-pagination > li > :only-child {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   display: inline-block;
   padding: 0.4em 0.8em;
 }
@@ -1956,7 +1942,6 @@ tr:not(:first-child) > td {
 .ui-menu-select > ul {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   color: #333;
   list-style: none;
   padding-left: 0;
@@ -2244,7 +2229,6 @@ tr:not(:first-child) > td {
 .ui-text-button,
 .ui-content-link {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   cursor: pointer;
   padding: 0.4em 0.8em;
 }
@@ -2269,10 +2253,6 @@ tr:not(:first-child) > td {
   display: inline-block;
   line-height: 1;
   padding: 0.2em 0.4em;
-}
-
-.ui-text-label {
-  border-radius: 0.2rem;
 }
 
 .ui-text-badge {
@@ -2323,7 +2303,6 @@ tr:not(:first-child) > td {
 
 .ui-list-group {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   display: inline-block;
 }
 
@@ -2340,18 +2319,6 @@ tr:not(:first-child) > td {
 .ui-list-group > a + a,
 .ui-list-group > li + li {
   border-top: 1px solid #ccc;
-}
-
-.ui-list-group > a:first-child,
-.ui-list-group > li:first-child {
-  border-top-left-radius: 0.2rem;
-  border-top-right-radius: 0.2rem;
-}
-
-.ui-list-group > a:last-child,
-.ui-list-group > li:last-child {
-  border-bottom-left-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem;
 }
 
 .ui-list-group h4 {
@@ -2474,7 +2441,6 @@ tr:not(:first-child) > td {
 .ui-content-highlight {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   color: #333;
   display: block;
@@ -2487,7 +2453,6 @@ tr:not(:first-child) > td {
 
 .ui-content-jumbotron {
   background-color: #f5f5f5;
-  border-radius: 0.4rem;
   color: #333;
   display: block;
   padding: 1.6em 3.2em;
@@ -2500,7 +2465,6 @@ tr:not(:first-child) > td {
 
 .ui-content-alert {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   margin-bottom: 1rem;
   padding: 1.2em;
 }
@@ -2523,7 +2487,6 @@ tr:not(:first-child) > td {
 
 .ui-content-panel {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   margin-bottom: 1rem;
   overflow: hidden;
 }
@@ -2537,7 +2500,8 @@ tr:not(:first-child) > td {
 .ui-panel-header {
   background-color: #f5f5f5;
   border-bottom: inherit;
-  border-radius: 0.2rem 0.2rem 0 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   color: #333;
   padding: 0.4em 0.8em;
 }
@@ -2692,7 +2656,6 @@ tr:not(:first-child) > td {
 
 .ui-input-addon > :not(button):not(input) {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   padding: 0.4em 0.8em;
 }
 
@@ -2753,7 +2716,6 @@ tr:not(:first-child) > td {
 .ui-button-group > label,
 .ui-button-switch > label {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   display: inline-block;
   font-weight: normal;
 }
@@ -2835,7 +2797,6 @@ tr:not(:first-child) > td {
 .ui-table-bordered {
   border: 1px solid #ccc;
   border-collapse: separate;
-  border-radius: 0.2rem;
 }
 
 .ui-table-bordered th + th,
@@ -2886,12 +2847,6 @@ tr:not(:first-child) > td {
 
 .ui-image-circular {
   border-radius: 50%;
-}
-
-.ui-image-rounded,
-.ui-image-thumbnail,
-.ui-image-thumbnail + .ui-image-reveal {
-  border-radius: 0.2rem;
 }
 
 .ui-image-thumbnail {
@@ -2983,10 +2938,6 @@ tr:not(:first-child) > td {
   border: 1px solid #ccc;
   padding: 0.2em;
   width: 1.4em;
-}
-
-.ui-icon-bordered {
-  border-radius: 0.2rem;
 }
 
 .ui-icon-circular {
@@ -3407,17 +3358,7 @@ tr:not(:first-child) > td {
 .ui-space-trim > button:first-child,
 .ui-space-trim > label:first-of-type,
 .ui-space-trim > li:first-child > :only-child {
-  border-bottom-left-radius: 0.2rem;
   border-left-width: 1px;
-  border-top-left-radius: 0.2rem;
-}
-
-.ui-space-trim > a:last-child,
-.ui-space-trim > button:last-child,
-.ui-space-trim > label:last-of-type,
-.ui-space-trim > li:last-child > :only-child {
-  border-bottom-right-radius: 0.2rem;
-  border-top-right-radius: 0.2rem;
 }
 
 .ui-border-none {
@@ -3433,6 +3374,11 @@ tr:not(:first-child) > td {
   border-bottom: 1px solid #ccc;
 }
 
+.ui-border-rounded,
+.ui-frame-rounded {
+  border-radius: 0.2rem;
+}
+
 .ui-seamless-top:not(:empty) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -3444,15 +3390,12 @@ tr:not(:first-child) > td {
   border-bottom-right-radius: 0;
 }
 
+.ui-frame-box,
 .ui-frame-rounded,
 .ui-frame-stadium,
 .ui-frame-circular {
   border: 1px solid #ccc;
   padding: 0.4em 0.8em;
-}
-
-.ui-frame-rounded {
-  border-radius: 0.2rem;
 }
 
 .ui-frame-stadium {
@@ -3577,7 +3520,6 @@ tr:not(:first-child) > td {
 .ui-tooltip-content {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   color: #333;
   display: none;
   min-width: 168px;
@@ -3741,7 +3683,6 @@ tr:not(:first-child) > td {
 .ui-lightbox-content > div,
 .ui-lightbox-content > figure {
   background-color: #fff;
-  border-radius: 0.2rem;
   box-shadow: 0 0 1em #ccc;
   color: #333;
   display: block;

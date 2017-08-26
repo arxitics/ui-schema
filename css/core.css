@@ -244,7 +244,6 @@ meter,
 progress {
   background: #f5f5f5;
   border: none;
-  border-radius: 0.2rem;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
   color: #428bca;
   display: block;
@@ -348,7 +347,6 @@ samp {
 
 kbd {
   border: 1px solid currentColor;
-  border-radius: 0.2rem;
   padding: 0.2em 0.4em;
 }
 
@@ -358,7 +356,6 @@ kbd {
 
 pre {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   display: block;
   margin: 0 0 1em;
   overflow: auto; /* 1 */
@@ -424,7 +421,6 @@ form {
 
 fieldset {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   margin: 1.6em 0;
   padding: 0.8em 1.2em;
 }
@@ -444,7 +440,6 @@ input,
 select,
 textarea {
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   color: inherit; /* 1 */
   display: inline-block;
   line-height: inherit;
@@ -547,14 +542,12 @@ input[type="file"]::-ms-browse,
 input[type="file"]::-ms-value {
   background: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   padding: 0.4em 0.8em;
 }
 
 input[type="file"]::-webkit-file-upload-button {
   background-color: transparent;
   border: 1px solid #ccc;
-  border-radius: 0.2rem;
   cursor: pointer;
   outline: none;
   padding: 0.4em 0.8em;
@@ -578,7 +571,6 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-runnable-track {
   background: #ddd;
   border: none;
-  border-radius: 0.2rem;
   height: 0.4em;
   width: 100%;
 }
@@ -602,7 +594,6 @@ input[type="range"]::-moz-range-thumb {
 input[type="range"]::-moz-range-track {
   background: #ddd;
   border: none;
-  border-radius: 0.2rem;
   height: 0.4em;
   width: 100%;
 }
@@ -613,12 +604,10 @@ input[type="range"]:focus::-moz-range-track {
 
 input[type="range"]::-ms-fill-lower {
   background: #999;
-  border-radius: 0.2rem;
 }
 
 input[type="range"]::-ms-fill-upper {
   background: #ddd;
-  border-radius: 0.2rem;
 }
 
 /**
