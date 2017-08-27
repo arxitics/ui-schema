@@ -440,6 +440,7 @@ input,
 select,
 textarea {
   border: 1px solid #ccc;
+  border-radius: 0;
   color: inherit; /* 1 */
   display: inline-block;
   line-height: inherit;
