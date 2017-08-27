@@ -26,6 +26,14 @@ html(id=pageID lang=locale)
       link(rel='stylesheet' href=appDist + '/ui-schema-' + version + '.min.css' media='all')
       if prism
         link(rel='stylesheet' href=appDist + '/prism-1.4.1.min.css' media='all')
+      if customized
+        style.
+          :root {
+            --background-color: #333;
+            --border-radius: 0.2rem;
+            --dark-background-color: #000;
+            --text-color: #fff;
+          }
   if minimal
     block body
   else

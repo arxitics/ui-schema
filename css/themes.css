@@ -11,7 +11,9 @@
 .ui-theme-dark .ui-lightbox-content > div,
 .ui-theme-dark .ui-lightbox-content > figure {
   background-color: #333;
+  background-color: var(--background-color, #333);
   color: #fff;
+  color: var(--text-color, #fff);
 }
 
 .ui-theme-dark .ui-header-navbar,
@@ -23,31 +25,39 @@
 .ui-theme-dark .ui-content-jumbotron,
 .ui-theme-dark .ui-state-active {
   background-color: #000;
+  background-color: var(--dark-background-color, #000);
   color: #fff;
+  color: var(--text-color, #fff);
 }
 
 .ui-theme-dark .ui-text-active,
 .ui-theme-dark .ui-state-active a {
   color: #fff;
+  color: var(--text-color, #fff);
 }
 
 .ui-theme-dark .ui-tooltip-top::after {
   border-top-color: #333;
+  border-top-color: var(--background-color, #333);
 }
 
 .ui-theme-dark .ui-tooltip-right::after {
   border-right-color: #333;
+  border-right-color: var(--background-color, #333);
 }
 
 .ui-theme-dark .ui-tooltip-bottom::after {
   border-bottom-color: #333;
+  border-bottom-color: var(--background-color, #333);
 }
 
 .ui-theme-dark .ui-tooltip-left::after {
   border-left-color: #333;
+  border-left-color: var(--background-color, #333);
 }
 
 .ui-theme-dark .ui-background-inverse::first-line,
 .ui-theme-dark .ui-background-inverse > :not(:empty) {
   color: #333;
+  color: var(--background-color, #333);
 }

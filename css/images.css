@@ -16,6 +16,15 @@
   border-radius: 50%;
 }
 
+.ui-image-rounded {
+  border-radius: var(--border-radius, 0.2rem);
+}
+
+.ui-image-thumbnail,
+.ui-image-thumbnail + .ui-image-reveal {
+  border-radius: var(--border-radius, 0);
+}
+
 .ui-image-thumbnail {
   border: 1px solid #ddd;
   max-width: calc(100% - 0.4rem - 2px);

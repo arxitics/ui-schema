@@ -27,7 +27,17 @@
 .ui-space-trim > button:first-child,
 .ui-space-trim > label:first-of-type,
 .ui-space-trim > li:first-child > :only-child {
+  border-bottom-left-radius: var(--border-radius, 0);
   border-left-width: 1px;
+  border-top-left-radius: var(--border-radius, 0);
+}
+
+.ui-space-trim > a:last-child,
+.ui-space-trim > button:last-child,
+.ui-space-trim > label:last-of-type,
+.ui-space-trim > li:last-child > :only-child {
+  border-bottom-right-radius: var(--border-radius, 0);
+  border-top-right-radius: var(--border-radius, 0);
 }
 
 .ui-border-none {
@@ -45,7 +55,7 @@
 
 .ui-border-rounded,
 .ui-frame-rounded {
-  border-radius: 0.2rem;
+  border-radius: var(--border-radius, 0.2rem);
 }
 
 .ui-seamless-top:not(:empty) {

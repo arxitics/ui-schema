@@ -8,18 +8,15 @@ block variables
 
 block article
   h3.ui-header-primary Overview
-  p We use
-    code.ui-color-emphasis schema
-    |  as the JavaScript namespace and
-    code.ui-color-emphasis data-schema-*
-    |  for data attributes.
+  p.
+    We use #[code.ui-color-emphasis schema] as the JavaScript namespace and #[code.ui-color-emphasis data-schema-*] for data attributes.
   .ui-frame-box
     .ui-form-fluid.ui-skip-medium
       input(type='text' placeholder='Please input something...' data-schema-model='message' data-schema-value='Hello world!' data-schema-adapter='escape' data-schema-trigger='keyup')
     .ui-skip-medium
       .ui-content-alert(data-schema-view='message' data-schema-controller='encrypt')
         p Message: #[strong ${message}]
-        p Encrypt:
+        p Encrypt: 
           span(data-schema-view='icons' data-schema-iteration='icon of icons')
             i(data-schema-icon='${icon}')
         p Count: #[code ${count}]

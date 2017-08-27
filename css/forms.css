@@ -67,6 +67,7 @@
 
 .ui-input-addon > :not(button):not(input) {
   border: 1px solid #ccc;
+  border-radius: var(--border-radius, 0);
   padding: 0.4em 0.8em;
 }
 
@@ -127,6 +128,7 @@
 .ui-button-group > label,
 .ui-button-switch > label {
   border: 1px solid #ccc;
+  border-radius: var(--border-radius, 0);
   display: inline-block;
   font-weight: normal;
 }

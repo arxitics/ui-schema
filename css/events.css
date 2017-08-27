@@ -49,6 +49,7 @@
 .ui-lightbox-content > div,
 .ui-lightbox-content > figure {
   background-color: #fff;
+  border-radius: var(--border-radius, 0);
   box-shadow: 0 0 1em #ccc;
   color: #333;
   display: block;

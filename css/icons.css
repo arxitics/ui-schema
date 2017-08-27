@@ -19,6 +19,10 @@
   width: 1.4em;
 }
 
+.ui-icon-bordered {
+  border-radius: var(--border-radius, 0);
+}
+
 .ui-icon-circular {
   border-radius: 50%;
 }

@@ -44,7 +44,7 @@ gulp.task('csslint', function () {
       'unqualified-attributes': false,
       'vendor-prefix': false
     }))
-    .pipe(csslint.reporter('default'));
+    .pipe(csslint.formatter());
 });
 
 gulp.task('concat-css', function () {
