@@ -73,7 +73,7 @@ html {
 }
 
 /**
- * 1. The font-size should be set `75%` for the layout design.
+ * 1. The font-size should be set `70%` for the layout design.
  * 2. Emphasize geometric precision over rendering speed and legibility.
  */
 
@@ -91,7 +91,7 @@ body {
  */
 
 main {
-  margin: 2rem 0; /* 1 */
+  margin: 2rem auto; /* 1 */
   min-height: calc(100vh - 9rem); /* 2 */
 }
 
@@ -231,7 +231,7 @@ details {
 }
 
 /**
- * 1. Use the defaut value of `display` in Firefox.
+ * 1. Use the default value of `display` in Firefox.
  */
 
 details > summary:first-of-type {

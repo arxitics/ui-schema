@@ -183,7 +183,9 @@ block article
         label(for='keywords') Keywords
         input(id='keywords' type='text' name='keywords' placeholder='perturbative gauge theory' title='Multiple keywords are separated by commas')
         label
-          input(type='checkbox' name='extend' value='true')
+          span.ui-checkbox-control
+            input(type='checkbox' name='extend' value='true')
+            span.ui-checkbox-indicator
           |  Use the extend mode to see more
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
@@ -200,11 +202,17 @@ block article
           option(value='Phys. Rev. E') Physical Review E
           option(value='Phys. Rev. X') Physical Review X
         div
-          input(type='radio' name='date-range' value='past-week' checked)
+          span.ui-radio-control
+            input(type='radio' name='date-range' value='past-week' checked)
+            span.ui-radio-indicator
           |  Past week
-          input.ui-offset-medium(type='radio' name='date-range' value='past-month')
+          span.ui-radio-control.ui-offset-medium
+            input(type='radio' name='date-range' value='past-month')
+            span.ui-radio-indicator
           |  Past month
-          input.ui-offset-medium(type='radio' name='date-range' value='past-year')
+          span.ui-radio-control.ui-offset-medium
+            input(type='radio' name='date-range' value='past-year')
+            span.ui-radio-indicator
           |  Past year
         .ui-skip-large
           button.ui-button-primary(type='submit') Submit
@@ -219,7 +227,11 @@ block article
             &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
             &lt;input id="keywords" type="text" name="keywords" placeholder="perturbative gauge theory"&gt;
             &lt;label&gt;
-              &lt;input type="checkbox" name="extend" value="true"&gt; Use the extend mode to see more
+              &lt;span class="ui-checkbox-control"&gt;
+                &lt;input type="checkbox" name="extend" value="true"&gt;
+                &lt;span class="ui-checkbox-indicator"&gt;&lt;/span&gt;
+              &lt;/span&gt;
+              Use the extend mode to see more
             &lt;/label&gt;
             &lt;div class="ui-skip-large"&gt;
               &lt;button type="submit" class="ui-button-primary"&gt;Submit&lt;/button&gt;
@@ -243,13 +255,21 @@ block article
             input(id='comments' type='text' name='comments' placeholder='Les Houches summer school' title='Pattern matching for the &quot;comments&quot; field is case-insensitive')
           label.ui-grid-20(for='sort') Sort by
           .ui-grid-80.ui-skip-tiny
-            input(id='sort' type='radio' name='sort' value='published' checked)
+            span.ui-radio-control
+              input(id='sort' type='radio' name='sort' value='published' checked)
+              span.ui-radio-indicator
             |  Published date
-            input.ui-offset-medium(type='radio' name='sort' value='updated')
+            span.ui-radio-control.ui-offset-medium
+              input(type='radio' name='sort' value='updated')
+              span.ui-radio-indicator
             |  Updated date
-            input.ui-offset-medium(type='radio' name='sort' value='views')
+            span.ui-radio-control.ui-offset-medium
+              input(type='radio' name='sort' value='views')
+              span.ui-radio-indicator
             |  Article views
-            input.ui-offset-medium(type='radio' name='sort' value='rating')
+            span.ui-radio-control.ui-offset-medium
+              input(type='radio' name='sort' value='rating')
+              span.ui-radio-indicator
             |  Rating score
         .ui-text-center.ui-skip-large
           button.ui-button-primary(type='submit') Submit
@@ -270,10 +290,11 @@ block article
               &lt;/div&gt;
               &lt;label for="sort" class="ui-grid-20"&gt;Sort by&lt;/label&gt;
               &lt;div class="ui-grid-80 ui-skip-tiny"&gt;
-                &lt;input id="sort" type="radio" name="sort" value="published" checked&gt; Published date
-                &lt;input class="ui-offset-medium" type="radio" name="sort" value="updated"&gt; Updated date
-                &lt;input class="ui-offset-medium" type="radio" name="sort" value="views"&gt; Article views
-                &lt;input class="ui-offset-medium" type="radio" name="sort" value="rating"&gt; Rating score
+                &lt;span class="ui-radio-control"&gt;
+                  &lt;input id="sort" type="radio" name="sort" value="published" checked&gt;
+                  &lt;span class="ui-radio-indicator"&gt;&lt;/span&gt;
+                &lt;/span&gt;
+                Published date
               &lt;/div&gt;
             &lt;/div&gt;
             &lt;div class="ui-text-center ui-skip-large"&gt;

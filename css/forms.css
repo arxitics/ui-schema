@@ -198,3 +198,65 @@
 .ui-checkbox-counter .ui-counter-content::after {
   content: counter(checkbox);
 }
+
+.ui-checkbox-control,
+.ui-radio-control {
+  border: 1px solid currentColor;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  height: 1em;
+  opacity: 0.65;
+  position: relative;
+  vertical-align: text-top;
+  width: 1em;
+}
+
+.ui-checkbox-control {
+  border-radius: calc(var(--border-radius, 0) / 2);
+}
+
+.ui-radio-control {
+  border-radius: 50%;
+}
+
+.ui-checkbox-control > input,
+.ui-radio-control > input {
+  height: 1em;
+  opacity: 0;
+  vertical-align: top;
+  width: 1em;
+}
+
+.ui-checkbox-indicator,
+.ui-radio-indicator {
+  border: 0.2em solid currentColor;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 0.4em;
+  left: 0.1em;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.ui-checkbox-indicator {
+  border-right: none;
+  border-top: none;
+  top: 0.2em;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 0.7em;
+}
+
+.ui-radio-indicator {
+  border-radius: 50%;
+  border-width: 0.4em;
+  top: 0.1em;
+  width: 0.4em;
+}
+
+.ui-checkbox-control > input:checked + .ui-checkbox-indicator,
+.ui-radio-control > input:checked + .ui-radio-indicator {
+  opacity: 1;
+}

@@ -33,7 +33,6 @@
         box-shadow: none;
         padding-left: 0;
         padding-right: 0;
-        vertical-align: middle;
       }
       
       #todos-stats > div {
@@ -73,9 +72,8 @@
           <table class="ui-table-fluid" id="todos-list">
             <thead data-schema-event="init selectall">
               <tr>
-                <th>
-                  <input type="checkbox" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-selectall>
-                </th>
+                <th><span class="ui-checkbox-control">
+                    <input type="checkbox" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-selectall><span class="ui-checkbox-indicator"></span></span></th>
                 <th colspan="2">
                   <input class="ui-block-fluid" type="text" placeholder="What needs to be done?" data-schema-model="todo" data-schema-trigger="change" data-schema-controller="add" data-schema-empty>
                 </th>
@@ -83,9 +81,8 @@
             </thead>
             <tbody data-schema-view="items" data-schema-iteration="item of items" data-schema-adapter="filter" data-schema-event="select edit close">
               <tr id="todo-${item.id}">
-                <td>
-                  <input type="checkbox" data-schema-select>
-                </td>
+                <td><span class="ui-checkbox-control">
+                    <input type="checkbox" data-schema-select><span class="ui-checkbox-indicator"></span></span></td>
                 <td>
                   <div spellcheck="false" contenteditable data-schema-edit>${item.todo}</div>
                 </td>

@@ -65,7 +65,6 @@
 .ui-tooltip-content {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: var(--border-radius, 0);
   color: #333;
   display: none;
   min-width: 168px;

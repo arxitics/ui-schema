@@ -32,7 +32,6 @@ block append head
       box-shadow: none;
       padding-left: 0;
       padding-right: 0;
-      vertical-align: middle;
     }
 
     #todos-stats > div {
@@ -71,11 +70,17 @@ block prepend body
           table#todos-list.ui-table-fluid
             thead(data-schema-event='init selectall')
               tr
-                th: input(type='checkbox' data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-selectall)
+                th
+                  span.ui-checkbox-control
+                    input(type='checkbox' data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-selectall)
+                    span.ui-checkbox-indicator
                 th(colspan='2'): input.ui-block-fluid(type='text' placeholder='What needs to be done?' data-schema-model='todo' data-schema-trigger='change' data-schema-controller='add' data-schema-empty)
             tbody(data-schema-view='items' data-schema-iteration='item of items' data-schema-adapter='filter' data-schema-event='select edit close')
               tr(id='todo-${item.id}')
-                td: input(type='checkbox' data-schema-select)
+                td
+                  span.ui-checkbox-control
+                    input(type='checkbox' data-schema-select)
+                    span.ui-checkbox-indicator
                 td: div(spellcheck='false' contenteditable data-schema-edit) ${item.todo}
                 td: span.ui-color-emphasis.ui-zoom-large(data-schema-close) &times;
         #todos-stats.ui-panel-footer.ui-container-grid(data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-event='classify clear')
