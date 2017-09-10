@@ -528,7 +528,7 @@ html {
 }
 
 /**
- * 1. The font-size should be set `75%` for the layout design.
+ * 1. The font-size should be set `70%` for the layout design.
  * 2. Emphasize geometric precision over rendering speed and legibility.
  */
 
@@ -546,7 +546,7 @@ body {
  */
 
 main {
-  margin: 2rem 0; /* 1 */
+  margin: 2rem auto; /* 1 */
   min-height: calc(100vh - 9rem); /* 2 */
 }
 
@@ -686,7 +686,7 @@ details {
 }
 
 /**
- * 1. Use the defaut value of `display` in Firefox.
+ * 1. Use the default value of `display` in Firefox.
  */
 
 details > summary:first-of-type {
@@ -2826,6 +2826,71 @@ tr:not(:first-child) > td {
   content: counter(checkbox);
 }
 
+.ui-checkbox-control,
+.ui-radio-control {
+  border: 1px solid currentColor;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  height: 1em;
+  opacity: 0.65;
+  position: relative;
+  vertical-align: text-top;
+  width: 1em;
+}
+
+.ui-checkbox-control {
+  border-radius: calc(var(--border-radius, 0) / 2);
+}
+
+.ui-radio-control {
+  border-radius: 50%;
+}
+
+.ui-checkbox-control > input,
+.ui-radio-control > input {
+  height: 1em;
+  opacity: 0;
+  vertical-align: top;
+  width: 1em;
+}
+
+.ui-checkbox-indicator,
+.ui-radio-indicator {
+  border: 0.2em solid currentColor;
+  box-sizing: border-box;
+  display: inline-block;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.ui-checkbox-indicator {
+  border-right: none;
+  border-top: none;
+  height: 0.4em;
+  left: 0.1em;
+  top: 0.2em;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 0.7em;
+}
+
+.ui-radio-indicator {
+  background: currentColor content-box;
+  border-color: transparent;
+  border-radius: 50%;
+  height: 1em;
+  left: -1px;
+  top: -1px;
+  width: 1em;
+}
+
+.ui-checkbox-control > input:checked + .ui-checkbox-indicator,
+.ui-radio-control > input:checked + .ui-radio-indicator {
+  opacity: 1;
+}
+
 /*!
  * Tables
  */
@@ -3621,7 +3686,6 @@ tr:not(:first-child) > td {
 .ui-tooltip-content {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: var(--border-radius, 0);
   color: #333;
   display: none;
   min-width: 168px;

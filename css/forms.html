@@ -249,9 +249,8 @@
               <input id="categories" type="text" name="categories" placeholder="math-ph, math.MP, cs.CC" title="Multiple categories are separated by commas" required>
               <label for="keywords">Keywords</label>
               <input id="keywords" type="text" name="keywords" placeholder="perturbative gauge theory" title="Multiple keywords are separated by commas">
-              <label>
-                <input type="checkbox" name="extend" value="true"> Use the extend mode to see more
-              </label>
+              <label><span class="ui-checkbox-control">
+                  <input type="checkbox" name="extend" value="true"><span class="ui-checkbox-indicator"></span></span> Use the extend mode to see more</label>
               <div class="ui-skip-large">
                 <button class="ui-button-primary" type="submit">Submit</button>
                 <button class="ui-offset-medium" type="reset">Reset</button>
@@ -269,11 +268,10 @@
                 <option value="Phys. Rev. E">Physical Review E</option>
                 <option value="Phys. Rev. X">Physical Review X</option>
               </select>
-              <div>
-                <input type="radio" name="date-range" value="past-week" checked> Past week
-                <input class="ui-offset-medium" type="radio" name="date-range" value="past-month"> Past month
-                <input class="ui-offset-medium" type="radio" name="date-range" value="past-year"> Past year
-              </div>
+              <div><span class="ui-radio-control">
+                  <input type="radio" name="date-range" value="past-week" checked><span class="ui-radio-indicator"></span></span> Past week<span class="ui-radio-control ui-offset-medium">
+                  <input type="radio" name="date-range" value="past-month"><span class="ui-radio-indicator"></span></span> Past month<span class="ui-radio-control ui-offset-medium">
+                  <input type="radio" name="date-range" value="past-year"><span class="ui-radio-indicator"></span></span> Past year</div>
               <div class="ui-skip-large">
                 <button class="ui-button-primary" type="submit">Submit</button>
                 <button class="ui-offset-medium" type="reset">Reset</button>
@@ -289,7 +287,11 @@
   &lt;label for="keywords"&gt;Keywords&lt;/label&gt;
   &lt;input id="keywords" type="text" name="keywords" placeholder="perturbative gauge theory"&gt;
   &lt;label&gt;
-    &lt;input type="checkbox" name="extend" value="true"&gt; Use the extend mode to see more
+    &lt;span class="ui-checkbox-control"&gt;
+      &lt;input type="checkbox" name="extend" value="true"&gt;
+      &lt;span class="ui-checkbox-indicator"&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    Use the extend mode to see more
   &lt;/label&gt;
   &lt;div class="ui-skip-large"&gt;
     &lt;button type="submit" class="ui-button-primary"&gt;Submit&lt;/button&gt;
@@ -316,12 +318,11 @@
                   <input id="comments" type="text" name="comments" placeholder="Les Houches summer school" title="Pattern matching for the &amp;quot;comments&amp;quot; field is case-insensitive">
                 </div>
                 <label class="ui-grid-20" for="sort">Sort by</label>
-                <div class="ui-grid-80 ui-skip-tiny">
-                  <input id="sort" type="radio" name="sort" value="published" checked> Published date
-                  <input class="ui-offset-medium" type="radio" name="sort" value="updated"> Updated date
-                  <input class="ui-offset-medium" type="radio" name="sort" value="views"> Article views
-                  <input class="ui-offset-medium" type="radio" name="sort" value="rating"> Rating score
-                </div>
+                <div class="ui-grid-80 ui-skip-tiny"><span class="ui-radio-control">
+                    <input id="sort" type="radio" name="sort" value="published" checked><span class="ui-radio-indicator"></span></span> Published date<span class="ui-radio-control ui-offset-medium">
+                    <input type="radio" name="sort" value="updated"><span class="ui-radio-indicator"></span></span> Updated date<span class="ui-radio-control ui-offset-medium">
+                    <input type="radio" name="sort" value="views"><span class="ui-radio-indicator"></span></span> Article views<span class="ui-radio-control ui-offset-medium">
+                    <input type="radio" name="sort" value="rating"><span class="ui-radio-indicator"></span></span> Rating score</div>
               </div>
               <div class="ui-text-center ui-skip-large">
                 <button class="ui-button-primary" type="submit">Submit</button>
@@ -344,10 +345,11 @@
     &lt;/div&gt;
     &lt;label for="sort" class="ui-grid-20"&gt;Sort by&lt;/label&gt;
     &lt;div class="ui-grid-80 ui-skip-tiny"&gt;
-      &lt;input id="sort" type="radio" name="sort" value="published" checked&gt; Published date
-      &lt;input class="ui-offset-medium" type="radio" name="sort" value="updated"&gt; Updated date
-      &lt;input class="ui-offset-medium" type="radio" name="sort" value="views"&gt; Article views
-      &lt;input class="ui-offset-medium" type="radio" name="sort" value="rating"&gt; Rating score
+      &lt;span class="ui-radio-control"&gt;
+        &lt;input id="sort" type="radio" name="sort" value="published" checked&gt;
+        &lt;span class="ui-radio-indicator"&gt;&lt;/span&gt;
+      &lt;/span&gt;
+      Published date
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="ui-text-center ui-skip-large"&gt;
