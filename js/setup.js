@@ -28,6 +28,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       namespace: 'schema-namespace',
       selector: 'schema-selector',
       options: 'schema-options',
+      animation: 'schema-animation',
       model: 'schema-model',
       value: 'schema-value',
       text: 'schema-text',

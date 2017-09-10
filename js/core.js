@@ -231,12 +231,13 @@
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
-      var $template = $data.template;
+      var animation = $data.animation;
       var controller = $data.controller;
       var condition = $data.condition;
       var iteration = $data.iteration;
       var adapter = $data.adapter;
       var view = $data.view;
+      var $template = $data.template;
       var $cache = $this.html();
       var $html = '';
       var ready = true;
@@ -302,9 +303,11 @@
             }
           }
         }
+        $this.css('visibility', 'visible');
         $this.show();
       } else {
-        $this.hide();
+        $this.css('visibility', 'hidden');
+        $this.hide(animation);
       }
     });
   };

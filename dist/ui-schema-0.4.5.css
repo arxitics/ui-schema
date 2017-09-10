@@ -1204,6 +1204,10 @@ optgroup {
   opacity: 0.65;
 }
 
+[contenteditable]:focus {
+  outline: 1px dotted currentColor;
+}
+
 ::-moz-selection {
   background-color: #3071a9;
   color: #fff;
@@ -1568,7 +1572,7 @@ tr:not(:first-child) > td {
   height: 100vh;
 }
 
-.ui-full-page {
+.ui-full-viewport {
   height: 100vh;
   max-width: 100%;
   position: relative;
@@ -2835,7 +2839,7 @@ tr:not(:first-child) > td {
   height: 1em;
   opacity: 0.65;
   position: relative;
-  vertical-align: text-top;
+  vertical-align: sub;
   width: 1em;
 }
 
@@ -2860,8 +2864,6 @@ tr:not(:first-child) > td {
   border: 0.2em solid currentColor;
   box-sizing: border-box;
   display: inline-block;
-  height: 0.4em;
-  left: 0.1em;
   opacity: 0;
   position: absolute;
   z-index: -1;
@@ -2870,6 +2872,8 @@ tr:not(:first-child) > td {
 .ui-checkbox-indicator {
   border-right: none;
   border-top: none;
+  height: 0.4em;
+  left: 0.1em;
   top: 0.2em;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -2877,10 +2881,13 @@ tr:not(:first-child) > td {
 }
 
 .ui-radio-indicator {
+  background: currentColor content-box;
+  border-color: transparent;
   border-radius: 50%;
-  border-width: 0.4em;
-  top: 0.1em;
-  width: 0.4em;
+  height: 1em;
+  left: -1px;
+  top: -1px;
+  width: 1em;
 }
 
 .ui-checkbox-control > input:checked + .ui-checkbox-indicator,
@@ -4099,22 +4106,22 @@ tr:not(:first-child) > td {
  * Pages
  */
 
-.ui-a4-paper {
+.ui-page-a4 {
   height: 297mm;
   width: 210mm;
 }
 
-.ui-a5-paper {
+.ui-page-a5 {
   height: 210mm;
   width: 148mm;
 }
 
-.ui-b5-paper {
+.ui-page-b5 {
   height: 250mm;
   width: 176mm;
 }
 
-.ui-letter-paper {
+.ui-page-letter {
   height: 279.4mm;
   width: 215.9mm;
 }

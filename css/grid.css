@@ -295,7 +295,7 @@
   height: 100vh;
 }
 
-.ui-full-page {
+.ui-full-viewport {
   height: 100vh;
   max-width: 100%;
   position: relative;

@@ -749,6 +749,10 @@ optgroup {
   opacity: 0.65;
 }
 
+[contenteditable]:focus {
+  outline: 1px dotted currentColor;
+}
+
 ::-moz-selection {
   background-color: #3071a9;
   color: #fff;

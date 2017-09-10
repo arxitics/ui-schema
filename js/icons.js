@@ -13,6 +13,7 @@
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
+      var animation = $data.animation || false;
       var name = $data.icon || 'unknown';
       var icon = icons[name] || icons.unknown;
       if ($.type(icon) === 'string') {
@@ -49,8 +50,11 @@
         element.setAttribute('d', path);
         svg.appendChild(element);
       }
-
-      $this.html(svg);
+      if (!$this.html() && animation) {
+        $this.hide().html(svg).show(animation);
+      } else {
+        $this.html(svg);
+      }
     });
   };
 

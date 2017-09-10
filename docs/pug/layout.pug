@@ -43,24 +43,24 @@ html(id=pageID lang=locale)
           .ui-navbar-brand
             h2: a(href=appDocs + '/index.html' accesskey='h')= appTitle
           a.ui-navbar-text.ui-float-right(accesskey='t' data-schema-toggle='body' data-schema-toggler='ui-theme-dark' data-schema-storage='dark' data-schema-init)
-            i.ui-zoom-large(data-schema-icon='adjust')
+            i.ui-zoom-large(data-schema-icon='adjust' data-schema-animation='slow')
           nav.ui-navbar-nav
             ul
               li
                 a(href=appDocs + '/css.html' accesskey='c')
-                  i.ui-phone-visible(data-schema-icon='css3' data-schema-color='unset' title='CSS')
+                  i.ui-phone-visible(data-schema-icon='css3' data-schema-color='unset' data-schema-animation='slow' title='CSS')
                   span.ui-phone-hidden CSS
               li
                 a(href=appDocs + '/javascript.html' accesskey='j')
-                  i.ui-phone-visible(data-schema-icon='js' title='JavaScript')
+                  i.ui-phone-visible(data-schema-icon='js' data-schema-animation='slow' title='JavaScript')
                   span.ui-phone-hidden JavaScript
               li
                 a(href=appDocs + '/examples.html' accesskey='e')
-                  i.ui-phone-visible(data-schema-icon='flask' title='Examples')
+                  i.ui-phone-visible(data-schema-icon='flask' data-schema-animation='slow' title='Examples')
                   span.ui-phone-hidden Examples
               li
                 a(href='https://github.com/arxitics/ui-schema' rel='external' target='_blank' accesskey='g')
-                  i.ui-phone-visible(data-schema-icon='github' title='GitHub')
+                  i.ui-phone-visible(data-schema-icon='github' data-schema-animation='slow' title='GitHub')
                   span.ui-phone-hidden GitHub
       main.ui-container-fluid.ui-container-grid
         if standalone

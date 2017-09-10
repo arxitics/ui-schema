@@ -79,7 +79,7 @@
                 </th>
               </tr>
             </thead>
-            <tbody data-schema-view="items" data-schema-iteration="item of items" data-schema-adapter="filter" data-schema-event="select edit close">
+            <tbody class="ui-text-invisible" data-schema-view="items" data-schema-iteration="item of items" data-schema-adapter="filter" data-schema-event="select edit close" data-schema-animation="slow">
               <tr id="todo-${item.id}">
                 <td><span class="ui-checkbox-control">
                     <input type="checkbox" data-schema-select><span class="ui-checkbox-indicator"></span></span></td>
@@ -91,7 +91,7 @@
             </tbody>
           </table>
         </div>
-        <div class="ui-panel-footer ui-container-grid" id="todos-stats" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-event="classify clear">
+        <div class="ui-panel-footer ui-container-grid ui-text-invisible" id="todos-stats" data-schema-view="stats" data-schema-condition="stats.nonempty" data-schema-event="classify clear" data-schema-animation="slow">
           <div class="ui-fluid-25 ui-text-left ui-zoom-small"><span>${stats.active} ${stats.items} left</span></div>
           <div class="ui-fluid-50 ui-text-center ui-zoom-small" data-schema-classify><a class="ui-state-active" href="#/" data-schema-route>All</a><a href="#/active" data-schema-route>Active</a><a href="#/completed" data-schema-route>Completed</a></div>
           <div class="ui-fluid-25 ui-text-right ui-zoom-small" data-schema-view="stats" data-schema-condition="stats.selected" data-schema-clear><span>Clear completed</span></div>

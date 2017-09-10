@@ -12,7 +12,7 @@ block article
     h4.ui-header-secondary
       span Meters
       label.ui-float-right(for='meters-src')
-        i(data-schema-icon='code')
+        i(data-schema-icon='code' data-schema-animation='slow')
     div
       meter(value='20' min='0' low='33' high='66' optimum='100' max='100' title='20') 20
       meter.ui-skip-small(value='60' min='0' low='33' high='66' optimum='100' max='100' title='60') 60
@@ -29,7 +29,7 @@ block article
     h4.ui-header-secondary
       span Progress Bars
       label.ui-float-right(for='progress-bars-src')
-        i(data-schema-icon='code')
+        i(data-schema-icon='code' data-schema-animation='slow')
     div
       progress(value='100' max='100' title='100%') all completed
       progress.ui-progress-success.ui-skip-small(value='80' max='100' title='80%') 80% completed
@@ -52,7 +52,7 @@ block article
     h4.ui-header-secondary
       span Range Sliders
       label.ui-float-right(for='range-sliders-src')
-        i(data-schema-icon='code')
+        i(data-schema-icon='code' data-schema-animation='slow')
     div
       input(type='range' min='0' max='100' step='1' value='60' aria-valuemin='0' aria-valuemax='100' aria-valuenow='60')
     .ui-toggle-target.ui-skip-medium
@@ -65,7 +65,7 @@ block article
     h4.ui-header-secondary
       span Audio
       label.ui-float-right(for='audio-src')
-        i(data-schema-icon='code')
+        i(data-schema-icon='code' data-schema-animation='slow')
     div
       audio(controls)
         source(src='https://upload.wikimedia.org/wikipedia/en/8/82/Someone_Like_You.ogg' type='audio/ogg')
@@ -83,7 +83,7 @@ block article
     h4.ui-header-secondary
       span Video
       label.ui-float-right(for='video-src')
-        i(data-schema-icon='code')
+        i(data-schema-icon='code' data-schema-animation='slow')
     div
       video(controls)
         source(src='https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm' type='video/webm')

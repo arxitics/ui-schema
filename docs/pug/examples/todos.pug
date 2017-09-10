@@ -75,7 +75,7 @@ block prepend body
                     input(type='checkbox' data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-selectall)
                     span.ui-checkbox-indicator
                 th(colspan='2'): input.ui-block-fluid(type='text' placeholder='What needs to be done?' data-schema-model='todo' data-schema-trigger='change' data-schema-controller='add' data-schema-empty)
-            tbody(data-schema-view='items' data-schema-iteration='item of items' data-schema-adapter='filter' data-schema-event='select edit close')
+            tbody.ui-text-invisible(data-schema-view='items' data-schema-iteration='item of items' data-schema-adapter='filter' data-schema-event='select edit close' data-schema-animation='slow')
               tr(id='todo-${item.id}')
                 td
                   span.ui-checkbox-control
@@ -83,7 +83,7 @@ block prepend body
                     span.ui-checkbox-indicator
                 td: div(spellcheck='false' contenteditable data-schema-edit) ${item.todo}
                 td: span.ui-color-emphasis.ui-zoom-large(data-schema-close) &times;
-        #todos-stats.ui-panel-footer.ui-container-grid(data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-event='classify clear')
+        #todos-stats.ui-panel-footer.ui-container-grid.ui-text-invisible(data-schema-view='stats' data-schema-condition='stats.nonempty' data-schema-event='classify clear' data-schema-animation='slow')
           .ui-fluid-25.ui-text-left.ui-zoom-small
             span ${stats.active} ${stats.items} left
           .ui-fluid-50.ui-text-center.ui-zoom-small(data-schema-classify)

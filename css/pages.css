@@ -2,22 +2,22 @@
  * Pages
  */
 
-.ui-a4-paper {
+.ui-page-a4 {
   height: 297mm;
   width: 210mm;
 }
 
-.ui-a5-paper {
+.ui-page-a5 {
   height: 210mm;
   width: 148mm;
 }
 
-.ui-b5-paper {
+.ui-page-b5 {
   height: 250mm;
   width: 176mm;
 }
 
-.ui-letter-paper {
+.ui-page-letter {
   height: 279.4mm;
   width: 215.9mm;
 }
