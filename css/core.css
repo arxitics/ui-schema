@@ -448,6 +448,7 @@ textarea {
   border-radius: var(--border-radius, 0);
   color: inherit; /* 1 */
   display: inline-block;
+  font-family: inherit;
   line-height: inherit;
   outline: none;
   padding: 0.4em 0.8em;
@@ -728,6 +729,7 @@ option {
 }
 
 optgroup {
+  font-family: inherit;
   line-height: inherit;
 }
 

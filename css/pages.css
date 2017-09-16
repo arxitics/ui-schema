@@ -62,7 +62,7 @@
 
 .ui-overflow-hidden {
   max-height: 100vh;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .ui-scroll-mandatory {
