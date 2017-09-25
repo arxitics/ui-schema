@@ -457,12 +457,20 @@ template {
  * Core
  */
 
+/* Set the default viewport */
+@viewport {
+  viewport-fit: cover;
+  width: device-width;
+  zoom: 1;
+}
+
 /**
  * Set default font size to 16px.
  */
 
 html {
   font-size: 100%;
+  padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
 }
 
 /* SVGA 800x600 */
