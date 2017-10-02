@@ -457,12 +457,20 @@ template {
  * Core
  */
 
+/* Set the default viewport */
+@viewport {
+  viewport-fit: cover;
+  width: device-width;
+  zoom: 1;
+}
+
 /**
  * Set default font size to 16px.
  */
 
 html {
   font-size: 100%;
+  padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
 }
 
 /* SVGA 800x600 */
@@ -1150,7 +1158,7 @@ label[for] {
  * 1. Reset the default appearance of select in Firefox 35+.
  * 2. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
  * 3. Use a caret as the background:
- *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="#777"/></svg>
+ *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="currentColor"/></svg>
  */
 
 select {
@@ -2297,10 +2305,10 @@ tr:not(:first-child) > td {
   display: inline-block;
 }
 
-.ui-text-list > a + a,
-.ui-text-list > span + span {
+.ui-text-list > a:not(:last-child),
+.ui-text-list > span:not(:last-child) {
   display: inline-block;
-  margin-left: 0.8em;
+  margin-right: 0.8em;
 }
 
 .ui-header-primary {
@@ -2688,7 +2696,8 @@ tr:not(:first-child) > td {
   display: flex;
 }
 
-.ui-input-addon > input {
+.ui-input-addon > input,
+.ui-input-addon > select {
   -ms-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -2698,7 +2707,7 @@ tr:not(:first-child) > td {
   margin-right: 0;
 }
 
-.ui-input-addon > :not(button):not(input) {
+.ui-input-addon > :not(button):not(input):not(select) {
   border: 1px solid #ccc;
   border-radius: var(--border-radius, 0);
   padding: 0.4em 0.8em;
@@ -3807,6 +3816,10 @@ tr:not(:first-child) > td {
 /*!
  * Events
  */
+
+.ui-cursor-pointer {
+  cursor: pointer;
+}
 
 .ui-resize-both {
   max-width: 100%;
