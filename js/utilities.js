@@ -144,7 +144,7 @@
         var $emoji = $data.emoji.replace(/\/*$/, '/');
         var $height = Math.round(+$this.css('font-size').slice(0, -2) * 1.4);
         $this.html($this.html().replace(emoji, function (str, p1, p2, p3) {
-          var template = '${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}" />';
+          var template = '${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}">';
           return schema.format(template, {
             sep: p1,
             src: $emoji + p3.replace(/\_/g, '-') + '.svg',

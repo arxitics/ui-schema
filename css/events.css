@@ -2,6 +2,10 @@
  * Events
  */
 
+.ui-cursor-pointer {
+  cursor: pointer;
+}
+
 .ui-resize-both {
   max-width: 100%;
   overflow: auto;

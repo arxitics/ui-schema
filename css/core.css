@@ -703,7 +703,7 @@ label[for] {
  * 1. Reset the default appearance of select in Firefox 35+.
  * 2. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
  * 3. Use a caret as the background:
- *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="#777"/></svg>
+ *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="currentColor"/></svg>
  */
 
 select {

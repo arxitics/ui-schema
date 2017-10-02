@@ -64,6 +64,10 @@
             <label class="ui-float-right" for="buttons-src"><i data-schema-icon="code" data-schema-animation="slow"></i></label>
           </h4>
           <div class="ui-container-grid">
+            <div class="ui-fluid-40">
+              <input type="file">
+              <input type="date">
+            </div>
             <div class="ui-fluid-40 ui-phone-expand ui-float-left">
               <button type="button">Default</button>
               <button type="button" disabled>Disabled</button> <a class="ui-text-button" href="http://arxitics.com/">Hyperlink</a>
@@ -374,7 +378,14 @@
             </div>
             <div class="ui-grid-50 ui-phone-expand">
               <div class="ui-input-addon">
-                <input type="search" name="q" placeholder="Search or type a command" title="Type &quot;help&quot; to redirect to the help center">
+                <select name="browser">
+                  <option value="chrome">Google Chrome</option>
+                  <option value="edge">Microsoft Edge</option>
+                  <option value="firefox">Mozilla Firefox</option>
+                  <option value="ie">Internet Explorer</option>
+                  <option value="opera">Opera</option>
+                  <option value="safari">Safari</option>
+                </select>
                 <button class="ui-button-primary">Go!</button>
               </div>
             </div>
@@ -387,7 +398,14 @@
   &lt;input id="email" type="email" name="email"&gt;
 &lt;/div&gt;
 &lt;div class="ui-input-addon"&gt;
-  &lt;input type="search" name="q" placeholder="Search or type a command"&gt;
+  &lt;select name="browser"&gt;
+    &lt;option value="chrome"&gt;Google Chrome&lt;/option&gt;
+    &lt;option value="edge"&gt;Microsoft Edge&lt;/option&gt;
+    &lt;option value="firefox"&gt;Mozilla Firefox&lt;/option&gt;
+    &lt;option value="ie"&gt;Internet Explorer&lt;/option&gt;
+    &lt;option value="opera"&gt;Opera&lt;/option&gt;
+    &lt;option value="safari"&gt;Safari&lt;/option&gt;
+  &lt;/select&gt;
   &lt;button class="ui-button-primary"&gt;Go!&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>

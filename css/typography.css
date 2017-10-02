@@ -260,10 +260,10 @@
   display: inline-block;
 }
 
-.ui-text-list > a + a,
-.ui-text-list > span + span {
+.ui-text-list > a:not(:last-child),
+.ui-text-list > span:not(:last-child) {
   display: inline-block;
-  margin-left: 0.8em;
+  margin-right: 0.8em;
 }
 
 .ui-header-primary {

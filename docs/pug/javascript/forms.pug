@@ -24,17 +24,17 @@ block article
   section
     h4.ui-header-secondary Rating
     .ui-container-grid
-      form.ui-grid-50(data-schema-rating)
-        input(type='hidden' name='score')
+      form.ui-grid-50
+        input(type='hidden' name='score' data-schema-rating)
         a.ui-text-padding(data-schema-icons='star-o,star' role='button')
           i(data-schema-icon='star-o')
           i(data-schema-icon='star-o')
           i(data-schema-icon='star-o')
           i(data-schema-icon='star-o')
           i(data-schema-icon='star-o')
-      form.ui-grid-50(data-schema-rating)
-        input(type='hidden' name='score')
-        a.ui-text-padding(data-schema-icons='star-o,star-half-empty,star' data-schema-score='3.6' role='button')
+      form.ui-grid-50
+        input(type='hidden' name='score' value='3.6' data-schema-rating)
+        a.ui-text-padding(data-schema-icons='star-o,star-half-empty,star' role='button')
           i(data-schema-icon='star')
           i(data-schema-icon='star')
           i(data-schema-icon='star')
@@ -42,28 +42,93 @@ block article
           i(data-schema-icon='star-o')
     .ui-skip-medium
       pre: code.language-markup.
-         &lt;form data-schema-rating&gt;
-           &lt;input type="hidden" name="score"&gt;
-           &lt;a class="ui-text-padding" data-schema-icons="star-o,star" role="button"&gt;
-             &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
-          &lt;/a&gt;
-         &lt;/form&gt;
+        &lt;form&gt;
+          &lt;input type="hidden" name="score" data-schema-rating&gt;
+          &lt;a class="ui-text-padding" data-schema-icons="star-o,star" role="button"&gt;
+            &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+         &lt;/a&gt;
+        &lt;/form&gt;
 
-         &lt;form data-schema-rating&gt;
-           &lt;input type="hidden" name="score"&gt;
-           &lt;a class="ui-text-padding" data-schema-icons="star-o,star-half-empty,star" data-schema-score="3.6" role="button"&gt;
-             &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star-half-empty"&gt;&lt;/i&gt;
-             &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
-           &lt;/a&gt;
-         &lt;/form&gt;
+        &lt;form&gt;
+          &lt;input type="hidden" name="score" value="3.6" data-schema-rating&gt;
+          &lt;a class="ui-text-padding" data-schema-icons="star-o,star-half-empty,star" role="button"&gt;
+            &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star-half-empty"&gt;&lt;/i&gt;
+            &lt;i data-schema-icon="star-o"&gt;&lt;/i&gt;
+          &lt;/a&gt;
+        &lt;/form&gt;
+
+  section
+    h4.ui-header-secondary Tagging
+    .ui-container-grid
+      form.ui-form-fluid.ui-grid-40
+        input(type='hidden' name='browsers' value='chrome,firefox' data-schema-tagging)
+        input(type='text' list='browsers')
+        output.ui-text-list
+          span.ui-text-label.ui-label-primary
+            i.ui-zoom-small.ui-cursor-pointer(data-schema-icon='cross-thin')
+        datalist#browsers
+          option(value='chrome') Google Chrome
+          option(value='edge') Microsoft Edge
+          option(value='firefox') Mozilla Firefox
+          option(value='ie') Internet Explorer
+          option(value='opera') Opera
+          option(value='safari') Safari
+      form.ui-form-fluid.ui-grid-40.ui-offset-10
+        input(type='hidden' name='browsers' data-schema-tagging)
+        select
+          option(value='chrome') Google Chrome
+          option(value='edge') Microsoft Edge
+          option(value='firefox') Mozilla Firefox
+          option(value='ie') Internet Explorer
+          option(value='opera') Opera
+          option(value='safari') Safari
+        output.ui-text-list
+          span.ui-text-badge.ui-label-info
+            i.ui-zoom-small.ui-cursor-pointer(data-schema-icon='cross-thin')
+    .ui-skip-medium
+      pre: code.language-markup.
+        &lt;form&gt;
+          &lt;input type="hidden" name="browsers" value="chrome,firefox" data-schema-tagging&gt;
+          &lt;input type="text" list="browsers"&gt;
+          &lt;output class="ui-text-list"&gt;
+            &lt;span class="ui-text-label ui-label-primary"&gt;
+              &lt;i class="ui-zoom-small ui-cursor-pointer" data-schema-icon="cross-thin"&gt;&lt;/i&gt;
+            &lt;/span&gt;
+          &lt;/output&gt;
+          &lt;datalist id="browsers"&gt;
+            &lt;option value="chrome"&gt;Google Chrome&lt;/option&gt;
+            &lt;option value="edge"&gt;Microsoft Edge&lt;/option&gt;
+            &lt;option value="firefox"&gt;Mozilla Firefox&lt;/option&gt;
+            &lt;option value="ie"&gt;Internet Explorer&lt;/option&gt;
+            &lt;option value="opera"&gt;Opera&lt;/option&gt;
+            &lt;option value="safari"&gt;Safari&lt;/option&gt;
+          &lt;/datalist&gt;
+        &lt;/form&gt;
+
+        &lt;form&gt;
+          &lt;input type="hidden" name="browsers" data-schema-tagging&gt;
+          &lt;select&gt;
+            &lt;option value="chrome"&gt;Google Chrome&lt;/option&gt;
+            &lt;option value="edge"&gt;Microsoft Edge&lt;/option&gt;
+            &lt;option value="firefox"&gt;Mozilla Firefox&lt;/option&gt;
+            &lt;option value="ie"&gt;Internet Explorer&lt;/option&gt;
+            &lt;option value="opera"&gt;Opera&lt;/option&gt;
+            &lt;option value="safari"&gt;Safari&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;output class="ui-text-list"&gt;
+            &lt;span class="ui-text-badge ui-label-info"&gt;
+              &lt;i class="ui-zoom-small ui-cursor-pointer" data-schema-icon="cross-thin"&gt;&lt;/i&gt;
+            &lt;/span&gt;
+          &lt;/output&gt;
+        &lt;/form&gt;
 
 block append foot
   script(src=appIcons + '/account.js')
-  
+  script(src=appIcons + '/form.js')

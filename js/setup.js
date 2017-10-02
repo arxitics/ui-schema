@@ -49,8 +49,8 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       changed: 'schema-changed',
       disabled: 'schema-disabled',
       rating: 'schema-rating',
-      score: 'schema-score',
       icons: 'schema-icons',
+      tagging: 'schema-tagging',
       lazyload: 'schema-lazyload',
       delay: 'schema-delay',
       src: 'schema-src',
@@ -110,7 +110,12 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       rating: {
         type: 'rating',
         namespace: '.form.data-api.schema',
-        selector: 'form[data-schema-rating]'
+        selector: 'input[data-schema-rating]'
+      },
+      tagging: {
+        type: 'tagging',
+        namespace: '.form.data-api.schema',
+        selector: 'input[data-schema-tagging]'
       },
       lazyload: {
         type: 'lazyload',
