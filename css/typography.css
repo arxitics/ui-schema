@@ -233,7 +233,8 @@
 }
 
 .ui-text-label,
-.ui-text-badge {
+.ui-text-badge,
+.ui-text-tag {
   background-color: #999;
   color: #fff;
   display: inline-block;
@@ -256,6 +257,35 @@
   display: none;
 }
 
+.ui-text-tag {
+  margin-left: 0.707107em;
+  position: relative;
+}
+
+.ui-text-tag::before,
+.ui-text-tag::after {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+}
+
+.ui-text-tag::before {
+  background-color: inherit;
+  height: 1em;
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  width: 1em;
+  z-index: -1;
+}
+
+.ui-text-tag::after {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 0.3em;
+  margin-top: -0.15em;
+  width: 0.3em;
+}
+
 .ui-text-list {
   display: inline-block;
 }
@@ -263,6 +293,7 @@
 .ui-text-list > a:not(:last-child),
 .ui-text-list > span:not(:last-child) {
   display: inline-block;
+  margin-bottom: 0.2em;
   margin-right: 0.8em;
 }
 

@@ -121,7 +121,7 @@
           schema.trigger(events.sprite, $output.find('i'));
         }
       });
-      $output.on('click', 'i', function () {
+      $output.on('click', 'span > :last-child', function () {
         var $span = $(this).parent();
         var index = $span.prevAll().length;
         values.splice(index, 1);

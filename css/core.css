@@ -194,6 +194,11 @@ video::-webkit-media-controls-enclosure {
   max-width: inherit;
 }
 
+iframe {
+  border: none;
+  width: 100%;
+}
+
 /**
  * Remove default margin.
  */
@@ -526,6 +531,11 @@ textarea:invalid:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0.4em #ce8483;
 }
 
+input[readonly] {
+  caret-color: transparent;
+  cursor: default;
+}
+
 input[type="search"] {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -703,7 +713,7 @@ label[for] {
  * 1. Reset the default appearance of select in Firefox 35+.
  * 2. Reset the default appearance of select in Chrome, Opera 15+, and Safari.
  * 3. Use a caret as the background:
- *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="currentColor"/></svg>
+ *    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32"><path d="M6 14h12l-6 8z" fill="#777"/></svg>
  */
 
 select {
@@ -759,6 +769,7 @@ optgroup {
   opacity: 0.65;
 }
 
+[tabindex]:focus,
 [contenteditable]:focus {
   outline: 1px dotted currentColor;
 }

@@ -29,9 +29,9 @@
 }
 
 .ui-modal-content,
-.ui-lightbox-content {
+.ui-lightbox-content,
+.ui-focus-content:focus-within {
   background-color: rgba(0, 0, 0, 0.65);
-  display: none;
   height: 100%;
   left: 0;
   position: fixed;
@@ -58,9 +58,16 @@
   color: #333;
   display: block;
   padding: 1.2em 1.6em;
-  text-align: center;
 }
 
+.ui-focus-content:focus-within > div {
+  background-color: #fff;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.ui-modal-content,
+.ui-lightbox-content,
 .ui-toggle-content,
 .ui-toggle-target > input,
 .ui-toggle-target > input ~ div,

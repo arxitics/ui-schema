@@ -277,6 +277,34 @@ block article
 
   section
     h4.ui-header-secondary
+      span Focus
+      label.ui-float-right(for='focus-src')
+        i(data-schema-icon='code' data-schema-animation='slow')
+    .ui-focus-content
+      .ui-content-panel
+        .ui-panel-header
+          h4
+            span GitHub docs
+            i.ui-float-right(data-schema-icon='browser' tabindex='0')
+        .ui-panel-body
+          iframe(src='https://arxitics.github.io/ui-schema/' height='800')
+    .ui-toggle-target.ui-skip-large
+      input#focus-src(type='checkbox')
+      div
+        pre: code.language-markup.
+          &lt;div class="ui-focus-content"&gt;
+            &lt;div class="ui-content-panel"&gt;
+              &lt;div class="ui-panel-header"&gt;
+                &lt;h4&gt;&lt;span&gt;GitHub docs&lt;/span&gt;&lt;i class="ui-float-right" data-schema-icon="browser" tabindex="0"&gt;&lt;/i&gt;&lt;/h4&gt;
+              &lt;/div&gt;
+              &lt;div class="ui-panel-body"&gt;
+                &lt;iframe src="https://arxitics.github.io/ui-schema/" height="800"&gt;&lt;/iframe&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+  section
+    h4.ui-header-secondary
       span Resizable
       label.ui-float-right(for='resizable-src')
         i(data-schema-icon='code' data-schema-animation='slow')

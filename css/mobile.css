@@ -11,38 +11,61 @@
   .ui-mobile-hidden {
     display: none !important;
   }
+
   .ui-mobile-visible {
     display: block !important;
   }
+
   .ui-mobile-shrink {
     margin: 0;
   }
+
   .ui-mobile-auto {
     width: auto;
   }
+
   .ui-mobile-double > .ui-grid-17,
   .ui-mobile-double > .ui-fluid-17 {
     width: 33.3333%;
   }
+
   .ui-mobile-double > .ui-grid-25,
   .ui-mobile-double > .ui-fluid-25 {
     width: 50%;
   }
+
+  .ui-mobile-double > .ui-columns-4 {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+
+  .ui-mobile-double > .ui-columns-6 {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+
   .ui-mobile-half > .ui-box-tiny {
     width: 2em;
   }
+
   .ui-mobile-half > .ui-box-small {
     width: 4em;
   }
+
   .ui-mobile-half > .ui-box-medium {
     width: 8em;
   }
+
   .ui-mobile-half > .ui-box-large {
+    width: 12em;
+  }
+
+  .ui-mobile-half > .ui-box-huge {
     width: 16em;
   }
-  .ui-mobile-half > .ui-box-huge {
-    width: 24em;
-  }
+
   .ui-mobile-expand {
     -moz-column-count: 1;
     -webkit-column-count: 1;
@@ -56,30 +79,37 @@
     position: relative;
     width: 100%;
   }
+
   .ui-mobile-expand + .ui-mobile-expand {
     margin-top: 1em;
   }
+
   .ui-mobile-collapse {
     float: right !important;
     position: relative;
     width: auto;
   }
+
   .ui-mobile-collapse > :first-child {
     display: block;
   }
+
   .ui-mobile-collapse > :not(:first-child) {
     display: none;
   }
+
   .ui-mobile-collapse:hover > :not(:first-child) {
     display: block;
     position: absolute;
     right: 0;
     z-index: 99;
   }
+
   .ui-mobile-collapse:hover > ul > li {
     display: block;
     width: 100%;
   }
+
   .ui-mobile-collapse:hover > ul > li:not(:first-child) {
     border-top: 1px solid #ddd;
     line-height: 1;
@@ -90,38 +120,61 @@
   .ui-phone-hidden {
     display: none !important;
   }
+
   .ui-phone-visible {
     display: block !important;
   }
+
   .ui-phone-shrink {
     margin: 0;
   }
+
   .ui-phone-auto {
     width: auto;
   }
+
   .ui-phone-double > .ui-grid-17,
   .ui-phone-double > .ui-fluid-17 {
     width: 33.3333%;
   }
+
   .ui-phone-double > .ui-grid-25,
   .ui-phone-double > .ui-fluid-25 {
     width: 50%;
   }
+
+  .ui-phone-double > .ui-columns-4 {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+
+  .ui-phone-double > .ui-columns-6 {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+
   .ui-phone-half > .ui-box-tiny {
     width: 2em;
   }
+
   .ui-phone-half > .ui-box-small {
     width: 4em;
   }
+
   .ui-phone-half > .ui-box-medium {
     width: 8em;
   }
+
   .ui-phone-half > .ui-box-large {
+    width: 12em;
+  }
+
+  .ui-phone-half > .ui-box-huge {
     width: 16em;
   }
-  .ui-phone-half > .ui-box-huge {
-    width: 24em;
-  }
+
   .ui-phone-expand {
     -moz-column-count: 1;
     -webkit-column-count: 1;
@@ -135,30 +188,37 @@
     position: relative;
     width: 100%;
   }
+
   .ui-phone-expand + .ui-phone-expand {
     margin-top: 1em;
   }
+
   .ui-phone-collapse {
     float: right !important;
     position: relative;
     width: auto;
   }
+
   .ui-phone-collapse > :first-child {
     display: block;
   }
+
   .ui-phone-collapse > :not(:first-child) {
     display: none;
   }
+
   .ui-phone-collapse:hover > :not(:first-child) {
     display: block;
     position: absolute;
     right: 0;
     z-index: 99;
   }
+
   .ui-phone-collapse:hover > ul > li {
     display: block;
     width: 100%;
   }
+
   .ui-phone-collapse:hover > ul > li:not(:first-child) {
     border-top: 1px solid #ddd;
     line-height: 1;
