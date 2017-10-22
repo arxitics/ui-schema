@@ -48,6 +48,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       validate: 'schema-validate',
       changed: 'schema-changed',
       disabled: 'schema-disabled',
+      required: 'schema-required',
       rating: 'schema-rating',
       icons: 'schema-icons',
       tagging: 'schema-tagging',

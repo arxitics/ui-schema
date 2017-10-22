@@ -264,7 +264,7 @@
 
 .ui-text-tag::before,
 .ui-text-tag::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 100%;
   top: 50%;

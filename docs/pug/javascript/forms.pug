@@ -81,7 +81,7 @@ block article
           option(value='opera') Opera
           option(value='safari') Safari
       form.ui-form-fluid.ui-grid-40.ui-offset-10
-        input(type='hidden' name='browsers' data-schema-tagging)
+        input(type='hidden' name='browsers' data-schema-tagging data-schema-required)
         select
           option(value='chrome') Google Chrome
           option(value='edge') Microsoft Edge
@@ -113,7 +113,7 @@ block article
         &lt;/form&gt;
 
         &lt;form&gt;
-          &lt;input type="hidden" name="browsers" data-schema-tagging&gt;
+          &lt;input type="hidden" name="browsers" data-schema-tagging data-schema-required&gt;
           &lt;select&gt;
             &lt;option value="chrome"&gt;Google Chrome&lt;/option&gt;
             &lt;option value="edge"&gt;Microsoft Edge&lt;/option&gt;
