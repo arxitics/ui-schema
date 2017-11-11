@@ -48,6 +48,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       validate: 'schema-validate',
       changed: 'schema-changed',
       disabled: 'schema-disabled',
+      required: 'schema-required',
       rating: 'schema-rating',
       icons: 'schema-icons',
       tagging: 'schema-tagging',
@@ -672,30 +673,67 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var $elements = $(options && options.selector || selector);
     $elements.each(function () {
       var $input = $(this);
+      var $data = schema.parseData($input.data());
+      var $parent = $input.parent();
       var $select = $input.next();
-      var $output = $select.next();
+      var $output = $select.is(':last-child') ? $parent.next() : $select.next();
       var $span = $output.find('span:first-child');
       var $form = $input.closest('form');
+      var required = $data.required;
       var init = $input.val();
       var values = [];
+      var index = 0;
+      var value = '';
       $select.on('change', function () {
-        var value = $select.val();
+        value = $select.val();
         if (value && values.indexOf(value) === -1) {
-          var $option = $form.find('[value="' + value + '"]');
-          var text = $option.text() || value;
-          $output.append($span.clone().prepend(text));
-          if ($select.is('input')) {
-            $select.val('');
+          var $option = $parent.find('option[value="' + value + '"]');
+          var $optionData = schema.parseData($option.data());
+          if ($optionData.empty) {
+            $output.find('span > :last-child').click();
+            values.length = 0;
+          } else {
+            var text = $option.text() || value;
+            $output.append($span.clone().prepend(text));
+            if ($select.is('input')) {
+              $select.val('');
+            }
+            values.push(value);
+            schema.trigger(events.sprite, $output.find('i'));
           }
-          values.push(value);
-          schema.trigger(events.sprite, $output.find('i'));
         }
       });
       $output.on('click', 'span > :last-child', function () {
         var $span = $(this).parent();
-        var index = $span.prevAll().length;
-        values.splice(index, 1);
-        $span.remove();
+        if (!required || values.length > 1) {
+          index = $span.prevAll().length;
+          values.splice(index, 1);
+          $span.remove();
+        }
+      });
+      $output.on('dragstart', 'span', function (event) {
+        var $span = $(this);
+        index = $span.prevAll().length;
+        value = $span.text();
+        event.dataTransfer.setData('text/html', $span.html());
+      });
+      $output.on('dragover', 'span', function (event) {
+        if (event.dataTransfer.types == 'text/html') {
+          event.preventDefault();
+        }
+      });
+      $output.on('drop', 'span', function (event) {
+        var $target = $(event.target);
+        var html = $target.html();
+        var text = $target.text();
+        if (text && value) {
+          values[index] = text;
+          values[$target.prevAll().length] = value;
+          $target.html(event.dataTransfer.getData('text/html'));
+          $output.find('span').eq(index).html(html);
+          schema.trigger(events.sprite, $output.find('i'));
+        }
+        return false;
       });
       $form.on('submit', function () {
         $input.val(values.join(','));
@@ -709,6 +747,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       $select.change();
       $span.remove();
     });
+    $.event.addProp('dataTransfer');
   };
 
 })(jQuery);

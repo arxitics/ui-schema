@@ -98,7 +98,7 @@
           <h4 class="ui-header-secondary">Tagging</h4>
           <div class="ui-container-grid">
             <form class="ui-form-fluid ui-grid-40">
-              <input type="hidden" name="browsers" value="chrome,firefox" data-schema-tagging>
+              <input type="hidden" name="browsers" value="chrome,firefox" data-schema-tagging data-schema-required>
               <input type="text" list="browsers">
               <output class="ui-text-list"><span class="ui-text-label ui-label-primary"><i class="ui-zoom-small ui-cursor-pointer" data-schema-icon="cross-thin"></i></span></output>
               <datalist id="browsers">
@@ -119,13 +119,14 @@
                 <option value="ie">Internet Explorer</option>
                 <option value="opera">Opera</option>
                 <option value="safari">Safari</option>
+                <option value="any" data-schema-empty>Any Browser</option>
               </select>
-              <output class="ui-text-list"><span class="ui-text-badge ui-label-info"><i class="ui-zoom-small ui-cursor-pointer" data-schema-icon="cross-thin"></i></span></output>
+              <output class="ui-text-list"><span class="ui-text-badge ui-label-info" draggable="true"><i class="ui-zoom-small ui-cursor-pointer" data-schema-icon="cross-thin"></i></span></output>
             </form>
           </div>
           <div class="ui-skip-medium">
             <pre><code class="language-markup">&lt;form&gt;
-  &lt;input type="hidden" name="browsers" value="chrome,firefox" data-schema-tagging&gt;
+  &lt;input type="hidden" name="browsers" value="chrome,firefox" data-schema-tagging data-schema-required&gt;
   &lt;input type="text" list="browsers"&gt;
   &lt;output class="ui-text-list"&gt;
     &lt;span class="ui-text-label ui-label-primary"&gt;
@@ -151,9 +152,10 @@
     &lt;option value="ie"&gt;Internet Explorer&lt;/option&gt;
     &lt;option value="opera"&gt;Opera&lt;/option&gt;
     &lt;option value="safari"&gt;Safari&lt;/option&gt;
+    &lt;option value="any" data-schema-empty&gt;Any Browser&lt;/option&gt;
   &lt;/select&gt;
   &lt;output class="ui-text-list"&gt;
-    &lt;span class="ui-text-badge ui-label-info"&gt;
+    &lt;span class="ui-text-badge ui-label-info" draggable="true"&gt;
       &lt;i class="ui-zoom-small ui-cursor-pointer" data-schema-icon="cross-thin"&gt;&lt;/i&gt;
     &lt;/span&gt;
   &lt;/output&gt;
@@ -175,6 +177,5 @@
     <script src="./../dist/icons/forms.js"></script>
     <script src="./../dist/icons/software.js"></script>
     <script src="./../dist/icons/account.js"></script>
-    <script src="./../dist/icons/form.js"></script>
   </body>
 </html>
