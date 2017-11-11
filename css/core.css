@@ -15,7 +15,7 @@
 
 html {
   font-size: 100%;
-  padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 /* SVGA 800x600 */
@@ -774,6 +774,11 @@ optgroup:not(:first-child) {
 [disabled] {
   cursor: not-allowed;
   opacity: 0.65;
+}
+
+[draggable="true"] {
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 [tabindex]:focus,

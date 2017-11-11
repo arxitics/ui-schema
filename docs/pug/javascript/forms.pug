@@ -68,7 +68,7 @@ block article
     h4.ui-header-secondary Tagging
     .ui-container-grid
       form.ui-form-fluid.ui-grid-40
-        input(type='hidden' name='browsers' value='chrome,firefox' data-schema-tagging)
+        input(type='hidden' name='browsers' value='chrome,firefox' data-schema-tagging data-schema-required)
         input(type='text' list='browsers')
         output.ui-text-list
           span.ui-text-label.ui-label-primary
@@ -81,7 +81,7 @@ block article
           option(value='opera') Opera
           option(value='safari') Safari
       form.ui-form-fluid.ui-grid-40.ui-offset-10
-        input(type='hidden' name='browsers' data-schema-tagging data-schema-required)
+        input(type='hidden' name='browsers' data-schema-tagging)
         select
           option(value='chrome') Google Chrome
           option(value='edge') Microsoft Edge
@@ -89,13 +89,14 @@ block article
           option(value='ie') Internet Explorer
           option(value='opera') Opera
           option(value='safari') Safari
+          option(value='any' data-schema-empty) Any Browser
         output.ui-text-list
-          span.ui-text-badge.ui-label-info
+          span.ui-text-badge.ui-label-info(draggable='true')
             i.ui-zoom-small.ui-cursor-pointer(data-schema-icon='cross-thin')
     .ui-skip-medium
       pre: code.language-markup.
         &lt;form&gt;
-          &lt;input type="hidden" name="browsers" value="chrome,firefox" data-schema-tagging&gt;
+          &lt;input type="hidden" name="browsers" value="chrome,firefox" data-schema-tagging data-schema-required&gt;
           &lt;input type="text" list="browsers"&gt;
           &lt;output class="ui-text-list"&gt;
             &lt;span class="ui-text-label ui-label-primary"&gt;
@@ -113,7 +114,7 @@ block article
         &lt;/form&gt;
 
         &lt;form&gt;
-          &lt;input type="hidden" name="browsers" data-schema-tagging data-schema-required&gt;
+          &lt;input type="hidden" name="browsers" data-schema-tagging&gt;
           &lt;select&gt;
             &lt;option value="chrome"&gt;Google Chrome&lt;/option&gt;
             &lt;option value="edge"&gt;Microsoft Edge&lt;/option&gt;
@@ -121,9 +122,10 @@ block article
             &lt;option value="ie"&gt;Internet Explorer&lt;/option&gt;
             &lt;option value="opera"&gt;Opera&lt;/option&gt;
             &lt;option value="safari"&gt;Safari&lt;/option&gt;
+            &lt;option value="any" data-schema-empty&gt;Any Browser&lt;/option&gt;
           &lt;/select&gt;
           &lt;output class="ui-text-list"&gt;
-            &lt;span class="ui-text-badge ui-label-info"&gt;
+            &lt;span class="ui-text-badge ui-label-info" draggable="true"&gt;
               &lt;i class="ui-zoom-small ui-cursor-pointer" data-schema-icon="cross-thin"&gt;&lt;/i&gt;
             &lt;/span&gt;
           &lt;/output&gt;
@@ -131,4 +133,3 @@ block article
 
 block append foot
   script(src=appIcons + '/account.js')
-  script(src=appIcons + '/form.js')
