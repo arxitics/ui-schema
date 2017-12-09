@@ -153,8 +153,7 @@ block prepend body
         var models = schema.models;
         var items = models.items;
         var stats = models.stats;
-        var selector = events.selectall.selector;
-        var $elements = $(options && options.selector || selector);
+        var $elements = schema.find('selectall', options);
         $elements.prop('checked', stats.selected && stats.active === 0);
         $elements.on('click', function () {
           var $this = $(this);
@@ -173,8 +172,7 @@ block prepend body
         var events = schema.events;
         var models = schema.models;
         var items = models.items;
-        var selector = events.select.selector;
-        var $elements = $(options && options.selector || selector);
+        var $elements = schema.find('select', options);
         $elements.each(function () {
           var $this = $(this);
           var $tr = $this.closest('tr');
@@ -209,8 +207,7 @@ block prepend body
         var events = schema.events;
         var models = schema.models;
         var items = models.items;
-        var selector = events.edit.selector;
-        var $elements = $(options && options.selector || selector);
+        var $elements = schema.find('edit', options);
         $elements.on('focusout', function () {
           var $this = $(this);
           var $html = $this.html();
@@ -232,8 +229,7 @@ block prepend body
         var events = schema.events;
         var models = schema.models;
         var items = models.items;
-        var selector = events.close.selector;
-        var $elements = $(options && options.selector || selector);
+        var $elements = schema.find('close', options);
         $elements.on('click', function () {
           var $this = $(this);
           var $tr = $this.closest('tr');
@@ -255,8 +251,7 @@ block prepend body
       schema.classify = function (event, options) {
         var events = schema.events;
         var models = schema.models;
-        var selector = events.classify.selector;
-        var $elements = $(options && options.selector || selector);
+        var $elements = schema.find('classify', options);
         $elements.each(function () {
           var $this = $(this);
           var $links = $this.find('a');
@@ -284,8 +279,7 @@ block prepend body
         var events = schema.events;
         var models = schema.models;
         var items = models.items;
-        var selector = events.clear.selector;
-        var $elements = $(options && options.selector || selector);
+        var $elements = schema.find('clear', options);
         $elements.on('click', function () {
           items = items.filter(function (item) {
             return item.active;

@@ -65,6 +65,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       dismiss: 'schema-dismiss',
       extract: 'schema-extract',
       emoji: 'schema-emoji',
+      format: 'schema-format',
       icon: 'schema-icon',
       width: 'schema-width',
       height: 'schema-height',
@@ -229,6 +230,18 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
         schema.trigger(name, event.options);
       }
     }
+  };
+  
+  // Find the elements that bind the given event
+  schema.find = function (event, options) {
+    var selector = options && options.selector;
+    if (!selector) {
+      if ($.type(event) === 'string') {
+        event = schema.events[event] || {};
+      }
+      selector = event && event.selector;
+    }
+    return $(selector);
   };
 
   // Trigger an event attached to the document
@@ -581,8 +594,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
     var data = schema.data;
     var changed = data.changed;
     var disabled = data.disabled;
-    var selector = schema.events.validate.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('validate', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -627,8 +639,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   schema.rating = function (event, options) {
     var events = schema.events;
     var icon = schema.data.icon;
-    var selector = events.rating.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('rating', options);
     $elements.each(function () {
       var $input = $(this);
       var $form = $input.closest('form');
@@ -669,8 +680,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Tagging
   schema.tagging = function (event, options) {
     var events = schema.events;
-    var selector = events.tagging.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('tagging', options);
     $elements.each(function () {
       var $input = $(this);
       var $data = schema.parseData($input.data());
@@ -761,8 +771,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
-    var selector = schema.events.lazyload.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('lazyload', options);
     $(window).on('scroll', function () {
       var $window = $(this);
       var top = $window.height() + $window.scrollTop();
@@ -788,8 +797,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Zoom an image using the magnifier
   schema.magnify = function (event, options) {
-    var selector = schema.events.magnify.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('magnify', options);
     $elements.each(function () {
       var $this = $(this);
       var width = $this.width();
@@ -840,8 +848,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
-    var selector = schema.events.trim.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('trim', options);
     $elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
@@ -849,8 +856,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Copy a string to clipboard
   schema.copy = function (event, options) {
-    var selector = schema.events.copy.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('copy', options);
     var dataString = '';
     $elements.on('click', function () {
       var $this = $(this);
@@ -868,8 +874,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Toggle a CSS class
   schema.toggle = function (event, options) {
     var storage = schema.storage;
-    var selector = schema.events.toggle.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('toggle', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -907,8 +912,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
-    var selector = schema.events.autoplay.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('autoplay', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -940,8 +944,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
 
   // Dismiss any alert inline
   schema.dismiss = function (event, options) {
-    var selector = schema.events.dismiss.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('dismiss', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -960,8 +963,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Extract data from text contents
   schema.extract = function (event, options) {
     var regexp = schema.regexp;
-    var selector = schema.events.extract.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('extract', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -974,14 +976,17 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       }
       if (tags.indexOf('emoji') !== -1 && $data.emoji) {
         var emoji = regexp.emoji;
-        var $emoji = $data.emoji.replace(/\/*$/, '/');
-        var $height = Math.round(+$this.css('font-size').slice(0, -2) * 1.4);
+        var path = $data.emoji.replace(/\/*$/, '');
+        var format = String($data.format || 'svg').replace(/^\.*/, '');
+        var height = Math.round(+$this.css('font-size').slice(0, -2) * 1.4);
         $this.html($this.html().replace(emoji, function (str, p1, p2, p3) {
-          var template = '${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}">';
+          var template = '${sep}<img src="${path}/${name}.${format}" height=${height} alt="${alt}" title="${title}">';
           return schema.format(template, {
             sep: p1,
-            src: $emoji + p3.replace(/\_/g, '-') + '.svg',
-            height: $height,
+            path: path,
+            name: p3.replace(/\_/g, '-'),
+            format: format,
+            height: height,
             alt: p2,
             title: p3
           });
@@ -1219,8 +1224,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
   // Create SVG icons
   schema.sprite = function (event, options) {
     var icons = schema.icons;
-    var selector = schema.events.sprite.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('sprite', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());

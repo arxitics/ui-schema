@@ -7,8 +7,7 @@
 
   // Defer image loading until it becomes visible on the screen
   schema.lazyload = function (event, options) {
-    var selector = schema.events.lazyload.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('lazyload', options);
     $(window).on('scroll', function () {
       var $window = $(this);
       var top = $window.height() + $window.scrollTop();
@@ -34,8 +33,7 @@
 
   // Zoom an image using the magnifier
   schema.magnify = function (event, options) {
-    var selector = schema.events.magnify.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('magnify', options);
     $elements.each(function () {
       var $this = $(this);
       var width = $this.width();

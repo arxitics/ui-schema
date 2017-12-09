@@ -10,8 +10,7 @@
     var data = schema.data;
     var changed = data.changed;
     var disabled = data.disabled;
-    var selector = schema.events.validate.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('validate', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -56,8 +55,7 @@
   schema.rating = function (event, options) {
     var events = schema.events;
     var icon = schema.data.icon;
-    var selector = events.rating.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('rating', options);
     $elements.each(function () {
       var $input = $(this);
       var $form = $input.closest('form');
@@ -98,8 +96,7 @@
   // Tagging
   schema.tagging = function (event, options) {
     var events = schema.events;
-    var selector = events.tagging.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('tagging', options);
     $elements.each(function () {
       var $input = $(this);
       var $data = schema.parseData($input.data());

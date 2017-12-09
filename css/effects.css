@@ -64,6 +64,10 @@
   margin-top: 0;
 }
 
+.ui-padding-none {
+  padding: 0 !important;
+}
+
 .ui-seamless-bottom:not(:empty) {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;

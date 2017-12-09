@@ -8,8 +8,7 @@
   // Create SVG icons
   schema.sprite = function (event, options) {
     var icons = schema.icons;
-    var selector = schema.events.sprite.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('sprite', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());

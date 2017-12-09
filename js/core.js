@@ -53,6 +53,18 @@
       }
     }
   };
+  
+  // Find the elements that bind the given event
+  schema.find = function (event, options) {
+    var selector = options && options.selector;
+    if (!selector) {
+      if ($.type(event) === 'string') {
+        event = schema.events[event] || {};
+      }
+      selector = event && event.selector;
+    }
+    return $(selector);
+  };
 
   // Trigger an event attached to the document
   schema.trigger = function (event, options) {

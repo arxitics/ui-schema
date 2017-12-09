@@ -22,11 +22,11 @@ block article
 
   section
     h4.ui-header-secondary Extract Data
-    div(data-schema-extract='url,emoji' data-schema-emoji='http://oss.arxitics.com/images/emoji')
+    div(data-schema-extract='url,emoji' data-schema-emoji='http://oss.arxitics.com/images/emoji/')
       p We have created an organization https://github.com/arxitics on GitHub. :smile:
     div
       pre: code.language-markup.
-        &lt;div data-schema-extract="url,emoji" data-schema-emoji="http://oss.arxitics.com/images/emoji"&gt;
+        &lt;div data-schema-extract="url,emoji" data-schema-emoji="http://oss.arxitics.com/images/emoji/"&gt;
           &lt;p&gt;We have created an organization https://github.com/arxitics on GitHub. :smile:&lt;/p&gt;
         &lt;/div&gt;
 
@@ -60,8 +60,8 @@ block article
         ],
         search: '?url=http://arxitics.com&amp;title=arXiv%20Analytics',
         query: {
-          'url': 'http://arxitics.com',
-          'title': 'arXiv Analytics'
+          url: 'http://arxitics.com',
+          title: 'arXiv Analytics'
         },
         hash: '',
         fragment: ''

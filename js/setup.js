@@ -65,6 +65,7 @@ var schema = jQuery.isPlainObject(schema) ? schema : {};
       dismiss: 'schema-dismiss',
       extract: 'schema-extract',
       emoji: 'schema-emoji',
+      format: 'schema-format',
       icon: 'schema-icon',
       width: 'schema-width',
       height: 'schema-height',

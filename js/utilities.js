@@ -7,8 +7,7 @@
 
   // Trim white spaces between inline blocks
   schema.trim = function (event, options) {
-    var selector = schema.events.trim.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('trim', options);
     $elements.contents().filter(function () {
       return this.nodeType === 3;
     }).remove();
@@ -16,8 +15,7 @@
 
   // Copy a string to clipboard
   schema.copy = function (event, options) {
-    var selector = schema.events.copy.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('copy', options);
     var dataString = '';
     $elements.on('click', function () {
       var $this = $(this);
@@ -35,8 +33,7 @@
   // Toggle a CSS class
   schema.toggle = function (event, options) {
     var storage = schema.storage;
-    var selector = schema.events.toggle.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('toggle', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -74,8 +71,7 @@
 
   // Autoplay event with a specific interval
   schema.autoplay = function (event, options) {
-    var selector = schema.events.autoplay.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('autoplay', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -107,8 +103,7 @@
 
   // Dismiss any alert inline
   schema.dismiss = function (event, options) {
-    var selector = schema.events.dismiss.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('dismiss', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -127,8 +122,7 @@
   // Extract data from text contents
   schema.extract = function (event, options) {
     var regexp = schema.regexp;
-    var selector = schema.events.extract.selector;
-    var $elements = $(options && options.selector || selector);
+    var $elements = schema.find('extract', options);
     $elements.each(function () {
       var $this = $(this);
       var $data = schema.parseData($this.data());
@@ -141,14 +135,17 @@
       }
       if (tags.indexOf('emoji') !== -1 && $data.emoji) {
         var emoji = regexp.emoji;
-        var $emoji = $data.emoji.replace(/\/*$/, '/');
-        var $height = Math.round(+$this.css('font-size').slice(0, -2) * 1.4);
+        var path = $data.emoji.replace(/\/*$/, '');
+        var format = String($data.format || 'svg').replace(/^\.*/, '');
+        var height = Math.round(+$this.css('font-size').slice(0, -2) * 1.4);
         $this.html($this.html().replace(emoji, function (str, p1, p2, p3) {
-          var template = '${sep}<img src="${src}" height=${height} alt="${alt}" title="${title}">';
+          var template = '${sep}<img src="${path}/${name}.${format}" height=${height} alt="${alt}" title="${title}">';
           return schema.format(template, {
             sep: p1,
-            src: $emoji + p3.replace(/\_/g, '-') + '.svg',
-            height: $height,
+            path: path,
+            name: p3.replace(/\_/g, '-'),
+            format: format,
+            height: height,
             alt: p2,
             title: p3
           });
