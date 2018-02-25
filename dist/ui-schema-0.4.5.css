@@ -855,6 +855,11 @@ hr {
   margin-top: 1rem;
 }
 
+hr:first-child,
+hr:last-child {
+  display: none;
+}
+
 /* Lists
    ========================================================================== */
 
@@ -1125,6 +1130,16 @@ input[type="range"]:focus::-ms-fill-lower {
 
 input[type="range"]:focus::-ms-fill-upper {
   background: #ccc;
+}
+
+input[type="date"] {
+  background: transparent;
+  color: currentColor;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  color: currentColor;
 }
 
 /**

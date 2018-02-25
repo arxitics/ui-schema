@@ -12,14 +12,13 @@
     var disabled = data.disabled;
     var $elements = schema.find('validate', options);
     $elements.each(function () {
-      var $this = $(this);
-      var $data = schema.parseData($this.data());
+      var $form = $(this);
+      var $data = schema.parseData($form.data());
       var validate = $data.validate;
-      $this.find(':input').one('change', function () {
-        $this.data(changed, true);
+      $form.find(':input').one('change', function () {
+        $form.data(changed, true);
       });
-      $this.on('submit', function (event) {
-        var $form = $(this);
+      $form.on('submit', function (event) {
         var validated = (validate === 'changed') ? $form.data(changed) : true;
         if (validated) {
           $form.find('input, textarea').each(function () {
@@ -30,7 +29,7 @@
             }
           });
           if (validate === 'once') {
-            $this.find(':submit').prop('disabled', true);
+            $form.find(':submit').prop('disabled', true);
           }
           $form.submit();
         } else if (validated === undefined) {
@@ -38,8 +37,7 @@
         }
         event.preventDefault();
       });
-      $this.on('reset', function () {
-        var $form = $(this);
+      $form.on('reset', function () {
         $form.find('input, textarea').each(function () {
           var $input = $(this);
           if ($input.data(disabled)) {
